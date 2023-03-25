@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.index-container {
+    background: url(https://www.bh3.com/_nuxt/img/rolebg.6391bd9.jpg) center top no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 1200px;
+    background-blend-mode: darken;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.index-title {
+    font-size: 3rem;
+    font-weight: bold;
+    /* color: #96dbff; */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.comic-list {
+    padding: 10px 20px;
+}
+
+@media screen and (min-width: 800px) {
+    .comic-list {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+/* comic-title */
+
+.comic-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.comic-title div:first-child {
+    font-size: 30px;
+    color: #fff;
+    -webkit-transform: skew(-11deg);
+    -ms-transform: skew(-11deg);
+    transform: skew(-11deg);
+    font-weight: bold;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
+.comic-title .role-line {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 3px;
+    background: -webkit-gradient(linear, right top, left top, from(transparent), color-stop(rgba(255, 255, 255, 0.5)), to(transparent));
+    background: -o-linear-gradient(right, transparent, rgba(255, 255, 255, 0.5), transparent);
+    background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.comic-title div:last-child {
+    font-size: 26px;
+    opacity: .5;
+    font-weight: 400;
+    color: #fff;
+    -webkit-transform: skew(-11deg);
+    -ms-transform: skew(-11deg);
+    transform: skew(-11deg);
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-left: 5px;
+    font-family: Impact, sans-serif;
+}
+
+/* comic-brief */
+
+.comic-brief {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.comic-cover {
+    float: left;
+    width: 320px;
+    height: 230px;
+    border: 1px solid #F5F5F5;
+    overflow: hidden;
+    border-radius: 8px;
+    /* font-size: 0; */
+}
+
+.comic-cover img {
+    width: 100%;
+    display: block;
+}
+
+.comic-description {
+    font-size: 1.5rem;
+    margin-left: 330px;
+    line-height: 30px;
+    color: #FFF;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 600px) {
+    .comic-title div:first-child {
+        font-size: 1.5rem;
+    }
+    .comic-title div:last-child {
+        font-size: 1.2rem;
+        /* opacity: .5; */
+        /* font-weight: 400; */
+    }
+    
+    .comic-cover {
+        width: 40%;
+        height: fit-content;
+    }
+    .comic-description {
+        font-size: 1rem;
+        margin-left: 45%;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .comic-description {
+        margin-left: 35%;
+        margin-right: 10%;
+    }
+}
