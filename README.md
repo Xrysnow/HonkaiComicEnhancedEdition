@@ -1,2 +1,5 @@
-# HonkaiComicIndex
- 
+# 崩坏3漫画增强版
+
+**原作：米哈游**
+
+**制作：Xrysnow**
