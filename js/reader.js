@@ -1,27 +1,73 @@
 /**
- * @param pageNum subpage number
- * @param bookNum book number
- * @param bookDesc book description table
- * @param imgExtSrc translated image source table
+ * @returns {string}
  */
-const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapter, chTitles, chPages, hiddenPages,
-    bgmVolume, bgmInfo, bgmExtId, i18nString, i18nHtml) {
+function GetLanguage() {
+    const META = document.getElementsByTagName('meta')
+    let LANGUAGE = META['content-language'].content || 'zh'
+    let query = window.location.search.substring(1)
+    let vars = query.split("&")
+    for (let i = 0; i < vars.length; i++) {
+        let pair = vars[i].split("=")
+        if (pair[0] == 'lang') { LANGUAGE = pair[1] }
+        if (pair[0] == 'vlang') { VOICE_LANGUAGE = pair[1] }
+    }
+    return LANGUAGE
+}
+
+function IsMobile() {
+    let Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+    let getArr = Agents.filter(i => navigator.userAgent.includes(i));
+    return getArr.length ? true : false;
+}
+
+class ReaderParam {
+    constructor() {
+        this.htmlNum = null;
+        this.bookDesc = null;
+        this.bookCoverSrc = null;
+        this.imgSrcPrefix = null;
+        this.chCoverSrcPrefix = null;
+        this.bgSrc = null;
+        this.numChapter = null;
+        this.chTitles = null;
+        this.chPages = null;
+        this.hiddenPages = null;
+        this.bgmVolume = null;
+        this.bgmInfo = null;
+        this.bgmExtId = null;
+        this.i18nString = null;
+        this.i18nHtml = null;
+        this.fnGetChapterCoverSrc = null;
+        this.fnGetImgSrc = null;
+        this.editorNote = null;
+    }
+}
+
+/**
+ * Reader
+ * @param {ReaderParam} param parameter
+ */
+const Reader = function (param) {
+    let pageNum = param.htmlNum
+    let bookDesc = param.bookDesc
+    let bgSrc = param.bgSrc
+    let numChapter = param.numChapter
+    let chTitles = param.chTitles
+    let chPages = param.chPages
+    let hiddenPages = param.hiddenPages
+    let bgmVolume = param.bgmVolume
+    let bgmInfo = param.bgmInfo
+    let bgmExtId = param.bgmExtId
+    let i18nString = param.i18nString
+    let i18nHtml = param.i18nHtml
+    let PARAMETER = param
+
     let LOCAL_MODE = false
     let AUDIO_LOCAL_MODE = true
     let VOICE_LANGUAGE = 'zh'
 
     const META = document.getElementsByTagName('meta')
-    let LANGUAGE = META['content-language'].content || 'zh'
-
-    {
-        let query = window.location.search.substring(1)
-        let vars = query.split("&")
-        for (let i = 0; i < vars.length; i++) {
-            let pair = vars[i].split("=")
-            if (pair[0] == 'lang') { LANGUAGE = pair[1] }
-            if (pair[0] == 'vlang') { VOICE_LANGUAGE = pair[1] }
-        }
-    }
+    let LANGUAGE = GetLanguage()
     this.LANGUAGE = LANGUAGE
 
     if (LANGUAGE == 'jp') {
@@ -46,17 +92,14 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
     if (bookDesc[LANGUAGE]) {
         BOOK_DECRIPTION = bookDesc[LANGUAGE]
     }
-
-    const BOOK_COVER_SRC = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    const COVER_SRC_PREFIX = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-
-    let IMG_SRC_PREFIX = null
-    if (imgExtSrc && imgExtSrc[LANGUAGE]) {
-        IMG_SRC_PREFIX = imgExtSrc[LANGUAGE]
-    } else {
-        IMG_SRC_PREFIX = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
+    let EDITOR_NOTE = null
+    if (param.editorNote && param.editorNote[LANGUAGE]) {
+        EDITOR_NOTE = param.editorNote[LANGUAGE]
     }
 
+    const BOOK_COVER_SRC = param.bookCoverSrc
+    const COVER_SRC_PREFIX = param.chCoverSrcPrefix
+    const IMG_SRC_PREFIX = param.imgSrcPrefix
     let HOME_BG_SRC = IMG_SRC_PREFIX + '1/0001.jpg'
     if (bgSrc) {
         HOME_BG_SRC = bgSrc
@@ -88,12 +131,7 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
     // const VOICE_SRC_POSTFIX = '.wav'
     // const VOICE_ICON = '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M6 18v12h8l10 10V8L14 18H6zm27 6c0-3.53-2.04-6.58-5-8.05v16.11c2.96-1.48 5-4.53 5-8.06zM28 6.46v4.13c5.78 1.72 10 7.07 10 13.41s-4.22 11.69-10 13.41v4.13c8.01-1.82 14-8.97 14-17.54S36.01 8.28 28 6.46z"/></svg>'
 
-    let IS_MOBILE = false
-    {
-        let Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
-        let getArr = Agents.filter(i => navigator.userAgent.includes(i));
-        IS_MOBILE = getArr.length ? true : false;
-    }
+    let IS_MOBILE = IsMobile()
     this.IS_MOBILE = IS_MOBILE
 
     const ViewerConfig = { zoomRatio: 0.2 }
@@ -204,7 +242,7 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
         ToggleBGMPlayer(false)
         ClearBgMusicHandle()
         CurrentBgMusicID = -1
-        var container = document.getElementById('bgm-player-container')
+        let container = document.getElementById('bgm-player-container')
         if (container.children.length > 0) {
             container.removeChild(container.children[0])
         }
@@ -223,9 +261,9 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
             return
         }
         CurrentBgMusicID = id
-        var container = document.getElementById('bgm-player-container')
+        let container = document.getElementById('bgm-player-container')
         if (!AUDIO_LOCAL_MODE) {
-            var frame = document.createElement('iframe')
+            let frame = document.createElement('iframe')
             frame.id = 'bgm-player'
             frame.allow = 'autoplay'
             frame.frameBorder = 'no'
@@ -236,7 +274,7 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
             }
             container.appendChild(frame)
         } else {
-            var player = document.createElement('audio')
+            let player = document.createElement('audio')
             player.id = 'bgm-player'
             player.loop = true
             player.autoplay = true
@@ -262,42 +300,42 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
     }
 
     const SetHomePage = function () {
-        var obj_bg = document.getElementById('home-bg')
+        let obj_bg = document.getElementById('home-bg')
         if (obj_bg) {
             obj_bg.src = HOME_BG_SRC
         }
-        var obj_bg2 = document.getElementById('home-bg2')
+        let obj_bg2 = document.getElementById('home-bg2')
         if (obj_bg2) {
             obj_bg2.src = HOME_BG_SRC
         }
         //
-        var obj_menu_index = document.getElementById('home-menu-index')
+        let obj_menu_index = document.getElementById('home-menu-index')
         if (obj_menu_index) {
             obj_menu_index.children[0].onclick = function () {
                 ToggleHomeIndex(!ShowHomeIndex)
             }
         }
         //
-        var obj_menu_about = document.getElementById('home-menu-about')
+        let obj_menu_about = document.getElementById('home-menu-about')
         if (obj_menu_about) {
             obj_menu_about.children[0].onclick = function () {
                 ToggleHomeAbout(true)
             }
         }
-        var obj_about_bg = document.getElementById('home-about-bg')
+        let obj_about_bg = document.getElementById('home-about-bg')
         if (obj_about_bg) {
             obj_about_bg.onclick = function () {
                 ToggleHomeAbout(false)
             }
         }
         //
-        var obj_index = document.getElementById('home-index')
+        let obj_index = document.getElementById('home-index')
         for (let i = 0; i < NUM_CHAPTER; i++) {
-            var obj_container = document.createElement('div')
-            var obj_a = document.createElement('a')
-            var obj_img_wrapper = document.createElement('div')
-            var obj_img = document.createElement('img')
-            var obj_text = document.createElement('div')
+            let obj_container = document.createElement('div')
+            let obj_a = document.createElement('a')
+            let obj_img_wrapper = document.createElement('div')
+            let obj_img = document.createElement('img')
+            let obj_text = document.createElement('div')
             //
             obj_container.className = 'home-index-container'
             obj_img.className = 'home-index-img'
@@ -321,54 +359,54 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
             obj_index.appendChild(obj_container)
         }
         for (let i = 0; i < NUM_CHAPTER; i++) {
-            var obj_i = document.createElement('i')
+            let obj_i = document.createElement('i')
             obj_index.appendChild(obj_i)
         }
-        var obj_index_return = document.getElementById('home-index-return')
+        let obj_index_return = document.getElementById('home-index-return')
         obj_index_return.onclick = function () {
             ToggleHomeIndex(false)
         }
         //
-        var obj_banner = document.getElementById('home-index-title-banner')
-        var obj_img = document.createElement('img')
+        let obj_banner = document.getElementById('home-index-title-banner')
+        let obj_img = document.createElement('img')
         obj_img.id = 'home-index-title-img'
         obj_img.src = BOOK_COVER_SRC
         obj_banner.appendChild(obj_img)
         //
-        var obj_text = document.getElementById('home-index-title-text')
+        let obj_text = document.getElementById('home-index-title-text')
         obj_text.textContent = BOOK_DECRIPTION
     }
 
     const SetMenu = function () {
-        var obj_menu_next = document.getElementById('menu-next')
+        let obj_menu_next = document.getElementById('menu-next')
         obj_menu_next.onclick = function () {
             if (CurrentPage < 0 || CurrentPage >= NUM_PAGES - 1) {
                 return
             }
             GotoPage(CurrentPage + 1)
         }
-        var obj_menu_prev = document.getElementById('menu-prev')
+        let obj_menu_prev = document.getElementById('menu-prev')
         obj_menu_prev.onclick = function () {
             if (CurrentPage < 1 || CurrentPage >= NUM_PAGES) {
                 return
             }
             GotoPage(CurrentPage - 1)
         }
-        var obj_menu_home = document.getElementById('menu-home')
+        let obj_menu_home = document.getElementById('menu-home')
         obj_menu_home.onclick = function () {
             GotoHome()
             ToggleHomeIndex(true)
         }
-        var obj_menu_bgm = document.getElementById('menu-bgm')
+        let obj_menu_bgm = document.getElementById('menu-bgm')
         obj_menu_bgm.onclick = function () {
             ToggleBGMPlayer(!ShowBGMPlayer)
         }
-        var obj_menu_config = document.getElementById('menu-config')
+        let obj_menu_config = document.getElementById('menu-config')
         obj_menu_config.onclick = function () {
             ToggleConfig(!ShowConfig)
         }
         //
-        var container = document.getElementById('menu-container')
+        let container = document.getElementById('menu-container')
         container.onclick = function (e) {
             e.stopPropagation()
         }
@@ -383,23 +421,38 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
     }
 
     const SetStyle = function () {
-        var ret_btn = document.getElementById('home-index-return')
+        let ret_btn = document.getElementById('home-index-return')
         if (LANGUAGE == 'en') {
             ret_btn.style.fontSize = '2rem'
         }
     }
 
+    const SetEditorNote = function () {
+        if (EDITOR_NOTE) {
+            let title1 = document.getElementById('editor-note-title-1')
+            if (title1) {
+                title1.style.display = 'block'
+                title1.parentElement.style.cursor = 'pointer'
+            }
+            let content1 = document.getElementById('editor-note-1')
+            if (content1) {
+                content1 = content1.getElementsByClassName('editor-note-content')[0]
+                content1.innerHTML = EDITOR_NOTE
+            }
+        }
+    }
+
     const ClearGallery = function () {
         GlobalViewer.hide()
-        var obj_gallery = document.getElementById('gallery')
-        var target = obj_gallery.children[0]
+        let obj_gallery = document.getElementById('gallery')
+        let target = obj_gallery.children[0]
         if (target) {
             obj_gallery.removeChild(target)
         }
     }
 
     const AddToGallery = function (e) {
-        var obj_gallery = document.getElementById('gallery')
+        let obj_gallery = document.getElementById('gallery')
         obj_gallery.appendChild(e)
     }
 
@@ -409,7 +462,7 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
         RemoveBGMPlayer()
         ToggleConfig(false)
         ToggleMenu(false)
-        var title = document.getElementById('home')
+        let title = document.getElementById('home')
         title.style.display = 'block'
         SetLocalStorage(KCurrentChapter, -1)
     }
@@ -451,6 +504,9 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
             let num = '' + (i + 1)
             num = '0'.repeat(4 - num.length) + num
             let src = IMG_SRC_PREFIX + (idx + 1) + '/' + num + '.jpg'
+            if (PARAMETER.fnGetImgSrc) {
+                src = PARAMETER.fnGetImgSrc(idx + 1, num)
+            }
             obj_img.src = src
             obj_img.alt = num + '.jpg'
             obj_img.className = 'content-img'
@@ -840,46 +896,10 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
 
     function GetChapterCoverSrc(i) {
         var num = i + 1
-        if (LANGUAGE != 'en') {
-            return COVER_SRC_PREFIX + num + '.jpg'
-        } else {
-            //[30, 52, 65]
-            var n = null
-            if (num <= 29) {
-                n = num
-            } else if (num >= 30 && num <= 51) {
-                n = num + 1
-            } else if (num >= 52 && num <= 62) {
-                n = num + 2
-            } else if (num == 63) {
-                if (LOCAL_MODE) {
-                    return 'img/chapter_cover/1012/66.jpg'
-                } else {
-                    n = 65
-                }
-            } else if (num == 64) {
-                if (LOCAL_MODE) {
-                    return 'img/chapter_cover/1012_en/64.jpg'
-                } else {
-                    n = 65
-                }
-            } else if (num == 65) {
-                if (LOCAL_MODE) {
-                    return 'img/chapter_cover/1012_en/65.jpg'
-                } else {
-                    n = 65
-                }
-            } else if (num == 66) {
-                n = 67
-            } else {
-                if (LOCAL_MODE) {
-                    return 'img/chapter_cover/1012_en/67.jpg'
-                } else {
-                    return 'https://d2tpbmzklky1cl.cloudfront.net/manga/static/comic/chapter_cover/1005/67.jpg'
-                }
-            }
-            return COVER_SRC_PREFIX + n + '.jpg'
+        if (param.fnGetChapterCoverSrc) {
+            return param.fnGetChapterCoverSrc(num)
         }
+        return COVER_SRC_PREFIX + num + '.jpg'
     }
 
     function GetChapterTitle(i) {
@@ -967,6 +987,7 @@ const Reader = function (pageNum, bookNum, bookDesc, bgSrc, imgExtSrc, numChapte
     SetMenu()
     SetMenuConfig()
     SetStyle()
+    SetEditorNote()
 
     ToggleHomeIndex(true)
 

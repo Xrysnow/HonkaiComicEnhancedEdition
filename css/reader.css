@@ -563,9 +563,91 @@ body {
     user-select: none;
 }
 
+/* index seperator */
+
 .comic-title .role-line {
     z-index: 1;
 }
+
+.seperator {
+    margin-top: 10px;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.seperator>.role-line {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 3px;
+    background: -webkit-gradient(linear, right top, left top, from(transparent), color-stop(rgba(255, 255, 255, 0.5)), to(transparent));
+    background: -o-linear-gradient(right, transparent, rgba(255, 255, 255, 0.5), transparent);
+    background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* editor note */
+
+.note-check {
+    display: none;
+}
+
+.editor-note-title {
+    display: none;
+
+    font-size: 30px;
+    color: #fff;
+    /* -webkit-transform: skew(-11deg);
+    -ms-transform: skew(-11deg);
+    transform: skew(-11deg); */
+    font-weight: bold;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
+.editor-note-check {
+    display: inline-block;
+}
+
+.editor-note {
+    display: none;
+}
+
+.note-check:checked+label+div {
+    display: block;
+    position: relative;
+}
+
+.note-check:checked+label .editor-note-check {
+    transform: rotate(90deg);
+}
+
+.editor-note-content{
+    font-style: normal;
+    color: #fff;
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin-left: 10%;
+    width: 80%;
+}
+
+@media screen and (max-width: 600px) {
+    .editor-note-content{
+        padding: 0.5rem;
+        font-size: 1rem;
+    }    
+}
+
+/* folded images */
 
 .folded-warning {
     color: #000;
@@ -583,7 +665,7 @@ body {
     cursor: pointer;
 }
 
-.folded-img-wrapper{
+.folded-img-wrapper {
     margin-bottom: 3px;
 }
 
@@ -599,8 +681,8 @@ body {
     .folded-warning {
         font-size: 100%;
     }
-    
+
     .folded-warning-end {
         font-size: 100%;
-    }    
+    }
 }
