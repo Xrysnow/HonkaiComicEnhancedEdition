@@ -20,9 +20,36 @@ function IsMobile() {
     return getArr.length ? true : false;
 }
 
+let HtmlUtil = {
+    htmlEncode: function (html) {
+        let temp = document.createElement("div");
+        (temp.textContent != undefined) ? (temp.textContent = html) : (temp.innerText = html);
+        let output = temp.innerHTML;
+        temp = null;
+        return output;
+    },
+    htmlDecode: function (text) {
+        let temp = document.createElement("div");
+        temp.innerHTML = text;
+        let output = temp.innerText || temp.textContent;
+        temp = null;
+        return output;
+    }
+};
+
+function GetQueryString(name) {
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    let r = window.location.search.substring(1).match(reg);
+    if (r != null) {
+        return decodeURI(r[2]);
+    }
+    return null;
+}
+
 class ReaderParam {
     constructor() {
         this.htmlNum = null;
+        this.bookTitle = null;
         this.bookDesc = null;
         this.bookCoverSrc = null;
         this.imgSrcPrefix = null;
@@ -83,8 +110,8 @@ const Reader = function (param) {
         let href = window.location.href.split('/')
         let page = href[href.length - 1]
         page = page.split('?')[0]
-        if (page != pageNum + '.html') {
-            window.location.href = pageNum + '.html?lang=' + LANGUAGE
+        if (page != 'common.html') {
+            window.location.href = 'common.html?lang=' + LANGUAGE
         }
     }
 
@@ -307,6 +334,15 @@ const Reader = function (param) {
         let obj_bg2 = document.getElementById('home-bg2')
         if (obj_bg2) {
             obj_bg2.src = HOME_BG_SRC
+        }
+        //
+        let obj_title = document.getElementById('comic-title')
+        if (obj_title) {
+            obj_title.innerText = PARAMETER.bookTitle
+        }
+        obj_title = document.getElementById('page-title')
+        if (obj_title) {
+            obj_title.innerText = PARAMETER.bookTitle
         }
         //
         let obj_menu_index = document.getElementById('home-menu-index')
