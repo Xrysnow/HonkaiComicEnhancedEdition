@@ -842,87 +842,20 @@ const Reader = function (param) {
     /*
     function GetVoiceInfo(i_chapter, i_page) {
         const invalid = 0
-        if (LANGUAGE != 'en') {
-            if (!VOICE_INFO[i_chapter + 1]) {
-                return invalid
-            }
-            var v = VOICE_INFO[i_chapter + 1][i_page + 1]
-            if (!v) {
-                return invalid
-            }
-            return v
-        } else {
-            var num = i_chapter + 1
-            var c = num
-            if (num >= 30 && num <= 50) {
-                c = num + 1
-            } else if (num >= 51 && num <= 62) {
-                c = num + 2
-            } else if (num == 63) {
-                c = 66
-            } else if (num == 64) {
-                c = 66
-                i_page += 26
-            } else if (num == 65) {
-                c = 66
-                i_page += 48
-            } else if (num == 66) {
-                c = 67
-            }
-            if (!VOICE_INFO[c]) {
-                return invalid
-            }
-            if (VOICE_INFO[c].en) {
-                mapping = VOICE_INFO[c].en
-                if (typeof (mapping) == 'number') {
-                    i_page -= mapping
-                } else if (mapping[i_page + 1]) {
-                    i_page = mapping[i_page + 1] - 1
-                } else {
-                    return invalid
-                }
-            }
-            var v = VOICE_INFO[c][i_page + 1]
-            if (!v) {
-                return invalid
-            }
-            return v
+        if (!VOICE_INFO[i_chapter + 1]) {
+            return invalid
         }
+        var v = VOICE_INFO[i_chapter + 1][i_page + 1]
+        if (!v) {
+            return invalid
+        }
+        return v
     }
 
     function GetVoiceSrc(i_chapter, i_page, i_voice) {
         var c = '' + (i_chapter + 1)
         var p = '' + (i_page + 1)
         var v = '' + (i_voice + 1)
-        if (LANGUAGE == 'en') {
-            var num = i_chapter + 1
-            c = num
-            if (num >= 30 && num <= 50) {
-                c = num + 1
-            } else if (num >= 51 && num <= 62) {
-                c = num + 2
-            } else if (num == 63) {
-                c = 66
-            } else if (num == 64) {
-                c = 66
-                i_page += 26
-            } else if (num == 65) {
-                c = 66
-                i_page += 48
-            } else if (num == 66) {
-                c = 67
-            }
-            if (num <= 62 && VOICE_INFO[c] && VOICE_INFO[c].en) {
-                var mapping = VOICE_INFO[c].en
-                if (typeof (mapping) == 'number') {
-                    i_page -= mapping
-                } else if (mapping[i_page + 1]) {
-                    i_page = mapping[i_page + 1] - 1
-                }
-            }
-            c = '' + c
-            p = '' + (i_page + 1)
-        }
         var file = [c, p, v].map(function (e, i, a) {
             return '0'.repeat(2 - e.length) + e
         }).join('_') + VOICE_SRC_POSTFIX
@@ -982,8 +915,6 @@ const Reader = function (param) {
     }
 
     const I18N_STRING = {
-        // 'page-title': { en: 'Second Eruption', jp: '第二次崩壊' },
-        // 'home-title': { en: 'Second Eruption', jp: '第二次崩壊' },
         'home-menu-btn-contents': { en: 'Contents', jp: '目次' },
         'home-menu-btn-about': { en: 'About', jp: '概要' },
         'home-index-btn-return': { en: 'Return', jp: '戻る' },
