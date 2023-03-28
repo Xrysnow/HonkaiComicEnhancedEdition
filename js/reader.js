@@ -533,6 +533,46 @@ const Reader = function (param) {
         let obj_ul = document.createElement('ul')
         obj_ul.id = 'images'
         let hidden = HIDDEN_PAGES[idx]
+        let MakeHidden = function (pages) {
+            if (typeof (pages) == 'string') {
+                pages = [pages]
+            }
+            let obj_div = document.createElement('div')
+            obj_div.classList.add('folded-img-wrapper')
+            obj_div.classList.add('content-img-wrapper')
+            let hintText1 = '展开已修改的内容'
+            let hintText2 = '收起已修改的内容'
+            obj_div.innerHTML += '<div class="folded-warning">▶' + hintText1 + '◀</div>'
+
+            for (let j = 0; j < pages.length; j++) {
+                let page_src = pages[j]
+                let obj_img = document.createElement('img')
+                obj_img.src = page_src
+                obj_img.classList.add('content-img')
+                obj_img.classList.add('folded-img')
+                obj_div.appendChild(obj_img)
+            }
+            obj_div.innerHTML += '<div class="folded-warning-end">▲' + hintText2 + '▲</div>'
+
+            let obj_hint1 = obj_div.firstChild
+            let obj_hint2 = obj_div.lastChild
+            obj_hint2.style.display = 'none'
+            let toggle_hidden = function () {
+                if (obj_div.children[1].classList.toggle('active')) {
+                    obj_hint1.innerText = '▼' + hintText2 + '▼'
+                    obj_hint2.style.display = 'block'
+                } else {
+                    obj_hint1.innerText = '▶' + hintText1 + '◀'
+                    obj_hint2.style.display = 'none'
+                }
+                for (let j = 2; j < obj_div.children.length - 1; j++) {
+                    obj_div.children[j].classList.toggle('active')
+                }
+            }
+            obj_hint1.addEventListener("click", toggle_hidden)
+            obj_hint2.addEventListener("click", toggle_hidden)
+            return obj_div
+        }
         for (let i = 0; i < num_page; i++) {
             let obj_li = document.createElement('li')
             let obj_div = document.createElement('div')
@@ -548,50 +588,15 @@ const Reader = function (param) {
             obj_img.className = 'content-img'
             obj_div.className = 'content-img-wrapper'
             obj_div.appendChild(obj_img)
+
+            if (i == 0 && hidden && hidden[0]) {
+                obj_li.appendChild(MakeHidden(hidden[0]))
+            }
+
             obj_li.appendChild(obj_div)
 
             if (hidden && hidden[i + 1]) {
-                let pages = hidden[i + 1]
-                if (typeof (pages) == 'string') {
-                    pages = [pages]
-                }
-                console.log(pages)
-                let obj_div2 = document.createElement('div')
-                obj_div2.classList.add('folded-img-wrapper')
-                obj_div2.classList.add('content-img-wrapper')
-                let hintText1 = '展开已修改的内容'
-                let hintText2 = '收起已修改的内容'
-                obj_div2.innerHTML += '<div class="folded-warning">▶' + hintText1 + '◀</div>'
-
-                for (let j = 0; j < pages.length; j++) {
-                    let page_src = pages[j]
-                    let obj_img = document.createElement('img')
-                    obj_img.src = page_src
-                    obj_img.classList.add('content-img')
-                    obj_img.classList.add('folded-img')
-                    obj_div2.appendChild(obj_img)
-                }
-                obj_div2.innerHTML += '<div class="folded-warning-end">▲' + hintText2 + '▲</div>'
-
-                let obj_hint1 = obj_div2.firstChild
-                let obj_hint2 = obj_div2.lastChild
-                obj_hint2.style.display = 'none'
-                let toggle_hidden = function () {
-                    if (obj_div2.children[1].classList.toggle('active')) {
-                        obj_hint1.innerText = '▼' + hintText2 + '▼'
-                        obj_hint2.style.display = 'block'
-                    } else {
-                        obj_hint1.innerText = '▶' + hintText1 + '◀'
-                        obj_hint2.style.display = 'none'
-                    }
-                    for (let j = 2; j < obj_div2.children.length - 1; j++) {
-                        obj_div2.children[j].classList.toggle('active')
-                        console.log(j, obj_div2.children[j].classList)
-                    }
-                }
-                obj_hint1.addEventListener("click", toggle_hidden)
-                obj_hint2.addEventListener("click", toggle_hidden)
-                obj_li.appendChild(obj_div2)
+                obj_li.appendChild(MakeHidden(hidden[i + 1]))
             }
 
             obj_ul.appendChild(obj_li)
