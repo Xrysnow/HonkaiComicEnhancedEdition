@@ -13,7 +13,7 @@
     p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
     p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1002.jpg'
+    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1007.jpg'
     p.numChapter = 11
     p.chTitles = [
         '第一话 封印',
