@@ -7,7 +7,7 @@
         zh: '故事发生在圣痕之谜篇之后，在九幽深受重伤的姬子，生命处于危险之中...为了变强保护重要的人，琪亚娜参加了德丽莎设计的训练，但在这时候，逆熵开始了对圣芙蕾雅学园的入侵！',
     }
     p.editorNote = {
-        zh: '本篇为《圣痕之谜篇》的后续，旧版仅更新至第一话。',
+        zh: '本篇为《圣痕之谜篇》的后续，旧版网站仅更新至第一话。',
     }
     p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
@@ -33,7 +33,7 @@
         '间章 苍玄之书',
     ]
     p.chPages = [
-        21,
+        21, 15, 14, 15, 13, 13, 16, 13, 14, 16, 18, 17, 16, 17, 15, 8
     ]
     let hiddenSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/comic/1/chapter/'
     p.hiddenPages = {
