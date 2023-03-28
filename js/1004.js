@@ -8,7 +8,7 @@
         zh: '故事发生在《崩坏学园2》之前，在寒冷的俄罗斯雪原中，被称为乌拉尔银狼的杀手布洛妮娅和平凡的少女希儿相遇了，等待她们的，却是成为崩坏能实验体的命运...',
     }
     p.editorNote = {
-        zh: '',
+        zh: '- <a href="https://detail.tmall.com/item.htm?id=589288225758">官方实体版漫画</a>',
     }
     p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'

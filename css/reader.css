@@ -648,6 +648,11 @@ body {
     width: 80%;
 }
 
+.editor-note-content a {
+    text-decoration-line: underline;
+    color: #fff;
+}
+
 @media screen and (max-width: 600px) {
     .editor-note-content {
         padding: 0.5rem;
