@@ -50,6 +50,7 @@ class ReaderParam {
     constructor() {
         this.htmlNum = null;
         this.bookTitle = null;
+        this.bookDate = null;
         this.bookDesc = null;
         this.bookCoverSrc = null;
         this.imgSrcPrefix = null;
@@ -345,6 +346,22 @@ const Reader = function (param) {
             obj_title.innerText = PARAMETER.bookTitle
         }
         //
+        let obj_date = document.getElementById('comic-date')
+        if (obj_date && PARAMETER.bookDate) {
+            obj_date.innerText = PARAMETER.bookDate
+        }
+        //
+        let obj_banner = document.getElementById('home-index-title-banner')
+        let obj_img = document.createElement('img')
+        obj_img.id = 'home-index-title-img'
+        obj_img.src = BOOK_COVER_SRC
+        obj_banner.appendChild(obj_img)
+        //
+        let obj_text = document.getElementById('comic-brief')
+        if (obj_text) {
+            obj_text.textContent = BOOK_DECRIPTION
+        }
+        //
         let obj_menu_index = document.getElementById('home-menu-index')
         if (obj_menu_index) {
             obj_menu_index.children[0].onclick = function () {
@@ -402,15 +419,6 @@ const Reader = function (param) {
         obj_index_return.onclick = function () {
             ToggleHomeIndex(false)
         }
-        //
-        let obj_banner = document.getElementById('home-index-title-banner')
-        let obj_img = document.createElement('img')
-        obj_img.id = 'home-index-title-img'
-        obj_img.src = BOOK_COVER_SRC
-        obj_banner.appendChild(obj_img)
-        //
-        let obj_text = document.getElementById('home-index-title-text')
-        obj_text.textContent = BOOK_DECRIPTION
     }
 
     const SetMenu = function () {

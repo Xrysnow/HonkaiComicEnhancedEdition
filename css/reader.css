@@ -151,6 +151,10 @@
     font-size: 1.5rem;
 }
 
+.comic-date-wrapper {
+    margin-bottom: 10px;
+}
+
 #home-index-wrapper {
     display: none;
 }
@@ -635,7 +639,7 @@ body {
     transform: rotate(90deg);
 }
 
-.editor-note-content{
+.editor-note-content {
     font-style: normal;
     color: #fff;
     padding: 1rem;
@@ -645,10 +649,10 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-    .editor-note-content{
+    .editor-note-content {
         padding: 0.5rem;
         font-size: 1rem;
-    }    
+    }
 }
 
 /* folded images */
