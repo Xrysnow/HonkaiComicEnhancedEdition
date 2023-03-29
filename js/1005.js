@@ -8,7 +8,8 @@
         zh: '故事发生在《崩坏学园2》之前，在500年前的日本，名为八重樱的巫女生活在一个平静的小村中，一个漂流来的修女，和她带着的蕴含着可怕力量的水晶，打破了这虚伪的平静...',
     }
     p.editorNote = {
-        zh: '本篇原名为《崩坏EX 绯樱》。',
+        zh: '本篇原名为《崩坏EX 绯樱》。'
+        + '</br>- <a href="https://www.bilibili.com/video/BV1ds41127Kp">漫画纪念PV</a>'
     }
     p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'

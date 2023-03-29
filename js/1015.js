@@ -9,7 +9,7 @@
     }
     p.editorNote = {
         zh: '- 标题意为“莉莉娅”和“萝莎莉娅”。'
-            + '</br>- 本篇为游戏3.1版本「逐梦双星」活动的前置剧情。'
+            + '</br>- 本篇为游戏3.1版本「逐梦双星」活动（已加入编年史）的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV17b411L7cC">版本PV</a>'
     }
     p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'

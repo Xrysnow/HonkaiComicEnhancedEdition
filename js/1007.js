@@ -8,7 +8,9 @@
         zh: '德丽莎背部的八重樱圣痕出现了异常，令德丽莎陷入了昏迷之中。为了唤醒德丽莎，芽衣进入了圣痕的数据空间中调查圣痕异常的原因。而此时，“她”也出现在了被封闭在圣痕空间中的德丽莎面前…',
     }
     p.editorNote = {
-        zh: '本篇为游戏内樱色轮回玩法的前置剧情。',
+        zh: '- 本篇为游戏1.4版本「樱色轮回」（已加入开放世界玩法）的前置漫画。'
+        + '</br>- <a href="https://www.bilibili.com/video/BV1Ex411Q7aD">版本PV</a>'
+        + '</br>- <a href="https://www.bilibili.com/video/BV1bx411i7x5">漫画纪念PV</a>'
     }
     p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'

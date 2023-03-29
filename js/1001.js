@@ -5,9 +5,15 @@
     p.bookTitle = '逃离长空篇'
     p.bookDate = '2015'
     p.bookDesc = {
-        zh: '紧接着《崩坏学园2》的游戏剧情，2014年，在长空市中，发生了强烈的崩坏。琪亚娜，雷电芽衣，布洛妮娅三个少女在逃离长空市的过程中，遇到了天命组织的女武神，无量塔姬子...',
+        zh: '紧接着《崩坏学园2》的游戏剧情，2014年，在长空市中，发生了强烈的崩坏。琪亚娜，雷电芽衣，布洛妮娅三个少女在逃离长空市的过程中，遇到了天命组织的女武神，无量塔姬子...'
     }
-    p.editorNote = null
+    p.editorNote = {
+        zh: '- 本篇为游戏1.0版本的前置漫画。'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1Bs411U7SU">漫画宣传PV</a>　<a href="https://www.bilibili.com/video/BV1Ws411t734">公测PV</a>　<a href="https://www.bilibili.com/video/BV14s411r7Rh">开场CG</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1gs411r7QX">布洛妮娅角色PV：萝莉就是正义嘛！</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1zs411t7ma">芽衣角色PV：雷电女王降临！</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1ss411t7tt">琪亚娜角色PV：Kiana出击！</a>'
+    }
     p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
     p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'

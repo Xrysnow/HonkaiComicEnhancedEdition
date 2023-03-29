@@ -8,7 +8,7 @@
         zh: '被无量塔姬子带入圣芙蕾雅学园的琪亚娜三人，在学园长德丽莎的要求下，接受成为女武神的培训，在训练过程中，琪亚娜却意外遇见了500年前死去的祖先卡莲，和卡莲纠缠一生的“她”，也出现在了德丽莎的面前...',
     }
     p.editorNote = {
-        zh: '本篇原名为《学园篇》，为《逃离长空篇》的后续。',
+        zh: '- 本篇原名为《学园篇》，为《逃离长空篇》的后续。'
     }
     p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
