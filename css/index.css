@@ -15,6 +15,105 @@ a {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+/* nav */
+
+.nav {
+    width: 100%;
+    height: 92px;
+    background: rgba(0, 0, 0, .8);
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid rgba(64, 206, 255, .84);
+    -webkit-box-shadow: 0 2px 10px 0 rgba(1, 1, 1, .3);
+    box-shadow: 0 2px 10px 0 rgba(1, 1, 1, .3);
+    z-index: 998;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.nav-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nav .nav-list {
+    font-weight: bold;
+    color: #62eaf5;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 40px;
+    text-align: center;
+    margin-left: 10%;
+    width: 80%;
+    position: relative;
+}
+
+.nav .nav-list-item {
+    width: 33%;
+    cursor: pointer;
+    position: relative;
+    line-height: 1.2;
+}
+
+.nav .nav-list-item div {
+    -webkit-transform: skew(-11deg);
+    -ms-transform: skew(-11deg);
+    transform: skew(-11deg);
+    color: #62eaf5;
+}
+
+.nav .nav-list-item::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 50px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAABQCAYAAACETVz/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkYwN0Y3QkI5REVDMTExRTk5NzExRURGNTM2QTE0QkM0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkYwN0Y3QkJBREVDMTExRTk5NzExRURGNTM2QTE0QkM0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjA3RjdCQjdERUMxMTFFOTk3MTFFREY1MzZBMTRCQzQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjA3RjdCQjhERUMxMTFFOTk3MTFFREY1MzZBMTRCQzQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6KBZ0SAAACwklEQVR42tSbC0/iQBSFp2UARV0kwtbft7/eio9lF3QR2q6TzCTXsyy2ZR7HmzSmmpQv3zx6bovZj/uNIqxMnuTqC5QmtShN1jk5IKVJlFazQaLFxh5UkAMwuWMb7txC/mORCVKDxTe2hWPghrBYKjbIMVjcsm1BBm4EFvdskBNYMK9st0UDdyb2xgoXDAPkBVjcsAUMA3cJc/GVDfIKLP6WmzcDpIGbirloLK7Z8uS13bydudUxiykgzb44E5t3bSGpkvkM5uLKZcYuITO0xRv7033uE1uPcw2ft8IgkRrSrOSFNegWyUPfniL0inbAPw8FiZSQzqLsYZandGchamozo5yLb2yQC7C67HqB0Avn2/txLs5/vR9/Tm3GfVchDJoq+3ZpIZPORJyvj8WxVCYLOC/7XiiUyQsItZtjyTuVSW8WQ5mc2L3R1Ytd1YrJ5C2c3/mITz7rDCxu24Ta2MN9qz4+Y7zzcVGfJsc2eUuLz2yQBVi8/6zBig1psuJcxLF9l1AbCxItlr4s+oLUEMf2feJYaMgCrlO2aVNjQg7AYuXbog/IBTT7y7ZtaizIHIJEfWqQCAE5hzvWQ5c2NQZkBkGi8XUL9Al5oz6+e3lU4jWb79I9LRZisw5qsS+keWQyEpDP6sALotSQ3+GWF9RiH0j3yKQ+pdkPDbkAi6WKUF0gL8Fi72Y/JOQcgsNSRaq2kOe2yWpEm/rCBjmD4PCoIlYbyLE1WYsGa8MGObXBwbUHTypy6RZ/lyt6F3MutoW8AosrlaD0J63BUFisYu2LXSDdYmmsybVKVPpIzhyKbaeJcY/uCjmCu0sywP9BZvb30uKWDVKDxZ1KXPqAxQG0Bns2SPeqtxHbTsMKSWMRIXOwViuSymE+KrGBV2yQmRhiKotyuDPWoXYm8cvnjSIrfQCMDvJL/INGzj7Upv4KMACACJsqvTNL7gAAAABJRU5ErkJggg==) center center no-repeat;
+    background-size: 100% 100%;
+    right: -12px;
+    top: 50%;
+    margin-top: -25px
+}
+
+.nav .nav-list-item span {
+    font-size: 12px;
+    opacity: .3;
+    -webkit-transform: skew(-11deg);
+    -ms-transform: skew(-11deg);
+    transform: skew(-11deg);
+    font-weight: bold
+}
+
+.nav .nav-list-item.active div,
+.nav .nav-list-item:hover {
+    color: #fff
+}
+
+@media screen and (max-width: 600px) {
+    .nav .nav-list {
+        font-size: 30px;
+        margin-left: 5%;
+        width: 90%;
+    }
+}
+
 .index-title {
     font-size: 3rem;
     font-weight: bold;
