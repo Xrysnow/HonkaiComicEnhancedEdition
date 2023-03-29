@@ -351,6 +351,15 @@ const Reader = function (param) {
             obj_date.innerText = PARAMETER.bookDate
         }
         //
+        let obj_numpage = document.getElementById('comic-numpage')
+        if (obj_numpage && PARAMETER.chPages) {
+            let sum = 0
+            for (let i = 0; i < PARAMETER.chPages.length; i++) {
+                sum += PARAMETER.chPages[i];
+            }
+            obj_numpage.innerText = sum
+        }
+        //
         let obj_banner = document.getElementById('home-index-title-banner')
         let obj_img = document.createElement('img')
         obj_img.id = 'home-index-title-img'
