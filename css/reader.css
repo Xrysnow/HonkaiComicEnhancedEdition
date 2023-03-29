@@ -230,6 +230,13 @@
     padding: 10px;
 }
 
+@media screen and (min-width: 1200px) {
+    #home-index-wrapper {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
 @media screen and (max-width: 600px) {
     #home-index-title-banner {
         padding: 0.5rem;
@@ -505,6 +512,7 @@
     border-style: solid;
     border-radius: 10px;
     padding: 0.5rem;
+    background-color: rgba(127, 127, 127, 0.8);
 }
 
 /* .menu */
