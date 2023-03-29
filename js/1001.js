@@ -47,8 +47,15 @@
             19: hiddenSrcPrefix + '0006/0021.jpg',
         },
     }
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        [[-1, 33, 34], [0, 1, 21]],
+        [[35, 36], [0, 66]],
+        [[37, 39, 38], [0, 36, 56]],
+        [[40, 29], [0, 45]],
+        [[29, 6], [0, 73]],
+        [[43, 41, 43], [0, 27, 60]],
+        [[16, 99], [0, 83]],
+    ]
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
