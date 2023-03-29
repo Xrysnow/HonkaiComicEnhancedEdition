@@ -321,7 +321,8 @@ const Reader = function (param) {
             player.loop = true
             player.autoplay = true
             player.controls = true
-            player.volume = BGM_BASE_VOLUME[id - 1] * BgMusicVolume
+            let volume = BGM_BASE_VOLUME[id - 1] * BgMusicVolume
+            player.volume = volume
             let src = MUSIC_LOCAL_SRC_PREFIX + id + MUSIC_LOCAL_SRC_POSTFIX
             player.src = src
             player.bgm_id = id
@@ -329,12 +330,33 @@ const Reader = function (param) {
             if (id == 28) {
                 AddGlobalTask(function () {
                     let p = document.getElementById('bgm-player')
-                    if (p.bgm_id === 28 && p.currentTime > 23) {
+                    if (p && p.bgm_id === 28 && p.currentTime > 23) {
                         p.currentTime = 5
                     }
                 }, '1-bgm-28', 1)
+            } else if (id == 99) {
+                AddGlobalTask(function () {
+                    let p = document.getElementById('bgm-player')
+                    if (p && p.bgm_id === 99) {
+                        const start = 1
+                        const end = 25.2
+                        if (p.currentTime < start) {
+                            p.currentTime = start
+                        }
+                        if (p.currentTime > end) {
+                            p.currentTime = start
+                        }
+                        let fadeIn = 2
+                        let fadeOut = 3
+                        let x = p.currentTime
+                        let y1 = 1 / fadeIn * x - start / fadeIn
+                        let y2 = -1 / fadeOut * x + end / fadeOut
+                        p.volume = Math.max(Math.min(y1, y2, 1), 0) * volume
+                    }
+                }, '1-bgm-99', 1)
             } else {
                 RemoveGlobalTask('1-bgm-28')
+                RemoveGlobalTask('1-bgm-99')
             }
         }
         //
