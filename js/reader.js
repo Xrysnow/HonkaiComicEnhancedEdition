@@ -20,7 +20,46 @@ function IsMobile() {
     return getArr.length ? true : false;
 }
 
-let HtmlUtil = {
+function GetQueryString(name) {
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    let r = window.location.search.substring(1).match(reg);
+    if (r != null) {
+        return decodeURI(r[2]);
+    }
+    return null;
+}
+
+const MathUtil = {
+    getFadeFactor: function (current, start, end, fadeIn, fadeOut) {
+        let x = current
+        let y1 = 1 / fadeIn * x - start / fadeIn
+        if (fadeIn <= 0) {
+            y1 = 0
+            if (current >= start) {
+                y1 = 1
+            }
+        }
+        let y2 = -1 / fadeOut * x + end / fadeOut
+        if (fadeOut <= 0) {
+            y2 = 0
+            if (current <= end) {
+                y2 = 1
+            }
+        }
+        return Math.max(Math.min(y1, y2, 1), 0)
+    },
+    clampLoop: function (current, start, end, ignoreFirst) {
+        if (current < start && !ignoreFirst) {
+            current = start
+        }
+        if (current > end) {
+            current = start
+        }
+        return current
+    }
+}
+
+const Util = {
     htmlEncode: function (html) {
         let temp = document.createElement("div");
         (temp.textContent != undefined) ? (temp.textContent = html) : (temp.innerText = html);
@@ -35,15 +74,6 @@ let HtmlUtil = {
         temp = null;
         return output;
     }
-};
-
-function GetQueryString(name) {
-    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-    let r = window.location.search.substring(1).match(reg);
-    if (r != null) {
-        return decodeURI(r[2]);
-    }
-    return null;
 }
 
 class ReaderParam {
@@ -81,6 +111,17 @@ class ReaderParam {
             0, 0, 0, 0, 0,
         ];
         this.bgmVolume[98] = 0;
+        this.bgmLoopInfo = {
+            28: [5, 23, 1, 1, true],
+            49: [0, 53, 1, 1, false],
+            99: [1, 25.2, 2, 3, false],
+        };
+        this.addBgmLoopInfo = function (id, start, end, fadeIn, fadeOut, ignoreFirst) {
+            if (!this.bgmLoopInfo) {
+                this.bgmLoopInfo = {}
+            }
+            this.bgmLoopInfo[id] = [start, end, fadeIn || 0, fadeOut || 0, ignoreFirst || false]
+        }
     }
 }
 
@@ -208,6 +249,14 @@ const Reader = function (param) {
     function RemoveGlobalTask(tag) {
         delete GlobalTasks[tag]
     }
+    function RemoveGlobalBgmTasks() {
+        let sorted = Object.keys(GlobalTasks).sort()
+        for (let k of sorted) {
+            if (k.substring(0, 5) == '1-bgm') {
+                delete GlobalTasks[k]
+            }
+        }
+    }
     function DoGlobalTasks() {
         let sorted = Object.keys(GlobalTasks).sort()
         for (let k of sorted) {
@@ -327,36 +376,24 @@ const Reader = function (param) {
             player.src = src
             player.bgm_id = id
             container.appendChild(player)
-            if (id == 28) {
+            //
+            if (PARAMETER.bgmLoopInfo && PARAMETER.bgmLoopInfo[id]) {
+                let info = PARAMETER.bgmLoopInfo[id]
                 AddGlobalTask(function () {
                     let p = document.getElementById('bgm-player')
-                    if (p && p.bgm_id === 28 && p.currentTime > 23) {
-                        p.currentTime = 5
-                    }
-                }, '1-bgm-28', 1)
-            } else if (id == 99) {
-                AddGlobalTask(function () {
-                    let p = document.getElementById('bgm-player')
-                    if (p && p.bgm_id === 99) {
-                        const start = 1
-                        const end = 25.2
-                        if (p.currentTime < start) {
-                            p.currentTime = start
+                    if (p && p.bgm_id === id) {
+                        const start = info[0]
+                        const end = info[1]
+                        let curr = p.currentTime
+                        let target = MathUtil.clampLoop(curr, start, end, info[4] || false)
+                        if (Math.abs(target - curr) > 0.01) {
+                            p.currentTime = target
                         }
-                        if (p.currentTime > end) {
-                            p.currentTime = start
-                        }
-                        let fadeIn = 2
-                        let fadeOut = 3
-                        let x = p.currentTime
-                        let y1 = 1 / fadeIn * x - start / fadeIn
-                        let y2 = -1 / fadeOut * x + end / fadeOut
-                        p.volume = Math.max(Math.min(y1, y2, 1), 0) * volume
+                        p.volume = MathUtil.getFadeFactor(curr, start, end, info[2], info[3]) * volume
                     }
-                }, '1-bgm-99', 1)
+                }, '1-bgm-' + id, 1)
             } else {
-                RemoveGlobalTask('1-bgm-28')
-                RemoveGlobalTask('1-bgm-99')
+                RemoveGlobalBgmTasks()
             }
         }
         //
