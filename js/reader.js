@@ -702,16 +702,16 @@ const Reader = function (param) {
             obj_ul.appendChild(obj_li)
             //
             /*
-            var voice_info = GetVoiceInfo(idx, i)
-            var num_voice = 0
-            var voice_pos = 0
+            let voice_info = GetVoiceInfo(idx, i)
+            let num_voice = 0
+            let voice_pos = 0
             if (typeof (voice_info) == 'number') {
                 num_voice = voice_info
             } else {
                 num_voice = voice_info[0]
                 voice_pos = voice_info[1]
             }
-            var obj_voice_list = num_voice ? document.createElement('div') : null
+            let obj_voice_list = num_voice ? document.createElement('div') : null
             if (num_voice) {
                 obj_voice_list = document.createElement('div')
                 obj_voice_list.className = 'voice-icon-list'
@@ -721,10 +721,10 @@ const Reader = function (param) {
                 }
             }
             for (let j = 0; j < num_voice; j++) {
-                var obj_icon_box = document.createElement('div')
+                let obj_icon_box = document.createElement('div')
                 obj_icon_box.innerHTML = VOICE_ICON
                 obj_icon_box.className = 'voice-icon-box'
-                var handle = 0
+                let handle = 0
                 obj_icon_box.onclick = function () {
                     //
                     if (idx == (LANGUAGE == 'en' ? 65 : 66) && i == 21 & j == 0) {
@@ -737,7 +737,7 @@ const Reader = function (param) {
                             BgMusicSpecialPause = false
                         }, 12000)
                     }
-                    var player = document.getElementById('voice-player')
+                    let player = document.getElementById('voice-player')
                     player.pause()
                     player.src = GetVoiceSrc(idx, i, j)
                     player.play()
@@ -754,17 +754,17 @@ const Reader = function (param) {
 
     function ReverseColor(rgbColor) {
         rgbColor = rgbColor.replace(/\s/g, "");
-        var arrRGB = new Array(3);
+        let arrRGB = new Array(3);
         if (rgbColor.indexOf("#") > -1) {
             if (rgbColor.length > 4) {
-                var j = 1;
-                for (var i = 0; i < arrRGB.length; i++) {
+                let j = 1;
+                for (let i = 0; i < arrRGB.length; i++) {
                     arrRGB[i] = 255 - parseInt(rgbColor.substr((i + j), 2), 16);
                     j += 1;
                 }
             } else {
-                for (var i = 0; i < arrRGB.length; i++) {
-                    var t = rgbColor.substr((i + 1), 1);
+                for (let i = 0; i < arrRGB.length; i++) {
+                    let t = rgbColor.substr((i + 1), 1);
                     t = t + t;
                     arrRGB[i] = 255 - parseInt(t, 16);
                 }
@@ -778,7 +778,7 @@ const Reader = function (param) {
         document.getElementsByTagName('body')[0].style.backgroundColor = select.value
         SetLocalStorage(KBgColor, select.selectedIndex)
         const icon_color = ReverseColor(select.value)
-        var sheets = document.styleSheets
+        let sheets = document.styleSheets
         for (let i = 0; i < sheets.length; i++) {
             const e = sheets[i]
             if (!e.href) {
@@ -797,14 +797,14 @@ const Reader = function (param) {
     function SetMenuConfig() {
         const bg_select = document.getElementById('menu-config-bg')
         bg_select.onchange = SetBackgroundColor
-        var lastBgColor = GetLocalStorage(KBgColor)
+        let lastBgColor = GetLocalStorage(KBgColor)
         if (lastBgColor) {
             bg_select.selectedIndex = Number(lastBgColor)
             SetBackgroundColor()
         }
         //
         const bgm_switch = document.getElementById('menu-config-bgm-switch')
-        var handle = 0
+        let handle = 0
         bgm_switch.onchange = function () {
             SetLocalStorage(KBGMEnabled, Number(bgm_switch.checked))
             if (handle) {
@@ -816,14 +816,14 @@ const Reader = function (param) {
                 }
                 EnableBGM = bgm_switch.checked
                 if (EnableBGM) {
-                    var id = GetBgMusicID(CurrentPage, GetScrollRatio())
+                    let id = GetBgMusicID(CurrentPage, GetScrollRatio())
                     SetBGMPlayer(false, id, BgMusicPlayerHeight)
                 } else {
                     RemoveBGMPlayer()
                 }
             }, 500)
         }
-        var lastBGMEnabled = GetLocalStorage(KBGMEnabled)
+        let lastBGMEnabled = GetLocalStorage(KBGMEnabled)
         if (lastBGMEnabled && Number(lastBGMEnabled) == 0) {
             bgm_switch.checked = false
             bgm_switch.onchange()
@@ -836,7 +836,7 @@ const Reader = function (param) {
             const gallery = document.getElementById('gallery')
             gallery.style.maxWidth = parseInt(value) + '%'
         }
-        var lastWidth = GetLocalStorage(KGalleryWidth)
+        let lastWidth = GetLocalStorage(KGalleryWidth)
         if (lastWidth) {
             width_setter.value = lastWidth
             width_setter.onchange()
@@ -847,12 +847,12 @@ const Reader = function (param) {
             const value = volume_setter.value
             SetLocalStorage(KBGMVolume, value)
             BgMusicVolume = Number(value) / 100
-            var player = document.getElementById('bgm-player')
+            let player = document.getElementById('bgm-player')
             if (player && CurrentBgMusicID > 0) {
                 player.volume = BGM_BASE_VOLUME[- 1] * BgMusicVolume
             }
         }
-        var lastVolume = GetLocalStorage(KBGMVolume)
+        let lastVolume = GetLocalStorage(KBGMVolume)
         if (lastVolume) {
             volume_setter.value = lastVolume
             volume_setter.onchange()
@@ -867,7 +867,7 @@ const Reader = function (param) {
                 VOICE_LANGUAGE = vlang_select.value
                 this.VOICE_LANGUAGE = VOICE_LANGUAGE
             }
-            var lastVLang = GetLocalStorage(KVoiceLanguage)
+            let lastVLang = GetLocalStorage(KVoiceLanguage)
             if (lastVLang) {
                 vlang_select.selectedIndex = Number(lastVLang)
                 vlang_select.onchange()
@@ -888,18 +888,18 @@ const Reader = function (param) {
         if (!EnableBGM) {
             return -1
         }
-        var v = BGM_INFO[index]
+        let v = BGM_INFO[index]
         if (!v) {
             return -1
         }
-        var id = -1
+        let id = -1
         if (typeof (v) == 'number') {
             if (v < 0) {
                 return -1
             }
             id = AUDIO_LOCAL_MODE ? v : [v - 1]
         } else {
-            var idx = 0
+            let idx = 0
             for (let i = 0; i < v[0].length; i++) {
                 const value = v[1][i];
                 if (ratio > value - 0.1) {
@@ -973,7 +973,7 @@ const Reader = function (param) {
         if (!VOICE_INFO[i_chapter + 1]) {
             return invalid
         }
-        var v = VOICE_INFO[i_chapter + 1][i_page + 1]
+        let v = VOICE_INFO[i_chapter + 1][i_page + 1]
         if (!v) {
             return invalid
         }
@@ -981,10 +981,10 @@ const Reader = function (param) {
     }
 
     function GetVoiceSrc(i_chapter, i_page, i_voice) {
-        var c = '' + (i_chapter + 1)
-        var p = '' + (i_page + 1)
-        var v = '' + (i_voice + 1)
-        var file = [c, p, v].map(function (e, i, a) {
+        let c = '' + (i_chapter + 1)
+        let p = '' + (i_page + 1)
+        let v = '' + (i_voice + 1)
+        let file = [c, p, v].map(function (e, i, a) {
             return '0'.repeat(2 - e.length) + e
         }).join('_') + VOICE_SRC_POSTFIX
         return (VOICE_LANGUAGE == 'jp' ? 'res/voice_jp/' : 'res/voice/') + file
@@ -992,7 +992,7 @@ const Reader = function (param) {
     */
 
     function GetChapterCoverSrc(i) {
-        var num = i + 1
+        let num = i + 1
         if (param.fnGetChapterCoverSrc) {
             return param.fnGetChapterCoverSrc(num)
         }
@@ -1020,7 +1020,7 @@ const Reader = function (param) {
         if (!window.localStorage) {
             return undefined
         }
-        var v = undefined
+        let v = undefined
         try {
             v = window.localStorage.getItem(k)
         } catch (error) {
@@ -1029,14 +1029,14 @@ const Reader = function (param) {
     }
 
     function ReplaceString(id, str) {
-        var obj = document.getElementById(id)
+        let obj = document.getElementById(id)
         if (obj) {
             obj.innerText = str
         }
     }
 
     function ReplaceHtml(id, str) {
-        var obj = document.getElementById(id)
+        let obj = document.getElementById(id)
         if (obj) {
             obj.innerHTML = str
         }
