@@ -648,7 +648,8 @@ const Reader = function (param) {
             let obj_hint2 = obj_div.lastChild
             obj_hint2.style.display = 'none'
             let toggle_hidden = function () {
-                if (obj_div.children[1].classList.toggle('active')) {
+                let active = obj_div.children[1].classList.toggle('active')
+                if (active) {
                     obj_hint1.innerText = '▼' + hintText2 + '▼'
                     obj_hint2.style.display = 'block'
                 } else {
@@ -658,6 +659,15 @@ const Reader = function (param) {
                 for (let j = 2; j < obj_div.children.length - 1; j++) {
                     obj_div.children[j].classList.toggle('active')
                 }
+                // update scroll ratio to ignore hidden content
+                let hintH = obj_div.children[0].getBoundingClientRect().height
+                let scrollH = document.body.scrollTop || document.documentElement.scrollTop
+                let rect = obj_div.getBoundingClientRect()
+                let hiddenToTop = rect.top + scrollH + hintH
+                let hiddenH = rect.height - hintH
+                let key = idx
+                ActiveHidden[key] = { active: active, top: hiddenToTop, height: hiddenH }
+                OnScrollChange()
             }
             obj_hint1.addEventListener("click", toggle_hidden)
             obj_hint2.addEventListener("click", toggle_hidden)
@@ -901,18 +911,36 @@ const Reader = function (param) {
         return id
     }
 
+    let ActiveHidden = {}
     function GetScrollRatio() {
-        var totalH = document.body.scrollHeight || document.documentElement.scrollHeight
-        var clientH = window.innerHeight || document.documentElement.clientHeight
-        var validH = totalH - clientH
-        var scrollH = document.body.scrollTop || document.documentElement.scrollTop
+        let totalH = document.body.scrollHeight || document.documentElement.scrollHeight
+        let clientH = window.innerHeight || document.documentElement.clientHeight
+        let validH = totalH - clientH
+        let scrollH = document.body.scrollTop || document.documentElement.scrollTop
+        // ignore hidden content
+        for (const key in ActiveHidden) {
+            const e = ActiveHidden[key]
+            if (e.active) {
+                let top = e.top
+                let height = e.height
+                validH -= height
+                console.log([top, height])
+                if (scrollH > top) {
+                    if (scrollH > top + height) {
+                        scrollH -= height
+                    } else {
+                        scrollH -= (scrollH - top)
+                    }
+                }
+            }
+        }
         return scrollH / validH * 100
     }
 
-    window.addEventListener('scroll', function (e) {
-        var ratio = GetScrollRatio()
+    function OnScrollChange() {
+        let ratio = GetScrollRatio()
         if (EnableBGM && CurrentPage > -1) {
-            var id = GetBgMusicID(CurrentPage, ratio)
+            let id = GetBgMusicID(CurrentPage, ratio)
             if (id != CurrentBgMusicID) {
                 SetBgMusicHandle(id, BgMusicPlayerHeight, 500)
             }
@@ -920,6 +948,10 @@ const Reader = function (param) {
         if (DEBUG_SHOW_SCROLL_RATIO) {
             document.getElementById('chapter-title').textContent = ratio.toFixed(2)
         }
+    }
+
+    window.addEventListener('scroll', function (e) {
+        OnScrollChange()
     })
 
     let IsFirstClick = true
@@ -929,7 +961,7 @@ const Reader = function (param) {
         }
         IsFirstClick = false
         if (EnableBGM && CurrentPage > -1) {
-            var player = document.getElementById('bgm-player')
+            let player = document.getElementById('bgm-player')
             if (player && player.paused) {
                 player.play()
             }
