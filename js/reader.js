@@ -647,7 +647,7 @@ const Reader = function (param) {
         let obj_ul = document.createElement('ul')
         obj_ul.id = 'images'
         let hidden = HIDDEN_PAGES[idx]
-        let MakeHidden = function (pages) {
+        let MakeHidden = function (pages, idxPrev) {
             if (typeof (pages) == 'string') {
                 pages = [pages]
             }
@@ -671,7 +671,7 @@ const Reader = function (param) {
             let obj_hint1 = obj_div.firstChild
             let obj_hint2 = obj_div.lastChild
             obj_hint2.style.display = 'none'
-            let toggle_hidden = function () {
+            let ToggleHidden = function () {
                 let active = obj_div.children[1].classList.toggle('active')
                 if (active) {
                     obj_hint1.innerText = '▼' + hintText2 + '▼'
@@ -689,12 +689,12 @@ const Reader = function (param) {
                 let rect = obj_div.getBoundingClientRect()
                 let hiddenToTop = rect.top + scrollH + hintH
                 let hiddenH = rect.height - hintH
-                let key = idx
+                let key = idxPrev
                 ActiveHidden[key] = { active: active, top: hiddenToTop, height: hiddenH }
                 OnScrollChange()
             }
-            obj_hint1.addEventListener("click", toggle_hidden)
-            obj_hint2.addEventListener("click", toggle_hidden)
+            obj_hint1.addEventListener("click", ToggleHidden)
+            obj_hint2.addEventListener("click", ToggleHidden)
             return obj_div
         }
         for (let i = 0; i < num_page; i++) {
@@ -714,13 +714,13 @@ const Reader = function (param) {
             obj_div.appendChild(obj_img)
 
             if (i == 0 && hidden && hidden[0]) {
-                obj_li.appendChild(MakeHidden(hidden[0]))
+                obj_li.appendChild(MakeHidden(hidden[0], 0))
             }
 
             obj_li.appendChild(obj_div)
 
             if (hidden && hidden[i + 1]) {
-                obj_li.appendChild(MakeHidden(hidden[i + 1]))
+                obj_li.appendChild(MakeHidden(hidden[i + 1], i + 1))
             }
 
             obj_ul.appendChild(obj_li)
