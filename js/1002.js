@@ -116,8 +116,17 @@
             ],
         },
     }
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        [[-1, 43], [0, 1]],
+        [[43, 44, 45], [0, 23, 91]],
+        45,
+        [[46, 49], [0, 60]],
+        [[49, 50, 47], [0, 36, 77]],
+        [[51, 52], [0, 91]],
+        53,
+        [[54, 50, 55], [0, 47, 87]],
+    ]
+    p.addBgmLoopInfo(50, 0, 21.2, 0.5, 0.5)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
