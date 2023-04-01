@@ -100,19 +100,38 @@ class ReaderParam {
         this.bgmVolume = [
             -9.86, -7.43, -8.97, -14.48, -9.31,
             -5.78, -15.47, -1.39, -14.51, -16.47,
+
             -8.50, -12.84, -11.49, -7.69, -11.63,
             0/* 8.25 */, -12.30, -7.80, -14.55, -11.50,
+
             -15.37, -14.30, 0, -12.19, -14.65,
             -14.17, -14.18, -12.11, -14.47, -12.89,
             //TODO
             0, 0, 0, 0, 0,
             0, 0, 0, 0, 0,
+
+            0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0,
+
+            0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0,
+
+            0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0,
+
+            0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0,
+
+            0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0,
+
             0, 0, 0, 0, 0,
             0, 0, 0, 0, 0,
         ];
         this.bgmVolume[98] = 0;
         this.bgmLoopInfo = {
             28: [5, 23, 1, 1, true],
+            45: [0, 1e3, 1, 1, false],
             49: [0, 53, 1, 1, false],
             99: [1, 25.2, 2, 3, false],
         };
@@ -121,6 +140,11 @@ class ReaderParam {
                 this.bgmLoopInfo = {}
             }
             this.bgmLoopInfo[id] = [start, end, fadeIn || 0, fadeOut || 0, ignoreFirst || false]
+        };
+        for (let i = 0; i < this.bgmVolume.length; i++) {
+            if (!this.bgmLoopInfo[i]) {
+                this.addBgmLoopInfo(i, 0, 1e3, 1, 1, false)
+            }
         }
     }
 }
