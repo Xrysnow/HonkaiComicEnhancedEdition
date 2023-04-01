@@ -7,7 +7,9 @@
     p.bookDesc = {
         zh: '休伯利安号战舰AI娘、第一人气偶像爱酱，竟然是使得游戏迟迟不能公测的幕后黑手？！',
     }
-    p.editorNote = null
+    p.editorNote = {
+        zh: '- 本篇为游戏公测前的预热漫画。',
+    }
     p.bookCoverSrc = 'https://static-event.benghuai.com/ip_resources_new/preheat/cover/avatar.jpg'
     p.imgSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/preheat/page/'
     p.chCoverSrcPrefix = ''
