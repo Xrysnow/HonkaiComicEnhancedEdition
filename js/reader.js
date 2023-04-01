@@ -257,6 +257,7 @@ const Reader = function (param) {
     let BgMusicVolume = 1
     let GlobalTaskInterval = 10
     let GlobalTasks = []
+    let ActiveHidden = {}
     const KCurrentChapter = 'current-chapter'
     const KGalleryWidth = 'gallery-width'
     const KBgColor = 'bg-color'
@@ -621,6 +622,8 @@ const Reader = function (param) {
         if (idx >= NUM_CHAPTER) {
             return
         }
+        // clear
+        ActiveHidden = {}
         if (idx < 0) {
             return GotoHome()
         }
@@ -774,6 +777,9 @@ const Reader = function (param) {
         if (!IS_MOBILE) {
             GlobalViewer = new Viewer(obj_ul, ViewerConfig)
         }
+        // always return top
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
     }
 
     function ReverseColor(rgbColor) {
@@ -935,12 +941,12 @@ const Reader = function (param) {
         return id
     }
 
-    let ActiveHidden = {}
     function GetScrollRatio() {
         let totalH = document.body.scrollHeight || document.documentElement.scrollHeight
         let clientH = window.innerHeight || document.documentElement.clientHeight
         let validH = totalH - clientH
         let scrollH = document.body.scrollTop || document.documentElement.scrollTop
+        let scroll = scrollH
         // ignore hidden content
         for (const key in ActiveHidden) {
             const e = ActiveHidden[key]
@@ -948,17 +954,16 @@ const Reader = function (param) {
                 let top = e.top
                 let height = e.height
                 validH -= height
-                console.log([top, height])
                 if (scrollH > top) {
                     if (scrollH > top + height) {
-                        scrollH -= height
+                        scroll -= height
                     } else {
-                        scrollH -= (scrollH - top)
+                        scroll -= (scrollH - top)
                     }
                 }
             }
         }
-        return scrollH / validH * 100
+        return scroll / validH * 100
     }
 
     function OnScrollChange() {
