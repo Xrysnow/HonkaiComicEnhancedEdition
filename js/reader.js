@@ -374,8 +374,10 @@ const Reader = function (param) {
         ClearBgMusicHandle()
         CurrentBgMusicID = -1
         let container = document.getElementById('bgm-player-container')
-        for (let i = 0; i < container.children.length; i++) {
-            container.removeChild(container.children[i])
+        let child = container.firstElementChild
+        while (child) {
+            child.remove()
+            child = container.firstElementChild
         }
         console.log('remove bgm')
     }
