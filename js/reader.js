@@ -255,6 +255,7 @@ const Reader = function (param) {
     let BgMusicPlayerHeight = 66
     let BgMusicSpecialPause = false
     let BgMusicVolume = 1
+    let BgMusicSwitchFactor = 1
     let GlobalTaskInterval = 10
     let GlobalTasks = []
     let ActiveHidden = {}
@@ -342,16 +343,30 @@ const Reader = function (param) {
 
     const ClearBgMusicHandle = function () {
         if (BgMusicHandle) {
-            clearTimeout(BgMusicHandle)
+            clearInterval(BgMusicHandle)
             BgMusicHandle = 0
         }
     }
 
     const SetBgMusicHandle = function (id, height, time) {
         ClearBgMusicHandle()
-        BgMusicHandle = setTimeout(function () {
-            SetBGMPlayer(false, id, height)
-        }, time)
+        let counter = 0
+        const interval = 10
+        BgMusicHandle = setInterval(function () {
+            counter += interval
+            BgMusicSwitchFactor = Math.max(1 - counter / time, 0)
+            if (CurrentBgMusicID == id) {
+                BgMusicSwitchFactor = 1
+            }
+            if (counter >= time) {
+                BgMusicSwitchFactor = 1
+                SetBGMPlayer(false, id, height)
+                ClearBgMusicHandle()
+            }
+            if (DEBUG_MODE) {
+                document.getElementById('menu-next-text').innerText = Math.floor(BgMusicSwitchFactor * 100)
+            }
+        }, interval)
     }
 
     const RemoveBGMPlayer = function () {
@@ -395,31 +410,37 @@ const Reader = function (param) {
             player.loop = true
             player.autoplay = true
             player.controls = true
-            let volume = BGM_BASE_VOLUME[id - 1] * BgMusicVolume
-            player.volume = volume
+            player.volume = 0
             let src = MUSIC_LOCAL_SRC_PREFIX + id + MUSIC_LOCAL_SRC_POSTFIX
             player.src = src
             player.bgm_id = id
             container.appendChild(player)
-            //
-            if (PARAMETER.bgmLoopInfo && PARAMETER.bgmLoopInfo[id]) {
-                let info = PARAMETER.bgmLoopInfo[id]
-                AddGlobalTask(function () {
-                    let p = document.getElementById('bgm-player')
-                    if (p && p.bgm_id === id) {
-                        const start = info[0]
-                        const end = info[1]
-                        let curr = p.currentTime
-                        let target = MathUtil.clampLoop(curr, start, end, info[4] || false)
-                        if (Math.abs(target - curr) > 0.01) {
-                            p.currentTime = target
-                        }
-                        p.volume = MathUtil.getFadeFactor(curr, start, end, info[2], info[3]) * volume
+            // set volume realtime
+            RemoveGlobalBgmTasks()
+            AddGlobalTask(function () {
+                let p = document.getElementById('bgm-player')
+                if (!p || p.bgm_id != id) {
+                    return
+                }
+                let base = BGM_BASE_VOLUME[id - 1] * BgMusicVolume
+                let info = PARAMETER.bgmLoopInfo && PARAMETER.bgmLoopInfo[id]
+                let factor = BgMusicSwitchFactor
+                if (info) {
+                    const start = info[0]
+                    const end = info[1]
+                    let curr = p.currentTime
+                    let target = MathUtil.clampLoop(curr, start, end, info[4] || false)
+                    if (Math.abs(target - curr) > 0.01) {
+                        p.currentTime = target
                     }
-                }, '1-bgm-' + id, 1)
-            } else {
-                RemoveGlobalBgmTasks()
-            }
+                    let fadeFactor = MathUtil.getFadeFactor(curr, start, end, info[2], info[3])
+                    factor = Math.min(factor, fadeFactor)
+                }
+                p.volume = factor * base
+                if (DEBUG_MODE) {
+                    document.getElementById('menu-prev-text').innerText = Math.floor(factor * 100)
+                }
+            }, '1-bgm-' + id, 1)
         }
         //
         console.log('change bgm to ' + id)
@@ -877,10 +898,6 @@ const Reader = function (param) {
             const value = volume_setter.value
             SetLocalStorage(KBGMVolume, value)
             BgMusicVolume = Number(value) / 100
-            let player = document.getElementById('bgm-player')
-            if (player && CurrentBgMusicID > 0) {
-                player.volume = BGM_BASE_VOLUME[- 1] * BgMusicVolume
-            }
         }
         let lastVolume = GetLocalStorage(KBGMVolume)
         if (lastVolume) {
