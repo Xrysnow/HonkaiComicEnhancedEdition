@@ -245,6 +245,7 @@ const Reader = function (param) {
     let GlobalViewer = new Viewer(document.getElementById('images'), ViewerConfig)
     let CurrentPage = -1
     let CurrentBgMusicID = -1
+    let NextBgMusicID = -1
     let ShowHomeIndex = true
     let ShowHomeAbout = false
     let ShowMenu = false
@@ -346,10 +347,13 @@ const Reader = function (param) {
             clearInterval(BgMusicHandle)
             BgMusicHandle = 0
         }
+        NextBgMusicID = -1
     }
 
     const SetBgMusicHandle = function (id, height, time) {
         ClearBgMusicHandle()
+        BgMusicSwitchFactor = 1
+        NextBgMusicID = id
         let counter = 0
         const interval = 10
         BgMusicHandle = setInterval(function () {
@@ -394,6 +398,7 @@ const Reader = function (param) {
             return
         }
         CurrentBgMusicID = id
+        BgMusicSwitchFactor = 1
         let container = document.getElementById('bgm-player-container')
         if (!AUDIO_LOCAL_MODE) {
             let frame = document.createElement('iframe')
@@ -999,7 +1004,7 @@ const Reader = function (param) {
         let ratio = GetScrollRatio()
         if (EnableBGM && CurrentPage > -1) {
             let id = GetBgMusicID(CurrentPage, ratio)
-            if (id != CurrentBgMusicID) {
+            if (id != CurrentBgMusicID || (NextBgMusicID >= 0 && id != NextBgMusicID)) {
                 SetBgMusicHandle(id, BgMusicPlayerHeight, 500)
             }
         }
