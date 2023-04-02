@@ -168,7 +168,7 @@ const Reader = function (param) {
     let i18nHtml = param.i18nHtml
     let PARAMETER = param
 
-    const DEBUG_SHOW_SCROLL_RATIO = true
+    const DEBUG_MODE = true
     let LOCAL_MODE = false
     let AUDIO_LOCAL_MODE = true
     let VOICE_LANGUAGE = 'zh'
@@ -974,8 +974,9 @@ const Reader = function (param) {
                 SetBgMusicHandle(id, BgMusicPlayerHeight, 500)
             }
         }
-        if (DEBUG_SHOW_SCROLL_RATIO) {
+        if (DEBUG_MODE) {
             document.getElementById('chapter-title').textContent = ratio.toFixed(2)
+            document.getElementById('menu-bgm-text').innerText = CurrentBgMusicID
         }
     }
 
