@@ -374,8 +374,8 @@ const Reader = function (param) {
         ClearBgMusicHandle()
         CurrentBgMusicID = -1
         let container = document.getElementById('bgm-player-container')
-        if (container.children.length > 0) {
-            container.removeChild(container.children[0])
+        for (let i = 0; i < container.children.length; i++) {
+            container.removeChild(container.children[i])
         }
         console.log('remove bgm')
     }
@@ -414,6 +414,16 @@ const Reader = function (param) {
             let src = MUSIC_LOCAL_SRC_PREFIX + id + MUSIC_LOCAL_SRC_POSTFIX
             player.src = src
             player.bgm_id = id
+            //
+            let info = document.createElement('div')
+            info.id = 'bgm-player-info'
+            info.classList.add('black-text-shadow')
+            info.innerText = ''
+            if (BgmGlobalInfo && BgmGlobalInfo[id]) {
+                info.innerText = 'BGM: ' + BgmGlobalInfo[id][0]
+            }
+            //
+            container.appendChild(info)
             container.appendChild(player)
             // set volume realtime
             RemoveGlobalBgmTasks()

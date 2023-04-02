@@ -535,6 +535,16 @@
     display: none;
 }
 
+#bgm-player-info {
+    position: absolute;
+    right: 5.5rem;
+    margin-top: -10px;
+    color: white;
+    text-align: right;
+    width: 330px;
+    text-overflow: ellipsis;
+}
+
 .content-img-wrapper {
     position: relative;
 }
