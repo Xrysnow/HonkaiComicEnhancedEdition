@@ -499,30 +499,6 @@
     text-align: center;
 }
 
-#menu-config-container {
-    display: none;
-    position: absolute;
-    right: 6rem;
-    bottom: 0.5rem;
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-    border-left-width: 2px;
-    border-color: #777;
-    border-style: solid;
-    border-radius: 10px;
-    padding: 0.5rem;
-    background-color: rgba(127, 127, 127, 0.8);
-}
-
-/* .menu */
-.menu-config-text {
-    color: white;
-    font-size: 1rem;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-}
-
 #bgm-player {
     position: absolute;
     right: 5.5rem;
