@@ -11,7 +11,8 @@ a {
     cursor: pointer;
 }
 
-a *{
+a *,
+label * {
     cursor: pointer;
 }
 
@@ -175,7 +176,6 @@ a *{
     -ms-flex: 1;
     flex: 1;
     height: 3px;
-    background: -webkit-gradient(linear, right top, left top, from(transparent), color-stop(rgba(255, 255, 255, 0.5)), to(transparent));
     background: -o-linear-gradient(right, transparent, rgba(255, 255, 255, 0.5), transparent);
     background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.5), transparent);
 }
