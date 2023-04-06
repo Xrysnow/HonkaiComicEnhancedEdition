@@ -171,9 +171,10 @@
     </div>
 
     <script src="../js/viewer.min.js"></script>
+    <script src="../js/util.js"></script>
     <script src="../js/reader.js"></script>
     <script type="text/javascript">
-        let id = GetQueryString('id')
+        let id = Util.getQueryString('id')
         if (id) {
             let txt = '\<script src=\"..\/js\/' + id + '.js\"\>\<\/script\>'
             document.writeln(txt)

@@ -1,84 +1,6 @@
-/**
- * @returns {string}
- */
-function GetLanguage() {
-    const META = document.getElementsByTagName('meta')
-    let LANGUAGE = META['content-language'].content || 'zh'
-    let query = window.location.search.substring(1)
-    let vars = query.split("&")
-    for (let i = 0; i < vars.length; i++) {
-        let pair = vars[i].split("=")
-        if (pair[0] == 'lang') { LANGUAGE = pair[1] }
-        if (pair[0] == 'vlang') { VOICE_LANGUAGE = pair[1] }
-    }
-    return LANGUAGE
-}
-
-function IsMobile() {
-    let Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
-    let getArr = Agents.filter(i => navigator.userAgent.includes(i));
-    return getArr.length ? true : false;
-}
-
-function GetQueryString(name) {
-    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-    let r = window.location.search.substring(1).match(reg);
-    if (r != null) {
-        return decodeURI(r[2]);
-    }
-    return null;
-}
-
-const MathUtil = {
-    getFadeFactor: function (current, start, end, fadeIn, fadeOut) {
-        let x = current
-        let y1 = 1 / fadeIn * x - start / fadeIn
-        if (fadeIn <= 0) {
-            y1 = 0
-            if (current >= start) {
-                y1 = 1
-            }
-        }
-        let y2 = -1 / fadeOut * x + end / fadeOut
-        if (fadeOut <= 0) {
-            y2 = 0
-            if (current <= end) {
-                y2 = 1
-            }
-        }
-        return Math.max(Math.min(y1, y2, 1), 0)
-    },
-    clampLoop: function (current, start, end, ignoreFirst) {
-        if (current < start && !ignoreFirst) {
-            current = start
-        }
-        if (current > end) {
-            current = start
-        }
-        return current
-    }
-}
-
-const Util = {
-    htmlEncode: function (html) {
-        let temp = document.createElement("div");
-        (temp.textContent != undefined) ? (temp.textContent = html) : (temp.innerText = html);
-        let output = temp.innerHTML;
-        temp = null;
-        return output;
-    },
-    htmlDecode: function (text) {
-        let temp = document.createElement("div");
-        temp.innerHTML = text;
-        let output = temp.innerText || temp.textContent;
-        temp = null;
-        return output;
-    }
-}
-
 class ReaderParam {
     constructor() {
-        this.htmlNum = null;
+        this.bookIndex = null;
         this.bookTitle = null;
         this.bookDate = null;
         this.bookDesc = null;
@@ -154,7 +76,6 @@ class ReaderParam {
  * @param {ReaderParam} param parameter
  */
 const Reader = function (param) {
-    let pageNum = param.htmlNum
     let bookDesc = param.bookDesc
     let bgSrc = param.bgSrc
     let numChapter = param.numChapter
@@ -174,7 +95,7 @@ const Reader = function (param) {
     let VOICE_LANGUAGE = 'zh'
 
     const META = document.getElementsByTagName('meta')
-    let LANGUAGE = GetLanguage()
+    let LANGUAGE = Util.getLanguage()
     this.LANGUAGE = LANGUAGE
 
     if (LANGUAGE == 'jp') {
@@ -238,7 +159,7 @@ const Reader = function (param) {
     // const VOICE_SRC_POSTFIX = '.wav'
     // const VOICE_ICON = '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M6 18v12h8l10 10V8L14 18H6zm27 6c0-3.53-2.04-6.58-5-8.05v16.11c2.96-1.48 5-4.53 5-8.06zM28 6.46v4.13c5.78 1.72 10 7.07 10 13.41s-4.22 11.69-10 13.41v4.13c8.01-1.82 14-8.97 14-17.54S36.01 8.28 28 6.46z"/></svg>'
 
-    let IS_MOBILE = IsMobile()
+    let IS_MOBILE = Util.isMobile()
     this.IS_MOBILE = IS_MOBILE
 
     const ViewerConfig = { zoomRatio: 0.2 }
@@ -260,12 +181,6 @@ const Reader = function (param) {
     let GlobalTaskInterval = 10
     let GlobalTasks = []
     let ActiveHidden = {}
-    const KCurrentChapter = 'current-chapter'
-    const KGalleryWidth = 'gallery-width'
-    const KBgColor = 'bg-color'
-    const KBGMEnabled = 'bgm-enabled'
-    const KBGMVolume = 'bgm-volume'
-    // const KVoiceLanguage = 'voice-lang'
 
     function AddGlobalTask(f, tag, intv) {
         if (intv < 1) {
@@ -653,7 +568,6 @@ const Reader = function (param) {
         ToggleMenu(false)
         let title = document.getElementById('home')
         title.style.display = 'block'
-        SetLocalStorage(KCurrentChapter, -1)
     }
 
     const GotoPage = function (idx) {
@@ -666,7 +580,7 @@ const Reader = function (param) {
             return GotoHome()
         }
         CurrentPage = idx
-        SetLocalStorage(KCurrentChapter, idx)
+        Settings.setCurrentChapter(PARAMETER.bookIndex, idx)
         //
         ToggleMenu(true)
         ToggleConfig(false)
@@ -844,7 +758,7 @@ const Reader = function (param) {
     function SetBackgroundColor() {
         const select = document.getElementById('menu-config-bg')
         document.getElementsByTagName('body')[0].style.backgroundColor = select.value
-        SetLocalStorage(KBgColor, select.selectedIndex)
+        Settings.setBgColor(select.selectedIndex)
         const icon_color = ReverseColor(select.value)
         let sheets = document.styleSheets
         for (let i = 0; i < sheets.length; i++) {
@@ -865,8 +779,8 @@ const Reader = function (param) {
     function SetMenuConfig() {
         const bg_select = document.getElementById('menu-config-bg')
         bg_select.onchange = SetBackgroundColor
-        let lastBgColor = GetLocalStorage(KBgColor)
-        if (lastBgColor) {
+        let lastBgColor = Settings.getBgColor()
+        if (!isNaN(lastBgColor)) {
             bg_select.selectedIndex = Number(lastBgColor)
             SetBackgroundColor()
         }
@@ -874,7 +788,7 @@ const Reader = function (param) {
         const bgm_switch = document.getElementById('menu-config-bgm-switch')
         let handle = 0
         bgm_switch.onchange = function () {
-            SetLocalStorage(KBGMEnabled, Number(bgm_switch.checked))
+            Settings.setBgmEnabled(Number(bgm_switch.checked))
             if (handle) {
                 clearTimeout(handle)
             }
@@ -891,8 +805,8 @@ const Reader = function (param) {
                 }
             }, 500)
         }
-        let lastBGMEnabled = GetLocalStorage(KBGMEnabled)
-        if (lastBGMEnabled && Number(lastBGMEnabled) == 0) {
+        let lastBGMEnabled = Settings.getBgmEnabled()
+        if (lastBGMEnabled == 0) {
             bgm_switch.checked = false
             bgm_switch.onchange()
         }
@@ -900,12 +814,12 @@ const Reader = function (param) {
         const width_setter = document.getElementById('menu-config-width')
         width_setter.onchange = function () {
             const value = width_setter.value
-            SetLocalStorage(KGalleryWidth, value)
+            Settings.setGalleryWidth(value)
             const gallery = document.getElementById('gallery')
             gallery.style.maxWidth = parseInt(value) + '%'
         }
-        let lastWidth = GetLocalStorage(KGalleryWidth)
-        if (lastWidth) {
+        let lastWidth = Settings.getGalleryWidth()
+        if (!isNaN(lastWidth)) {
             width_setter.value = lastWidth
             width_setter.onchange()
         }
@@ -913,11 +827,11 @@ const Reader = function (param) {
         const volume_setter = document.getElementById('menu-config-bgm-volume')
         volume_setter.onchange = function () {
             const value = volume_setter.value
-            SetLocalStorage(KBGMVolume, value)
+            Settings.setBgmVolume(value)
             BgMusicVolume = Number(value) / 100
         }
-        let lastVolume = GetLocalStorage(KBGMVolume)
-        if (lastVolume) {
+        let lastVolume = Settings.getBgmVolume()
+        if (!isNaN(lastVolume) && 0 <= lastVolume && lastVolume <= 100) {
             volume_setter.value = lastVolume
             volume_setter.onchange()
         }
@@ -1070,28 +984,6 @@ const Reader = function (param) {
         return CHAPTER_TITLES[i]
     }
 
-    function SetLocalStorage(k, v) {
-        if (!window.localStorage) {
-            return
-        }
-        try {
-            window.localStorage.setItem(k, v)
-        } catch (error) {
-        }
-    }
-
-    function GetLocalStorage(k) {
-        if (!window.localStorage) {
-            return undefined
-        }
-        let v = undefined
-        try {
-            v = window.localStorage.getItem(k)
-        } catch (error) {
-        }
-        return v
-    }
-
     function ReplaceString(id, str) {
         let obj = document.getElementById(id)
         if (obj) {
@@ -1147,19 +1039,8 @@ const Reader = function (param) {
     SetMenuConfig()
     SetStyle()
     SetEditorNote()
-
+    // always show book index
     ToggleHomeIndex(true)
-
-    let lastCurrentChapter = GetLocalStorage(KCurrentChapter)
-    if (lastCurrentChapter) {
-        GotoPage(Number(lastCurrentChapter))
-    } else {
-        GotoPage(-1)
-    }
+    // always go to book home
+    GotoPage(-1)
 };
-
-// module.exports = {
-//     Reader
-// }
-
-// export const reader = Reader
