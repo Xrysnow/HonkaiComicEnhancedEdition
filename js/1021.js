@@ -8,10 +8,11 @@
         zh: '在过去的4500年间，第二神之键一直被用于观测「虚数之树」上的其他「平行世界」。盛者必衰，一度辉煌的文明，终究会凋零。隐藏在第二神之键中的答案，正缓缓浮出水面…',
     }
     p.editorNote = null
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1021.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1021.jpg'
     p.numChapter = 16
     p.chTitles = [
         '泡影',

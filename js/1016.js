@@ -8,10 +8,11 @@
         zh: '故事发生在一座基地，这里白天灯光明媚，夜晚也灯光明媚；每隔一段时日，就有研究员不省人事……逆熵姐妹无意中发现了知名偶像“伏特加女孩”的秘密，就此展开一段跌宕起伏的冒险！',
     }
     p.editorNote = null
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1016.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1016.jpg'
     p.numChapter = 14
     p.chTitles = [
         '地下城篇01',

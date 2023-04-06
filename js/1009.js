@@ -8,10 +8,11 @@
         zh: '公元1470年，意图扩张势力的天命发动了一场规模巨大的东征。尽管对这场战争的目的心怀疑惑，但天命最强的女武神卡莲·卡斯兰娜还是服从了组织的命令。但在战场上，她的觉悟受到了质疑…',
     }
     p.editorNote = null
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1009.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1009.jpg'
     p.numChapter = 14
     p.chTitles = [
         '新章节序幕 历史',

@@ -13,10 +13,11 @@
             + '</br>- <a href="https://www.bilibili.com/video/BV1vW411H7zJ">版本PV</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV17W411B7xq">漫画纪念PV</a>'
     }
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1008.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1008.jpg'
     p.numChapter = 13
     p.chTitles = [
         '第一话 暗流',

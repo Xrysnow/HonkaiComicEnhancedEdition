@@ -11,10 +11,11 @@
         zh: '- 本篇为游戏2.4版本「夏日回忆」活动（已加入活动相册）的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1es411V7ri">活动PV</a>'
     }
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1014.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1014.jpg'
     p.numChapter = 4
     p.chTitles = [
         '第一话',

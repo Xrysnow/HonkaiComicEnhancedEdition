@@ -10,10 +10,11 @@
     p.editorNote = {
         zh: '- 本篇原名为《学园篇》，为《逃离长空篇》的后续。'
     }
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1002.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1002.jpg'
     p.numChapter = 8
     p.chTitles = [
         '第七话 琪亚娜最大的危机',
@@ -28,7 +29,8 @@
     p.chPages = [
         15, 17, 17, 18, 23, 18, 18, 20
     ]
-    let hiddenSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/comic/1/chapter/'
+    let prefix2 = Util.getImgLegacySrcPrefix()
+    let hiddenSrcPrefix = prefix2 + '1/chapter/'
     p.hiddenPages = {
         0: {
             1: [

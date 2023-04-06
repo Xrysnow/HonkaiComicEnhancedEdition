@@ -8,10 +8,11 @@
         zh: '在英国伦敦的繁华街道上，幽兰黛尔与丽塔不约而同地踏足于此，远离崩坏的战场与激烈的战斗，在这片历史悠久的土地上，迎接她们的是全新的任务，还是一场久违的假日？',
     }
     p.editorNote = null
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1018.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1018.jpg'
     p.numChapter = 10
     p.chTitles = [
         '序章 砂之挽歌',

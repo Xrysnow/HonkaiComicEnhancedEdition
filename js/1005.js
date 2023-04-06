@@ -9,12 +9,13 @@
     }
     p.editorNote = {
         zh: '本篇原名为《崩坏EX 绯樱》。'
-        + '</br>- <a href="https://www.bilibili.com/video/BV1ds41127Kp">漫画纪念PV</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1ds41127Kp">漫画纪念PV</a>'
     }
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1005.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1005.jpg'
     p.numChapter = 8
     p.chTitles = [
         '第一话 邂逅',
@@ -29,7 +30,8 @@
     p.chPages = [
         16, 17, 14, 15, 20, 12, 12, 25
     ]
-    let hiddenSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/comic/2/chapter/'
+    let prefix2 = Util.getImgLegacySrcPrefix()
+    let hiddenSrcPrefix = prefix2 + '2/chapter/'
     p.hiddenPages = {
         0: {
             5: [

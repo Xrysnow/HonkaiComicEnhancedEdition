@@ -9,12 +9,13 @@
     }
     p.editorNote = {
         zh: '- <a href="https://detail.tmall.com/item.htm?id=589288225758">官方实体版漫画</a>'
-        + '</br>- <a href="https://www.bilibili.com/video/BV1js41147GZ">漫画纪念PV</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1js41147GZ">漫画纪念PV</a>'
     }
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1004.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1004.jpg'
     p.numChapter = 11
     p.chTitles = [
         '序章 少女与雪',
@@ -32,7 +33,8 @@
     p.chPages = [
         10, 19, 18, 19, 21, 15, 20, 19, 26, 17, 28
     ]
-    let hiddenSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/comic/1/chapter/'
+    let prefix2 = Util.getImgLegacySrcPrefix()
+    let hiddenSrcPrefix = prefix2 + '1/chapter/'
     p.hiddenPages = {
         1: {
             18: hiddenSrcPrefix + '0028/0019.jpg',

@@ -136,6 +136,12 @@ const Util = {
         }
         return lang
     },
+    getImgSrcPrefix: function () {
+        return 'https://comicstatic.bh3.com/new_static_v2/comic/'
+    },
+    getImgLegacySrcPrefix: function () {
+        return 'http://static-event.benghuai.com/ip_resources_new/comic/'
+    },
 }
 
 const MathUtil = {

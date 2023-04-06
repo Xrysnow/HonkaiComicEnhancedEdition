@@ -14,10 +14,11 @@
             + '</br>- <a href="https://www.bilibili.com/video/BV1zs411t7ma">芽衣角色PV：雷电女王降临！</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1ss411t7tt">琪亚娜角色PV：Kiana出击！</a>'
     }
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1001.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1001.jpg'
     p.numChapter = 7
     p.chTitles = [
         '序章 琪亚娜·出击',
@@ -31,7 +32,8 @@
     p.chPages = [
         29, 27, 22, 19, 18, 19, 21
     ]
-    let hiddenSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/comic/1/chapter/'
+    let prefix2 = Util.getImgLegacySrcPrefix()
+    let hiddenSrcPrefix = prefix2 + '1/chapter/'
     p.hiddenPages = {
         1: {
             20: hiddenSrcPrefix + '0002/0021.jpg',

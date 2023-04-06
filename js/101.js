@@ -8,10 +8,13 @@
         zh: '崩坏学园漫画短篇集，用漫画的形式将生在崩坏中的点点滴滴记录在画页上。邀请风格不同的画师太太们用不同的风格为您展示崩坏不一样的魅力',
     }
     p.editorNote = null
-    p.bookCoverSrc = 'https://static-event.benghuai.com/ip_resources_new/comic/3/cover/avatar.jpg'
-    p.imgSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/comic/3/chapter/'
+    let prefix = Util.getImgSrcPrefix()
+    let prefix2 = Util.getImgLegacySrcPrefix()
+    p.bookCoverSrc = prefix2 + '3/cover/avatar.jpg'
+    p.imgSrcPrefix = prefix2 + '3/chapter/'
     p.chCoverSrcPrefix = ''
     p.bgSrc = p.bookCoverSrc
+    p.bookCoverSrc
     p.numChapter = 10
     p.chTitles = [
         '万圣节特别篇',
@@ -35,7 +38,7 @@
         return p.imgSrcPrefix + x1 + '/' + x2 + '.jpg'
     }
     p.fnGetChapterCoverSrc = function (i) {
-        return 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/1003/3.jpg'
+        return prefix + 'chapter_cover/1003/3.jpg'
     }
     p.hiddenPages = null
     p.bgmVolume = null

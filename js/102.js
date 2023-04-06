@@ -10,10 +10,12 @@
     p.editorNote = {
         zh: '- 本篇为游戏公测前的预热漫画。',
     }
-    p.bookCoverSrc = 'https://static-event.benghuai.com/ip_resources_new/preheat/cover/avatar.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = 'http://static-event.benghuai.com/ip_resources_new/preheat/cover/avatar.jpg'
     p.imgSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/preheat/page/'
     p.chCoverSrcPrefix = ''
     p.bgSrc = p.bookCoverSrc
+    p.bookCoverSrc
     p.numChapter = 18
     p.chTitles = [
         '惊人的事实——开始',
@@ -46,7 +48,7 @@
         return p.imgSrcPrefix + x1 + '.jpg'
     }
     p.fnGetChapterCoverSrc = function (i) {
-        return 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/1003/3.jpg'
+        return prefix + 'chapter_cover/1003/3.jpg'
     }
     p.hiddenPages = null
     p.bgmVolume = null

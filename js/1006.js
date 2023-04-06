@@ -11,10 +11,11 @@
         zh: '- 本篇为《圣痕之谜篇》的后续。'
         + '</br>- <a href="https://www.bilibili.com/video/BV1Wx411S7hm">漫画纪念PV</a>'
     }
-    p.bookCoverSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/' + bookNum + '.jpg'
-    p.imgSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/book/' + bookNum + '/'
-    p.chCoverSrcPrefix = 'https://comicstatic.bh3.com/new_static_v2/comic/chapter_cover/' + bookNum + '/'
-    p.bgSrc = 'https://comicstatic.bh3.com/new_static_v2/comic/book_cover/1006.jpg'
+    let prefix = Util.getImgSrcPrefix()
+    p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
+    p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
+    p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
+    p.bgSrc = prefix + 'book_cover/1006.jpg'
     p.numChapter = 16
     p.chTitles = [
         '第一话 第一律者',
@@ -37,7 +38,8 @@
     p.chPages = [
         21, 15, 14, 15, 13, 13, 16, 13, 14, 16, 18, 17, 16, 17, 15, 8
     ]
-    let hiddenSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/comic/1/chapter/'
+    let prefix2 = Util.getImgLegacySrcPrefix()
+    let hiddenSrcPrefix = prefix2 + '1/chapter/'
     p.hiddenPages = {
         0: {
             0: [
