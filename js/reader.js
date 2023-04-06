@@ -246,7 +246,7 @@ const Reader = function (param) {
 
     const ToggleConfig = function (show) {
         ShowConfig = show
-        document.getElementById('menu-config-container').style.display = show ? 'block' : 'none'
+        document.getElementById('menu-config-window').style.display = show ? 'block' : 'none'
     }
 
     const ToggleBGMPlayer = function (show) {

@@ -345,6 +345,10 @@ label * {
 
 /* settings */
 
+#menu-config-window {
+    display: none;
+}
+
 .popup-wrapper {
     border-radius: 10px;
     padding: 6px;
