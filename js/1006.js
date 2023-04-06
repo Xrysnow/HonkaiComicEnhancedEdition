@@ -1,7 +1,7 @@
 (function () {
     let p = new ReaderParam()
     let bookNum = 1006
-    p.htmlNum = bookNum
+    p.bookIndex = bookNum
     p.bookTitle = '逆熵入侵篇'
     p.bookDate = '2016-2017'
     p.bookDesc = {
