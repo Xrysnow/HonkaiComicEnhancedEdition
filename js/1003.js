@@ -10,7 +10,7 @@
     p.editorNote = {
         zh: '- 本篇为《樱花追忆篇》（原《学园篇》）的后续，已被官网删除。'
             + '</br>- 本篇为游戏1.1版本外传「轩辕篇」及1.2版本外传「蚩尤篇」（已加入编年史）的前置漫画。'
-            + '</br>- 本篇大部分设定已废弃，但对于阅读编年史「轩辕篇」「蚩尤篇」「遗忘之人」等剧情仍有一定帮助。'
+            + '</br>- 本篇剧情与游戏内差异较大，但对于阅读编年史「轩辕篇」「蚩尤篇」「遗忘之人」等剧情仍有一定帮助。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Ms411W7As">1.1版本PV</a>　<a href="https://www.bilibili.com/video/BV1Fs411Y7Tn">1.2版本PV</a>'
     }
     let prefix = Util.getImgSrcPrefix()
