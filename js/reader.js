@@ -48,7 +48,6 @@ class ReaderParam {
             28: [5, 23, 1, 1, true],
             45: [0, 1e3, 1, 1, false],
             49: [0, 53, 1, 1, false],
-            99: [1, 25.2, 2, 3, false],
         };
         this.addBgmLoopInfo = function (id, start, end, fadeIn, fadeOut, ignoreFirst) {
             this._bgmLoopInfo[id] = [start, end, fadeIn || 0, fadeOut || 0, ignoreFirst || false]
@@ -326,13 +325,16 @@ const Reader = function (param) {
             let info = document.createElement('div')
             info.id = 'bgm-player-info'
             info.classList.add('black-text-shadow')
-            info.innerText = ''
+            info.innerHTML = ''
             if (BgmGlobalInfo && BgmGlobalInfo[id]) {
-                info.innerText = 'BGM: ' + BgmGlobalInfo[id][0]
+                info.innerHTML = 'BGM: ' + BgmGlobalInfo[id][0]
+                if (BgmGlobalInfo[id][1]) {
+                    info.innerHTML += '</br>' + BgmGlobalInfo[id][1]
+                }
             }
             //
-            container.appendChild(info)
             container.appendChild(player)
+            container.appendChild(info)
             // set volume realtime
             RemoveGlobalBgmTasks()
             AddGlobalTask(function () {
