@@ -499,22 +499,18 @@
     text-align: center;
 }
 
-#bgm-player {
-    position: absolute;
-    right: 5.5rem;
-    margin-top: -10px;
-    width: 330px;
-    height: 86px;
-}
-
 #bgm-player-container {
     display: none;
+    position: absolute;
+    right: 5.5rem;
+}
+
+#bgm-player {
+    margin-top: -10px;
+    width: 330px;
 }
 
 #bgm-player-info {
-    position: absolute;
-    right: 5.5rem;
-    margin-top: -10px;
     color: white;
     text-align: right;
     width: 330px;
