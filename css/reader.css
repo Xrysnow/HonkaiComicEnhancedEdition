@@ -166,7 +166,7 @@
     top: 0;
     display: none;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-right: -10px;
 }
