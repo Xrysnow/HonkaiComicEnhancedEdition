@@ -24,7 +24,18 @@
     p.chPages = [
         15, 24, 27, 33, 24
     ]
-    p.hiddenPages = null
+    p.hiddenPages = {
+        0: {
+            14: prefix + 'book/1006/12/0015.jpg'
+        }
+    }
+    p.fnGetImgSrc = function (i, n) {
+        if (i == 1 && n <= 14) {
+            // 旧版分辨率更高
+            return prefix + 'book/1006/12/' + n + '.jpg'
+        }
+        return p.imgSrcPrefix + i + '/' + n + '.jpg'
+    }
     p.bgmVolume = null
     p.bgmInfo = null
     p.bgmExtId = null
