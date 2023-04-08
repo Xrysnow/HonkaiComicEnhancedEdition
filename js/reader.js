@@ -437,23 +437,28 @@ const Reader = function (param) {
             let obj_img_wrapper = document.createElement('div')
             let obj_img = document.createElement('img')
             let obj_text = document.createElement('div')
+            let obj_hint = document.createElement('div')
             //
             obj_container.className = 'home-index-container'
-            obj_img.className = 'home-index-img'
             obj_a.className = 'home-index-a'
             obj_a.href = '#'
             obj_a.onclick = function () {
                 ToggleHomeIndex(false)
                 GotoPage(i)
             }
-            obj_img_wrapper.className = 'home-index-img-wrapper'
             obj_text.className = 'home-index-banner'
-            //
             obj_text.textContent = GetChapterTitle(i)
             //
+            obj_img.className = 'home-index-img'
             obj_img.src = GetChapterCoverSrc(i)
             //
+            obj_hint.className = 'home-index-hint'
+            obj_hint.innerText = '上次阅读'
+            //
+            obj_img_wrapper.className = 'home-index-img-wrapper'
             obj_img_wrapper.appendChild(obj_img)
+            //
+            obj_a.appendChild(obj_hint)
             obj_a.appendChild(obj_img_wrapper)
             obj_a.appendChild(obj_text)
             obj_container.appendChild(obj_a)
@@ -556,6 +561,20 @@ const Reader = function (param) {
         ToggleMenu(false)
         let title = document.getElementById('home')
         title.style.display = 'block'
+        // hide all hints
+        let hints = document.getElementsByClassName('home-index-hint')
+        for (let i = 0; i < hints.length; i++) {
+            const obj = hints[i]
+            obj.classList.remove('active')
+        }
+        // show last read hint
+        let [ibook, ichapter] = Settings.getCurrentChapter()
+        if (ibook == PARAMETER.bookIndex && !isNaN(ichapter)) {
+            let target = hints[ichapter]
+            if (target) {
+                target.classList.add('active')
+            }
+        }
     }
 
     const GotoPage = function (idx) {

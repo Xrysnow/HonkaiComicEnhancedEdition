@@ -206,6 +206,29 @@
 
 .home-index-a {
     text-decoration: none;
+    position: relative;
+}
+
+.home-index-hint {
+    position: absolute;
+    right: -20px;
+    top: -10px;
+    color: #000;
+    background-color: rgba(255, 224, 74, 1);
+    border-radius: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-weight: bold;
+    text-align: center;
+    overflow: visible;
+    white-space: nowrap;
+    display: none;
+}
+
+.home-index-hint.active {
+    display: block;
 }
 
 #home-index-return-bg {
