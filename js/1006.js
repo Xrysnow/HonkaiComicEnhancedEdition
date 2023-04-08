@@ -70,8 +70,24 @@
         }
         return p.imgSrcPrefix + i + '/' + n + '.jpg'
     }
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        [[-1, 66, 6], [0, 1, 78]],
+        67,
+        1053,
+        1053,
+        1046,
+        1091,
+        16,
+        [[16, 68], [0, 15]], // 68与游戏一致
+        [[68, 14, 69], [0, 30, 88]],
+        [[69, 1046], [0, 58]],
+        69,
+        41,
+        40,
+        42,
+        70,
+        71,
+    ]
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
