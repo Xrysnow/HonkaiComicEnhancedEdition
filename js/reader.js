@@ -33,33 +33,32 @@ class ReaderParam {
             0, 0, 0, 0, 0,
             0, 0, 0, 0, 0,
         ];
-        this.getBgmVolume = function (idx) {
-            if (this._bgmVolume[idx] == undefined) {
-                return 1
-            }
-            let v = this._bgmVolume[idx]
-            if (-100 <= v && v <= 100) {
-                return Math.pow(10, v / 20)
-            }
-            return 1
-        };
-        //
         this._bgmLoopInfo = {
             28: [5, 23, 1, 1, true],
             45: [0, 1e3, 1, 1, false],
             49: [0, 53, 1, 1, false],
         };
-        this.addBgmLoopInfo = function (id, start, end, fadeIn, fadeOut, ignoreFirst) {
-            this._bgmLoopInfo[id] = [start, end, fadeIn || 0, fadeOut || 0, ignoreFirst || false]
-        };
-        this.getBgmLoopInfo = function (id) {
-            if (!this._bgmLoopInfo[id]) {
-                // default
-                return [0, 1e5, 1, 1, false]
-            }
-            return this._bgmLoopInfo[id]
-        };
-    }
+    };
+    getBgmVolume(idx) {
+        if (this._bgmVolume[idx] == undefined) {
+            return 1
+        }
+        let v = this._bgmVolume[idx]
+        if (-100 <= v && v <= 100) {
+            return Math.pow(10, v / 20)
+        }
+        return 1
+    };
+    addBgmLoopInfo(id, start, end, fadeIn, fadeOut, ignoreFirst) {
+        this._bgmLoopInfo[id] = [start, end, fadeIn || 0, fadeOut || 0, ignoreFirst || false]
+    };
+    getBgmLoopInfo(id) {
+        if (!this._bgmLoopInfo[id]) {
+            // default
+            return [0, 1e5, 1, 1, false]
+        }
+        return this._bgmLoopInfo[id]
+    };
 }
 
 /**
