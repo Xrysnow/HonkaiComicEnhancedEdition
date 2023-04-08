@@ -57,6 +57,19 @@
             ],
         },
     }
+    // 「轩辕剑秘话」已被移动到《神之键秘话》
+    p.fnGetChapterCoverSrc = function (i) {
+        if (i >= 12) {
+            i += 1
+        }
+        return p.chCoverSrcPrefix + i + '.jpg'
+    }
+    p.fnGetImgSrc = function (i, n) {
+        if (i >= 12) {
+            i += 1
+        }
+        return p.imgSrcPrefix + i + '/' + n + '.jpg'
+    }
     p.bgmVolume = null
     p.bgmInfo = null
     p.bgmExtId = null
