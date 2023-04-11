@@ -510,7 +510,11 @@ const Reader = function (param) {
             container.classList.remove('menu')
             container.classList.add('menu-mobile')
         }
-        document.body.onclick = function () {
+        document.getElementById('menu-config-window').onclick = function (ev) {
+            // avoid body.onclick
+            ev.stopPropagation()
+        }
+        document.body.onclick = function (ev) {
             ToggleConfig(false)
             ToggleBGMPlayer(false)
         }
