@@ -534,6 +534,13 @@ const Reader = function (param) {
             if (content1) {
                 content1 = content1.getElementsByClassName('editor-note-content')[0]
                 content1.innerHTML = EDITOR_NOTE
+                // open links in new tabs
+                let links = content1.getElementsByTagName('a')
+                for (let i = 0; i < links.length; i++) {
+                    const e = links[i]
+                    e.target = '_blank'
+                    e.rel = 'nofollow noreferrer'
+                }
             }
         }
     }
