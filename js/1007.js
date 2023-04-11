@@ -35,8 +35,20 @@
         24, 24, 14, 19, 17, 21, 31, 19, 21, 18, 12
     ]
     p.hiddenPages = null
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        [[-1, 72, 1449], [0, 1, 80]],
+        [[1449, 73], [0, 33]],
+        1183,
+        74,
+        75,
+        1352,
+        1183,
+        [[76, 64], [0, 52]],
+        [[64, 65], [0, 49]],
+        [[65, 1374], [0, 45]],
+        [[1183, 77], [0, 80]],
+    ]
+    p.addBgmLoopInfo(65, 68, 100, 0.5, 0.5, false)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
