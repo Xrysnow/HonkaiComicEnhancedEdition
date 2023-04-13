@@ -249,23 +249,41 @@
 #home-index-return-bg {
     display: none;
     position: fixed;
-    right: 0;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border: 120px solid transparent;
-    border-bottom: none;
-    border-left: none;
-    border-right-color: rgba(0, 0, 0, 0.7);
+    left: -10px;
+    top: 8px;
+    width: calc(96px + 10px);
+    height: 40px;
+    background-color: #fedf4c;
+    transform: skewX(-12deg);
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 8px;
+    filter: drop-shadow(4px 0 0 #fff);
 }
 
 #home-index-return {
-    position: fixed;
-    right: 0;
-    bottom: 0.2rem;
-    color: white;
-    font-size: 30px;
-    padding: 10px;
+    position: relative;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#home-index-btn-return {
+    transform: skewX(12deg);
+    margin-left: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#home-index-btn-return>svg {
+    width: 46px;
+    height: auto;
+    padding-left: 6px;
+}
+
+#home-index-btn-return>div {
+    width: 100%;
 }
 
 @media screen and (min-width: 1200px) {
