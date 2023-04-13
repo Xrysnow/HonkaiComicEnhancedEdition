@@ -1,3 +1,16 @@
+const AltStorage = {
+    _data: {},
+    getItem: function (k) {
+        return this._data[k]
+    },
+    setItem: function (k, v) {
+        this._data[k] = v
+    },
+    removeItem: function (k) {
+        delete this._data[k]
+    }
+}
+
 const Settings = {
     KCurrentBook: '/honkai-comic/current-book',
     KCurrentChapter: '/honkai-comic/current-chapter',
@@ -10,7 +23,7 @@ const Settings = {
 
     setLocalStorage: function (k, v) {
         if (!window.localStorage) {
-            return
+            window.localStorage = AltStorage
         }
         try {
             window.localStorage.removeItem(k)
