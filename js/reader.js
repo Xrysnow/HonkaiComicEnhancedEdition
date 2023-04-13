@@ -437,6 +437,7 @@ const Reader = function (param) {
             let obj_img = document.createElement('img')
             let obj_text = document.createElement('div')
             let obj_hint = document.createElement('div')
+            let obj_checkmark = document.createElement('div')
             //
             obj_container.className = 'home-index-container'
             obj_a.className = 'home-index-a'
@@ -451,12 +452,14 @@ const Reader = function (param) {
             obj_img.className = 'home-index-img'
             obj_img.src = GetChapterCoverSrc(i)
             //
+            obj_checkmark.className = 'home-index-checkmark'
             obj_hint.className = 'home-index-hint'
             obj_hint.innerText = '上次阅读'
             //
             obj_img_wrapper.className = 'home-index-img-wrapper'
             obj_img_wrapper.appendChild(obj_img)
             //
+            obj_a.appendChild(obj_checkmark)
             obj_a.appendChild(obj_hint)
             obj_a.appendChild(obj_img_wrapper)
             obj_a.appendChild(obj_text)
@@ -583,6 +586,20 @@ const Reader = function (param) {
             let target = hints[ichapter]
             if (target) {
                 target.classList.add('active')
+            }
+        }
+        // hide all marks
+        let marks = document.getElementsByClassName('home-index-checkmark')
+        for (let i = 0; i < marks.length; i++) {
+            const obj = marks[i]
+            obj.classList.remove('active')
+        }
+        // show finished mark
+        for (let i = 0; i < marks.length; i++) {
+            const obj = marks[i]
+            let finished = Settings.isChapterFinished(PARAMETER.bookIndex, i)
+            if (finished && ichapter != i) {
+                obj.classList.add('active')
             }
         }
     }
