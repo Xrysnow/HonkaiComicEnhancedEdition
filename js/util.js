@@ -19,7 +19,7 @@ const Settings = {
     KBGMEnabled: '/honkai-comic/bgm-enabled',
     KBGMVolume: '/honkai-comic/bgm-volume',
     KVoiceVolume: '/honkai-comic/voice-volume',
-    // KVoiceLanguage; '/honkai-comic/voice-lang',
+    KFinishedChapters: '/honkai-comic/finished-chapters',
 
     setLocalStorage: function (k, v) {
         if (!window.localStorage) {
@@ -122,6 +122,46 @@ const Settings = {
     getVoiceVolume: function () {
         return Number(this.getLocalStorage(this.KVoiceVolume))
     },
+
+    setFinishedChapters: function (value) {
+        if (typeof (value) != 'string') {
+            value = JSON.stringify(value)
+        }
+        this.setLocalStorage(this.KFinishedChapters, value)
+    },
+    getFinishedChapters: function () {
+        let value = this.getLocalStorage(this.KFinishedChapters)
+        if (!value) {
+            return undefined
+        }
+        return JSON.parse(value)
+    },
+    addFinishedChapter: function (ibook, ichapter, progress) {
+        let value = this.getFinishedChapters()
+        if (!value) {
+            value = {}
+        }
+        if (!value[ibook]) {
+            value[ibook] = {}
+        }
+        value[ibook][ichapter] = true
+        value[ibook]['progress'] = progress
+        this.setFinishedChapters(value)
+    },
+    isChapterFinished: function (ibook, ichapter) {
+        let value = this.getFinishedChapters()
+        if (!value || !value[ibook]) {
+            return false
+        }
+        return Boolean(value[ibook][ichapter])
+    },
+    getBookProgress: function (ibook) {
+        let value = this.getFinishedChapters()
+        if (!value || !value[ibook] || !value[ibook]['progress']) {
+            return 0
+        }
+        return Number(value[ibook]['progress'])
+    }
 }
 Settings.setDefault()
 
