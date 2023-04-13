@@ -117,3 +117,55 @@
     filter: drop-shadow(0 0 1.5px rgb(0, 0, 0));
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+@media screen and (max-width: 500px) {
+    .comic-item-1 {
+        width: calc(50% - 10px) !important;
+    }
+
+    .comic-cover-1 {
+        height: auto !important;
+        width: auto !important;
+        padding-top: 122%;
+    }
+
+    .comic-title-1 .comic-title-main {
+        font-size: 20px;
+    }
+
+    .comic-title-1 .comic-title-type {
+        font-size: 10px;
+    }
+
+    .comic-title-1 .comic-title-date {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .comic-title-1 .comic-title-main {
+        font-size: 18px;
+    }
+
+    .comic-title-1 .comic-title-type {
+        font-size: 9px;
+    }
+
+    .comic-title-1 .comic-title-date {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .comic-title-1 .comic-title-main {
+        font-size: 14px;
+    }
+
+    .comic-title-1 .comic-title-type {
+        font-size: 7px;
+    }
+
+    .comic-title-1 .comic-title-date {
+        font-size: 10px;
+    }
+}
