@@ -59,6 +59,7 @@
 .comic-title-1 .comic-title-type {
     font-size: 12px;
     color: #999;
+    margin-top: -2px;
 }
 
 .comic-title-1 .comic-title-date {
@@ -84,14 +85,27 @@
     position: absolute;
     height: 6px;
     width: 100%;
-    border-radius: 3px;
+    border-radius: 5px 2px 5px 2px;
+    background-color: #777;
+}
+
+.comic-title-1 .comic-title-progress-bar::before{
+    display: block;
+    counter-reset: progress var(--precent); 
+    content: ' ';
+    width: calc(1% * var(--precent));
     background-color: rgb(126, 204, 66);
+    white-space: nowrap;
+    overflow: hidden;
+    height: 6px;
+    border-radius: 5px 2px 5px 2px;
 }
 
 .comic-title-1 .comic-title-progress-text {
     position: absolute;
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
     width: 100%;
-    top: -10px;
+    filter: drop-shadow(0 0 1.5px rgb(0, 0, 0));
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

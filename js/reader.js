@@ -615,6 +615,17 @@ const Reader = function (param) {
         }
         CurrentPage = idx
         Settings.setCurrentChapter(PARAMETER.bookIndex, idx)
+        let progress = 0
+        let totalChapter = 0
+        for (let i = 0; i < PARAMETER.chPages.length; i++) {
+            const n = PARAMETER.chPages[i]
+            totalChapter += n
+            if (Settings.isChapterFinished(PARAMETER.bookIndex, i) || i == idx) {
+                progress += n
+            }
+        }
+        progress = Math.floor(progress / totalChapter * 100)
+        Settings.addFinishedChapter(PARAMETER.bookIndex, idx, progress)
         //
         ToggleMenu(true)
         ToggleConfig(false)

@@ -318,13 +318,6 @@ let ComicData = [
             let cover = document.createElement('div')
             cover.className = 'comic-cover-1'
             cover.style.backgroundImage = 'url(' + data.cover + ')'
-            // let coverWrapper = document.createElement('div')
-            // coverWrapper.className = 'comic-cover-wrapper-1'
-            // let img = document.createElement('img')
-            // img.src = data.cover
-            //
-            // coverWrapper.appendChild(img)
-            // cover.appendChild(coverWrapper)
             //
             let title = document.createElement('div')
             title.className = 'comic-title-1'
@@ -362,6 +355,13 @@ let ComicData = [
             //
             if (data.deprecated) {
                 item.classList.add('comic-item-deprecated-1')
+            }
+            let p = Settings.getBookProgress(data.id)
+            if (p) {
+                bar.style.setProperty('--precent', p.toString())
+                text.innerText = p + '%'
+            } else {
+                bar.style.setProperty('--precent', '0')
             }
             //
             comicList.append(item)
