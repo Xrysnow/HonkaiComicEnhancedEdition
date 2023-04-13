@@ -1,0 +1,97 @@
+.comic-list.style-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.comic-item-deprecated-1 {
+    opacity: 0.6;
+}
+
+.comic-item-deprecated-1:hover {
+    opacity: 1.0;
+}
+
+.comic-item-1 {
+    width: 188px;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.comic-brief-1 {
+    background-color: #fff;
+    color: #000;
+}
+
+.comic-cover-1 {
+    float: none;
+    width: 188px;
+    height: 230px;
+    overflow: hidden;
+    border-radius: 0;
+    /* font-size: 0; */
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.comic-cover-wrapper-1 {
+    position: relative;
+    float: left;
+    left: -50%;
+}
+
+.comic-cover-1 img {
+    height: 230px;
+    display: block;
+}
+
+.comic-title-1 {
+    text-align: center;
+}
+
+.comic-title-1 .comic-title-main {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.comic-title-1 .comic-title-type {
+    font-size: 12px;
+    color: #999;
+}
+
+.comic-title-1 .comic-title-date {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 195, 255);
+}
+
+.comic-title-1 .comic-title-progress-wrapper {
+    height: 0;
+}
+
+.comic-title-1 .comic-title-progress {
+    position: relative;
+    top: -10px;
+    width: 50%;
+    left: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.comic-title-1 .comic-title-progress-bar {
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    border-radius: 3px;
+    background-color: rgb(126, 204, 66);
+}
+
+.comic-title-1 .comic-title-progress-text {
+    position: absolute;
+    font-size: 14px;
+    color: #fff;
+    width: 100%;
+    top: -10px;
+}
