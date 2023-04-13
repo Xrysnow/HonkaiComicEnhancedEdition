@@ -62,6 +62,22 @@ const Settings = {
         }
     },
 
+    clearStorage: function () {
+        if (!window.localStorage) {
+            return
+        }
+        let keys = Object.keys(this)
+        try {
+            for (let i = 0; i < keys.length; i++) {
+                const k = keys[i]
+                if (k[0] == 'K') {
+                    window.localStorage.removeItem(k)
+                }
+            }
+        } catch (error) {
+        }
+    },
+
     setCurrentChapter: function (idxBook, idxChapter) {
         this.setLocalStorage(this.KCurrentBook, Number(idxBook))
         this.setLocalStorage(this.KCurrentChapter, Number(idxChapter))
