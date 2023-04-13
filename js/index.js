@@ -366,6 +366,10 @@ let ComicData = [
             //
             comicList.append(item)
         }
+        for (let i = 0; i < 20; i++) {
+            let obj_i = document.createElement('i')
+            comicList.appendChild(obj_i)
+        }
     }
     function InitIndex(style) {
         let container = document.getElementsByClassName('index-container')[0]

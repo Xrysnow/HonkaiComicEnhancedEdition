@@ -172,14 +172,14 @@
 }
 
 #home-index>i {
-    width: 12rem;
-    margin-right: 10px;
+    width: 150px;
+    margin: 0px 10px 0px 10px;
 }
 
 .home-index-container {
     width: 150px;
     height: 180px;
-    margin: 25px 25px 0 25px;
+    margin: 15px 10px 15px 10px;
 }
 
 .home-index-banner {
@@ -296,11 +296,16 @@
         font-size: 1rem;
     }
 
+    #home-index>i {
+        width: calc(32% - 10px);
+        margin: 0px 5px 0px 5px;
+    }
+
     .home-index-container {
         width: calc(32% - 10px);
         /* height: 8rem; */
         height: fit-content;
-        margin: 15px 5px 0 5px;
+        margin: 15px 5px 15px 5px;
     }
 
     .home-index-banner {

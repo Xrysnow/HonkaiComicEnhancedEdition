@@ -466,7 +466,7 @@ const Reader = function (param) {
             obj_container.appendChild(obj_a)
             obj_index.appendChild(obj_container)
         }
-        for (let i = 0; i < NUM_CHAPTER; i++) {
+        for (let i = 0; i < 20; i++) {
             let obj_i = document.createElement('i')
             obj_index.appendChild(obj_i)
         }
