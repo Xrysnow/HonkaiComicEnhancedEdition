@@ -121,6 +121,7 @@ const Reader = function (param) {
     if (bgSrc) {
         HOME_BG_SRC = bgSrc
     }
+    let HOME_BG_INDEX = -1
 
     const NUM_CHAPTER = numChapter
     const CHAPTER_TITLES = chTitles
@@ -365,15 +366,31 @@ const Reader = function (param) {
         console.log('change bgm to ' + id)
     }
 
-    const SetHomePage = function () {
+    const SetHomePageBg = function () {
+        let src = HOME_BG_SRC
+        if (typeof (src) != 'string') {
+            if (HOME_BG_INDEX < 0) {
+                HOME_BG_INDEX = Math.floor(Math.random() * src.length)
+            } else {
+                HOME_BG_INDEX += 1
+                if (HOME_BG_INDEX >= src.length) {
+                    HOME_BG_INDEX = 0
+                }
+            }
+            src = src[HOME_BG_INDEX]
+        }
         let obj_bg = document.getElementById('home-bg')
         if (obj_bg) {
-            obj_bg.src = HOME_BG_SRC
+            obj_bg.src = src
         }
         let obj_bg2 = document.getElementById('home-bg2')
         if (obj_bg2) {
-            obj_bg2.src = HOME_BG_SRC
+            obj_bg2.src = src
         }
+    }
+
+    const SetHomePage = function () {
+        SetHomePageBg()
         //
         let obj_title = document.getElementById('comic-title')
         if (obj_title) {
@@ -584,6 +601,9 @@ const Reader = function (param) {
         RemoveBGMPlayer()
         ToggleConfig(false)
         ToggleMenu(false)
+        // update bg image
+        SetHomePageBg()
+        //
         let title = document.getElementById('home')
         title.style.display = 'block'
         // hide all hints
