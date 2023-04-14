@@ -452,6 +452,9 @@ const Reader = function (param) {
             if (ii < 0) {
                 ii = ctitle.indexOf('章 ')
             }
+            if (ii < 0) {
+                ii = ctitle.indexOf('幕 ')
+            }
             if (ii > 0) {
                 obj_text.innerHTML = ctitle.substring(0, ii + 1) + '<br/>' + ctitle.substring(ii + 2)
             } else {
@@ -1030,7 +1033,7 @@ const Reader = function (param) {
         }
         return COVER_SRC_PREFIX + num + '.jpg'
     }
-
+    /** @returns {string} */
     function GetChapterTitle(i) {
         if (CHAPTER_TITLES[LANGUAGE]) {
             return CHAPTER_TITLES[LANGUAGE][i]
