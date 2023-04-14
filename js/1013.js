@@ -15,7 +15,29 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1013.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1013.jpg',
+        //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/24/50494840/013ee2c371a78dbc289a74572dde12f7_4519334787570761299.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/731a3203a67e95375ba51c3fcc425592_3040426686874320482.png',
+        // 新春贺图
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/24/50494840/f9658226740874a9c6e4020d9fdc8a24_6975264297955951018.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/76361817/aa119050b142df881e84221ea4a750f8_229820602736518874.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/76361817/5adde343dacdce876f542adc58b5ed5e_4048398920103209138.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/76361817/edb8c7505d81c5ccd0b0a5d4d28cbb50_981299749155818277.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/23/50494840/4857a32d3120308810c083991e4e4162_8671346900036034360.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/23/50494840/330fa09d745f56a6c9cb29e7ff6624d4_7065024987457631116.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/23/50494840/df2a626c8105c5a670bd2ce2616b065a_3006252665454885770.png',
+        //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/1cb394e1a43587a6719eb1980c47545c_1875295609434467151.jpg',
+        // 女武神的餐厅
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/23/75216984/474d0907b9e1b2d7c5af60abc8ddd99e_1409416198354537071.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/23/75216984/30cd055b027eec99cd2e5e10cb222070_1156673507810228893.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/23/75216984/47ef3f77f92c00531173ed93d1807883_6549464055160767071.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/03/23/75216984/51025a3575b5ceefc7c56492904af947_2105027172881010891.png',
+        //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2023/01/23/75216984/052df7de1266fee203687d7af5054a24_3129754573725950929.png',
+    ]
     p.numChapter = 16
     p.chTitles = [
         '第一话 回忆中的俄罗斯甜菜汤',

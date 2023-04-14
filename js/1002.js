@@ -14,7 +14,10 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1002.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1002.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/d7732a5f5d5d6124833c9653005203d9_9122773130294541052.png',
+    ]
     p.numChapter = 8
     p.chTitles = [
         '第七话 琪亚娜最大的危机',

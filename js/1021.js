@@ -12,7 +12,15 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1021.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1021.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/73514954/fe39fc4a6324e6f56f3a41416225e565_2745354954126186424.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/50494840/f4b96c2fb99a2b94260f295ca85ac983_8665254224988187316.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/50494840/26caccc47c9e504cfa4fab78feedbb39_839600948863478661.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/50494840/a0a45bc8e5fafe24839115355c08bd57_146009563887995285.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/50494840/44437cacc03dab20911213a962ce3057_8192488671501323294.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/22/75216984/2a03786b3a7413c76d99fdf94668270f_8648840729497920030.jpg',
+    ]
     p.numChapter = 16
     p.chTitles = [
         '泡影',

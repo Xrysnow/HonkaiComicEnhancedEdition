@@ -12,7 +12,10 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1010.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1010.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/eb4c1d7378170e1d52115d2284a504af_5701453498518035470.png',
+    ]
     p.numChapter = 5
     p.chTitles = [
         '轩辕剑秘话',

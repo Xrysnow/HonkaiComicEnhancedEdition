@@ -15,7 +15,18 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1004.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1004.jpg',
+        'https://uploadstatic.mihoyo.com/contentweb/20191114/2019111412080952620.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/36fc4e32f72fe1c0f99e2c0ae65b882d_1585232059709414330.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/7a729249b8037edb3934998ba72ee326_32274073509173115.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/81367e4a712348b6caafb464f55c496a_4828421335981953392.png',
+        //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/73514954/4e6285984ea19f9b7d7bc129547affa8_6584463630296038598.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/73514954/ee0330f2c0c9850096bfec4c45bbf279_8223883241695453807.jpg',
+        //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/04/16/75216984/f7aea16826e1cfc893c72a1b1fbd3d5f_8816340498035010472.jpg',
+    ]
     p.numChapter = 11
     p.chTitles = [
         '序章 少女与雪',

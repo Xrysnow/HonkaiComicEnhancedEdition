@@ -15,7 +15,10 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1005.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1005.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/e4fb6a57e01089caf16d16705227a915_8663746868829492760.png',
+    ]
     p.numChapter = 8
     p.chTitles = [
         '第一话 邂逅',

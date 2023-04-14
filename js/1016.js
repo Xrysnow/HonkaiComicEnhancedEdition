@@ -12,7 +12,16 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1016.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1016.jpg',
+        'https://uploadstatic.mihoyo.com/contentweb/20191114/2019111412074936496.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/ae5a37b8c8b6635b6f068c09d471bebb_8248911072777294432.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/910ccbeb958e836f19eb9d44078a23de_5484264929558081197.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/0c0e838b3bd6a965530ee4fe2805062f_1670633355381259938.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/9f8b331744fc371a57063306e8ad8b3a_1070322913256225547.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/9e1d0ba6609affb5f1fc5ac448bde418_6094251868884897931.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/98bba8ea253b0d3fd048a83d8ee3682c_974669528238486833.png',
+    ]
     p.numChapter = 14
     p.chTitles = [
         '地下城篇01',

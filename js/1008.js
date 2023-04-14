@@ -17,7 +17,10 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1008.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1008.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/76361817/15ec2ab810f9faa6d630f27c69848413_5531029812150322633.jpg',
+    ]
     p.numChapter = 13
     p.chTitles = [
         '第一话 暗流',

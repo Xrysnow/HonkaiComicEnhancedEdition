@@ -15,7 +15,11 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1022.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1022.jpg',
+        'https://uploadstatic.mihoyo.com/contentweb/20200120/2020012014354871886.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/76361817/22d07a03160859fd0ad4296f7ff30783_5877719382818342623.jpg',
+    ]
     p.numChapter = 1
     p.chTitles = [
         '入魔者',

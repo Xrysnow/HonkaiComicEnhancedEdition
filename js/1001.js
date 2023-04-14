@@ -18,7 +18,18 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1001.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1001.jpg',
+        'https://uploadstatic.mihoyo.com/contentweb/20191114/2019111410133010929.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/2ca62812953cf9b4ff92685b3fdbce7d_5611216075297416836.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/07f7b5b38fd7b1be216d2bb1e5488286_611592156619703927.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/f98266285fc36b06dd0d39b5cbc6bc64_3928301468262494310.png',
+        //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/b92183b0d987cfc9a74e0b68a9fa46c7_7544078517312654810.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/70abe1f518045f37af2d7600bff60dfb_9109836804485455093.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/9e9b576b7ea0398ec6f9eaf9f627e01a_7066770841395571896.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/b891b1b50626819f925a4660f881d74f_6342417273168036510.jpg',
+    ]
     p.numChapter = 7
     p.chTitles = [
         '序章 琪亚娜·出击',

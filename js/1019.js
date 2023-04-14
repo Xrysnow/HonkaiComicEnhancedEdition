@@ -16,7 +16,13 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1019.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1019.jpg',
+        'https://uploadstatic.mihoyo.com/contentweb/20200120/2020012014354871886.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/bafe263c60d75cf4516a046f0e7af023_6808564814037714766.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/688eee50029360c4f77642e80d5da25f_6743901993825668838.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/bb1c4fc8aaf0d05d19566af4b6268022_3623408778795490639.png',
+    ]
     p.numChapter = 2
     p.chTitles = [
         '赤鸢',

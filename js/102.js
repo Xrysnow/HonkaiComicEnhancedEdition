@@ -14,7 +14,13 @@
     p.bookCoverSrc = 'http://static-event.benghuai.com/ip_resources_new/preheat/cover/avatar.jpg'
     p.imgSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/preheat/page/'
     p.chCoverSrcPrefix = ''
-    p.bgSrc = p.bookCoverSrc
+    p.bgSrc = [
+        p.bookCoverSrc,
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/11/14/75216984/a553b46b3b246f1c3306036a1f9e4d64_4910180361641039847.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/11/14/75216984/b5833e16f0054dabece6fd1ad7986a22_2504596694165768515.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/11/21/75216984/39a07f0b21b4e1ad18a0ee17702d1ba8_1918858350432775187.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/11/21/75216984/013af9889e882745c29d5e0946b09db2_8884192003334027969.png',
+    ]
     p.bookCoverSrc
     p.numChapter = 18
     p.chTitles = [

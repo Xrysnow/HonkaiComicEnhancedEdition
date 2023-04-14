@@ -15,7 +15,10 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1017.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1017.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/76361817/ff6deb160aca996caa65b6134f6a6ad0_1068788306494454691.png',
+    ]
     p.numChapter = 1
     p.chTitles = [
         '苏醒',

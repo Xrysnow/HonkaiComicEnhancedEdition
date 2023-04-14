@@ -17,7 +17,20 @@
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = prefix + 'book_cover/1007.jpg'
+    p.bgSrc = [
+        prefix + 'book_cover/1007.jpg',
+        'https://uploadstatic.mihoyo.com/contentweb/20191114/2019111410280911829.jpg',
+        'https://uploadstatic.mihoyo.com/contentweb/20191114/2019111411163449247.jpg',
+        //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/bc4710ab6684beceb65f69f6aaef6ff8_1430276547149355918.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/7abdce803be8cbb127ed9c8ce35bf4cb_8917905992397628881.jpg',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/77124895/48dec3a1c20d64a2f9fc3fa952d96fa5_2323140217591864630.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/5992b0a9a8beab5d6cf1fe689c97bece_5309074062947447891.png',
+        //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/01/02/75216984/ca625755b16650d0d988b1d26ab97092_8284551980973295943.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/01/02/75216984/c4ee3e92c0ff19edb17adac5dd633151_968592048276238281.png',
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2022/01/02/75216984/88b2563f6a568863b144079e52ba5699_8535319220815726816.png',
+    ]
     p.numChapter = 11
     p.chTitles = [
         '第一话 封印',
