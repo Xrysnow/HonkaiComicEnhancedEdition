@@ -447,7 +447,16 @@ const Reader = function (param) {
                 GotoPage(i)
             }
             obj_text.className = 'home-index-banner'
-            obj_text.textContent = GetChapterTitle(i)
+            let ctitle = GetChapterTitle(i)
+            let ii = ctitle.indexOf('话 ')
+            if (ii < 0) {
+                ii = ctitle.indexOf('章 ')
+            }
+            if (ii > 0) {
+                obj_text.innerHTML = ctitle.substring(0, ii + 1) + '<br/>' + ctitle.substring(ii + 2)
+            } else {
+                obj_text.textContent = ctitle
+            }
             //
             obj_img.className = 'home-index-img'
             obj_img.src = GetChapterCoverSrc(i)
