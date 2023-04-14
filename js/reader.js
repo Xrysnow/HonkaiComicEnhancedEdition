@@ -379,13 +379,9 @@ const Reader = function (param) {
             }
             src = src[HOME_BG_INDEX]
         }
-        let obj_bg = document.getElementById('home-bg')
-        if (obj_bg) {
-            obj_bg.src = src
-        }
-        let obj_bg2 = document.getElementById('home-bg2')
-        if (obj_bg2) {
-            obj_bg2.src = src
+        let obj = document.getElementById('home-bg-wrapper')
+        if (obj) {
+            obj.style.backgroundImage = 'url(' + src + ')'
         }
     }
 
