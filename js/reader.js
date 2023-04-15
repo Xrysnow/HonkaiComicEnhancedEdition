@@ -19,6 +19,8 @@ class ReaderParam {
         this.fnGetChapterCoverSrc = null;
         this.fnGetImgSrc = null;
         this.editorNote = null;
+        this.bookMode = null;
+        this.bookModeBlank = null;
         // loudness matching
         this._bgmVolume = [
             -9.86, -7.43, -8.97, -14.48, -9.31,
@@ -217,6 +219,10 @@ const Reader = function (param) {
 
     const ToggleGallery = function (show) {
         document.getElementById('gallery').style.display = show ? 'block' : 'none'
+    }
+
+    const ToggleBook = function (show) {
+        document.getElementById('book-wrapper').style.display = show ? 'flex' : 'none'
     }
 
     const ToggleHome = function (show) {
@@ -597,6 +603,8 @@ const Reader = function (param) {
         RemoveBGMPlayer()
         ToggleConfig(false)
         ToggleMenu(false)
+        ToggleGallery(false)
+        ToggleBook(false)
         // update bg image
         SetHomePageBg()
         //
@@ -632,16 +640,7 @@ const Reader = function (param) {
         }
     }
 
-    const GotoPage = function (idx) {
-        if (idx >= NUM_CHAPTER) {
-            return
-        }
-        // clear
-        ActiveHidden = {}
-        if (idx < 0) {
-            return GotoHome()
-        }
-        CurrentPage = idx
+    const UpdateChapterProgress = function (idx) {
         Settings.setCurrentChapter(PARAMETER.bookIndex, idx)
         let progress = 0
         let totalChapter = 0
@@ -654,11 +653,15 @@ const Reader = function (param) {
         }
         progress = Math.floor(progress / totalChapter * 100)
         Settings.addFinishedChapter(PARAMETER.bookIndex, idx, progress)
+    }
+
+    const PrepareGotoPage = function (idx) {
+        CurrentPage = idx
+        UpdateChapterProgress(idx)
         //
         ToggleMenu(true)
         ToggleConfig(false)
         ToggleHome(false)
-        ToggleGallery(true)
         SetBgMusicHandle(GetBgMusicID(idx, 0), BgMusicPlayerHeight, 500)
         //
         let ctitle = document.getElementById('chapter-title')
@@ -671,6 +674,40 @@ const Reader = function (param) {
         //
         console.log('ClearGallery')
         ClearGallery()
+    }
+
+    const GetImageSrc = function (ichapter, i) {
+        let num = '' + (i + 1)
+        num = '0'.repeat(4 - num.length) + num
+        let src = IMG_SRC_PREFIX + (ichapter + 1) + '/' + num + '.jpg'
+        if (PARAMETER.fnGetImgSrc) {
+            src = PARAMETER.fnGetImgSrc(ichapter + 1, num)
+        }
+        return src
+    }
+
+    const GotoPage = function (idx) {
+        let bookMode = Settings.getBookMode(PARAMETER.bookIndex)
+        if (!bookMode) {
+            bookMode = PARAMETER.bookMode
+            Settings.setBookMode(PARAMETER.bookIndex, bookMode)
+        }
+        if (bookMode == 'rl' || bookMode == 'lr') {
+            return GotoPageBookMode(idx, bookMode)
+        }
+        //
+        if (idx >= NUM_CHAPTER) {
+            return
+        }
+        // clear
+        ActiveHidden = {}
+        if (idx < 0) {
+            return GotoHome()
+        }
+        PrepareGotoPage(idx)
+        ToggleGallery(true)
+        ToggleBook(false)
+        //
         const num_page = NUM_PAGES[idx]
         let obj_ul = document.createElement('ul')
         obj_ul.id = 'images'
@@ -729,14 +766,10 @@ const Reader = function (param) {
             let obj_li = document.createElement('li')
             let obj_div = document.createElement('div')
             let obj_img = document.createElement('img')
-            let num = '' + (i + 1)
-            num = '0'.repeat(4 - num.length) + num
-            let src = IMG_SRC_PREFIX + (idx + 1) + '/' + num + '.jpg'
-            if (PARAMETER.fnGetImgSrc) {
-                src = PARAMETER.fnGetImgSrc(idx + 1, num)
-            }
+            let src = GetImageSrc(idx, i)
             obj_img.src = src
-            obj_img.alt = num + '.jpg'
+            let alt = src.split('/')
+            obj_img.alt = alt[alt.length - 1]
             obj_img.className = 'content-img'
             obj_div.className = 'content-img-wrapper'
             obj_div.appendChild(obj_img)
@@ -752,51 +785,6 @@ const Reader = function (param) {
             }
 
             obj_ul.appendChild(obj_li)
-            //
-            /*
-            let voice_info = GetVoiceInfo(idx, i)
-            let num_voice = 0
-            let voice_pos = 0
-            if (typeof (voice_info) == 'number') {
-                num_voice = voice_info
-            } else {
-                num_voice = voice_info[0]
-                voice_pos = voice_info[1]
-            }
-            let obj_voice_list = num_voice ? document.createElement('div') : null
-            if (num_voice) {
-                obj_voice_list = document.createElement('div')
-                obj_voice_list.className = 'voice-icon-list'
-                obj_div.appendChild(obj_voice_list)
-                if (voice_pos > 0) {
-                    obj_voice_list.style.top = voice_pos + '%'
-                }
-            }
-            for (let j = 0; j < num_voice; j++) {
-                let obj_icon_box = document.createElement('div')
-                obj_icon_box.innerHTML = VOICE_ICON
-                obj_icon_box.className = 'voice-icon-box'
-                let handle = 0
-                obj_icon_box.onclick = function () {
-                    //
-                    if (idx == (LANGUAGE == 'en' ? 65 : 66) && i == 21 & j == 0) {
-                        RemoveBGMPlayer()
-                        BgMusicSpecialPause = true
-                        if (handle) {
-                            clearTimeout(handle)
-                        }
-                        handle = setTimeout(function () {
-                            BgMusicSpecialPause = false
-                        }, 12000)
-                    }
-                    let player = document.getElementById('voice-player')
-                    player.pause()
-                    player.src = GetVoiceSrc(idx, i, j)
-                    player.play()
-                }
-                obj_voice_list.appendChild(obj_icon_box)
-            }
-            */
         }
         AddToGallery(obj_ul)
         if (!IS_MOBILE) {
@@ -805,6 +793,113 @@ const Reader = function (param) {
         // always return top
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
+    }
+
+    const GotoPageBookMode = function (idx, mode) {
+        if (idx >= NUM_CHAPTER) {
+            return
+        }
+        // clear
+        ActiveHidden = {}
+        if (idx < 0) {
+            return GotoHome()
+        }
+        PrepareGotoPage(idx)
+        ToggleGallery(false)
+        ToggleBook(true)
+        let hidden = HIDDEN_PAGES[idx]
+        //
+        // const num_page = NUM_PAGES[idx]
+        let bookWrapper = document.getElementById('book-wrapper')
+        let bookContainer = document.getElementById('book-container')
+        //
+        let leftWrapper = document.getElementById('book-left-wrapper')
+        let rightWrapper = document.getElementById('book-right-wrapper')
+        let crossWrapper = document.getElementById('book-cross-wrapper')
+        let leftPage = document.getElementById('book-left-page')
+        let rightPage = document.getElementById('book-right-page')
+        let crossPage = document.getElementById('book-cross-page')
+        /** @type {HTMLImageElement} */
+        let leftImage = document.getElementById('book-left-img')
+        /** @type {HTMLImageElement} */
+        let rightImage = document.getElementById('book-right-img')
+        /** @type {HTMLImageElement} */
+        let crossImage = document.getElementById('book-cross-img')
+        //
+        let wrapperPair = [rightWrapper, leftWrapper]
+        let pagePair = [rightPage, leftPage]
+        let imagePair = [rightImage, leftImage]
+        let cursorPlacePair = ['book-cursor-right', 'book-cursor-left']
+        if (mode == 'lr') {
+            wrapperPair = [leftWrapper, rightWrapper]
+            pagePair = [leftPage, rightPage]
+            imagePair = [leftImage, rightImage]
+            cursorPlacePair = ['book-cursor-left', 'book-cursor-right']
+        }
+        //
+        crossWrapper.style.display = 'none'
+        let current = [-1]
+        let GotoNext = function () {
+            let next1 = current[current.length - 1] + 1
+            if (next1 >= NUM_PAGES[idx]) {
+                // next chapter
+                return GotoPageBookMode(idx + 1, mode)
+            }
+            let next1Src = GetImageSrc(idx, next1)
+            let next2Src = GetImageSrc(idx, next1 + 1)
+            if (next1 + 1 >= NUM_PAGES[idx]) {
+                next2Src = ''
+            }
+            let blank = PARAMETER.bookModeBlank
+            if (blank) {
+                blank = blank[idx]
+            }
+            if ((blank && blank.includes(next1 - 1)) || next1 == 0) {
+                next2Src = next1Src
+                next1Src = ''
+            } else if (blank && blank.includes(next1)) {
+                next2Src = ''
+            }
+            // hide before image is ready
+            leftWrapper.style.display = 'none'
+            rightWrapper.style.display = 'none'
+            crossWrapper.style.display = 'none'
+            let p = new Promise((resolve, reject) => {
+                let src = next1Src
+                if (next1Src == '') {
+                    src = next2Src
+                }
+                Util.getImageSizeAsync(src, resolve)
+            }).then(([w, h]) => {
+                console.log([w, h])
+                if (w > h) {
+                    leftWrapper.style.display = 'none'
+                    rightWrapper.style.display = 'none'
+                    crossWrapper.style.display = 'block'
+                    leftImage.src = ''
+                    rightImage.src = ''
+                    crossImage.src = next1Src
+                    current = [next1]
+                } else {
+                    if (next1Src == '' || next2Src == '') {
+                        current = [next1]
+                    } else {
+                        current = [next1, next1 + 1]
+                    }
+                    leftWrapper.style.display = 'block'
+                    rightWrapper.style.display = 'block'
+                    crossWrapper.style.display = 'none'
+                    leftImage.src = next2Src
+                    rightImage.src = next1Src
+                    crossImage.src = ''
+                }
+            })
+        }
+        document.getElementById(cursorPlacePair[1]).onclick = function (ev) {
+            ev.stopPropagation()
+            GotoNext()
+        }
+        GotoNext()
     }
 
     function ReverseColor(rgbColor) {

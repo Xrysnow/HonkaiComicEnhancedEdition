@@ -20,6 +20,7 @@ const Settings = {
     KBGMVolume: '/honkai-comic/bgm-volume',
     KVoiceVolume: '/honkai-comic/voice-volume',
     KFinishedChapters: '/honkai-comic/finished-chapters',
+    KBookModes: '/honkai-comic/book-modes',
 
     setLocalStorage: function (k, v) {
         if (!window.localStorage) {
@@ -161,7 +162,33 @@ const Settings = {
             return 0
         }
         return Number(value[ibook]['progress'])
-    }
+    },
+
+    setBookMode: function (ibook, mode) {
+        let value = this.getLocalStorage(this.KBookModes)
+        if (!value) {
+            value = {}
+        } else {
+            value = JSON.parse(value)
+        }
+        if (!mode) {
+            value[ibook] = 'none'
+        } else {
+            value[ibook] = mode
+        }
+        this.setLocalStorage(this.KBookModes, JSON.stringify(value))
+    },
+    getBookMode: function (ibook) {
+        let value = this.getLocalStorage(this.KBookModes)
+        if (!value) {
+            return null
+        }
+        value = JSON.parse(value)
+        if (!value[ibook]) {
+            return null
+        }
+        return value[ibook]
+    },
 }
 Settings.setDefault()
 
@@ -180,6 +207,20 @@ const Util = {
         temp = null;
         return output;
     },
+    //
+    getImageSizeAsync: function (src, callback) {
+        let img = new Image()
+        img.src = src
+        let set = 0
+        let check = function () {
+            if (img.width > 0 || img.height > 0) {
+                callback([img.width, img.height])
+                clearInterval(set)
+            }
+        }
+        set = setInterval(check, 20)
+    },
+    //
     getQueryString: function (name) {
         let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
         let r = window.location.search.substring(1).match(reg)
