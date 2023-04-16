@@ -168,6 +168,7 @@ const Reader = function (param) {
     const ViewerConfig = { zoomRatio: 0.2 }
     let GlobalViewer = new Viewer(document.getElementById('images'), ViewerConfig)
     let CurrentChapter = -1
+    let CurrentBookPage = [-1]
     let CurrentBgMusicID = -1
     let NextBgMusicID = -1
     let ShowHomeIndex = true
@@ -480,7 +481,7 @@ const Reader = function (param) {
             obj_a.href = '#'
             obj_a.onclick = function () {
                 ToggleHomeIndex(false)
-                GotoPage(i)
+                GotoChapter(i)
             }
             obj_text.className = 'home-index-banner'
             let ctitle = GetChapterTitle(i)
@@ -530,14 +531,14 @@ const Reader = function (param) {
             if (CurrentChapter < 0 || CurrentChapter >= NUM_PAGES - 1) {
                 return
             }
-            GotoPage(CurrentChapter + 1)
+            GotoChapter(CurrentChapter + 1)
         }
         let obj_menu_prev = document.getElementById('menu-prev')
         obj_menu_prev.onclick = function () {
             if (CurrentChapter < 1 || CurrentChapter >= NUM_PAGES) {
                 return
             }
-            GotoPage(CurrentChapter - 1)
+            GotoChapter(CurrentChapter - 1)
         }
         let obj_menu_home = document.getElementById('menu-home')
         obj_menu_home.onclick = function () {
@@ -672,7 +673,7 @@ const Reader = function (param) {
         Settings.addFinishedChapter(PARAMETER.bookIndex, idx, progress)
     }
 
-    const PrepareGotoPage = function (idx) {
+    const PrepareGotoChapter = function (idx) {
         CurrentChapter = idx
         UpdateChapterProgress(idx)
         //
@@ -703,14 +704,14 @@ const Reader = function (param) {
         return src
     }
 
-    const GotoPage = function (idx) {
+    const GotoChapter = function (idx) {
         let bookMode = Settings.getBookMode(PARAMETER.bookIndex)
         if (!bookMode) {
             bookMode = PARAMETER.bookMode
             Settings.setBookMode(PARAMETER.bookIndex, bookMode)
         }
         if (bookMode == 'rl' || bookMode == 'lr') {
-            return GotoPageBookMode(idx, bookMode)
+            return GotoChapterBookMode(idx, bookMode)
         }
         //
         if (idx >= NUM_CHAPTER) {
@@ -721,7 +722,7 @@ const Reader = function (param) {
         if (idx < 0) {
             return GotoHome()
         }
-        PrepareGotoPage(idx)
+        PrepareGotoChapter(idx)
         ToggleGallery(true)
         ToggleBook(false)
         //
@@ -812,7 +813,7 @@ const Reader = function (param) {
         document.documentElement.scrollTop = 0
     }
 
-    const GotoPageBookMode = function (idx, mode) {
+    const GotoChapterBookMode = function (idx, mode) {
         if (idx >= NUM_CHAPTER) {
             return
         }
@@ -821,7 +822,7 @@ const Reader = function (param) {
         if (idx < 0) {
             return GotoHome()
         }
-        PrepareGotoPage(idx)
+        PrepareGotoChapter(idx)
         ToggleGallery(false)
         ToggleBook(true)
         let hidden = HIDDEN_PAGES[idx]
@@ -891,12 +892,12 @@ const Reader = function (param) {
                 }
             }
         }
-        //
-        let current = [-1]
+        // always goto first page
+        CurrentBookPage = [-1]
         let history = []
         let locked = false
         let GetNextSrc = function () {
-            let last = current[current.length - 1]
+            let last = CurrentBookPage[CurrentBookPage.length - 1]
             let next1 = null
             let next2 = null
             for (let i = 0; i < sources.length; i++) {
@@ -915,7 +916,7 @@ const Reader = function (param) {
             let [next1, next2] = GetNextSrc()
             if (!next1) {
                 // next chapter
-                return GotoPageBookMode(idx + 1, mode)
+                return GotoChapterBookMode(idx + 1, mode)
             }
             locked = true
             let next1Src = next1[0]
@@ -935,7 +936,7 @@ const Reader = function (param) {
                 wrapperPair[0].style.display = 'block'
                 wrapperPair[1].style.display = 'block'
                 imagePair[1].src = next2Src
-                current = [next2[1]]
+                CurrentBookPage = [next2[1]]
                 history.push([next1, next2])
                 locked = false
                 return
@@ -947,7 +948,7 @@ const Reader = function (param) {
                 if (w > h) {
                     crossWrapper.style.display = 'block'
                     crossImage.src = next1Src
-                    current = [next1[1]]
+                    CurrentBookPage = [next1[1]]
                     history.push([next1])
                     locked = false
                 } else {
@@ -956,7 +957,7 @@ const Reader = function (param) {
                     imagePair[0].src = next1Src
                     imagePair[1].src = ''
                     if (!next2Src) {
-                        current = [next1[1]]
+                        CurrentBookPage = [next1[1]]
                         history.push([next1, next2])
                         locked = false
                         return
@@ -966,11 +967,11 @@ const Reader = function (param) {
                         Util.getImageSizeAsync(next2Src, res)
                     }).then(([w, h]) => {
                         if (w > h) {
-                            current = [next1[1]]
+                            CurrentBookPage = [next1[1]]
                             history.push([next1])
                         } else {
                             imagePair[1].src = next2Src
-                            current = [next1[1], next2[1]]
+                            CurrentBookPage = [next1[1], next2[1]]
                             history.push([next1, next2])
                         }
                         locked = false
@@ -984,7 +985,7 @@ const Reader = function (param) {
                     return
                 }
                 // prev chapter
-                return GotoPageBookMode(idx - 1, mode)
+                return GotoChapterBookMode(idx - 1, mode)
             }
             locked = true
             history.pop()
@@ -1001,13 +1002,13 @@ const Reader = function (param) {
                 wrapperPair[1].style.display = 'block'
                 imagePair[0].src = prev[0][0]
                 imagePair[1].src = prev[1][0]
-                current = [prev[0][1], prev[1][1]]
+                CurrentBookPage = [prev[0][1], prev[1][1]]
                 locked = false
                 return
             }
             // one image
             let prevSrc = prev[0][0]
-            current = [prev[0][1]]
+            CurrentBookPage = [prev[0][1]]
             let p = new Promise((res, reject) => {
                 Util.getImageSizeAsync(prevSrc, res)
             }).then(([w, h]) => {
@@ -1332,5 +1333,5 @@ const Reader = function (param) {
     // always show book index
     ToggleHomeIndex(true)
     // always go to book home
-    GotoPage(-1)
+    GotoChapter(-1)
 };
