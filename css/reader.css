@@ -163,14 +163,13 @@
 
 .home-index-container {
     width: calc(110px + 40px);
-    height: 180px;
+    height: 190px;
     margin: 15px 10px 15px 10px;
     border-radius: 5px;
-    filter: drop-shadow(0 0 5px #333);
 }
 
 .home-index-container:hover {
-    filter: drop-shadow(0 0 5px #777);
+    box-shadow: 0 0 8px #333;
 }
 
 .home-index-banner {
@@ -206,8 +205,8 @@
 
 .home-index-hint {
     position: absolute;
-    right: -15px;
-    top: -10px;
+    right: 5px;
+    top: 10px;
     color: #000;
     background-color: rgba(255, 224, 74, 1);
     border-radius: 3px;
@@ -228,8 +227,8 @@
 
 .home-index-checkmark {
     position: absolute;
-    right: -10px;
-    top: -10px;
+    right: 10px;
+    top: 10px;
     width: 32px;
     height: 26px;
     background-size: contain;
