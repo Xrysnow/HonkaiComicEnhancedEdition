@@ -13,6 +13,7 @@ class ReaderParam {
         this.chPages = null;
         this.hiddenPages = null;
         this.bgmInfo = null;
+        this.bgmInfo2 = null;
         this.bgmExtId = null;
         this.i18nString = null;
         this.i18nHtml = null;
@@ -90,7 +91,6 @@ const Reader = function (param) {
     let chTitles = param.chTitles
     let chPages = param.chPages
     let hiddenPages = param.hiddenPages
-    let bgmInfo = param.bgmInfo
     let bgmExtId = param.bgmExtId
     let i18nString = param.i18nString
     let i18nHtml = param.i18nHtml
@@ -152,9 +152,13 @@ const Reader = function (param) {
 
     const BGM_SINGLE_ID = bgmExtId
 
-    let BGM_INFO = bgmInfo || {}
+    let BGM_INFO = param.bgmInfo || {}
     if (BGM_INFO[LANGUAGE]) {
         BGM_INFO = BGM_INFO[LANGUAGE]
+    }
+    let BGM_INFO2 = param.bgmInfo2 || {}
+    if (BGM_INFO2[LANGUAGE]) {
+        BGM_INFO2 = BGM_INFO2[LANGUAGE]
     }
 
     const MUSIC_LOCAL_SRC_PREFIX = '../res/music/'
@@ -680,7 +684,10 @@ const Reader = function (param) {
         ToggleMenu(true)
         ToggleConfig(false)
         ToggleHome(false)
-        SetBgMusicHandle(GetBgMusicID(idx, 0), BgMusicPlayerHeight, 500)
+        let bookMode = GetBookMode()
+        if (bookMode != 'rl' && bookMode != 'lr') {
+            SetBgMusicHandle(GetBgMusicID(idx, 0), BgMusicPlayerHeight, 500)
+        }
         //
         let ctitle = document.getElementById('chapter-title')
         if (ctitle) {
@@ -704,12 +711,17 @@ const Reader = function (param) {
         return src
     }
 
-    const GotoChapter = function (idx) {
+    const GetBookMode = function () {
         let bookMode = Settings.getBookMode(PARAMETER.bookIndex)
         if (!bookMode) {
             bookMode = PARAMETER.bookMode
             Settings.setBookMode(PARAMETER.bookIndex, bookMode)
         }
+        return bookMode
+    }
+
+    const GotoChapter = function (idx) {
+        let bookMode = GetBookMode()
         if (bookMode == 'rl' || bookMode == 'lr') {
             return GotoChapterBookMode(idx, bookMode)
         }
@@ -891,11 +903,19 @@ const Reader = function (param) {
                     sources.push([pages[j], curr])
                 }
             }
+            if (blank && blank.includes(curr)) {
+                curr += 0.01
+                sources.push(['', curr])
+            }
         }
         // always goto first page
         CurrentBookPage = [-1]
         let history = []
         let locked = false
+        let UpdateCurrentPage = function (pages) {
+            CurrentBookPage = pages
+            RequestBgMusicChange()
+        }
         let GetNextSrc = function () {
             let last = CurrentBookPage[CurrentBookPage.length - 1]
             let next1 = null
@@ -936,8 +956,13 @@ const Reader = function (param) {
                 wrapperPair[0].style.display = 'block'
                 wrapperPair[1].style.display = 'block'
                 imagePair[1].src = next2Src
-                CurrentBookPage = [next2[1]]
-                history.push([next1, next2])
+                if (next2) {
+                    UpdateCurrentPage([next1[1], next2[1]])
+                    history.push([next1, next2])
+                } else {
+                    UpdateCurrentPage([next1[1]])
+                    history.push([next1])
+                }
                 locked = false
                 return
             }
@@ -948,7 +973,7 @@ const Reader = function (param) {
                 if (w > h) {
                     crossWrapper.style.display = 'block'
                     crossImage.src = next1Src
-                    CurrentBookPage = [next1[1]]
+                    UpdateCurrentPage([next1[1]])
                     history.push([next1])
                     locked = false
                 } else {
@@ -957,8 +982,13 @@ const Reader = function (param) {
                     imagePair[0].src = next1Src
                     imagePair[1].src = ''
                     if (!next2Src) {
-                        CurrentBookPage = [next1[1]]
-                        history.push([next1, next2])
+                        if (next2) {
+                            UpdateCurrentPage([next1[1], next2[1]])
+                            history.push([next1, next2])
+                        } else {
+                            UpdateCurrentPage([next1[1]])
+                            history.push([next1])
+                        }
                         locked = false
                         return
                     }
@@ -967,11 +997,11 @@ const Reader = function (param) {
                         Util.getImageSizeAsync(next2Src, res)
                     }).then(([w, h]) => {
                         if (w > h) {
-                            CurrentBookPage = [next1[1]]
+                            UpdateCurrentPage([next1[1]])
                             history.push([next1])
                         } else {
                             imagePair[1].src = next2Src
-                            CurrentBookPage = [next1[1], next2[1]]
+                            UpdateCurrentPage([next1[1], next2[1]])
                             history.push([next1, next2])
                         }
                         locked = false
@@ -1002,27 +1032,26 @@ const Reader = function (param) {
                 wrapperPair[1].style.display = 'block'
                 imagePair[0].src = prev[0][0]
                 imagePair[1].src = prev[1][0]
-                CurrentBookPage = [prev[0][1], prev[1][1]]
+                UpdateCurrentPage([prev[0][1], prev[1][1]])
                 locked = false
                 return
             }
             // one image
             let prevSrc = prev[0][0]
-            CurrentBookPage = [prev[0][1]]
+            UpdateCurrentPage([prev[0][1]])
             let p = new Promise((res, reject) => {
                 Util.getImageSizeAsync(prevSrc, res)
             }).then(([w, h]) => {
                 if (w > h) {
                     crossWrapper.style.display = 'block'
                     crossImage.src = prevSrc
-                    locked = false
                 } else {
                     wrapperPair[1].style.display = 'block'
                     wrapperPair[0].style.display = 'block'
                     imagePair[0].src = prevSrc
                     imagePair[1].src = ''
-                    locked = false
                 }
+                locked = false
             })
         }
         document.getElementById(cursorPlacePair[1]).onclick = function (ev) {
@@ -1106,7 +1135,7 @@ const Reader = function (param) {
                 }
                 EnableBGM = bgm_switch.checked
                 if (EnableBGM) {
-                    let id = GetBgMusicID(CurrentChapter, GetScrollRatio())
+                    let id = GetBgMusicID(CurrentChapter, -1)
                     SetBGMPlayer(false, id, BgMusicPlayerHeight)
                 } else {
                     RemoveBGMPlayer()
@@ -1153,31 +1182,63 @@ const Reader = function (param) {
         return 'https://music.163.com/outchain/player?type=2&id=' + id + '&auto=1&height=' + height
     }
 
-    function GetBgMusicID(index, ratio) {
+    function GetBgMusicID(index, progress) {
         if (!EnableBGM) {
             return -1
         }
-        let v = BGM_INFO[index]
-        if (!v) {
-            return -1
-        }
-        let id = -1
-        if (typeof (v) == 'number') {
-            if (v < 0) {
+        let bookMode = GetBookMode()
+        if (bookMode == 'rl' || bookMode == 'lr') {
+            let curr = CurrentBookPage[0]
+            if (curr < 0) {
                 return -1
             }
-            id = AUDIO_LOCAL_MODE ? v : [v - 1]
-        } else {
-            let idx = 0
-            for (let i = 0; i < v[0].length; i++) {
-                const value = v[1][i];
-                if (ratio > value - 0.1) {
-                    idx = v[0][i]
-                }
+            let v = BGM_INFO2[index]
+            if (!v) {
+                return -1
             }
-            id = AUDIO_LOCAL_MODE ? idx : [idx - 1]
+            let id = -1
+            if (typeof (v) == 'number') {
+                if (v < 0) {
+                    return -1
+                }
+                id = v
+            } else {
+                let idx = 0
+                for (let i = 0; i < v[0].length; i++) {
+                    const value = v[1][i]
+                    if (curr > value - 1e-3) {
+                        idx = v[0][i]
+                    }
+                }
+                id = idx
+            }
+            return id
+        } else {
+            if (progress < 0) {
+                progress = GetScrollRatio()
+            }
+            let v = BGM_INFO[index]
+            if (!v) {
+                return -1
+            }
+            let id = -1
+            if (typeof (v) == 'number') {
+                if (v < 0) {
+                    return -1
+                }
+                id = AUDIO_LOCAL_MODE ? v : [v - 1]
+            } else {
+                let idx = 0
+                for (let i = 0; i < v[0].length; i++) {
+                    const value = v[1][i]
+                    if (progress > value - 0.1) {
+                        idx = v[0][i]
+                    }
+                }
+                id = AUDIO_LOCAL_MODE ? idx : [idx - 1]
+            }
+            return id
         }
-        return id
     }
 
     function GetScrollRatio() {
@@ -1205,14 +1266,21 @@ const Reader = function (param) {
         return scroll / validH * 100
     }
 
-    function OnScrollChange() {
-        let ratio = GetScrollRatio()
+    function RequestBgMusicChange() {
         if (EnableBGM && CurrentChapter > -1) {
-            let id = GetBgMusicID(CurrentChapter, ratio)
+            let id = GetBgMusicID(CurrentChapter, -1)
             if (id != CurrentBgMusicID || (NextBgMusicID >= 0 && id != NextBgMusicID)) {
                 SetBgMusicHandle(id, BgMusicPlayerHeight, 500)
             }
         }
+    }
+
+    function OnScrollChange() {
+        let bookMode = GetBookMode()
+        if (bookMode == 'rl' || bookMode == 'lr') {
+            return
+        }
+        RequestBgMusicChange()
         if (DEBUG_MODE) {
             document.getElementById('chapter-title').textContent = ratio.toFixed(2)
             document.getElementById('menu-bgm-text').innerText = CurrentBgMusicID
