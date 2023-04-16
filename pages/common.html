@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- HTTP 1.1 -->
     <meta http-equiv="pragma" content="no-cache">
@@ -14,13 +14,13 @@
     <meta name="format-detection" content="email=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-status-bar-style" content="black-translucent">
-    <meta name='content-language' content='zh'>
+    <meta name="content-language" content="zh">
 
-    <title id='page-title'>-</title>
+    <title id="page-title">-</title>
     <link rel="stylesheet" href="../css/viewer.min.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/reader.css">
-    <style type="text/css" id='internal-css'>
+    <style type="text/css" id="internal-css">
         .menu-icon {
             fill: #000;
         }
@@ -28,15 +28,15 @@
 </head>
 
 <body>
-    <div id='home'>
-        <div id='home-bg-wrapper'>
+    <div id="home">
+        <div id="home-bg-wrapper">
         </div>
-        <div id='home-index-bg'></div>
-        <div class="index-title" id='comic-title' style="position: relative;">-</div>
-        <div id='home-index-wrapper'>
-            <div id='home-index-title'>
-                <div id='home-index-title-banner'></div>
-                <div id='home-index-title-text'>
+        <div id="home-index-bg"></div>
+        <div class="index-title" id="comic-title" style="position: relative;">-</div>
+        <div id="home-index-wrapper">
+            <div id="home-index-title">
+                <div id="home-index-title-banner"></div>
+                <div id="home-index-title-text">
                     <div class="comic-date-wrapper">更新时间：<span id="comic-date"></span></div>
                     <div class="comic-numpage-wrapper">页数：<span id="comic-numpage"></span></div>
                     <div id="comic-brief"></div>
@@ -60,11 +60,11 @@
                     <div class="role-line"></div>
                 </div>
             </div>
-            <div id='home-index'></div>
+            <div id="home-index"></div>
         </div>
-        <div id='home-index-return-bg'>
-            <a href="../index.html" id='home-index-return'>
-                <div id='home-index-btn-return'>
+        <div id="home-index-return-bg">
+            <a href="../index.html" id="home-index-return">
+                <div id="home-index-btn-return">
                     <svg class="return-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                         <path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z" />
                     </svg>
@@ -109,58 +109,74 @@
             </div>
         </div>
     </div>
-    <div><audio id='voice-player' style="display: none;"></audio></div>
-
-    <div class="menu" id="menu-container">
-        <div id='chapter-title' class="black-text-shadow"></div>
-
-        <div class="menu__item" id='menu-next'>
-            <div class="icon-box">
-                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                    <path d="M20 12l-2.83 2.83L26.34 24l-9.17 9.17L20 36l12-12z" />
-                </svg>
+    <div id="footbar-wrapper">
+        <div id="footbar-container">
+            <div id="footbar-bgm-info">　</div>
+            <div id="footbar">
+                <div class="menu-item" id="menu-home">
+                    <div class="menu-title">
+                        <div id="menu-home-text">目录</div>
+                        <div class="key-hint-box">
+                            <div>
+                                <div>~</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item-combo">
+                    <div class="menu-item menu-item-left" id="menu-prev">
+                        <div class="menu-title">
+                            <div id="menu-prev-text">上一话</div>
+                            <div class="key-hint-box">
+                                <div>
+                                    <div>[</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item menu-item-right" id="menu-next">
+                        <div class="menu-title">
+                            <div id="menu-next-text">下一话</div>
+                            <div class="key-hint-box">
+                                <div>
+                                    <div>]</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item-combo">
+                    <div class="menu-item menu-item-left" id="menu-prev-page">
+                        <div class="menu-title">
+                            <div id="menu-prev-page-text">上一页</div>
+                            <div class="key-hint-box">
+                                <div>
+                                    <div>←</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item menu-item-right" id="menu-next-page">
+                        <div class="menu-title">
+                            <div id="menu-next-page-text">下一页</div>
+                            <div class="key-hint-box">
+                                <div>
+                                    <div>→</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" id="menu-config">
+                    <div class="menu-title">
+                        <div id="menu-config-text">设置</div>
+                    </div>
+                </div>
             </div>
-            <div class="menu-title black-text-shadow" id='menu-next-text'>下一话</div>
-        </div>
-        <div class="menu__item" id='menu-prev'>
-            <div class="icon-box">
-                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                    <path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z" />
-                </svg>
-            </div>
-            <div class="menu-title black-text-shadow" id='menu-prev-text'>上一话</div>
-        </div>
-
-        <div class="menu__item" id='menu-home'>
-            <div class="icon-box">
-                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                    <path
-                        d="M8 16h8V8H8v8zm12 24h8v-8h-8v8zM8 40h8v-8H8v8zm0-12h8v-8H8v8zm12 0h8v-8h-8v8zM32 8v8h8V8h-8zm-12 8h8V8h-8v8zm12 12h8v-8h-8v8zm0 12h8v-8h-8v8z" />
-                </svg>
-            </div>
-            <div class="menu-title black-text-shadow" id='menu-home-text'>目录</div>
-        </div>
-        <div class="menu__item" id='menu-bgm'>
-            <div id="bgm-player-container">
-            </div>
-            <div class="icon-box">
-                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                    <path
-                        d="M46 10c0-2.21-1.79-4-4-4H6c-2.21 0-4 1.79-4 4v28c0 2.21 1.79 4 4 4h36c2.21 0 4-1.79 4-4V10zm-4 28H6V10h36v28zm-26-8c0-3.31 2.69-6 6-6 .71 0 1 .14 2 .37V12h10v4h-6l-.01 14.05C27.96 33.34 25.3 36 22 36c-3.31 0-6-2.69-6-6z" />
-                </svg>
-            </div>
-            <div class="menu-title black-text-shadow" id='menu-bgm-text'>背景音乐</div>
-        </div>
-        <div class="menu__item" id='menu-config'>
-            <div class="icon-box">
-                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                    <path
-                        d="M38.86 25.95c.08-.64.14-1.29.14-1.95s-.06-1.31-.14-1.95l4.23-3.31c.38-.3.49-.84.24-1.28l-4-6.93c-.25-.43-.77-.61-1.22-.43l-4.98 2.01c-1.03-.79-2.16-1.46-3.38-1.97L29 4.84c-.09-.47-.5-.84-1-.84h-8c-.5 0-.91.37-.99.84l-.75 5.3c-1.22.51-2.35 1.17-3.38 1.97L9.9 10.1c-.45-.17-.97 0-1.22.43l-4 6.93c-.25.43-.14.97.24 1.28l4.22 3.31C9.06 22.69 9 23.34 9 24s.06 1.31.14 1.95l-4.22 3.31c-.38.3-.49.84-.24 1.28l4 6.93c.25.43.77.61 1.22.43l4.98-2.01c1.03.79 2.16 1.46 3.38 1.97l.75 5.3c.08.47.49.84.99.84h8c.5 0 .91-.37.99-.84l.75-5.3c1.22-.51 2.35-1.17 3.38-1.97l4.98 2.01c.45.17.97 0 1.22-.43l4-6.93c.25-.43.14-.97-.24-1.28l-4.22-3.31zM24 31c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
-                </svg>
-            </div>
-            <div class="menu-title black-text-shadow" id='menu-config-text'>设置</div>
         </div>
     </div>
+    <div><audio id="voice-player" style="display: none;"></audio></div>
+    <div id="bgm-player-container"></div>
 
     <div id="menu-config-window">
         <div class="popup-wrapper">
@@ -188,7 +204,7 @@
                     <div>
                         <div class="menu-config-text" id="menu-config-bgm-switch-text">背景音乐开关</div>
                         <div>
-                            <input type="checkbox" name="bgm-switch" id="menu-config-bgm-switch" checked='1'>
+                            <input type="checkbox" name="bgm-switch" id="menu-config-bgm-switch" checked="1">
                         </div>
                     </div>
                 </div>
@@ -208,9 +224,9 @@
     <script src="../js/util.js"></script>
     <script src="../js/reader.js"></script>
     <script type="text/javascript">
-        let id = Util.getQueryString('id')
+        let id = Util.getQueryString("id")
         if (id) {
-            let txt = '\<script src=\"..\/js\/' + id + '.js\"\>\<\/script\>'
+            let txt = "\<script src=\"..\/js\/" + id + ".js\"\>\<\/script\>"
             document.writeln(txt)
         }
     </script>

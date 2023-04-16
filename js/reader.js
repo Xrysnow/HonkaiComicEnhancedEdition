@@ -254,8 +254,12 @@ const Reader = function (param) {
 
     const ToggleMenu = function (show) {
         ShowMenu = show
-        let disp = IS_MOBILE ? 'flex' : 'block'
-        document.getElementById('menu-container').style.display = show ? disp : 'none'
+        let wrapper = document.getElementById('footbar-wrapper')
+        wrapper.style.display = show ? 'block' : 'none'
+        if (IS_MOBILE) {
+            let container = document.getElementById('footbar-container')
+            container.style.transform = show ? 'translateY(-100%)' : 'translateY(0)'
+        }
     }
 
     const ToggleConfig = function (show) {
@@ -351,19 +355,16 @@ const Reader = function (param) {
             player.src = src
             player.bgm_id = id
             //
-            let info = document.createElement('div')
-            info.id = 'bgm-player-info'
-            info.classList.add('black-text-shadow')
-            info.innerHTML = ''
+            let info = document.getElementById('footbar-bgm-info')
+            info.innerHTML = '　'
             if (BgmGlobalInfo && BgmGlobalInfo[id]) {
                 info.innerHTML = 'BGM: ' + BgmGlobalInfo[id][0]
                 if (BgmGlobalInfo[id][1]) {
-                    info.innerHTML += '</br>' + BgmGlobalInfo[id][1]
+                    info.innerHTML += ' / ' + BgmGlobalInfo[id][1]
                 }
             }
             //
             container.appendChild(player)
-            container.appendChild(info)
             // set volume realtime
             RemoveGlobalBgmTasks()
             AddGlobalTask(function () {
@@ -487,6 +488,15 @@ const Reader = function (param) {
             obj_a.onclick = function () {
                 ToggleHomeIndex(false)
                 GotoChapter(i)
+                let footbar = document.getElementById('footbar-container')
+                if (footbar) {
+                    // show footbar once
+                    footbar.style.transform = 'translateY(-100%)'
+                    let hdl = setTimeout(function () {
+                        footbar.style.transform = ''
+                        clearTimeout(hdl)
+                    }, 1000)
+                }
             }
             obj_text.className = 'home-index-banner'
             let ctitle = GetChapterTitle(i)
@@ -549,10 +559,6 @@ const Reader = function (param) {
         obj_menu_home.onclick = function () {
             GotoHome()
         }
-        let obj_menu_bgm = document.getElementById('menu-bgm')
-        obj_menu_bgm.onclick = function () {
-            ToggleBGMPlayer(!ShowBGMPlayer)
-        }
         let obj_menu_config = document.getElementById('menu-config')
         obj_menu_config.onclick = function (ev) {
             // avoid body.onclick
@@ -560,14 +566,6 @@ const Reader = function (param) {
             ToggleConfig(!ShowConfig)
         }
         //
-        let container = document.getElementById('menu-container')
-        container.onclick = function (e) {
-            e.stopPropagation()
-        }
-        if (IS_MOBILE) {
-            container.classList.remove('menu')
-            container.classList.add('menu-mobile')
-        }
         document.getElementById('menu-config-window').onclick = function (ev) {
             // avoid body.onclick
             ev.stopPropagation()
