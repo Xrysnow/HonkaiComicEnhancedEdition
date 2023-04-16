@@ -167,7 +167,7 @@ const Reader = function (param) {
 
     const ViewerConfig = { zoomRatio: 0.2 }
     let GlobalViewer = new Viewer(document.getElementById('images'), ViewerConfig)
-    let CurrentPage = -1
+    let CurrentChapter = -1
     let CurrentBgMusicID = -1
     let NextBgMusicID = -1
     let ShowHomeIndex = true
@@ -527,17 +527,17 @@ const Reader = function (param) {
     const SetMenu = function () {
         let obj_menu_next = document.getElementById('menu-next')
         obj_menu_next.onclick = function () {
-            if (CurrentPage < 0 || CurrentPage >= NUM_PAGES - 1) {
+            if (CurrentChapter < 0 || CurrentChapter >= NUM_PAGES - 1) {
                 return
             }
-            GotoPage(CurrentPage + 1)
+            GotoPage(CurrentChapter + 1)
         }
         let obj_menu_prev = document.getElementById('menu-prev')
         obj_menu_prev.onclick = function () {
-            if (CurrentPage < 1 || CurrentPage >= NUM_PAGES) {
+            if (CurrentChapter < 1 || CurrentChapter >= NUM_PAGES) {
                 return
             }
-            GotoPage(CurrentPage - 1)
+            GotoPage(CurrentChapter - 1)
         }
         let obj_menu_home = document.getElementById('menu-home')
         obj_menu_home.onclick = function () {
@@ -615,7 +615,7 @@ const Reader = function (param) {
     }
 
     const GotoHome = function () {
-        CurrentPage = -1
+        CurrentChapter = -1
         ClearGallery()
         RemoveBGMPlayer()
         ToggleConfig(false)
@@ -673,7 +673,7 @@ const Reader = function (param) {
     }
 
     const PrepareGotoPage = function (idx) {
-        CurrentPage = idx
+        CurrentChapter = idx
         UpdateChapterProgress(idx)
         //
         ToggleMenu(true)
@@ -1105,7 +1105,7 @@ const Reader = function (param) {
                 }
                 EnableBGM = bgm_switch.checked
                 if (EnableBGM) {
-                    let id = GetBgMusicID(CurrentPage, GetScrollRatio())
+                    let id = GetBgMusicID(CurrentChapter, GetScrollRatio())
                     SetBGMPlayer(false, id, BgMusicPlayerHeight)
                 } else {
                     RemoveBGMPlayer()
@@ -1142,23 +1142,6 @@ const Reader = function (param) {
             volume_setter.value = lastVolume
             volume_setter.onchange()
         }
-        //
-        /*
-        if (LANGUAGE == 'en') {
-            document.getElementById('menu-config-vlang-container').style.display = 'block'
-            const vlang_select = document.getElementById('menu-config-vlang')
-            vlang_select.onchange = function () {
-                SetLocalStorage(KVoiceLanguage, vlang_select.selectedIndex)
-                VOICE_LANGUAGE = vlang_select.value
-                this.VOICE_LANGUAGE = VOICE_LANGUAGE
-            }
-            let lastVLang = GetLocalStorage(KVoiceLanguage)
-            if (lastVLang) {
-                vlang_select.selectedIndex = Number(lastVLang)
-                vlang_select.onchange()
-            }
-        }
-        */
     }
     //
     function GetMusicListSrc(id, height) {
@@ -1223,8 +1206,8 @@ const Reader = function (param) {
 
     function OnScrollChange() {
         let ratio = GetScrollRatio()
-        if (EnableBGM && CurrentPage > -1) {
-            let id = GetBgMusicID(CurrentPage, ratio)
+        if (EnableBGM && CurrentChapter > -1) {
+            let id = GetBgMusicID(CurrentChapter, ratio)
             if (id != CurrentBgMusicID || (NextBgMusicID >= 0 && id != NextBgMusicID)) {
                 SetBgMusicHandle(id, BgMusicPlayerHeight, 500)
             }
@@ -1245,7 +1228,7 @@ const Reader = function (param) {
             return
         }
         IsFirstClick = false
-        if (EnableBGM && CurrentPage > -1) {
+        if (EnableBGM && CurrentChapter > -1) {
             let player = document.getElementById('bgm-player')
             if (player && player.paused) {
                 player.play()
