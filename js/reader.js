@@ -189,6 +189,7 @@ const Reader = function (param) {
     let GlobalTaskInterval = 10
     let GlobalTasks = []
     let ActiveHidden = {}
+    let GlobalKeyHandlers = {}
 
     function AddGlobalTask(f, tag, intv) {
         if (intv < 1) {
@@ -547,14 +548,15 @@ const Reader = function (param) {
         let obj_menu_home = document.getElementById('menu-home')
         obj_menu_home.onclick = function () {
             GotoHome()
-            ToggleHomeIndex(true)
         }
         let obj_menu_bgm = document.getElementById('menu-bgm')
         obj_menu_bgm.onclick = function () {
             ToggleBGMPlayer(!ShowBGMPlayer)
         }
         let obj_menu_config = document.getElementById('menu-config')
-        obj_menu_config.onclick = function () {
+        obj_menu_config.onclick = function (ev) {
+            // avoid body.onclick
+            ev.stopPropagation()
             ToggleConfig(!ShowConfig)
         }
         //
@@ -627,6 +629,7 @@ const Reader = function (param) {
         ToggleMenu(false)
         ToggleGallery(false)
         ToggleBook(false)
+        delete GlobalKeyHandlers['chapter']
         // update bg image
         SetHomePageBg()
         //
@@ -660,6 +663,7 @@ const Reader = function (param) {
                 obj.classList.add('active')
             }
         }
+        ToggleHomeIndex(true)
     }
 
     const UpdateChapterProgress = function (idx) {
@@ -823,6 +827,9 @@ const Reader = function (param) {
         // always return top
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
+        GlobalKeyHandlers['chapter'] = function (ev) {
+            //TODO:
+        }
     }
 
     const GotoChapterBookMode = function (idx, mode) {
@@ -932,11 +939,14 @@ const Reader = function (param) {
             }
             return [next1, next2]
         }
+        let GotoNextChapter = function () {
+            return GotoChapterBookMode(idx + 1, mode)
+        }
         let GotoNext = function () {
             let [next1, next2] = GetNextSrc()
             if (!next1) {
                 // next chapter
-                return GotoChapterBookMode(idx + 1, mode)
+                return GotoNextChapter()
             }
             locked = true
             let next1Src = next1[0]
@@ -1009,13 +1019,16 @@ const Reader = function (param) {
                 }
             })
         }
+        let GotoPrevChapter = function () {
+            if (idx == 0) {
+                return
+            }
+            return GotoChapterBookMode(idx - 1, mode)
+        }
         let GotoPrev = function () {
             if (history.length <= 1) {
-                if (idx == 0) {
-                    return
-                }
                 // prev chapter
-                return GotoChapterBookMode(idx - 1, mode)
+                return GotoPrevChapter()
             }
             locked = true
             history.pop()
@@ -1069,6 +1082,25 @@ const Reader = function (param) {
             GotoPrev()
         }
         GotoNext()
+        //
+        GlobalKeyHandlers['chapter'] = function (ev) {
+            if (locked) {
+                return
+            }
+            let bookMode = GetBookMode()
+            if (ev.key == 'ArrowLeft') {
+                return bookMode == 'rl' ? GotoNext() : GotoPrev()
+            } else if (ev.key == 'ArrowRight') {
+                return bookMode == 'rl' ? GotoPrev() : GotoNext()
+            } else if (ev.key == 'Escape' || ev.key == '`') {
+                GotoHome()
+            } else if (ev.key == '[') {
+                return bookMode == 'rl' ? GotoNextChapter() : GotoPrevChapter()
+            } else if (ev.key == ']') {
+                return bookMode == 'rl' ? GotoPrevChapter() : GotoNextChapter()
+            }
+            // console.log(ev)
+        }
     }
 
     function ReverseColor(rgbColor) {
@@ -1301,6 +1333,15 @@ const Reader = function (param) {
             let player = document.getElementById('bgm-player')
             if (player && player.paused) {
                 player.play()
+            }
+        }
+    })
+
+    window.addEventListener('keyup', function (e) {
+        for (const key in GlobalKeyHandlers) {
+            const hdl = GlobalKeyHandlers[key]
+            if (hdl) {
+                hdl(e)
             }
         }
     })
