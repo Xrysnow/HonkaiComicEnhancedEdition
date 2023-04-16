@@ -61,6 +61,22 @@ class ReaderParam {
         }
         return this._bgmLoopInfo[id]
     };
+    addBookFirstBlank() {
+        if (!this.bookModeBlank) {
+            this.bookModeBlank = {}
+        }
+        if (!this.chPages) {
+            return
+        }
+        for (let i = 0; i < this.chPages.length; i++) {
+            if (!this.bookModeBlank[i]) {
+                this.bookModeBlank[i] = []
+            }
+            if (!this.bookModeBlank[i].includes(0)) {
+                this.bookModeBlank[i].push(0)
+            }
+        }
+    };
 }
 
 /**
@@ -223,6 +239,7 @@ const Reader = function (param) {
 
     const ToggleBook = function (show) {
         document.getElementById('book-wrapper').style.display = show ? 'flex' : 'none'
+        document.getElementById('book-cursor-wrapper').style.display = show ? 'flex' : 'none'
     }
 
     const ToggleHome = function (show) {
@@ -809,7 +826,6 @@ const Reader = function (param) {
         ToggleBook(true)
         let hidden = HIDDEN_PAGES[idx]
         //
-        // const num_page = NUM_PAGES[idx]
         let bookWrapper = document.getElementById('book-wrapper')
         let bookContainer = document.getElementById('book-container')
         //
@@ -826,6 +842,7 @@ const Reader = function (param) {
         /** @type {HTMLImageElement} */
         let crossImage = document.getElementById('book-cross-img')
         //
+        crossWrapper.style.display = 'none'
         let wrapperPair = [rightWrapper, leftWrapper]
         let pagePair = [rightPage, leftPage]
         let imagePair = [rightImage, leftImage]
@@ -837,67 +854,189 @@ const Reader = function (param) {
             cursorPlacePair = ['book-cursor-left', 'book-cursor-right']
         }
         //
-        crossWrapper.style.display = 'none'
+        let blank = PARAMETER.bookModeBlank
+        if (blank) {
+            blank = blank[idx]
+        }
+        let sources = []
+        for (let i = 0; i < NUM_PAGES[idx]; i++) {
+            if (i == 0 && blank && blank.includes(0)) {
+                sources.push(['', 0])
+            }
+            if (i == 0 && hidden && hidden[0]) {
+                let pages = hidden[0]
+                if (typeof (pages) == 'string') {
+                    pages = [pages]
+                }
+                for (let j = 0; j < pages.length; j++) {
+                    sources.push([pages[j], 0.01 * (j + 1)])
+                }
+            }
+            //
+            let curr = i + 1
+            sources.push([GetImageSrc(idx, i), curr])
+            //
+            if (blank && blank.includes(i + 1)) {
+                curr += 0.01
+                sources.push(['', curr])
+            }
+            if (hidden && hidden[i + 1]) {
+                let pages = hidden[i + 1]
+                if (typeof (pages) == 'string') {
+                    pages = [pages]
+                }
+                for (let j = 0; j < pages.length; j++) {
+                    curr += 0.01
+                    sources.push([pages[j], curr])
+                }
+            }
+        }
+        //
         let current = [-1]
+        let history = []
+        let locked = false
+        let GetNextSrc = function () {
+            let last = current[current.length - 1]
+            let next1 = null
+            let next2 = null
+            for (let i = 0; i < sources.length; i++) {
+                const e = sources[i]
+                if (e[1] > last) {
+                    next1 = e
+                    if (i < sources.length - 1) {
+                        next2 = sources[i + 1]
+                    }
+                    break
+                }
+            }
+            return [next1, next2]
+        }
         let GotoNext = function () {
-            let next1 = current[current.length - 1] + 1
-            if (next1 >= NUM_PAGES[idx]) {
+            let [next1, next2] = GetNextSrc()
+            if (!next1) {
                 // next chapter
                 return GotoPageBookMode(idx + 1, mode)
             }
-            let next1Src = GetImageSrc(idx, next1)
-            let next2Src = GetImageSrc(idx, next1 + 1)
-            if (next1 + 1 >= NUM_PAGES[idx]) {
-                next2Src = ''
-            }
-            let blank = PARAMETER.bookModeBlank
-            if (blank) {
-                blank = blank[idx]
-            }
-            if ((blank && blank.includes(next1 - 1)) || next1 == 0) {
-                next2Src = next1Src
-                next1Src = ''
-            } else if (blank && blank.includes(next1)) {
-                next2Src = ''
+            locked = true
+            let next1Src = next1[0]
+            let next2Src = ''
+            if (next2) {
+                next2Src = next2[0]
             }
             // hide before image is ready
             leftWrapper.style.display = 'none'
             rightWrapper.style.display = 'none'
             crossWrapper.style.display = 'none'
-            let p = new Promise((resolve, reject) => {
-                let src = next1Src
-                if (next1Src == '') {
-                    src = next2Src
-                }
-                Util.getImageSizeAsync(src, resolve)
+            leftImage.src = ''
+            rightImage.src = ''
+            crossImage.src = ''
+            if (!next1Src) {
+                // if next1 is blank, next2 will not be blank or cross
+                wrapperPair[0].style.display = 'block'
+                wrapperPair[1].style.display = 'block'
+                imagePair[1].src = next2Src
+                current = [next2[1]]
+                history.push([next1, next2])
+                locked = false
+                return
+            }
+            // next1 is not blank
+            let p = new Promise((res, reject) => {
+                Util.getImageSizeAsync(next1Src, res)
             }).then(([w, h]) => {
-                console.log([w, h])
                 if (w > h) {
-                    leftWrapper.style.display = 'none'
-                    rightWrapper.style.display = 'none'
                     crossWrapper.style.display = 'block'
-                    leftImage.src = ''
-                    rightImage.src = ''
                     crossImage.src = next1Src
-                    current = [next1]
+                    current = [next1[1]]
+                    history.push([next1])
+                    locked = false
                 } else {
-                    if (next1Src == '' || next2Src == '') {
-                        current = [next1]
-                    } else {
-                        current = [next1, next1 + 1]
+                    wrapperPair[1].style.display = 'block'
+                    wrapperPair[0].style.display = 'block'
+                    imagePair[0].src = next1Src
+                    imagePair[1].src = ''
+                    if (!next2Src) {
+                        current = [next1[1]]
+                        history.push([next1, next2])
+                        locked = false
+                        return
                     }
-                    leftWrapper.style.display = 'block'
-                    rightWrapper.style.display = 'block'
-                    crossWrapper.style.display = 'none'
-                    leftImage.src = next2Src
-                    rightImage.src = next1Src
-                    crossImage.src = ''
+                    // next2 can be normal or cross
+                    let p2 = new Promise((res, reject) => {
+                        Util.getImageSizeAsync(next2Src, res)
+                    }).then(([w, h]) => {
+                        if (w > h) {
+                            current = [next1[1]]
+                            history.push([next1])
+                        } else {
+                            imagePair[1].src = next2Src
+                            current = [next1[1], next2[1]]
+                            history.push([next1, next2])
+                        }
+                        locked = false
+                    })
+                }
+            })
+        }
+        let GotoPrev = function () {
+            if (history.length <= 1) {
+                if (idx == 0) {
+                    return
+                }
+                // prev chapter
+                return GotoPageBookMode(idx - 1, mode)
+            }
+            locked = true
+            history.pop()
+            let prev = history[history.length - 1]
+            // hide before image is ready
+            leftWrapper.style.display = 'none'
+            rightWrapper.style.display = 'none'
+            crossWrapper.style.display = 'none'
+            leftImage.src = ''
+            rightImage.src = ''
+            crossImage.src = ''
+            if (prev.length > 1) {
+                wrapperPair[0].style.display = 'block'
+                wrapperPair[1].style.display = 'block'
+                imagePair[0].src = prev[0][0]
+                imagePair[1].src = prev[1][0]
+                current = [prev[0][1], prev[1][1]]
+                locked = false
+                return
+            }
+            // one image
+            let prevSrc = prev[0][0]
+            current = [prev[0][1]]
+            let p = new Promise((res, reject) => {
+                Util.getImageSizeAsync(prevSrc, res)
+            }).then(([w, h]) => {
+                if (w > h) {
+                    crossWrapper.style.display = 'block'
+                    crossImage.src = prevSrc
+                    locked = false
+                } else {
+                    wrapperPair[1].style.display = 'block'
+                    wrapperPair[0].style.display = 'block'
+                    imagePair[0].src = prevSrc
+                    imagePair[1].src = ''
+                    locked = false
                 }
             })
         }
         document.getElementById(cursorPlacePair[1]).onclick = function (ev) {
             ev.stopPropagation()
+            if (locked) {
+                return
+            }
             GotoNext()
+        }
+        document.getElementById(cursorPlacePair[0]).onclick = function (ev) {
+            ev.stopPropagation()
+            if (locked) {
+                return
+            }
+            GotoPrev()
         }
         GotoNext()
     }
