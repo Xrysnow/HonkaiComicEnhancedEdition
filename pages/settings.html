@@ -50,23 +50,51 @@
                 </div>
             </div>
         </div>
-        <div class="comic-list">
-            <div class="comic-item">
-                <div class="comic-title">
-                    <div>-</div>
-                    <div class="role-line"></div>
-                    <div>-</div>
-                </div>
-                <a href="">
-                    <div class="comic-brief">
-                        <div class="comic-cover">
-                            <img src="">
+        <div class="config-page-wrapper">
+            <div id="config-page-container">
+                <div class="menu-config-wrapper">
+                    <div>
+                        <div class="menu-config-text" id="menu-config-width-text">
+                            竖版图片宽度
                         </div>
-                        <div class="comic-description">
-                            -
+                        <div>
+                            <input type="range" id="menu-config-width" value="50" min="20" max="100" step="5">
                         </div>
                     </div>
-                </a>
+                </div>
+                <div class="menu-config-wrapper">
+                    <div>
+                        <div class="menu-config-text" id="menu-config-bg-text">
+                            阅读背景颜色
+                        </div>
+                        <div>
+                            <select name="bg-color" id="menu-config-bg">
+                                <option value="#fff" id="menu-config-bg-1">白色</option>
+                                <option value="#000" id="menu-config-bg-2">黑色</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-config-wrapper">
+                    <div>
+                        <div class="menu-config-text" id="menu-config-bgm-switch-text">
+                            背景音乐开关
+                        </div>
+                        <div>
+                            <input type="checkbox" name="bgm-switch" id="menu-config-bgm-switch" checked="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-config-wrapper">
+                    <div>
+                        <div class="menu-config-text" id="menu-config-volume-text">
+                            背景音乐音量
+                        </div>
+                        <div>
+                            <input type="range" id="menu-config-bgm-volume" value="100" min="0" max="100" step="5">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

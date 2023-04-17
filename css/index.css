@@ -363,7 +363,7 @@ label * {
     }
 }
 
-/* settings */
+/* settings in window */
 
 #menu-config-window {
     display: none;
@@ -401,6 +401,13 @@ label * {
     padding: 3px;
 }
 
+.menu-config-wrapper>div>:last-child {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    justify-content: flex-end;
+}
+
 .menu-config-wrapper>div {
     background-color: rgba(0, 30, 60, .5);
     padding: 10px;
@@ -412,13 +419,58 @@ label * {
     height: 48px;
 }
 
-.menu-config-text {}
+.menu-config-text:before {
+    content: ' ';
+    width: 22px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    opacity: 0.3;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAaCAYAAACkVDyJAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAE7mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgOS4wLWMwMDAgNzkuMTcxYzI3ZiwgMjAyMi8wOC8xNi0xODowMjo0MyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMy0wNC0xOFQwMToxNToyMSswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMy0wNC0xOFQwMToxNToyMSswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjMtMDQtMThUMDE6MTU6MjErMDg6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjkxOGY0ODIwLTBkYTEtMDc0NC1hNWQ1LWI0MzQxMTdkNGQyMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MThmNDgyMC0wZGExLTA3NDQtYTVkNS1iNDM0MTE3ZDRkMjAiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5MThmNDgyMC0wZGExLTA3NDQtYTVkNS1iNDM0MTE3ZDRkMjAiIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjkxOGY0ODIwLTBkYTEtMDc0NC1hNWQ1LWI0MzQxMTdkNGQyMCIgc3RFdnQ6d2hlbj0iMjAyMy0wNC0xOFQwMToxNToyMSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKFdpbmRvd3MpIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoUbaVAAAAFvSURBVEjHxZYxSAMxFIZPERQdpXYUpAodRKEgjh2lk6Pg6CTFTTfpKAjuTq4KroKTzk46iHRp66BCF8G2uojV+AXeQYyXuwNr7odvyb2X/y55L5dAKRU4GIYZOIQGbMGYI3YVruEMyjDqmtdlloddeFU/dQTzMAWTMAc78GbF6ZcspDUch1Pl1jNcwDncx8TdyQolGs5CW/1dn1BNYzgBNwMwfIRS2j28HIDhrWxPouGQVJwtXan7UIFpoSJjjYj4B1hIY7gGL0ZiH06gGNNCRYnpW6YHSYaLULeSjqVNggTyEmuqLR/wy3AZtuHJSqhb/TQihbAhlGQsfF6IeOEu7MFKaLgu623rC2rGZPr02ISmEdOUMfNkqUmurY7ebx1w5aiyDzmmwomWoBUR15JnYVxZcqPUCxwVqfUOOWOiakwLmA2ek9wodTIx9L6k3ovGe1tk0viZHW2ZHN7ef0/ef8DerxjeL1Her4n/ehH+Bhr6/VBb8HIRAAAAAElFTkSuQmCC);
+}
+
+/* settings in page */
+
+.config-page-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#config-page-container {
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#config-page-container .menu-config-wrapper {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+#config-page-container .menu-config-wrapper>div>:last-child {
+    width: 35%;
+}
+
+#config-page-container .menu-config-wrapper input[type="range" i] {
+    width: 100%;
+}
 
 /* widgets */
 
 .menu-config-text {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
 }
 
 .menu-config-wrapper select {
@@ -442,9 +494,8 @@ label * {
 
 .menu-config-wrapper input[type="range" i] {
     appearance: none;
-    height: 6px;
-    margin-bottom: 12px;
-    border-radius: 3px;
+    height: 4px;
+    border-radius: 2px;
     background-image: linear-gradient(90deg, rgba(0, 197, 255, 1), rgba(255, 255, 150, 1));
 }
 
