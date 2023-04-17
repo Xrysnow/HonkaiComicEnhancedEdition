@@ -825,8 +825,24 @@ const Reader = function (param) {
         // always return top
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
+        //
+        let GotoPrevChapter = function () {
+            if (idx == 0) {
+                return
+            }
+            return GotoChapter(idx - 1)
+        }
+        let GotoNextChapter = function () {
+            return GotoChapter(idx + 1)
+        }
         GlobalKeyHandlers['chapter'] = function (ev) {
-            //TODO:
+            if (ev.key == '`') {
+                GotoHome()
+            } else if (ev.key == '[') {
+                return GotoPrevChapter()
+            } else if (ev.key == ']') {
+                return GotoNextChapter()
+            }
         }
     }
 
@@ -1090,7 +1106,7 @@ const Reader = function (param) {
                 return bookMode == 'rl' ? GotoNext() : GotoPrev()
             } else if (ev.key == 'ArrowRight') {
                 return bookMode == 'rl' ? GotoPrev() : GotoNext()
-            } else if (ev.key == 'Escape' || ev.key == '`') {
+            } else if (ev.key == '`') {
                 GotoHome()
             } else if (ev.key == '[') {
                 return bookMode == 'rl' ? GotoNextChapter() : GotoPrevChapter()
