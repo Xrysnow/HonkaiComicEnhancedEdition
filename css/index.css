@@ -140,7 +140,6 @@ label * {
         width: 10%;
         min-width: 120px;
         height: 100%;
-        background: rgba(0, 0, 0, .1);
         position: fixed;
         bottom: 0;
         left: 0;
@@ -183,7 +182,7 @@ label * {
         align-items: center;
         justify-content: space-around;
         cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.2);
         border-radius: 6px;
         margin-right: 36px;
     }
@@ -199,7 +198,7 @@ label * {
         width: 40px;
         word-wrap: break-word;
         text-align: center;
-        line-height: 1;
+        line-height: 1.1;
     }
 
     .nav .nav-list-item>a {
