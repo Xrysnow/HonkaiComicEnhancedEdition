@@ -534,10 +534,6 @@ const Reader = function (param) {
             let obj_i = document.createElement('i')
             obj_index.appendChild(obj_i)
         }
-        let obj_index_return = document.getElementById('home-index-return')
-        obj_index_return.onclick = function () {
-            ToggleHomeIndex(false)
-        }
     }
 
     const SetMenu = function () {
@@ -659,6 +655,12 @@ const Reader = function (param) {
             let finished = Settings.isChapterFinished(PARAMETER.bookIndex, i)
             if (finished && ichapter != i) {
                 obj.classList.add('active')
+            }
+        }
+        //
+        GlobalKeyHandlers['chapter'] = function (ev) {
+            if (ev.key == '`') {
+                window.location.href = '../index.html'
             }
         }
         ToggleHomeIndex(true)
