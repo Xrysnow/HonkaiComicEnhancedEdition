@@ -283,3 +283,23 @@ const MathUtil = {
         return current
     }
 }
+
+const AppInfo = {
+    LocalVersion: 1,
+    RemoteVersion: -1,
+    ImageLocal: false,
+    AudioLocal: true,
+    getVersionString: function () {
+        let v = this.LocalVersion
+        if (this.RemoteVersion > 0) {
+            v = this.RemoteVersion
+        }
+        let major = Math.floor(v / 100).toString()
+        let minor = Math.round(v - major * 100).toString()
+        let str = 'v' + major + '.' + '0'.repeat(2 - minor.length) + minor
+        if (this.ImageLocal) {
+            str += 'L'
+        }
+        return str
+    }
+}
