@@ -271,8 +271,6 @@ label * {
 /* comic-title */
 
 .comic-title {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -300,7 +298,6 @@ label * {
     -ms-flex: 1;
     flex: 1;
     height: 3px;
-    background: -o-linear-gradient(right, transparent, rgba(255, 255, 255, 0.5), transparent);
     background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.5), transparent);
 }
 

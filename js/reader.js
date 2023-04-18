@@ -226,7 +226,7 @@ const Reader = function (param) {
         document.getElementById('home-index-wrapper').style.display = ShowHomeIndex ? 'block' : 'none'
         document.getElementById('home-index-bg').style.display = ShowHomeIndex ? 'block' : 'none'
         document.getElementById('home-index').style.display = ShowHomeIndex ? 'flex' : 'none'
-        document.getElementById('home-index-return-bg').style.display = ShowHomeIndex ? 'block' : 'none'
+        document.getElementById('home-index-return-wrapper').style.display = ShowHomeIndex ? 'block' : 'none'
         obj = document.getElementById('home-footer')
         if (obj) {
             obj.style.display = ShowHomeIndex ? 'none' : 'block'
@@ -579,7 +579,7 @@ const Reader = function (param) {
     const SetStyle = function () {
         let ret_btn = document.getElementById('home-index-return')
         if (LANGUAGE == 'en') {
-            ret_btn.style.fontSize = '2rem'
+            ret_btn.style.fontSize = '10px'
         }
     }
 
