@@ -660,7 +660,7 @@ const Reader = function (param) {
         //
         GlobalKeyHandlers['chapter'] = function (ev) {
             if (ev.key == '`') {
-                window.location.href = '../index.html'
+                window.location.href = 'index.html'
             }
         }
         ToggleHomeIndex(true)
