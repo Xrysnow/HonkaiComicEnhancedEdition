@@ -4,6 +4,7 @@
     p.bookIndex = bookNum
     p.bookTitle = '樱花追忆篇'
     p.bookDate = '2015-2016'
+    p.bookMode = 'rl'
     p.bookDesc = {
         zh: '被无量塔姬子带入圣芙蕾雅学园的琪亚娜三人，在学园长德丽莎的要求下，接受成为女武神的培训，在训练过程中，琪亚娜却意外遇见了500年前死去的祖先卡莲，和卡莲纠缠一生的“她”，也出现在了德丽莎的面前...',
     }
@@ -32,6 +33,15 @@
     p.chPages = [
         15, 17, 17, 18, 23, 18, 18, 20
     ]
+    p.bookModeBlank = {
+        5: [6],
+    }
+    for (let i = 0; i < 8; i++) {
+        if (i != 5) {
+            p.bookModeBlank[i] = [1.02]
+        }
+    }
+    p.addBookFirstBlank()
     let prefix2 = Util.getImgLegacySrcPrefix()
     let hiddenSrcPrefix = prefix2 + '1/chapter/'
     p.hiddenPages = {
@@ -131,8 +141,20 @@
         1183,
         [[54, 57, 55], [0, 47, 86]],
     ]
+    p.bgmInfo2 = [
+        [[-1, 43], [0, 1.01]],
+        [[43, 44, 45], [0, 5, 17]],
+        45,
+        [[46, 49], [0, 11]],
+        [[49, 50, 1034], [0, 9, 19]],
+        [[56, 52], [0, 17]],
+        1183,
+        [[54, 57, 55], [0, 10, 18]],
+    ]
     p.addBgmLoopInfo(50, 0, 21.2, 0.5, 0.5)
     p.addBgmLoopInfo(54, 0, 33.8, 1, 1)
+    p.addBgmLoopInfo(55, 3.5, 1e3, 0.5, 0.5)
+    p.addBgmLoopInfo(1034, 1, 1e3, 0.5, 0.5)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
