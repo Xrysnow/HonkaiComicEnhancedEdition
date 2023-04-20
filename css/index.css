@@ -2,9 +2,17 @@
     cursor: url(data:image/png;base64,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), default;
 }
 
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     margin: 0;
     user-select: none;
+    width: 100%;
+    height: 100%;
 }
 
 a {
@@ -27,6 +35,11 @@ label * {
     background-attachment: fixed;
     background-blend-mode: darken;
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.index-container {
+    width: 100%;
+    height: 100%;
 }
 
 /* navigation */
@@ -70,8 +83,24 @@ label * {
         justify-content: flex-start;
     }
 
-    .nav .nav-list-item {
+    .nav .nav-list>label {
         width: calc(34% - 15px - 3px);
+        height: 100%;
+    }
+
+    .nav .nav-list label:first-child {
+        width: calc(32% + 30px);
+        height: 100%;
+        margin-right: -30px;
+    }
+
+    .nav .nav-list label:first-child>div>div {
+        margin-right: 10px;
+    }
+
+    .nav .nav-list-item {
+        width: 100%;
+        height: 100%;
         position: relative;
         display: flex;
         align-items: center;
@@ -99,15 +128,6 @@ label * {
         align-items: center;
         justify-content: space-around;
         height: 100%;
-    }
-
-    .nav .nav-list-item:first-child {
-        width: calc(32% + 30px);
-        margin-right: -30px;
-    }
-
-    .nav .nav-list-item:first-child>div {
-        margin-right: 10px;
     }
 
     .nav .nav-list-item.active {
@@ -138,7 +158,7 @@ label * {
 @media screen and (min-width: 800px) {
     .nav {
         width: 10%;
-        min-width: 120px;
+        min-width: calc(120px - 20px);
         height: 100%;
         position: fixed;
         bottom: 0;
@@ -174,9 +194,16 @@ label * {
         align-items: flex-end;
     }
 
-    .nav .nav-list-item {
+    .nav .nav-list label {
         width: 60px;
         height: 27%;
+    }
+
+    .nav .nav-list-item {
+        /* width: 60px; */
+        /* height: 27%; */
+        width: 100%;
+        height: 100%;
         position: relative;
         display: flex;
         align-items: center;
@@ -254,6 +281,16 @@ label * {
     padding: 10px 0;
 }
 
+.comic-list {
+    position: absolute;
+    display: flex;
+    visibility: hidden;
+    transform: translateY(60px);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    opacity: 0.1;
+}
+
 @media screen and (max-width: 800px) {
     .comic-list {
         padding: 10px 20px;
@@ -263,9 +300,47 @@ label * {
 @media screen and (min-width: 800px) {
     .comic-list {
         width: 80%;
-        margin-left: calc(max(10%, 120px));
+        margin-left: calc(max(10% + 30px, 130px));
         padding-top: 20px;
     }
+}
+
+/* navigation select */
+
+body>input {
+    display: none;
+}
+
+#page-select-1:checked+*+*+div .comic-list {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 250ms ease-out, opacity 250ms linear;
+}
+
+#page-select-2:checked+*+div .instructions-wrapper {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 250ms ease-out, opacity 250ms linear;
+}
+
+#page-select-3:checked+div .config-page-wrapper {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 250ms ease-out, opacity 250ms linear;
+}
+
+/* version mark */
+
+#version-mark {
+    position: fixed;
+    left: 10px;
+    bottom: 5px;
+    color: #fff;
+    font-size: 10px;
+    z-index: 1000;
 }
 
 /* comic-title */
@@ -444,9 +519,6 @@ label * {
     }
 
     .comic-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
         row-gap: 8px;
         column-gap: 4%;
     }
@@ -460,6 +532,16 @@ label * {
         margin-left: 37%;
         margin-right: 5%;
     }
+}
+
+/* instructions */
+
+.instructions-wrapper {
+    position: absolute;
+    display: flex;
+    visibility: hidden;
+    transform: translateY(60px);
+    opacity: 0.1;
 }
 
 /* settings in window */
@@ -534,8 +616,12 @@ label * {
 /* settings in page */
 
 .config-page-wrapper {
-    width: 100%;
+    position: absolute;
     display: flex;
+    visibility: hidden;
+    transform: translateY(60px);
+    opacity: 0.1;
+    width: 100%;
     align-items: center;
     justify-content: space-around;
 }
@@ -562,6 +648,58 @@ label * {
 
 #config-page-container .menu-config-wrapper input[type="range" i] {
     width: 100%;
+}
+
+.fold-marker {
+    height: 32px;
+    transform: rotate(0);
+    transition: transform 100ms ease-in-out;
+}
+
+.fold-icon {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+
+.config-fold-wrapper:hover>div {
+    background-color: rgba(0, 45, 90, .5);
+}
+
+#config-page-container>input[type="checkbox"] {
+    display: none;
+}
+
+.menu-config-wrapper.folded {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: height 200ms ease-in-out, padding 200ms ease-in-out;
+}
+
+.menu-config-wrapper.folded>div {
+    height: calc(100% - 20px - 6px);
+    margin: 3px;
+    overflow: auto;
+}
+
+#config-page-container>input[type="checkbox"]:checked+label+div {
+    height: 300px;
+    /* padding: 3px; */
+    transition: height 200ms ease-in-out, padding 200ms ease-in-out;
+}
+
+#config-page-container>input[type="checkbox"]:checked+label .fold-marker {
+    transform: rotate(-90deg);
+    transition: transform 100ms ease-in-out;
+}
+
+.config-about-text {
+    color: #fff;
+    font-weight: bold;
+    font-size: 28px;
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 /* widgets */

@@ -303,3 +303,16 @@ const AppInfo = {
         return str
     }
 }
+
+let GlobalScript = function () {
+    let version = document.getElementById('version-mark')
+    if (version) {
+        version.innerText = AppInfo.getVersionString()
+    }
+}
+
+try {
+    GlobalScriptEx()
+} catch (e) {
+    GlobalScript()
+}

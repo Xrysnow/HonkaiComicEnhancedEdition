@@ -235,8 +235,12 @@
     <script type="text/javascript">
         let id = Util.getQueryString("id")
         if (id) {
-            let txt = "\<script src=\"..\/js\/" + id + ".js\"\>\<\/script\>"
-            document.writeln(txt)
+            try {
+                BookScriptEx(Number(id))
+            } catch (error) {
+                let txt = "\<script src=\"..\/js\/" + id + ".js\"\>\<\/script\>"
+                document.writeln(txt)
+            }
         }
     </script>
 </body>

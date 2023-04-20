@@ -237,7 +237,7 @@ let ComicData = [
         description: '对“过年”这一神州盛典进行了各种考察的德丽莎，制定了最终的计划。南国、海岛、神秘的年兽……奇妙的旅程即将拉开序幕？',
     },
 ];
-(function () {
+let IndexScript = function () {
     function SetupStyle0(comicList) {
         for (let i = 0; i < ComicData.length; i++) {
             const data = ComicData[i]
@@ -381,4 +381,10 @@ let ComicData = [
         }
     }
     InitIndex(1)
-})();
+};
+
+try {
+    IndexScriptEx()
+} catch (e) {
+    IndexScript()
+}
