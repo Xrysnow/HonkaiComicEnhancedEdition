@@ -4,6 +4,7 @@
     p.bookIndex = bookNum
     p.bookTitle = '逃离长空篇'
     p.bookDate = '2015'
+    p.bookMode = 'rl'
     p.bookDesc = {
         zh: '紧接着《崩坏学园2》的游戏剧情，2014年，在长空市中，发生了强烈的崩坏。琪亚娜，雷电芽衣，布洛妮娅三个少女在逃离长空市的过程中，遇到了天命组织的女武神，无量塔姬子...'
     }
@@ -43,6 +44,8 @@
     p.chPages = [
         29, 27, 22, 19, 18, 19, 21
     ]
+    p.addBookFirstBlank()
+    p.bookModeBlank[6] = []
     let prefix2 = Util.getImgLegacySrcPrefix()
     let hiddenSrcPrefix = prefix2 + '1/chapter/'
     p.hiddenPages = {
@@ -68,6 +71,15 @@
         [[29, 6], [0, 73]],
         [[43, 41, 43], [0, 27, 60]],
         [[63, 99], [0, 83]],
+    ]
+    p.bgmInfo2 = [
+        [[-1, 33, 34], [0, 2, 8]],
+        [[35, 36], [0, 18]],
+        [[37, 39, 38], [0, 9, 13]],
+        [[40, 29], [0, 11]],
+        [[29, 6], [0, 15]],
+        [[43, 41, 43], [0, 6, 12]],
+        [[63, 99], [0, 17]],
     ]
     p.addBgmLoopInfo(99, 1, 25.2, 2, 3, false)
     p.bgmExtId = null
