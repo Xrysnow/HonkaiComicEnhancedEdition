@@ -200,8 +200,6 @@ label * {
     }
 
     .nav .nav-list-item {
-        /* width: 60px; */
-        /* height: 27%; */
         width: 100%;
         height: 100%;
         position: relative;
@@ -281,14 +279,21 @@ label * {
     padding: 10px 0;
 }
 
-.comic-list {
+.comic-list-wrapper {
     position: absolute;
-    display: flex;
+    display: block;
     visibility: hidden;
     transform: translateY(60px);
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.comic-list {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    opacity: 0.1;
 }
 
 @media screen and (max-width: 800px) {
@@ -311,7 +316,7 @@ body>input {
     display: none;
 }
 
-#page-select-1:checked+*+*+div .comic-list {
+#page-select-1:checked+*+*+div .comic-list-wrapper {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
@@ -484,8 +489,6 @@ body>input {
 
     .comic-title div:last-child {
         font-size: 1.2rem;
-        /* opacity: .5; */
-        /* font-weight: 400; */
     }
 
     .comic-cover {
@@ -538,10 +541,12 @@ body>input {
 
 .instructions-wrapper {
     position: absolute;
-    display: flex;
+    display: block;
     visibility: hidden;
     transform: translateY(60px);
     opacity: 0.1;
+    width: 100%;
+    height: 100%;
 }
 
 /* settings in window */
@@ -617,10 +622,17 @@ body>input {
 
 .config-page-wrapper {
     position: absolute;
-    display: flex;
+    display: block;
     visibility: hidden;
     transform: translateY(60px);
     opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.config-page {
+    display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-around;
@@ -685,7 +697,6 @@ body>input {
 
 #config-page-container>input[type="checkbox"]:checked+label+div {
     height: 300px;
-    /* padding: 3px; */
     transition: height 200ms ease-in-out, padding 200ms ease-in-out;
 }
 

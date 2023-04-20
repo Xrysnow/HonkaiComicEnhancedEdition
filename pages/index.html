@@ -57,107 +57,115 @@
                 </div>
             </div>
         </div>
-        <div class="comic-list">
-        </div>
-        <div class="instructions-wrapper">
-            <h1 style="color: #fff;">施工中</h1>
+        <div class="comic-list-wrapper">
+            <div class="comic-list">
+            </div>
             <div class="nav-landscape-padding"></div>
         </div>
+        <div class="instructions-wrapper">
+            <div class="instructions-page">
+                <h1 style="color: #fff;">施工中</h1>
+                <div class="nav-landscape-padding"></div>
+            </div>
+        </div>
         <div class="config-page-wrapper">
-            <div id="config-page-container">
-                <input type="checkbox" id="check-config-about">
-                <label for="check-config-about">
-                    <div class="menu-config-wrapper config-fold-wrapper">
-                        <div>
-                            <div class="menu-config-text">
-                                关于
-                            </div>
+            <div class="config-page">
+                <div id="config-page-container">
+                    <input type="checkbox" id="check-config-about">
+                    <label for="check-config-about">
+                        <div class="menu-config-wrapper config-fold-wrapper">
                             <div>
-                                <div class="fold-marker">
-                                    <svg class="fold-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                                        <path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z" />
-                                    </svg>
+                                <div class="menu-config-text">
+                                    关于
+                                </div>
+                                <div>
+                                    <div class="fold-marker">
+                                        <svg class="fold-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </label>
-                <div class="menu-config-wrapper folded">
-                    <div>
-                        <div class="config-about-text">
-                            123123123123123123123123123123123123123<br/>
-                            123123123123123123123123123123123123123<br/>
-                            123123123123123123123123123123123123123<br/>
-                            123123123123123123123123123123123123123<br/>
-                            123123123123123123123123123123123123123<br/>
-                        </div>
-                        <div style="display: none;"></div>
-                    </div>
-                </div>
-                <div class="menu-config-wrapper">
-                    <div>
-                        <div class="menu-config-text" id="menu-config-width-text">
-                            竖版图片宽度
-                        </div>
+                    </label>
+                    <div class="menu-config-wrapper folded">
                         <div>
-                            <input type="range" id="menu-config-width" value="50" min="20" max="100" step="5">
+                            <div class="config-about-text">
+                                123123123123123123123123123123123123123<br />
+                                123123123123123123123123123123123123123<br />
+                                123123123123123123123123123123123123123<br />
+                                123123123123123123123123123123123123123<br />
+                                123123123123123123123123123123123123123<br />
+                            </div>
+                            <div style="display: none;"></div>
                         </div>
                     </div>
-                </div>
-                <div class="menu-config-wrapper">
-                    <div>
-                        <div class="menu-config-text" id="menu-config-bg-text">
-                            阅读背景颜色
-                        </div>
+                    <div class="menu-config-wrapper">
                         <div>
-                            <select name="bg-color" id="menu-config-bg">
-                                <option value="#fff" id="menu-config-bg-1">白色</option>
-                                <option value="#000" id="menu-config-bg-2">黑色</option>
-                            </select>
+                            <div class="menu-config-text" id="menu-config-width-text">
+                                竖版图片宽度
+                            </div>
+                            <div>
+                                <input type="range" id="menu-config-width" value="50" min="20" max="100" step="5">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="menu-config-wrapper">
-                    <div>
-                        <div class="menu-config-text" id="menu-config-bgm-switch-text">
-                            背景音乐开关
-                        </div>
+                    <div class="menu-config-wrapper">
                         <div>
-                            <input type="checkbox" name="bgm-switch" id="menu-config-bgm-switch" checked="1">
+                            <div class="menu-config-text" id="menu-config-bg-text">
+                                阅读背景颜色
+                            </div>
+                            <div>
+                                <select name="bg-color" id="menu-config-bg">
+                                    <option value="#fff" id="menu-config-bg-1">白色</option>
+                                    <option value="#000" id="menu-config-bg-2">黑色</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="menu-config-wrapper">
-                    <div>
-                        <div class="menu-config-text" id="menu-config-volume-text">
-                            背景音乐音量
-                        </div>
+                    <div class="menu-config-wrapper">
                         <div>
-                            <input type="range" id="menu-config-bgm-volume" value="100" min="0" max="100" step="5">
+                            <div class="menu-config-text" id="menu-config-bgm-switch-text">
+                                背景音乐开关
+                            </div>
+                            <div>
+                                <input type="checkbox" name="bgm-switch" id="menu-config-bgm-switch" checked="1">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="menu-config-wrapper">
-                    <div>
-                        <div class="menu-config-text" id="menu-config-voice-text">
-                            语音音量
-                        </div>
+                    <div class="menu-config-wrapper">
                         <div>
-                            <input type="range" id="menu-config-voice-volume" value="100" min="0" max="100" step="5">
+                            <div class="menu-config-text" id="menu-config-volume-text">
+                                背景音乐音量
+                            </div>
+                            <div>
+                                <input type="range" id="menu-config-bgm-volume" value="100" min="0" max="100" step="5">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="menu-config-wrapper">
-                    <div>
-                        <div class="menu-config-text">
-                            清除本地数据
-                        </div>
+                    <div class="menu-config-wrapper">
                         <div>
-                            <div class="fold-marker"></div>
+                            <div class="menu-config-text" id="menu-config-voice-text">
+                                语音音量
+                            </div>
+                            <div>
+                                <input type="range" id="menu-config-voice-volume" value="100" min="0" max="100"
+                                    step="5">
+                            </div>
                         </div>
                     </div>
+                    <div class="menu-config-wrapper">
+                        <div>
+                            <div class="menu-config-text">
+                                清除本地数据
+                            </div>
+                            <div>
+                                <div class="fold-marker"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-landscape-padding"></div>
                 </div>
-                <div class="nav-landscape-padding"></div>
             </div>
         </div>
         <div id="version-mark"></div>
