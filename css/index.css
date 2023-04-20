@@ -693,6 +693,7 @@ body>input {
     height: calc(100% - 20px - 6px);
     margin: 3px;
     overflow: auto;
+    display: block;
 }
 
 #config-page-container>input[type="checkbox"]:checked+label+div {
@@ -711,6 +712,7 @@ body>input {
     font-size: 28px;
     width: 100%;
     overflow-wrap: break-word;
+    line-height: 1;
 }
 
 /* widgets */
