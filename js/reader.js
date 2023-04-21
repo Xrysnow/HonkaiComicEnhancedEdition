@@ -290,18 +290,24 @@ const Reader = function (param) {
             let bookMode = GetBookMode()
             let prevPage = document.getElementById('menu-prev-page')
             let nextPage = document.getElementById('menu-next-page')
+            let pageCombo = prevPage.parentElement
             let gotoTop = document.getElementById('menu-goto-top')
             let gotoBottom = document.getElementById('menu-goto-bottom')
+            let gotoCombo = gotoTop.parentElement
             if (bookMode == 'rl' || bookMode == 'lr') {
                 prevPage.style.display = 'flex'
                 nextPage.style.display = 'flex'
+                pageCombo.style.display = 'flex'
                 gotoTop.style.display = 'none'
                 gotoBottom.style.display = 'none'
+                gotoCombo.style.display = 'none'
             } else {
                 prevPage.style.display = 'none'
                 nextPage.style.display = 'none'
+                pageCombo.style.display = 'none'
                 gotoTop.style.display = 'flex'
                 gotoBottom.style.display = 'flex'
+                gotoCombo.style.display = 'flex'
             }
         }
     }

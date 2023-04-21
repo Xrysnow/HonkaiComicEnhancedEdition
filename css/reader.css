@@ -757,10 +757,14 @@ li {
     justify-content: space-around;
     align-items: center;
     height: 40px;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 
 #footbar .menu-item-combo .menu-item {
     height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #footbar .menu-item-combo .menu-item-left {
