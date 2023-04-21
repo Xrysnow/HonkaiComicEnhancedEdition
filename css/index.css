@@ -240,14 +240,6 @@ label * {
     }
 }
 
-.index-title {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
-
 .comic-list-wrapper {
     position: absolute;
     display: block;

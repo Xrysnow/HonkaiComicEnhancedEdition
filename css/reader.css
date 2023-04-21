@@ -42,6 +42,16 @@ li {
 
 /* index title */
 
+.index-title {
+    position: relative;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
 #home-index-title {
     color: white;
     position: relative;
@@ -327,7 +337,7 @@ li {
         top: 0;
     }
 
-    .home-index-checkmark{
+    .home-index-checkmark {
         right: 10%;
         top: 5px;
     }
