@@ -224,7 +224,6 @@ const Reader = function (param) {
         ShowHomeIndex = show
         let obj
         document.getElementById('home-index-wrapper').style.display = ShowHomeIndex ? 'block' : 'none'
-        document.getElementById('home-index-bg').style.display = ShowHomeIndex ? 'block' : 'none'
         document.getElementById('home-index').style.display = ShowHomeIndex ? 'flex' : 'none'
         document.getElementById('home-index-return-wrapper').style.display = ShowHomeIndex ? 'block' : 'none'
         obj = document.getElementById('home-footer')
@@ -802,7 +801,7 @@ const Reader = function (param) {
                 }
                 // update scroll ratio to ignore hidden content
                 let hintH = obj_div.children[0].getBoundingClientRect().height
-                let scrollH = document.body.scrollTop || document.documentElement.scrollTop
+                let scrollH = document.getElementById('gallery-wrapper').scrollTop
                 let rect = obj_div.getBoundingClientRect()
                 let hiddenToTop = rect.top + scrollH + hintH
                 let hiddenH = rect.height - hintH
@@ -842,9 +841,6 @@ const Reader = function (param) {
         if (!IS_MOBILE) {
             GlobalViewer = new Viewer(obj_ul, ViewerConfig)
         }
-        // always return top
-        document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
         //
         let GotoPrevChapter = function () {
             if (idx == 0) {
@@ -855,14 +851,16 @@ const Reader = function (param) {
         let GotoNextChapter = function () {
             return GotoChapter(idx + 1)
         }
+        let wrapper = document.getElementById('gallery-wrapper')
         let GotoTop = function () {
-            document.body.scrollTop = 0
-            document.documentElement.scrollTop = 0
+            wrapper.scrollTop = 0
         }
         let GotoBottom = function () {
-            document.body.scrollTop = document.body.scrollHeight
-            document.documentElement.scrollTop = document.documentElement.scrollHeight
+            wrapper.scrollTop = wrapper.scrollHeight
         }
+        // always return top
+        GotoTop()
+        //
         document.getElementById('menu-goto-top').onclick = function (ev) {
             ev.stopPropagation()
             GotoTop()
@@ -1332,10 +1330,11 @@ const Reader = function (param) {
     }
 
     function GetScrollRatio() {
-        let totalH = document.body.scrollHeight || document.documentElement.scrollHeight
+        let wrapper = document.getElementById('gallery-wrapper')
+        let totalH = wrapper.scrollHeight
         let clientH = window.innerHeight || document.documentElement.clientHeight
         let validH = totalH - clientH
-        let scrollH = document.body.scrollTop || document.documentElement.scrollTop
+        let scrollH = wrapper.scrollTop
         let scroll = scrollH
         // ignore hidden content
         for (const key in ActiveHidden) {

@@ -18,6 +18,7 @@
 
     <title id="page-title">-</title>
     <link rel="stylesheet" href="../css/viewer.min.css">
+    <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/reader.css">
     <style type="text/css" id="internal-css">
@@ -29,63 +30,64 @@
 
 <body>
     <div id="home">
-        <div id="home-bg-wrapper">
-        </div>
-        <div id="home-index-bg"></div>
-        <div class="index-title" id="comic-title" style="position: relative;">-</div>
-        <div id="home-index-wrapper">
-            <div id="home-index-title">
-                <div id="home-index-title-banner"></div>
-                <div id="home-index-title-text">
-                    <div class="comic-date-wrapper">更新时间：<span id="comic-date"></span></div>
-                    <div class="comic-numpage-wrapper">页数：<span id="comic-numpage"></span></div>
-                    <div id="comic-brief"></div>
-                </div>
-            </div>
-            <input type="checkbox" id="check-1" class="note-check" />
-            <label for="check-1">
-                <div class="seperator">
-                    <div class="editor-note-title" id="editor-note-title-1">
-                        <div class="editor-note-check">▶</div>
-                        编注
+        <div id="home-bg-wrapper"></div>
+        <div id="home-content-wrapper">
+            <div class="index-title" id="comic-title" style="position: relative;">-</div>
+            <div id="home-index-wrapper">
+                <div id="home-index-title">
+                    <div id="home-index-title-banner"></div>
+                    <div id="home-index-title-text">
+                        <div class="comic-date-wrapper">更新时间：<span id="comic-date"></span></div>
+                        <div class="comic-numpage-wrapper">页数：<span id="comic-numpage"></span></div>
+                        <div id="comic-brief"></div>
                     </div>
-                    <div class="role-line"></div>
                 </div>
-            </label>
-            <div class="editor-note" id="editor-note-1">
-                <div class="editor-note-content">
-                    -
+                <input type="checkbox" id="check-1" class="note-check" />
+                <label for="check-1">
+                    <div class="seperator">
+                        <div class="editor-note-title" id="editor-note-title-1">
+                            <div class="editor-note-check">▶</div>
+                            编注
+                        </div>
+                        <div class="role-line"></div>
+                    </div>
+                </label>
+                <div class="editor-note" id="editor-note-1">
+                    <div class="editor-note-content">
+                        -
+                    </div>
+                    <div class="seperator">
+                        <div class="role-line"></div>
+                    </div>
                 </div>
-                <div class="seperator">
-                    <div class="role-line"></div>
-                </div>
+                <div id="home-index"></div>
             </div>
-            <div id="home-index"></div>
-        </div>
-        <div id="home-index-return-wrapper">
-            <a href="index.html" id="home-index-return">
-                <div id="home-index-btn-return">
-                    <div>
-                        <div class="key-hint-box">
-                            <div>
-                                <div>~</div>
+            <div id="home-index-return-wrapper">
+                <a href="index.html" id="home-index-return">
+                    <div id="home-index-btn-return">
+                        <div>
+                            <div class="key-hint-box">
+                                <div>
+                                    <div>~</div>
+                                </div>
+                            </div>
+                            <svg class="return-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                <path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z" />
+                            </svg>
+                            <div class="text">
+                                返回
                             </div>
                         </div>
-                        <svg class="return-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                            <path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z" />
-                        </svg>
-                        <div class="text">
-                            返回
-                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-
-    <div id="gallery">
-        <ul id="images">
-        </ul>
+    <div id="gallery-wrapper">
+        <div id="gallery">
+            <ul id="images">
+            </ul>
+        </div>
     </div>
     <div id="book-wrapper">
         <div id="book-container">
