@@ -1400,7 +1400,7 @@ const Reader = function (param) {
         }
     }
 
-    window.addEventListener('scroll', function (e) {
+    document.getElementById('gallery-wrapper').addEventListener('scroll', function (e) {
         OnScrollChange()
     })
 
