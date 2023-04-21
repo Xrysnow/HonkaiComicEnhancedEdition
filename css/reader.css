@@ -23,6 +23,8 @@ li {
     filter: blur(10px);
     background-size: cover;
     background-position: center;
+    background-color: #ccc;
+    background-blend-mode: multiply;
 }
 
 #home-content-wrapper {
