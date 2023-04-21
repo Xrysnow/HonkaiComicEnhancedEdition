@@ -364,6 +364,8 @@ const Reader = function (param) {
             child.remove()
             child = container.firstElementChild
         }
+        let info = document.getElementById('footbar-bgm-info')
+        info.innerHTML = '　'
         console.log('remove bgm')
     }
 
