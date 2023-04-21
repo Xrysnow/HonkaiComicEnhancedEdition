@@ -1383,6 +1383,10 @@ const Reader = function (param) {
                 }
             }
         }
+        if (validH == 0) {
+            // document is not ready
+            return 0
+        }
         return scroll / validH * 100
     }
 
