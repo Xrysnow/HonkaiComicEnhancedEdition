@@ -814,3 +814,30 @@ li {
     padding-top: 2px;
     padding-bottom: 2px;
 }
+
+/* debug */
+
+#debug-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 10px;
+    font-size: 12px;
+    color: #fff;
+    flex-direction: column;
+    width: 200px;
+    align-items: flex-start;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#debug-wrapper>div {
+    display: flex;
+    width: calc(100% - 10px);
+    word-break: normal;
+    margin: 2px 5px 2px 5px;
+}
+
+.debug-key {
+    width: 100px;
+}

@@ -191,6 +191,33 @@ const Reader = function (param) {
     let ActiveHidden = {}
     let GlobalKeyHandlers = {}
 
+    if (DEBUG_MODE) {
+        let debug = document.getElementById('debug-wrapper')
+        debug.style.display = 'flex'
+    }
+    function SetDebugText(key, text) {
+        if (!DEBUG_MODE) {
+            return
+        }
+        let id = 'debug-' + key
+        let obj = document.getElementById(id)
+        if (!obj) {
+            let debug = document.getElementById('debug-wrapper')
+            obj = document.createElement('div')
+            obj.id = id
+            debug.appendChild(obj)
+            //
+            let objKey = document.createElement('div')
+            let objValue = document.createElement('div')
+            objKey.className = 'debug-key'
+            objValue.className = 'debug-value'
+            objKey.innerText = key
+            obj.appendChild(objKey)
+            obj.appendChild(objValue)
+        }
+        obj.children[1].innerHTML = text
+    }
+
     function AddGlobalTask(f, tag, intv) {
         if (intv < 1) {
             intv = 1
@@ -317,9 +344,7 @@ const Reader = function (param) {
                 SetBGMPlayer(false, id, height)
                 ClearBgMusicHandle()
             }
-            if (DEBUG_MODE) {
-                document.getElementById('menu-next-text').innerText = Math.floor(BgMusicSwitchFactor * 100)
-            }
+            SetDebugText('BgmSwitch', Math.floor(BgMusicSwitchFactor * 100))
         }, interval)
     }
 
@@ -404,9 +429,7 @@ const Reader = function (param) {
                     factor = Math.min(factor, fadeFactor)
                 }
                 p.volume = factor * base
-                if (DEBUG_MODE) {
-                    document.getElementById('menu-prev-text').innerText = Math.floor(factor * 100)
-                }
+                SetDebugText('VolumeFactor', Math.floor(factor * 100))
             }, '1-bgm-' + id, 1)
         }
         //
@@ -1371,8 +1394,9 @@ const Reader = function (param) {
         }
         RequestBgMusicChange()
         if (DEBUG_MODE) {
-            document.getElementById('chapter-title').textContent = ratio.toFixed(2)
-            document.getElementById('menu-bgm-text').innerText = CurrentBgMusicID
+            let ratio = GetScrollRatio()
+            SetDebugText('ScrollRatio', ratio.toFixed(2))
+            SetDebugText('CurrentBgm', CurrentBgMusicID)
         }
     }
 
