@@ -856,6 +856,12 @@ li {
     display: none;
 }
 
+/* version mark */
+
+#footbar-wrapper #version-mark {
+    position: absolute;
+}
+
 /* debug */
 
 #debug-wrapper {
