@@ -260,6 +260,24 @@ const Reader = function (param) {
             let container = document.getElementById('footbar-container')
             container.style.transform = show ? 'translateY(-100%)' : 'translateY(0)'
         }
+        if (show) {
+            let bookMode = GetBookMode()
+            let prevPage = document.getElementById('menu-prev-page')
+            let nextPage = document.getElementById('menu-next-page')
+            let gotoTop = document.getElementById('menu-goto-top')
+            let gotoBottom = document.getElementById('menu-goto-bottom')
+            if (bookMode == 'rl' || bookMode == 'lr') {
+                prevPage.style.display = 'flex'
+                nextPage.style.display = 'flex'
+                gotoTop.style.display = 'none'
+                gotoBottom.style.display = 'none'
+            } else {
+                prevPage.style.display = 'none'
+                nextPage.style.display = 'none'
+                gotoTop.style.display = 'flex'
+                gotoBottom.style.display = 'flex'
+            }
+        }
     }
 
     const ToggleConfig = function (show) {
@@ -837,6 +855,22 @@ const Reader = function (param) {
         let GotoNextChapter = function () {
             return GotoChapter(idx + 1)
         }
+        let GotoTop = function () {
+            document.body.scrollTop = 0
+            document.documentElement.scrollTop = 0
+        }
+        let GotoBottom = function () {
+            document.body.scrollTop = document.body.scrollHeight
+            document.documentElement.scrollTop = document.documentElement.scrollHeight
+        }
+        document.getElementById('menu-goto-top').onclick = function (ev) {
+            ev.stopPropagation()
+            GotoTop()
+        }
+        document.getElementById('menu-goto-bottom').onclick = function (ev) {
+            ev.stopPropagation()
+            GotoBottom()
+        }
         GlobalKeyHandlers['chapter'] = function (ev) {
             if (ev.key == '`') {
                 GotoHome()
@@ -844,6 +878,10 @@ const Reader = function (param) {
                 return GotoPrevChapter()
             } else if (ev.key == ']') {
                 return GotoNextChapter()
+            } else if (ev.key == '-') {
+                return GotoTop()
+            } else if (ev.key == '=') {
+                return GotoBottom()
             }
         }
     }
@@ -1083,20 +1121,24 @@ const Reader = function (param) {
                 locked = false
             })
         }
-        document.getElementById(cursorPlacePair[1]).onclick = function (ev) {
+        let OnGotoNext = function (ev) {
             ev.stopPropagation()
             if (locked) {
                 return
             }
             GotoNext()
         }
-        document.getElementById(cursorPlacePair[0]).onclick = function (ev) {
+        let OnGotoPrev = function (ev) {
             ev.stopPropagation()
             if (locked) {
                 return
             }
             GotoPrev()
         }
+        document.getElementById(cursorPlacePair[1]).onclick = OnGotoNext
+        document.getElementById(cursorPlacePair[0]).onclick = OnGotoPrev
+        document.getElementById('menu-next-page').onclick = OnGotoNext
+        document.getElementById('menu-prev-page').onclick = OnGotoPrev
         GotoNext()
         //
         GlobalKeyHandlers['chapter'] = function (ev) {
