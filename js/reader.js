@@ -1432,6 +1432,10 @@ const Reader = function (param) {
             }
         }
     })
+
+    if (IS_MOBILE) {
+        document.body.classList.add('mobile')
+    }
     /*
     function GetVoiceInfo(i_chapter, i_page) {
         const invalid = 0
