@@ -105,7 +105,7 @@ let ComicData = [
         id: 1010,
         title: '神之键秘话',
         type: '番外',
-        date: '2017',
+        date: '2017-2018',
         page: 'common.html?id=1010',
         cover: 'http://comicstatic.bh3.com/new_static_v2/comic/book_cover/1010.jpg',
         description: '距离现在的五万多年前，上个世代的人类已经发展出了高度的文明，为了和律者战斗，人们通过研究律者核心的残片，制作出了抵抗崩坏、守护未来的关键武器——神之键。',

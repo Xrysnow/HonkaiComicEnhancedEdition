@@ -3,7 +3,7 @@
     let bookNum = 1010
     p.bookIndex = bookNum
     p.bookTitle = '神之键秘话'
-    p.bookDate = '2017'
+    p.bookDate = '2017-2018'
     p.bookDesc = {
         zh: '距离现在的五万多年前，上个世代的人类已经发展出了高度的文明，为了和律者战斗，人们通过研究律者核心的残片，制作出了抵抗崩坏、守护未来的关键武器——神之键。',
     }
