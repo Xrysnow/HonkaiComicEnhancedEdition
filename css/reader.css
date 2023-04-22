@@ -205,11 +205,13 @@ li {
 }
 
 .home-index-container:hover {
-    box-shadow: 0 0 8px #333;
+    box-shadow: 0 0 8px #111;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile .home-index-container {
-    box-shadow: 0 0 8px #333;
+    box-shadow: 0 0 8px #111;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .home-index-banner {
