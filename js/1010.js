@@ -39,8 +39,14 @@
         }
         return p.imgSrcPrefix + i + '/' + n + '.jpg'
     }
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        88,
+        88,
+        [[55, 89], [0, 67]],
+        [[66, 1037], [0, 69]],
+        88,
+    ]
+    p.addBgmLoopInfo(1037, 25, 75, 0.5, 1)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
