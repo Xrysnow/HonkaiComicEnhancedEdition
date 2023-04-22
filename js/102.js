@@ -53,8 +53,11 @@
         let x1 = '0'.repeat(4 - i.toString().length) + i.toString()
         return p.imgSrcPrefix + x1 + '.jpg'
     }
+    // from https://web.archive.org/web/20180325082248/http://comic.bh3.com/
+    let coverPrefix = 'http://static.event.mihoyo.com/ip_resources_new/preheat/cover/'
     p.fnGetChapterCoverSrc = function (i) {
-        return prefix + 'chapter_cover/1003/3.jpg'
+        let x = '0'.repeat(4 - i.toString().length) + i.toString()
+        return coverPrefix + x + '.jpg'
     }
     p.hiddenPages = null
     p.bgmVolume = null
