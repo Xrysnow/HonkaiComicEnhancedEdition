@@ -30,8 +30,13 @@
         10, 7, 9, 11
     ]
     p.hiddenPages = null
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        1030,
+        1336,
+        1206,
+        89,
+    ]
+    p.addBgmLoopInfo(1336, 0, 34, 0, 0.5)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
