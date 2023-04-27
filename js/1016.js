@@ -7,7 +7,11 @@
     p.bookDesc = {
         zh: '故事发生在一座基地，这里白天灯光明媚，夜晚也灯光明媚；每隔一段时日，就有研究员不省人事……逆熵姐妹无意中发现了知名偶像“伏特加女孩”的秘密，就此展开一段跌宕起伏的冒险！',
     }
-    p.editorNote = null
+    p.editorNote = {
+        zh: '- 本篇为4.1版本活动《双子：入侵 海渊乐园篇》的前置漫画。'
+            + '</br>- 关联内容：3.1版本活动《地下城大冒险》和网页活动《镰刀勇者成名录》。'
+            + '</br>- <a href="https://mihoyo.tmall.com/search.htm?keyword=%B5%D8%CF%C2%B3%C7">相关周边</a>'
+    }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'

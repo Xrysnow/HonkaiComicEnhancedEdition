@@ -10,6 +10,7 @@
     p.editorNote = {
         zh: '- 本篇为游戏2.4版本「夏日回忆」活动（已加入活动相册）的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1es411V7ri">活动PV</a>'
+            + '</br>- <a href="https://mihoyo.tmall.com/search.htm?keyword=%CF%C4%C8%D5%BB%D8%D2%E4">相关周边</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
