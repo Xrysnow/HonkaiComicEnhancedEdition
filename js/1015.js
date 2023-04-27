@@ -8,8 +8,8 @@
         zh: '故事发生在一座孤儿院；这里白天阳光明媚，夜晚阴森可怖；每隔一段时日，就有孩子神秘消失……阿琳姐妹无意中发现了美艳女院长“妈妈”的秘密，就此展开一段跌宕起伏的冒险！',
     }
     p.editorNote = {
-        zh: '- 标题意为“莉莉娅”和“萝莎莉娅”。'
-            + '</br>- 本篇为游戏3.1版本「逐梦双星」活动（已加入编年史）的前置漫画。'
+        zh: '- 本篇为游戏3.1版本「逐梦双星」活动（已加入编年史）的前置漫画。'
+            + '</br>- 标题意为“莉莉娅”和“萝莎莉娅”。'
             + '</br>- <a href="https://www.bilibili.com/video/BV17b411L7cC">版本PV</a>'
     }
     let prefix = Util.getImgSrcPrefix()
@@ -31,8 +31,10 @@
         7, 10
     ]
     p.hiddenPages = null
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        1176,
+        1030,
+    ]
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
