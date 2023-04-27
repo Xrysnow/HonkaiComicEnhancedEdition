@@ -64,8 +64,12 @@
         21
     ]
     p.hiddenPages = null
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        16, 16, 92, 16, 90,
+        91, 16, 16, 1183, 81,
+        77, [[16, 77], [0, 26]], 16, 77, 81,
+        81,
+    ]
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
