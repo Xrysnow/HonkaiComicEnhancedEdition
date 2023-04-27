@@ -199,7 +199,7 @@ li {
 
 .home-index-container {
     width: calc(110px + 40px);
-    height: 190px;
+    min-height: 190px;
     margin: 15px 10px 15px 10px;
     border-radius: 5px;
 }
@@ -355,6 +355,7 @@ li {
     width: calc(96px + 10px);
     height: 40px;
     transform: skewX(-12deg);
+    z-index: 2;
 }
 
 #home-index-return-wrapper:before {
