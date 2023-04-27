@@ -27,8 +27,9 @@
         35
     ]
     p.hiddenPages = null
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        [[62, 19], [0, 75]],
+    ]
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
