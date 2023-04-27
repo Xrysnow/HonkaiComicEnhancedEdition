@@ -7,7 +7,10 @@
     p.bookDesc = {
         zh: '距离现在的五万多年前，上个世代的人类已经发展出了高度的文明，为了和律者战斗，人们通过研究律者核心的残片，制作出了抵抗崩坏、守护未来的关键武器——神之键。',
     }
-    p.editorNote = null
+    p.editorNote = {
+        zh: '- 本篇更新较为分散，其中「轩辕剑秘话」为2017年1月更新，「空白之键」为2018年11月更新。'
+            + '</br>- 「地藏御魂」为《紫鸢篇》的前置漫画。'
+    }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
@@ -18,11 +21,11 @@
     ]
     p.numChapter = 5
     p.chTitles = [
-        '轩辕剑秘话',
-        '地藏御魂',
+        '轩辕剑秘话',//2017.1
+        '地藏御魂',//2017.10
         '天火圣裁',
         '原初之翼',
-        '空白之键',
+        '空白之键',//2018.11
     ]
     p.chPages = [
         15, 24, 27, 33, 24
