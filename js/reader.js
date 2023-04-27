@@ -548,12 +548,13 @@ const Reader = function (param) {
             }
             obj_text.className = 'home-index-banner'
             let ctitle = GetChapterTitle(i)
-            let ii = ctitle.indexOf('话 ')
-            if (ii < 0) {
-                ii = ctitle.indexOf('章 ')
-            }
-            if (ii < 0) {
-                ii = ctitle.indexOf('幕 ')
+            let ii = -1
+            let pattern = ['话 ', '章 ', '幕 ', '篇 ']
+            for (let j = 0; j < pattern.length; j++) {
+                ii = ctitle.indexOf(pattern[j])
+                if (ii >= 0) {
+                    break
+                }
             }
             if (ii > 0) {
                 obj_text.innerHTML = ctitle.substring(0, ii + 1) + '<br/>' + ctitle.substring(ii + 2)
