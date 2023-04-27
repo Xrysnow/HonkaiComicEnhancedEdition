@@ -9,6 +9,7 @@
     }
     p.editorNote = {
         zh: '- 本篇为4.1版本活动《双子：入侵 海渊乐园篇》的前置漫画。'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1mf4y117Uz?t=94.6">版本PV</a>'
             + '</br>- 关联内容：3.1版本活动《地下城大冒险》和网页活动《镰刀勇者成名录》。'
             + '</br>- <a href="https://mihoyo.tmall.com/search.htm?keyword=%B5%D8%CF%C2%B3%C7">相关周边</a>'
     }
@@ -49,8 +50,12 @@
         7, 7, 6, 9
     ]
     p.hiddenPages = null
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        89, 89, 89, 89, 89,
+        89, 89, 89, 89, 89,
+        89, 89, 89, 89,
+    ]
+    p.addBgmLoopInfo(89, 0, 1e5, 0.5, 0.5)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
