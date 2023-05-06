@@ -266,7 +266,7 @@ const Reader = function (param) {
     }
 
     const ToggleGallery = function (show) {
-        document.getElementById('gallery').style.display = show ? 'block' : 'none'
+        document.getElementById('gallery-wrapper').style.display = show ? 'block' : 'none'
     }
 
     const ToggleBook = function (show) {
