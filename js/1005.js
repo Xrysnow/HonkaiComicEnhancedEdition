@@ -10,6 +10,8 @@
     p.editorNote = {
         zh: '- 本篇原名为《崩坏EX 绯樱》。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1ds41127Kp">漫画纪念PV</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/hi7DQDOBIK5CoWtDGMuMgw">发布地址</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/Y9PCqw7TOxnk3Gr1ax6cFA">设定补充</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

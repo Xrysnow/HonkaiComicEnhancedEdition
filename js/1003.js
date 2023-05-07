@@ -9,6 +9,10 @@
     }
     p.editorNote = {
         zh: '- 本篇为《樱花追忆篇》（原《学园篇》）的后续，已被官网删除。'
+            + '</br>- 设定补充（与漫画同步更新）：<a href="https://mp.weixin.qq.com/s/tTdikP7KO_wfgP8D5hwStg">【1】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/Yx4yLiemakwvRgS3CPz25g">【2】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/Q3-byZ03NzZx0P81ygX6rg">【3】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/SmBQQUtsX58GKfc8Lm4Yng">【4】</a>'
             + '</br>- 本篇为游戏1.1版本外传「轩辕篇」及1.2版本外传「蚩尤篇」（已加入编年史）的前置漫画。'
             + '</br>- 本篇剧情与游戏内差异较大，但对于阅读编年史「轩辕篇」「蚩尤篇」「遗忘之人」等剧情仍有一定帮助。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Ms411W7As">1.1版本PV</a>　<a href="https://www.bilibili.com/video/BV1Fs411Y7Tn">1.2版本PV</a>'

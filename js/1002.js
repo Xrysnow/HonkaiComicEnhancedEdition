@@ -10,6 +10,14 @@
     }
     p.editorNote = {
         zh: '- 本篇原名为《学园篇》，为《逃离长空篇》的后续。'
+            + '</br>- 设定补充（与漫画同步更新）：<a href="https://mp.weixin.qq.com/s/eLHzrC8ztPV9jZ5-5k5s2Q">【1】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/Zy-9MaR4nn5QQx0Rv-nYdg">【2】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/GQXF3YLk1p2uG6rPUdD0yw">【3】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/--0mFqshUnvtX2uogdbZog">【4】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/CyZW7sVLRgvyLFcRG0lLLA">【5】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/_cFfNhqmC_ts7eBHeV10uw">【6】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/sMD9Jw_JDTGEQkWF_NDuEQ">【7】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/fY9pTDBOJlUO7vk1yvx31A">【8】</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

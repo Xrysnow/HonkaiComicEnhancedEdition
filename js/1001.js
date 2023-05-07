@@ -10,7 +10,15 @@
     }
     p.editorNote = {
         zh: '- 本篇为主线漫画（原《崩坏3rd》系列漫画）的第一篇，为游戏1.0版本的前置漫画。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1Bs411U7SU">漫画宣传PV</a>　<a href="https://www.bilibili.com/video/BV1Ws411t734">公测PV</a>　<a href="https://www.bilibili.com/video/BV14s411r7Rh">开场CG</a>'
+            + '</br>- 设定补充（与漫画同步更新）：<a href="https://mp.weixin.qq.com/s/SAZmeWciMTK0V14LH4_bnQ">【1】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/fdpFTc3s2myyXsLiu73GlQ">【2】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/liFIK1YtL8jTwo6AcwvE7w">【3】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/A3sgdAN1zIvtkM7n_3D6wg">【4】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/irPz2ZXgruq2mFSdXcfJUA">【5】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/1xElr2v1kdKK76ZqX5p_aA">【6】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/PgsCQlGKaO00caNFPj1GOw">【7】</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1Bs411U7SU">漫画宣传PV</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1Ws411t734">公测PV</a>　<a href="https://www.bilibili.com/video/BV14s411r7Rh">开场CG</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1gs411r7QX">布洛妮娅角色PV：萝莉就是正义嘛！</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1zs411t7ma">芽衣角色PV：雷电女王降临！</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1ss411t7tt">琪亚娜角色PV：Kiana出击！</a>'
