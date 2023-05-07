@@ -21,7 +21,7 @@ let ComicData = [
         id: 101,
         title: '番外篇',
         type: '未收录',
-        date: '2015-2016',
+        date: '2014-2016',
         page: 'common.html?id=101',
         cover: 'https://static-event.benghuai.com/ip_resources_new/comic/3/cover/avatar.jpg',
         description: '崩坏学园漫画短篇集，用漫画的形式将生在崩坏中的点点滴滴记录在画页上。邀请风格不同的画师太太们用不同的风格为您展示崩坏不一样的魅力',
