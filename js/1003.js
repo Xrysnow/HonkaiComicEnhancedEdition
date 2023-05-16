@@ -3,10 +3,6 @@
     let bookNum = 1003
     p.bookIndex = bookNum
     p.bookTitle = '圣痕之谜篇'
-    p.bookDate = '2016'
-    p.bookDesc = {
-        zh: '在传说中，在古代的神州，英雄姬轩辕手持轩辕剑，在崩坏兽的威胁下拯救了人类。5000年后，为了寻找传说中的轩辕剑和圣痕，无量塔姬子，琪亚娜和符华来到了神州南部的海底，探索失落的传奇...',
-    }
     p.editorNote = {
         zh: '- 本篇为《樱花追忆篇》（原《学园篇》）的后续，已被官网删除。'
             + '</br>- 设定补充（与漫画同步更新）：<a href="https://mp.weixin.qq.com/s/tTdikP7KO_wfgP8D5hwStg">【1】</a>'

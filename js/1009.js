@@ -3,10 +3,6 @@
     let bookNum = 1009
     p.bookIndex = bookNum
     p.bookTitle = '紫鸢篇'
-    p.bookDate = '2017-2018'
-    p.bookDesc = {
-        zh: '公元1470年，意图扩张势力的天命发动了一场规模巨大的东征。尽管对这场战争的目的心怀疑惑，但天命最强的女武神卡莲·卡斯兰娜还是服从了组织的命令。但在战场上，她的觉悟受到了质疑…',
-    }
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

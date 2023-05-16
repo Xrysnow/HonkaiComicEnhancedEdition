@@ -3,11 +3,7 @@
     let bookNum = 1001
     p.bookIndex = bookNum
     p.bookTitle = '逃离长空篇'
-    p.bookDate = '2015'
     p.bookMode = 'rl'
-    p.bookDesc = {
-        zh: '紧接着《崩坏学园2》的游戏剧情，2014年，在长空市中，发生了强烈的崩坏。琪亚娜，雷电芽衣，布洛妮娅三个少女在逃离长空市的过程中，遇到了天命组织的女武神，无量塔姬子...'
-    }
     p.editorNote = {
         zh: '- 本篇为主线漫画（原《崩坏3rd》系列漫画）的第一篇，为游戏1.0版本的前置漫画。'
             + '</br>- 设定补充（与漫画同步更新）：<a href="https://mp.weixin.qq.com/s/SAZmeWciMTK0V14LH4_bnQ">【1】</a>'

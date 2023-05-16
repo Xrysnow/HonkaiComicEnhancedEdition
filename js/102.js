@@ -3,10 +3,6 @@
     let bookNum = 102
     p.bookIndex = bookNum
     p.bookTitle = '崩坏AI娘爱酱绝对不会告诉玩家的事实'
-    p.bookDate = '2016'
-    p.bookDesc = {
-        zh: '休伯利安号战舰AI娘、第一人气偶像爱酱，竟然是使得游戏迟迟不能公测的幕后黑手？！',
-    }
     p.editorNote = {
         zh: '- 本篇为游戏公测前的预热漫画。',
     }

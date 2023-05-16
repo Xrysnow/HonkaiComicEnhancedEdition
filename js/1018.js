@@ -3,10 +3,6 @@
     let bookNum = 1018
     p.bookIndex = bookNum
     p.bookTitle = '雾都假日'
-    p.bookDate = '2019-2020'
-    p.bookDesc = {
-        zh: '在英国伦敦的繁华街道上，幽兰黛尔与丽塔不约而同地踏足于此，远离崩坏的战场与激烈的战斗，在这片历史悠久的土地上，迎接她们的是全新的任务，还是一场久违的假日？',
-    }
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

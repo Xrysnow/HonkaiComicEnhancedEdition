@@ -3,10 +3,6 @@
     let bookNum = 1006
     p.bookIndex = bookNum
     p.bookTitle = '逆熵入侵篇'
-    p.bookDate = '2016-2017'
-    p.bookDesc = {
-        zh: '故事发生在圣痕之谜篇之后，在九幽深受重伤的姬子，生命处于危险之中...为了变强保护重要的人，琪亚娜参加了德丽莎设计的训练，但在这时候，逆熵开始了对圣芙蕾雅学园的入侵！',
-    }
     p.editorNote = {
         zh: '- 本篇为《圣痕之谜篇》的后续。'
             + '</br>- <a href="https://mp.weixin.qq.com/s/pq78bGYyGAPOCaQP2pRr5g">设定补充</a>'

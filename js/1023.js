@@ -3,10 +3,6 @@
     let bookNum = 1023
     p.bookIndex = bookNum
     p.bookTitle = '异乡'
-    p.bookDate = '2020'
-    p.bookDesc = {
-        zh: '2029年，银河某处。星门已然开启，天上之人一定会循着「信标」而来。而我们则要将视线投向过去，回到第四神之键刚刚修复完成的时候…',
-    }
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

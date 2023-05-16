@@ -78,6 +78,27 @@ class ReaderParam {
             }
         }
     };
+    updateBookInfo() {
+        for (let i = 0; i < ComicData.length; i++) {
+            const e = ComicData[i]
+            if (e.id == this.bookIndex) {
+                if (!this.bookTitle) {
+                    this.bookTitle = e.title
+                }
+                if (typeof (e.description) == 'string') {
+                    this.bookDesc = { zh: e.description }
+                } else {
+                    this.bookDesc = e.description
+                }
+                let date = e.date
+                this.bookDate = date[0][0] + '.' + date[0][1]
+                if (date[1]) {
+                    this.bookDate += '-' + date[1][0] + '.' + date[1][1]
+                }
+                break
+            }
+        }
+    };
 }
 
 /**
@@ -85,6 +106,7 @@ class ReaderParam {
  * @param {ReaderParam} param parameter
  */
 const Reader = function (param) {
+    param.updateBookInfo()
     let bookDesc = param.bookDesc
     let bgSrc = param.bgSrc
     let numChapter = param.numChapter

@@ -3,10 +3,6 @@
     let bookNum = 1014
     p.bookIndex = bookNum
     p.bookTitle = '夏日回忆-预告篇'
-    p.bookDate = '2018'
-    p.bookDesc = {
-        zh: '在街头徘徊的琪亚娜正在为打工而苦恼，阴差阳错之下她来到了吼姆欢乐餐厅，还通过了面试，然而意想不到的事还是发生了，并由此拉开了这个夏天的序幕…',
-    }
     p.editorNote = {
         zh: '- 本篇为游戏2.4版本「夏日回忆」活动（已加入活动相册）的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1es411V7ri">活动PV</a>'
@@ -22,9 +18,11 @@
     ]
     p.numChapter = 4
     p.chTitles = [
+        //https://mp.weixin.qq.com/s?src=11&timestamp=1683483648&ver=4514&signature=rWbsL9o2E5QxLiAYA3tTE8xsnWTK8nGyWzV4F7Oi0qHo78SOBw4DwfI3BzcH3ILWPuSeyi0dixOPJGDgakIEopWw2G2vLNIodIq-7PnZ45wQLEj3j1qtv-ooCXaGzbRL&new=1
         '第一话',
         '第二话',
         '第三话',
+        //https://mp.weixin.qq.com/s?src=11&timestamp=1683483648&ver=4514&signature=rWbsL9o2E5QxLiAYA3tTE8xsnWTK8nGyWzV4F7Oi0qF48lrASobzBW9HeOIH8Bwo6g3hegeCE3virZOUUyN7xjwqZIoFC76r84VDEIyo8HCeHI6dzxNug13Wr*zB3oQh&new=1
         '第四话',
     ]
     p.chPages = [

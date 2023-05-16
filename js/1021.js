@@ -3,10 +3,6 @@
     let bookNum = 1021
     p.bookIndex = bookNum
     p.bookTitle = '传承'
-    p.bookDate = '2020'
-    p.bookDesc = {
-        zh: '在过去的4500年间，第二神之键一直被用于观测「虚数之树」上的其他「平行世界」。盛者必衰，一度辉煌的文明，终究会凋零。隐藏在第二神之键中的答案，正缓缓浮出水面…',
-    }
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

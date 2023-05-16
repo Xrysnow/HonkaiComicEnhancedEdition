@@ -3,10 +3,6 @@
     let bookNum = 1013
     p.bookIndex = bookNum
     p.bookTitle = '女武神的餐桌'
-    p.bookDate = '2018-2020'
-    p.bookDesc = {
-        zh: '这是回到宿舍的女武神们，发生在她们身上的和食物有关的故事。女武神们做的料理各不相同，但是其中蕴含的心意，对重要的人想要传达的思念，却是相通的。',
-    }
     p.editorNote = {
         zh: '- <a href="https://www.bilibili.com/bangumi/play/ep275898">动画 第一季</a>'
             + '</br>- <a href="https://www.bilibili.com/bangumi/play/ss33688">动画 第二季</a>'

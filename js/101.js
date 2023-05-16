@@ -3,10 +3,6 @@
     let bookNum = 101
     p.bookIndex = bookNum
     p.bookTitle = '番外篇'
-    p.bookDate = '2014-2016'
-    p.bookDesc = {
-        zh: '崩坏学园漫画短篇集，用漫画的形式将生在崩坏中的点点滴滴记录在画页上。邀请风格不同的画师太太们用不同的风格为您展示崩坏不一样的魅力',
-    }
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     let prefix2 = Util.getImgLegacySrcPrefix()

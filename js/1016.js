@@ -3,10 +3,6 @@
     let bookNum = 1016
     p.bookIndex = bookNum
     p.bookTitle = '双子：入侵'
-    p.bookDate = '2019-2020'
-    p.bookDesc = {
-        zh: '故事发生在一座基地，这里白天灯光明媚，夜晚也灯光明媚；每隔一段时日，就有研究员不省人事……逆熵姐妹无意中发现了知名偶像“伏特加女孩”的秘密，就此展开一段跌宕起伏的冒险！',
-    }
     p.editorNote = {
         zh: '- 本篇为4.1版本活动《双子：入侵 海渊乐园篇》的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1mf4y117Uz?t=94.6">版本PV</a>'

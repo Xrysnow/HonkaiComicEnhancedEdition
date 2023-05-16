@@ -3,10 +3,6 @@
     let bookNum = 1011
     p.bookIndex = bookNum
     p.bookTitle = '玩崩坏3的琪亚娜'
-    p.bookDate = '2018'
-    p.bookDesc = {
-        zh: '琪亚娜刚刚入坑以自己为原型的游戏《崩坏3》，符华以资深老玩家的身份想对她展开全面的指导，但是却发现，自己与“欧洲人”琪亚娜之间，存在着血统的差距…',
-    }
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
