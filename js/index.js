@@ -201,7 +201,7 @@ let IndexScript = function () {
             type.innerText = data.type
             let date = document.createElement('div')
             date.className = 'comic-title-date'
-            if (data.date.length > 1) {
+            if (data.date.length > 1 && data.date[0][0] != data.date[1][0]) {
                 date.innerText = data.date[0][0] + '-' + data.date[1][0]
             } else {
                 date.innerText = data.date[0][0]
