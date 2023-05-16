@@ -47,6 +47,7 @@ let RelationData = {
         ['4.1版本活动', [2020, 7]],
         ['4.6版本活动', [2021, 2]],
         ['后崩坏书第二章', [2021, 12]],
+        ['3.7版本活动', [2020, 1]],
     ],
     novel: [
         ['逆熵', [[2017, 8], [2018, 7]]],
@@ -84,8 +85,9 @@ let RelationData = {
         [1015, ['game2', 2], { lineStyle: { curveness: -0.05 } }],
         [1016, ['game2', 4], { lineStyle: { curveness: 0.1 } }],
         [1017, ['game1', 4]],
-        [1018, ['game1', 4], { lineStyle: { curveness: -0.15 } }],
+        [1018, ['game1', 4], { lineStyle: { curveness: 0.2 } }],
         [1019, ['game1', 6], { lineStyle: { curveness: -0.3 } }],
+        [1019, ['game2', 7], { lineStyle: { curveness: 0.1 } }],
         [1020, ['anime', 2]],
         [1021, ['game1', 5]],
         [1022, ['game1', 6]],
@@ -95,8 +97,8 @@ let RelationData = {
         [['game2', 3], ['game2', 6], { lineStyle: { curveness: 0.3 } }],
         [['novel', 0], 1012, { lineStyle: { curveness: -0.05 } }],
         [['novel', 0], ['game1', 2]],
-        [['novel', 1], 1018, { lineStyle: { curveness: 0.05 } }],
-        [['novel', 1], ['game1', 8], { lineStyle: { curveness: -0.075 } }],
+        [['novel', 1], 1018, { lineStyle: { curveness: -0.35 } }],
+        [['novel', 1], ['game1', 8], { lineStyle: { curveness: -0.03 } }],
         [['novel', 2], ['game1', 6], { lineStyle: { curveness: 0.5 } }],
         [['anime', 0], ['anime', 1]],
     ],
@@ -319,9 +321,9 @@ let IndexScript = function () {
                 let y = factor * hscale
                 let title = e[0] + '\n' + year + '.' + month
                 let xx = x
-                if (e[0] == '主线第25章间章') {
+                if (e[0] == '主线第25章间章' || e[0] == '后崩坏书') {
                     xx += 60
-                } else if (e[0] == '主线第26章') {
+                } else if (e[0] == '主线第26章' || e[0] == '3.7版本活动') {
                     xx -= 60
                 }
                 data.push({
