@@ -249,6 +249,7 @@ label * {
     width: 100%;
     height: 100%;
     overflow: auto;
+    overflow: overlay;
 }
 
 .comic-list {
@@ -533,10 +534,11 @@ body>input {
     opacity: 0.1;
     width: 100%;
     height: 100%;
+    overflow: auto;
+    overflow: overlay;
 }
 
 @media screen and (min-width: 800px) {
-
     .instructions-page {
         margin-left: calc(max(10% + 30px, 130px));
     }
@@ -622,6 +624,7 @@ body>input {
     width: 100%;
     height: 100%;
     overflow: auto;
+    overflow: overlay;
 }
 
 .config-page {
@@ -696,8 +699,8 @@ body>input {
 .menu-config-wrapper.folded>div {
     height: calc(100% - 20px - 6px);
     margin: 3px;
-    overflow: auto;
     display: block;
+    overflow: auto;
 }
 
 #config-page-container>input[type="checkbox"]:checked+label+div {
