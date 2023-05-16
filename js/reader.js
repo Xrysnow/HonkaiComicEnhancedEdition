@@ -713,6 +713,8 @@ const Reader = function (param) {
             if (target) {
                 target.classList.add('active')
             }
+        } else {
+            ichapter = -1
         }
         // hide all marks
         let marks = document.getElementsByClassName('home-index-checkmark')
