@@ -262,7 +262,7 @@ let IndexScript = function () {
             comic: '#5470c6',
             game: '#c55a11',
             novel: '#548235',
-            anime: '#cc0000',
+            anime: '#f4558f',
         }
         let data = []
         let getComic = function (list) {
@@ -408,7 +408,7 @@ let IndexScript = function () {
             } else if (!c1) {
                 link.lineStyle.color = '#999'
             } else if (!c2 && e[1][0] == 'anime') {
-                link.lineStyle.color = '#ff7777'
+                link.lineStyle.color = '#ff88aa'
             } else if (!c2 && e[1][0] == 'game2') {
                 link.lineStyle.color = '#ffaa77'
             }
@@ -419,7 +419,12 @@ let IndexScript = function () {
             tooltip: {},
             scaleLimit: { min: 0.2, max: 10 },
             nodeScaleRatio: 1,
-            label: { fontSize: 8 },
+            label: {
+                fontSize: 8,
+                color: '#fff',
+                textBorderColor: 'inherit',
+                textBorderWidth: 1.5,
+            },
             series: [
                 {
                     type: 'graph',
