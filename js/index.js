@@ -249,6 +249,240 @@ let IndexScript = function () {
         }
     }
     InitIndex(1)
+    //
+    function SetupChart1() {
+        let target = document.getElementById('chart-relation')
+        let chart = echarts.init(target)
+        let symbol = 'circle'
+        let symbolSize = 40
+        let hscale = 500
+        let colors = {
+            comic: '#5470c6',
+            game: '#c55a11',
+            novel: '#548235',
+            anime: '#cc0000',
+        }
+        let data = []
+        let getComic = function (list) {
+            let result = []
+            for (let i = 0; i < list.length; i++) {
+                for (let j = 0; j < ComicData.length; j++) {
+                    const e = ComicData[j]
+                    if (e.id == list[i]) {
+                        result.push(e)
+                        break
+                    }
+                }
+            }
+            return result
+        }
+        let pushComic = function (list, x) {
+            const left = [1010, 1004, 1016, 1019, 1008]
+            const right = [1007, 102, 1015, 1021, 1009]
+            for (let i = 0; i < list.length; i++) {
+                const e = list[i]
+                let year = e.date[0][0]
+                let month = e.date[0][1]
+                let factor = year - 2015 + (month - 1) / 12
+                let y = factor * hscale
+                let xx = x
+                if (left.includes(e.id)) {
+                    xx -= 60
+                } else if (right.includes(e.id)) {
+                    xx += 60
+                }
+                let title = e.title + '\n' + year + '.' + month
+                if (e.date[1]) {
+                    title += '-\n' + e.date[1][0] + '.' + e.date[1][1]
+                }
+                data.push({
+                    name: 'NodeComic' + e.id,
+                    x: xx, y: y,
+                    symbol: symbol,
+                    symbolKeepAspect: true,
+                    value: title,
+                    itemStyle: { color: colors.comic, },
+                })
+            }
+        }
+        let comic1 = getComic(RelationData.comic1)
+        let comic2 = getComic(RelationData.comic2)
+        pushComic(comic1, 0)
+        pushComic(comic2, 300)
+        //
+        let pushGame = function (list, x) {
+            for (let i = 0; i < list.length; i++) {
+                const e = list[i]
+                let year = e[1][0]
+                let month = e[1][1]
+                let factor = year - 2015 + (month - 1) / 12
+                let y = factor * hscale
+                let title = e[0] + '\n' + year + '.' + month
+                let xx = x
+                if (e[0] == '主线第25章间章') {
+                    xx += 60
+                } else if (e[0] == '主线第26章') {
+                    xx -= 60
+                }
+                data.push({
+                    name: 'NodeOthers' + (x + i),
+                    x: xx, y: y,
+                    symbol: symbol,
+                    symbolKeepAspect: true,
+                    value: title,
+                    itemStyle: { color: colors.game, },
+                })
+            }
+        }
+        pushGame(RelationData.game1, 800)
+        pushGame(RelationData.game2, 1100)
+        //
+        let pushOthers = function (list, x, color) {
+            for (let i = 0; i < list.length; i++) {
+                const e = list[i]
+                const date = e[1]
+                let year = date[0][0]
+                let month = date[0][1]
+                let factor = year - 2015 + (month - 1) / 12
+                let y = factor * hscale
+                let title = e[0] + '\n' + year + '.' + month
+                if (date[1]) {
+                    if (date[1] == -1) {
+                        title += '-\n现在'
+                    } else {
+                        title += '-\n' + date[1][0] + '.' + date[1][1]
+                    }
+                }
+                data.push({
+                    name: 'NodeOthers' + (x + i),
+                    x: x, y: y,
+                    symbol: symbol,
+                    symbolKeepAspect: true,
+                    value: title,
+                    itemStyle: { color: color, },
+                })
+            }
+        }
+        pushOthers(RelationData.novel, 1400, colors.novel)
+        pushOthers(RelationData.anime, 1700, colors.anime)
+        //
+        let getIndex = function (x) {
+            if (typeof (x) == 'number') {
+                for (let i = 0; i < RelationData.comic1.length; i++) {
+                    const e = RelationData.comic1[i]
+                    if (x == e) {
+                        return i
+                    }
+                }
+                for (let i = 0; i < RelationData.comic2.length; i++) {
+                    const e = RelationData.comic2[i]
+                    if (x == e) {
+                        return i + RelationData.comic1.length
+                    }
+                }
+            }
+            let base = RelationData.comic1.length + RelationData.comic2.length
+            let keys = ['game1', 'game2', 'novel', 'anime']
+            for (let i = 0; i < keys.length; i++) {
+                const key = keys[i]
+                if (x[0] == key) {
+                    return x[1] + base
+                }
+                base += RelationData[key].length
+            }
+            return -1
+        }
+        let links = []
+        for (let i = 0; i < RelationData.edges.length; i++) {
+            const e = RelationData.edges[i]
+            let link = e[2] || {}
+            link.lineStyle = link.lineStyle || {}
+            link.source = getIndex(e[0])
+            link.target = getIndex(e[1])
+            let c1 = typeof (e[0]) == 'number'
+            let c2 = typeof (e[1]) == 'number'
+            if (c1 && c2) {
+                link.lineStyle.color = '#aaaaff'
+            } else if (!c1) {
+                link.lineStyle.color = '#999'
+            } else if (!c2 && e[1][0] == 'anime') {
+                link.lineStyle.color = '#ff7777'
+            } else if (!c2 && e[1][0] == 'game2') {
+                link.lineStyle.color = '#ffaa77'
+            }
+            links.push(link)
+        }
+        let option = {
+            title: {},
+            tooltip: {},
+            scaleLimit: { min: 0.2, max: 10 },
+            nodeScaleRatio: 1,
+            label: { fontSize: 8 },
+            series: [
+                {
+                    type: 'graph',
+                    layout: 'none',
+                    symbolSize: symbolSize,
+                    roam: true,
+                    label: {
+                        show: true,
+                        formatter: '{c}',
+                    },
+                    tooltip: {
+                        show: false,
+                    },
+                    edgeSymbol: ['circle', 'arrow'],
+                    edgeSymbolSize: [6, 16],
+                    edgeLabel: {
+                        fontSize: 5
+                    },
+                    data: data,
+                    links: links,
+                    lineStyle: {
+                        opacity: 1,
+                        color: '#fff',
+                        width: 2,
+                        curveness: 0,
+                    },
+                }
+            ],
+        };
+        chart.setOption(option)
+        chart.on('graphroam', function (ev) {
+            if (!ev.zoom) {
+                return
+            }
+            let zoom = chart.getOption().series[0].zoom
+            let factor = zoom
+            let fontSize = 8 * factor
+            fontSize = Math.max(5, Math.min(fontSize, 14))
+            chart.setOption({ label: { fontSize: fontSize } })
+        })
+        window.addEventListener('resize', function () {
+            chart.resize()
+        })
+    }
+    // SetupChart1()
+    document.getElementById('chart-relation-wrapper').style.display = 'none'
+    //
+    if (!Util.isMobile()) {
+        let imgWrapper1 = document.getElementById('ins-img-wrapper-1')
+        const ViewerConfig = {
+            zoomRatio: 0.2,
+            navbar: false,
+            title: false,
+            minZoomRatio: 0.1,
+            maxZoomRatio: 10,
+            className: 'ins-img-viewer',
+            toolbar: {
+                zoomIn: 1,
+                zoomOut: 1,
+                oneToOne: 1,
+                reset: 1,
+            },
+        }
+        let viewer = new Viewer(imgWrapper1, ViewerConfig)
+    }
 };
 
 try {
