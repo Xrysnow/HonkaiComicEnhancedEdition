@@ -524,7 +524,7 @@ let ComicData = [
     },
 ];
 
-const AppInfo = {
+let AppInfo = {
     LocalVersion: 1,
     RemoteVersion: -1,
     ImageLocal: false,
@@ -537,14 +537,15 @@ const AppInfo = {
         let major = Math.floor(v / 100).toString()
         let minor = Math.round(v - major * 100).toString()
         let str = 'v' + major + '.' + '0'.repeat(2 - minor.length) + minor
-        if (this.ImageLocal) {
+        if (!this.ImageLocal) {
+            // light version
             str += 'L'
         }
         return str
     }
 }
 
-let GlobalScript = function () {
+function GlobalScript() {
     let version = document.getElementById('version-mark')
     if (version) {
         version.innerText = AppInfo.getVersionString()
