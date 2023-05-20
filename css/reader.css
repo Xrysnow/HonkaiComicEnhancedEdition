@@ -529,18 +529,6 @@ li {
     margin: auto;
 }
 
-#chapter-title {
-    position: absolute;
-    top: -2.5rem;
-    right: 0.5rem;
-    text-align: right;
-    font-size: 1em;
-    padding-top: 0.2rem;
-    padding-bottom: 0.5rem;
-    color: white;
-    width: 20rem;
-}
-
 .content-img {
     max-width: 100%;
     min-width: 100%;
@@ -555,6 +543,10 @@ li {
     height: 3rem;
     text-align: center;
     overflow: hidden;
+}
+
+.voice-icon-box * {
+    cursor: pointer;
 }
 
 .voice-icon-list {
