@@ -15,6 +15,7 @@ class ReaderParam {
         this.bgmInfo = null;
         this.bgmInfo2 = null;
         this.bgmExtId = null;
+        this.voiceInfo = null;
         this.i18nString = null;
         this.i18nHtml = null;
         this.fnGetChapterCoverSrc = null;
@@ -172,8 +173,8 @@ const Reader = function (param) {
 
     const MUSIC_LOCAL_SRC_PREFIX = '../res/music/'
     const MUSIC_LOCAL_SRC_POSTFIX = '.mp3'
-    // const VOICE_SRC_POSTFIX = '.wav'
-    // const VOICE_ICON = '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M6 18v12h8l10 10V8L14 18H6zm27 6c0-3.53-2.04-6.58-5-8.05v16.11c2.96-1.48 5-4.53 5-8.06zM28 6.46v4.13c5.78 1.72 10 7.07 10 13.41s-4.22 11.69-10 13.41v4.13c8.01-1.82 14-8.97 14-17.54S36.01 8.28 28 6.46z"/></svg>'
+    const VOICE_SRC_POSTFIX = '.wav'
+    const VOICE_ICON = '<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M6 18v12h8l10 10V8L14 18H6zm27 6c0-3.53-2.04-6.58-5-8.05v16.11c2.96-1.48 5-4.53 5-8.06zM28 6.46v4.13c5.78 1.72 10 7.07 10 13.41s-4.22 11.69-10 13.41v4.13c8.01-1.82 14-8.97 14-17.54S36.01 8.28 28 6.46z"/></svg>'
 
     let IS_MOBILE = Util.isMobile()
     this.IS_MOBILE = IS_MOBILE
@@ -779,6 +780,54 @@ const Reader = function (param) {
         return bookMode
     }
 
+    const MakeVoiceButtons = function (idx, i) {
+        let voice_info = GetVoiceInfo(idx, i)
+        if (!voice_info) {
+            return null
+        }
+        let num_voice = 0
+        let voice_pos = 0
+        if (typeof (voice_info) == 'number') {
+            num_voice = voice_info
+        } else {
+            num_voice = voice_info[0]
+            voice_pos = voice_info[1]
+        }
+        if (num_voice < 1) {
+            return null
+        }
+        let obj_voice_list = document.createElement('div')
+        obj_voice_list.className = 'voice-icon-list'
+        if (voice_pos > 0) {
+            obj_voice_list.style.top = voice_pos + '%'
+        }
+        for (let j = 0; j < num_voice; j++) {
+            let obj_icon_box = document.createElement('div')
+            obj_icon_box.innerHTML = VOICE_ICON
+            obj_icon_box.className = 'voice-icon-box'
+            let handle = 0
+            obj_icon_box.onclick = function () {
+                //
+                if (idx == 66 && i == 21 & j == 0) {
+                    RemoveBGMPlayer()
+                    BgMusicSpecialPause = true
+                    if (handle) {
+                        clearTimeout(handle)
+                    }
+                    handle = setTimeout(function () {
+                        BgMusicSpecialPause = false
+                    }, 12000)
+                }
+                let player = document.getElementById('voice-player')
+                player.pause()
+                player.src = GetVoiceSrc(idx, i, j)
+                player.play()
+            }
+            obj_voice_list.appendChild(obj_icon_box)
+        }
+        return obj_voice_list
+    }
+
     const GotoChapter = function (idx) {
         let bookMode = GetBookMode()
         if (bookMode == 'rl' || bookMode == 'lr') {
@@ -874,6 +923,11 @@ const Reader = function (param) {
             }
 
             obj_ul.appendChild(obj_li)
+            //
+            let voice_buttons = MakeVoiceButtons(idx, i)
+            if (voice_buttons) {
+                obj_div.appendChild(voice_buttons)
+            }
         }
         AddToGallery(obj_ul)
         if (!IS_MOBILE) {
@@ -1441,13 +1495,16 @@ const Reader = function (param) {
     if (IS_MOBILE) {
         document.body.classList.add('mobile')
     }
-    /*
+
     function GetVoiceInfo(i_chapter, i_page) {
         const invalid = 0
-        if (!VOICE_INFO[i_chapter + 1]) {
+        if (!PARAMETER.voiceInfo) {
             return invalid
         }
-        let v = VOICE_INFO[i_chapter + 1][i_page + 1]
+        if (!PARAMETER.voiceInfo[i_chapter + 1]) {
+            return invalid
+        }
+        let v = PARAMETER.voiceInfo[i_chapter + 1][i_page + 1]
         if (!v) {
             return invalid
         }
@@ -1461,9 +1518,8 @@ const Reader = function (param) {
         let file = [c, p, v].map(function (e, i, a) {
             return '0'.repeat(2 - e.length) + e
         }).join('_') + VOICE_SRC_POSTFIX
-        return (VOICE_LANGUAGE == 'jp' ? 'res/voice_jp/' : 'res/voice/') + file
+        return (VOICE_LANGUAGE == 'jp' ? '../res/voice_jp/' : '../res/voice/') + file
     }
-    */
 
     function GetChapterCoverSrc(i) {
         let num = i + 1
