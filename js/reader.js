@@ -22,31 +22,18 @@ class ReaderParam {
         this.editorNote = null;
         this.bookMode = null;
         this.bookModeBlank = null;
-        // loudness matching
-        this._bgmVolume = [
-            -9.86, -7.43, -8.97, -14.48, -9.31,
-            -5.78, -15.47, -1.39, -14.51, -16.47,
-
-            -8.50, -12.84, -11.49, -7.69, -11.63,
-            0/* 8.25 */, -12.30, -7.80, -14.55, -11.50,
-
-            -15.37, -14.30, 0, -12.19, -14.65,
-            -14.17, -14.18, -12.11, -14.47, -12.89,
-            //TODO
-            0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0,
-        ];
         this._bgmLoopInfo = {
             28: [5, 23, 1, 1, true],
             45: [0, 1e3, 1, 1, false],
             49: [0, 53, 1, 1, false],
         };
     };
-    getBgmVolume(idx) {
-        if (this._bgmVolume[idx] == undefined) {
+    getBgmVolume(id) {
+        // loudness matching
+        if (BgmGlobalInfo[id] == undefined) {
             return 1
         }
-        let v = this._bgmVolume[idx]
+        let v = BgmGlobalInfo[id][2]
         if (-100 <= v && v <= 100) {
             return Math.pow(10, v / 20)
         }
@@ -431,8 +418,12 @@ const Reader = function (param) {
             info.innerHTML = '　'
             if (BgmGlobalInfo && BgmGlobalInfo[id]) {
                 info.innerHTML = 'BGM: ' + BgmGlobalInfo[id][0]
-                if (BgmGlobalInfo[id][1]) {
-                    info.innerHTML += ' / ' + BgmGlobalInfo[id][1]
+                let album = BgmGlobalInfo[id][1]
+                if (album && AlbumInfo[album]) {
+                    album = AlbumInfo[album][0]
+                }
+                if (album) {
+                    info.innerHTML += ' / ' + album
                 }
             }
             //
@@ -444,7 +435,7 @@ const Reader = function (param) {
                 if (!p || p.bgm_id != id) {
                     return
                 }
-                let base = PARAMETER.getBgmVolume(id - 1) * BgMusicVolume
+                let base = PARAMETER.getBgmVolume(id) * BgMusicVolume
                 let info = PARAMETER.getBgmLoopInfo(id)
                 let factor = BgMusicSwitchFactor
                 if (info) {
