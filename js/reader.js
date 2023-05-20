@@ -393,16 +393,7 @@ const Reader = function (param) {
         BgMusicSwitchFactor = 1
         let container = document.getElementById('bgm-player-container')
         if (!AUDIO_LOCAL_MODE) {
-            let frame = document.createElement('iframe')
-            frame.id = 'bgm-player'
-            frame.allow = 'autoplay'
-            frame.frameBorder = 'no'
-            if (isList) {
-                frame.src = GetMusicListSrc(id, height)
-            } else {
-                frame.src = GetMusicSingleSrc(id, height)
-            }
-            container.appendChild(frame)
+            //
         } else {
             let player = document.createElement('audio')
             player.id = 'bgm-player'
@@ -1309,14 +1300,6 @@ const Reader = function (param) {
         }
     }
     //
-    function GetMusicListSrc(id, height) {
-        return 'https://music.163.com/outchain/player?type=0&id=' + id + '&auto=1&height=' + height
-    }
-
-    function GetMusicSingleSrc(id, height) {
-        return 'https://music.163.com/outchain/player?type=2&id=' + id + '&auto=1&height=' + height
-    }
-
     function GetBgMusicID(index, progress) {
         if (!EnableBGM) {
             return -1
