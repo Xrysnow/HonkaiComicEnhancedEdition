@@ -58,8 +58,18 @@
         return p.imgSrcPrefix + i + '/' + n + '.jpg'
     }
     p.hiddenPages = null
-    p.bgmVolume = null
-    p.bgmInfo = null
+    p.bgmInfo = [
+        [[62, 44], [0, 76]],
+        [[23, 1130, 78], [0, 57, 86]],
+        78,
+        [[95, 96], [0, 87]],
+        [[96, 95], [0, 62]],
+        [[23, 78, 70], [0, 37, 59]],
+        78,
+        [[78, 44], [0, 84]],
+        44,
+        81,
+    ]
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
