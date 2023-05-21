@@ -85,6 +85,7 @@ let RelationData = {
         [1015, ['game2', 2], { lineStyle: { curveness: -0.05 } }],
         [1016, ['game2', 4], { lineStyle: { curveness: 0.1 } }],
         [1017, ['game1', 4]],
+        [1018, 1021],
         [1018, ['game1', 4], { lineStyle: { curveness: 0.2 } }],
         [1019, ['game1', 6], { lineStyle: { curveness: -0.3 } }],
         [1019, ['game2', 7], { lineStyle: { curveness: 0.1 } }],
