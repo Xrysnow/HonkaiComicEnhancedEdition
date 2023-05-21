@@ -569,6 +569,7 @@ const BgmGlobalInfo = {
     20: ['Freez', 'Alive', -11.5],
     21: ['Hard Bone', 'Alive', -15.37],
     22: ['Nightglow（Instrumental）', 'Onwards', -14.3],
+    23: ['Lonec', 'Alive', 0],
     24: ['Armband', 'Alive', -12.19],
     25: ['The Chariot', '后崩坏书', -14.65],
     26: ['Lyin (See you in the next world)', 'Onwards', -14.17],
@@ -640,6 +641,8 @@ const BgmGlobalInfo = {
     92: ['Train to the Future', '跨越终焉之日', 0],
     93: ['Twilight Woods', 'Elysium', 0],
     94: ['Elysian Realm', 'Elysium', 0],
+    95: ['Mystery', 'Alive', 0],
+    96: ['Subtle', 'Elysium', 0],
     //
     999: ['Da Capo (伴奏)', 'DaCapo', 0],
     //
