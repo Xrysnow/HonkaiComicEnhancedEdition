@@ -643,6 +643,13 @@ const BgmGlobalInfo = {
     94: ['Elysian Realm', 'Elysium', 0],
     95: ['Mystery', 'Alive', 0],
     96: ['Subtle', 'Elysium', 0],
+    97: ['Lightless Land', 'Elysium', 0],
+    98: ['Drizzle', 'Paradox', 0],
+    99: ['Asphyxia', 'Paradox', 0],
+    100: ['Forgotten City', 'Elysium', 0],
+    101: ['For Kevin', '跨越终焉之日', 0],
+    102: ['Armband', 'Alive', 0],
+    103: ['星穹铁道 Star Rail', '失控', 0],
     //
     999: ['Da Capo (伴奏)', 'DaCapo', 0],
     //
