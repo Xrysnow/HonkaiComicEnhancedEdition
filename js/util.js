@@ -529,6 +529,7 @@ const AlbumInfo = {
     Impact: ['崩坏3-Impact-Original Soundtrack'],
     女武神的餐桌: ['崩坏3「女武神的餐桌」Original Soundtrack'],
     Onwards: ['崩坏3-Onwards-Original Soundtrack'],
+    DualEgo: ['Dual-Ego'],
     后崩坏书: ['崩坏3-后崩坏书-Original Soundtrack'],
     Review: ['崩坏3-Review-Original Soundtrack'],
     未定的注定: ['未定的注定'],
@@ -651,11 +652,13 @@ const BgmGlobalInfo = {
     102: ['Armband', 'Alive', 0],
     103: ['星穹铁道 Star Rail', '失控', 0],
     104: ['Nrbl', 'Alive', 0],
+    105: ['Dual-Ego (伴奏)', 'DualEgo', 0],
     //
     999: ['Da Capo (伴奏)', 'DaCapo', 0],
     //
     1037: ['千年之羽 (伴奏)', '', 0],
     1183: ['八重桜 (伴奏)', '', 0],
+    1335: ['漆夜雪', '', 0],
     1336: ['Bunny Jump (伴奏)', '', 0],
 };
 
