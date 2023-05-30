@@ -650,6 +650,7 @@ const BgmGlobalInfo = {
     101: ['For Kevin', '跨越终焉之日', 0],
     102: ['Armband', 'Alive', 0],
     103: ['星穹铁道 Star Rail', '失控', 0],
+    104: ['Nrbl', 'Alive', 0],
     //
     999: ['Da Capo (伴奏)', 'DaCapo', 0],
     //
