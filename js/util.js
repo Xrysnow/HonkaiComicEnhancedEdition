@@ -653,6 +653,8 @@ const BgmGlobalInfo = {
     103: ['星穹铁道 Star Rail', '失控', 0],
     104: ['Nrbl', 'Alive', 0],
     105: ['Dual-Ego (伴奏)', 'DualEgo', 0],
+    106: ['Mend', 'Alive', 0],
+    107: ['Summer Survival', '跨越终焉之日', 0],
     //
     999: ['Da Capo (伴奏)', 'DaCapo', 0],
     //
