@@ -655,6 +655,17 @@ const BgmGlobalInfo = {
     105: ['Dual-Ego (伴奏)', 'DualEgo', 0],
     106: ['Mend', 'Alive', 0],
     107: ['Summer Survival', '跨越终焉之日', 0],
+    108: ['Loneliness', 'Yesterday', 0],
+    109: ['St.Freya', 'Paradox', 0],
+    110: ['Fry BeL', '后崩坏书2', 0],
+    111: ['End of Domination', 'Paradox', 0],
+    112: ['Er Pi', '后崩坏书2', 0],
+    113: ['Shimmer', 'Onwards', 0],
+    114: ['Sora', 'Yesterday', 0],
+    115: ['行星漂流 Drift', '失控', 0],
+    116: ['Essr Emp', '后崩坏书2', 0],
+    117: ['Welt Joyce', '跨越终焉之日', 0],
+    118: ['太空漫步 Space Walk', '失控', 0],
     //
     999: ['Da Capo (伴奏)', 'DaCapo', 0],
     //
