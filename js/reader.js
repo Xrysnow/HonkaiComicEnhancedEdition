@@ -24,7 +24,6 @@ class ReaderParam {
         this.bookMode = null;
         this.bookModeBlank = null;
         this._bgmLoopInfo = {
-            28: [5, 23, 1, 1, true],
             45: [0, 1e3, 1, 1, false],
             49: [0, 53, 1, 1, false],
         };

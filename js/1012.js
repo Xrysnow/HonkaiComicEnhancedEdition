@@ -81,6 +81,7 @@
         12, 12, [[29, 5], [0, 72]], 19, 27,
         27, -1, 22, 14
     ]
+    p.addBgmLoopInfo(28, 5, 23, 1, 1, true)
     p.bgmExtId = null
     p.voiceInfo = {
         // chaper: { page: num }

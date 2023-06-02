@@ -94,6 +94,7 @@
         1335,
         [[1335, -1], [0, 90]],
     ]
+    p.addBgmLoopInfo(28, 5, 23, 1, 1, true)
     p.addBgmLoopInfo(105, 0, 69, 0.5, 1)
     p.addBgmLoopInfo(1335, 7, 169, 0.5, 0.5)
     p.bgmExtId = null
