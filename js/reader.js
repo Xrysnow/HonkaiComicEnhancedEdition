@@ -433,11 +433,15 @@ const Reader = function (param) {
                     const start = info[0]
                     const end = info[1]
                     let curr = p.currentTime
-                    let target = MathUtil.clampLoop(curr, start, end, info[4] || false)
+                    let ignoreFirst = info[4] || false
+                    let target = MathUtil.clampLoop(curr, start, end, ignoreFirst)
                     if (Math.abs(target - curr) > 0.01) {
                         p.currentTime = target
                     }
                     let fadeFactor = MathUtil.getFadeFactor(curr, start, end, info[2], info[3])
+                    if (ignoreFirst && curr <= start) {
+                        fadeFactor = MathUtil.getFadeFactor(curr, 0, start, info[2], info[3])
+                    }
                     factor = Math.min(factor, fadeFactor)
                 }
                 p.volume = factor * base
