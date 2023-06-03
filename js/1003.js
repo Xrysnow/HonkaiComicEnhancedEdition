@@ -3,6 +3,7 @@
     let bookNum = 1003
     p.bookIndex = bookNum
     p.bookTitle = '圣痕之谜篇'
+    p.bookMode = 'rl'
     p.editorNote = {
         zh: '- 本篇为《樱花追忆篇》（原《学园篇》）的后续，已被官网删除。'
             + '</br>- 设定补充（与漫画同步更新）：<a href="https://mp.weixin.qq.com/s/tTdikP7KO_wfgP8D5hwStg">【1】</a>'
@@ -10,7 +11,7 @@
             + '　<a href="https://mp.weixin.qq.com/s/Q3-byZ03NzZx0P81ygX6rg">【3】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/SmBQQUtsX58GKfc8Lm4Yng">【4】</a>'
             + '</br>- 本篇为游戏1.1版本外传「轩辕篇」及1.2版本外传「蚩尤篇」（已加入编年史）的前置漫画。'
-            + '</br>- 本篇剧情与游戏内差异较大，但对于阅读编年史「轩辕篇」「蚩尤篇」「遗忘之人」等剧情仍有一定帮助。'
+            + '</br>- 本篇剧情与游戏内差异较大，但对于阅读编年史「轩辕篇」「蚩尤篇」「遗忘之人」等剧情仍有帮助。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Ms411W7As">1.1版本PV</a>　<a href="https://www.bilibili.com/video/BV1Fs411Y7Tn">1.2版本PV</a>'
     }
     let prefix = Util.getImgSrcPrefix()
@@ -32,6 +33,15 @@
     p.chPages = [
         27, 24, 22, 28, 26, 25, 27, 28
     ]
+    p.bookModeBlank = {
+        0: [16],
+        1: [3, 13],
+        2: [0, 10],
+        7: [10],
+    }
+    for (let i = 3; i < 7; i++) {
+        p.bookModeBlank[i] = [0]
+    }
     let prefix2 = Util.getImgLegacySrcPrefix()
     let hiddenSrcPrefix = prefix2 + '1/chapter/'
     p.hiddenPages = {
@@ -64,6 +74,16 @@
         [[61, -1, 59], [0, 22, 29]],
         [[8, 59, 31], [0, 26, 88]],
         [[31, 62], [0, 34]],
+    ]
+    p.bgmInfo2 = [
+        [[-1, 44, 58], [0, 1, 20]],
+        [[30, 1290], [0, 13.01]],
+        44,
+        [[44, 59], [0, 8]],
+        [[60, 59], [0, 6]],
+        [[61, -1, 59], [0, 5, 7]],
+        [[8, 59, 31], [0, 7, 24]],
+        [[31, 62], [0, 10]],
     ]
     p.addBgmLoopInfo(58, 0, 31, 1, 1)
     p.bgmExtId = null
