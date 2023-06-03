@@ -182,6 +182,8 @@ let IndexScript = function () {
             a.href = data.page
             let brief = document.createElement('div')
             brief.className = 'comic-brief-1'
+            let coverWrapper = document.createElement('div')
+            coverWrapper.className = 'comic-cover-wrapper-1'
             let cover = document.createElement('div')
             cover.className = 'comic-cover-1'
             cover.style.backgroundImage = 'url(' + data.cover + ')'
@@ -227,7 +229,8 @@ let IndexScript = function () {
             title.appendChild(type)
             title.appendChild(date)
             //
-            brief.appendChild(cover)
+            coverWrapper.appendChild(cover)
+            brief.appendChild(coverWrapper)
             brief.appendChild(title)
             a.appendChild(brief)
             item.appendChild(a)

@@ -29,6 +29,7 @@
 .comic-brief-1 {
     background-color: #fff;
     color: #000;
+    overflow: hidden;
 }
 
 .comic-cover-1 {
@@ -41,17 +42,24 @@
     text-align: center;
     background-size: cover;
     background-position: center;
+    transform: scale(1.0, 1.0);
+    transition: transform 200ms ease-in-out;
 }
 
 .comic-cover-wrapper-1 {
-    position: relative;
-    float: left;
-    left: -50%;
+    width: 188px;
+    height: 230px;
+    overflow: hidden;
 }
 
 .comic-cover-1 img {
     height: 230px;
     display: block;
+}
+
+.comic-cover-1:hover {
+    transform: scale(1.1, 1.1);
+    transition: transform 200ms ease-in-out;
 }
 
 .comic-title-1 {
@@ -120,6 +128,11 @@
 @media screen and (max-width: 500px) {
     .comic-item-1 {
         width: calc(50% - 10px) !important;
+    }
+
+    .comic-cover-wrapper-1 {
+        height: auto !important;
+        width: auto !important;
     }
 
     .comic-cover-1 {
