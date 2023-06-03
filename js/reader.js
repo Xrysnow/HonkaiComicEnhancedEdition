@@ -434,14 +434,19 @@ const Reader = function (param) {
             let info = document.getElementById('footbar-bgm-info')
             info.innerHTML = '　'
             if (BgmGlobalInfo && BgmGlobalInfo[id]) {
-                info.innerHTML = 'BGM: ' + BgmGlobalInfo[id][0]
+                let name = BgmGlobalInfo[id][0]
+                if (!name) {
+                    name = '-'
+                }
+                info.innerHTML = 'BGM: ' + name
                 let album = BgmGlobalInfo[id][1]
                 if (album && AlbumInfo[album]) {
                     album = AlbumInfo[album][0]
                 }
-                if (album) {
-                    info.innerHTML += ' / ' + album
+                if (!album) {
+                    album = '崩坏3'
                 }
+                info.innerHTML += ' / ' + album
             }
             //
             container.appendChild(player)
