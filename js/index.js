@@ -206,15 +206,23 @@ let IndexScript = function () {
             let date = document.createElement('div')
             date.className = 'comic-title-date'
             if (data.date.length > 1 && data.date[0][0] != data.date[1][0]) {
-                date.innerText = data.date[0][0] + '-' + data.date[1][0]
+                let end = data.date[1][0]
+                if (end == -1) {
+                    end = '现在'
+                }
+                date.innerText = data.date[0][0] + '-' + end
             } else {
                 date.innerText = data.date[0][0]
             }
             //
-            progress.appendChild(bar)
-            progress.appendChild(text)
-            progressWrapper.appendChild(progress)
-            title.appendChild(progressWrapper)
+            if (200 < data.id && data.id < 300) {
+                a.target = '_blank'
+            } else {
+                progress.appendChild(bar)
+                progress.appendChild(text)
+                progressWrapper.appendChild(progress)
+                title.appendChild(progressWrapper)
+            }
             title.appendChild(main)
             title.appendChild(type)
             title.appendChild(date)
