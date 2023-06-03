@@ -155,6 +155,7 @@
         1183,
         [[54, 57, 55], [0, 10, 18]],
     ]
+    p.addBgmLoopInfo(49, 0, 53, 1, 1)
     p.addBgmLoopInfo(50, 0, 21.2, 0.5, 0.5)
     p.addBgmLoopInfo(54, 0, 33.8, 1, 1)
     p.addBgmLoopInfo(55, 3.5, 1e3, 0.5, 0.5)
