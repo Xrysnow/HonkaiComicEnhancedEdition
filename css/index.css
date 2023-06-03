@@ -63,7 +63,6 @@ label * {
     .nav-wrap {
         display: flex;
         align-items: center;
-        justify-content: space-around;
         flex-direction: row-reverse;
         justify-content: flex-start;
         width: 100%;
@@ -140,6 +139,52 @@ label * {
 
     .nav-landscape-padding {
         height: 80px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nav-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    .nav .nav-list {
+        width: 100%;
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav .nav-list>label {
+        width: 34%;
+        height: 100%;
+    }
+
+    .nav .nav-list label:first-child {
+        width: 34%;
+        height: 100%;
+        margin-right: 0;
+    }
+
+    .nav .nav-list label:first-child>div>div {
+        margin-right: 0;
+    }
+
+    .nav .nav-list-item>div,
+    .nav .nav-list-item>a>div,
+    .nav .nav-list-seperator,
+    .nav .nav-list-item {
+        transform: skew(0);
+    }
+
+    .nav .nav-list-item {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -333,6 +378,13 @@ body>input {
     color: #fff;
     font-size: 10px;
     z-index: 1000;
+}
+
+@media screen and (max-width: 500px) {
+    #version-mark {
+        left: unset;
+        right: 10px;
+    }
 }
 
 /* comic-title */
