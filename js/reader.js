@@ -32,7 +32,9 @@ class ReaderParam {
         }
         let v = BgmGlobalInfo[id][2]
         if (-100 <= v && v <= 100) {
-            return Math.pow(10, v / 20)
+            const target = -24
+            let db = Math.max(target - v, 0)
+            return Math.pow(10, db / 20)
         }
         return 1
     };
