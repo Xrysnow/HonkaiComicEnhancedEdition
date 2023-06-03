@@ -379,6 +379,15 @@ let ComicData = [
         description: '在第一律者复制人入侵圣芙蕾雅学园的风波平息之后，姬子也从昏迷中苏醒了过来。正当大家在为姬子的归来庆祝之时，符华却收到了一项神秘的任务。并且，这项任务的委托人给了她一个奇怪的指令…',
     },
     {
+        id: 201,
+        title: '逆熵',
+        type: '视觉小说',
+        date: [[2017, 8], [2018, 7]],
+        page: 'https://event.bh3.com/avgAntiEntropy/indexAntiEntropy.php',
+        cover: 'https://comicstatic.bh3.com/new_static_v2/fiction/202003093.jpg',
+        description: '-',
+    },
+    {
         id: 1009,
         title: '紫鸢篇',
         type: '主线',
@@ -433,6 +442,15 @@ let ComicData = [
         description: '在街头徘徊的琪亚娜正在为打工而苦恼，阴差阳错之下她来到了吼姆欢乐餐厅，还通过了面试，然而意想不到的事还是发生了，并由此拉开了这个夏天的序幕…',
     },
     {
+        id: 202,
+        title: '幽兰黛尔',
+        type: '视觉小说',
+        date: [[2018, 11], [2020, 3]],
+        page: 'https://event.bh3.com/avgAntiEntropy/indexDurandal.php',
+        cover: 'https://comicstatic.bh3.com/new_static_v2/fiction/202003092.jpg',
+        description: '-',
+    },
+    {
         id: 1015,
         title: '双子：起源',
         type: '番外',
@@ -467,6 +485,15 @@ let ComicData = [
         page: 'common.html?id=1018',
         cover: 'http://comicstatic.bh3.com/new_static_v2/comic/book_cover/1018.jpg',
         description: '在英国伦敦的繁华街道上，幽兰黛尔与丽塔不约而同地踏足于此，远离崩坏的战场与激烈的战斗，在这片历史悠久的土地上，迎接她们的是全新的任务，还是一场久违的假日？',
+    },
+    {
+        id: 203,
+        title: '神州折剑录',
+        type: '视觉小说',
+        date: [[2019, 11], [-1, -1]],
+        page: 'https://webstatic.mihoyo.com/bh3/event/novel-7swords/index.html#/',
+        cover: 'https://comicstatic.bh3.com/new_static_v2/fiction/202003091.jpg',
+        description: '-',
     },
     {
         id: 1019,
