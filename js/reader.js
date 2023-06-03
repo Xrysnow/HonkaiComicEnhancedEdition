@@ -332,6 +332,36 @@ const Reader = function (param) {
         document.getElementById('bgm-player-container').style.display = show ? 'block' : 'none'
     }
 
+    const SetAudioPreload = function (ids) {
+        let old = []
+        for (let i = 0; i < document.head.children.length; i++) {
+            const e = document.head.children[i]
+            if (e.tagName == 'LINK' && e.rel == 'prefetch' && e.href.endsWith('.mp3')) {
+                old.push(e)
+            }
+        }
+        for (let i = 0; i < ids.length; i++) {
+            const id = ids[i]
+            if (id <= 0) {
+                continue
+            }
+            let src = Util.getBgmSrc(id)
+            let oldIdx = old.findIndex((v, i, a) => v.href === src)
+            if (oldIdx > -1) {
+                old[oldIdx] = null
+                continue
+            }
+            let e = document.createElement('link')
+            // 'preload' dose not support 'audio' in Chrome
+            // e.rel = 'preload'
+            e.rel = 'prefetch'
+            e.as = 'audio'
+            e.href = src
+            document.head.appendChild(e)
+        }
+        old.map((e) => e && e.remove())
+    }
+
     const ClearBgMusicHandle = function () {
         if (BgMusicHandle) {
             clearInterval(BgMusicHandle)
@@ -759,6 +789,23 @@ const Reader = function (param) {
         //
         console.log('ClearGallery')
         ClearGallery()
+        //
+        let bgmPreload = []
+        let addId = function (index) {
+            let info = BGM_INFO[index]
+            if (info) {
+                if (typeof (info) == 'number') {
+                    bgmPreload.push(info)
+                } else {
+                    bgmPreload = bgmPreload.concat(info[0])
+                }
+            }
+        }
+        addId(idx)
+        addId(idx + 1)
+        addId(idx + 2)
+        bgmPreload = bgmPreload.filter((v, i, a) => bgmPreload.indexOf(v, 0) === i)
+        SetAudioPreload(bgmPreload)
     }
 
     const GetImageSrc = function (ichapter, i) {
