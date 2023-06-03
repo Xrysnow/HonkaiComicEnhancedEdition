@@ -252,6 +252,9 @@ const Util = {
     getImgLegacySrcPrefix: function () {
         return 'http://static-event.benghuai.com/ip_resources_new/comic/'
     },
+    getBgmSrc: function (id) {
+        return '../res/music/' + id + '.mp3'
+    },
 }
 
 const MathUtil = {
