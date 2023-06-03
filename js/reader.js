@@ -443,10 +443,12 @@ const Reader = function (param) {
                 if (album && AlbumInfo[album]) {
                     album = AlbumInfo[album][0]
                 }
-                if (!album) {
+                if (name == '-' && !album) {
                     album = '崩坏3'
                 }
-                info.innerHTML += ' / ' + album
+                if (album) {
+                    info.innerHTML += ' / ' + album
+                }
             }
             //
             container.appendChild(player)
