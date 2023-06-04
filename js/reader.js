@@ -321,7 +321,7 @@ const Reader = function (param) {
 
     const ToggleConfig = function (show) {
         ShowConfig = show
-        document.getElementById('menu-config-window').style.display = show ? 'block' : 'none'
+        document.getElementById('menu-config-window').style.display = show ? 'flex' : 'none'
     }
 
     const ToggleBGMPlayer = function (show) {
@@ -653,7 +653,7 @@ const Reader = function (param) {
             ToggleConfig(!ShowConfig)
         }
         //
-        document.getElementById('menu-config-window').onclick = function (ev) {
+        document.getElementById('menu-config-window').children[0].onclick = function (ev) {
             // avoid body.onclick
             ev.stopPropagation()
         }
