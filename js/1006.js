@@ -3,6 +3,7 @@
     let bookNum = 1006
     p.bookIndex = bookNum
     p.bookTitle = '逆熵入侵篇'
+    p.bookMode = 'rl'
     p.editorNote = {
         zh: '- 本篇为《圣痕之谜篇》的后续。'
             + '</br>- <a href="https://mp.weixin.qq.com/s/pq78bGYyGAPOCaQP2pRr5g">设定补充</a>'
@@ -36,6 +37,10 @@
     p.chPages = [
         21, 15, 14, 15, 13, 13, 16, 13, 14, 16, 18, 17, 16, 17, 15, 8
     ]
+    p.bookModeBlank = {}
+    p.addBookFirstBlank()
+    p.bookModeBlank[0] = [2]
+    p.bookModeBlank[7] = [2]
     let prefix2 = Util.getImgLegacySrcPrefix()
     let hiddenSrcPrefix = prefix2 + '1/chapter/'
     p.hiddenPages = {
@@ -68,7 +73,7 @@
         return p.imgSrcPrefix + i + '/' + n + '.jpg'
     }
     p.bgmInfo = [
-        [[-1, 66, 6], [0, 1, 78]],
+        [[-1, 66, 16, 6], [0, 0.1, 51, 78]],
         67,
         1053,
         1053,
@@ -78,6 +83,24 @@
         [[16, 68], [0, 15]], // 68与游戏一致
         [[68, 14, 69], [0, 30, 88]],
         [[69, 1046], [0, 58]],
+        69,
+        41,
+        40,
+        42,
+        70,
+        71,
+    ]
+    p.bgmInfo2 = [
+        [[66, 16, 6], [0, 11, 17]],
+        67,
+        1053,
+        1053,
+        1046,
+        1091,
+        16,
+        [[16, 68], [0, 3]], // 68与游戏一致
+        [[68, 14, 69], [0, 6, 14]],
+        [[69, 1046], [0, 10]],
         69,
         41,
         40,
