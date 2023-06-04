@@ -192,6 +192,7 @@ const Reader = function (param) {
     let BgMusicSpecialPause = false
     let BgMusicVolume = 1
     let BgMusicSwitchFactor = 1
+    let VoiceVolume = 1
     let GlobalTaskInterval = 10
     let GlobalTasks = []
     let ActiveHidden = {}
@@ -873,6 +874,7 @@ const Reader = function (param) {
                 }
                 let player = document.getElementById('voice-player')
                 player.pause()
+                player.volume = VoiceVolume
                 player.src = GetVoiceSrc(idx, i, j)
                 player.play()
             }
@@ -1347,6 +1349,48 @@ const Reader = function (param) {
     }
 
     function SetMenuConfig() {
+        // mode
+        const mode_setter = document.getElementById('menu-config-mode')
+        const mode_container = Util.htmlParent(mode_setter, 3)
+        const width_setter = document.getElementById('menu-config-width')
+        const width_container = Util.htmlParent(width_setter, 3)
+        width_container.style.display = 'block'
+        if (PARAMETER.bookMode == 'lr' || PARAMETER.bookMode == 'rl') {
+            mode_container.style.display = 'block'
+            let current = GetBookMode()
+            if (current == 'lr' || current == 'rl') {
+                mode_setter.selectedIndex = 0
+                width_container.style.display = 'none'
+            } else {
+                mode_setter.selectedIndex = 1
+            }
+        } else {
+            // not supported
+            mode_container.style.display = 'none'
+        }
+        mode_setter.onchange = function () {
+            let current = GetBookMode()
+            let target = mode_setter.selectedIndex == 0 ? PARAMETER.bookMode : 'none'
+            if (current == target) {
+                return
+            }
+            width_container.style.display = target == 'none' ? 'block' : 'none'
+            Settings.setBookMode(PARAMETER.bookIndex, target)
+            GotoChapter(CurrentChapter)
+        }
+        // gallery width
+        width_setter.onchange = function () {
+            const value = width_setter.value
+            Settings.setGalleryWidth(value)
+            const gallery = document.getElementById('gallery')
+            gallery.style.maxWidth = parseInt(value) + '%'
+        }
+        let lastWidth = Settings.getGalleryWidth()
+        if (!isNaN(lastWidth)) {
+            width_setter.value = lastWidth
+            width_setter.onchange()
+        }
+        // background color
         const bg_select = document.getElementById('menu-config-bg')
         bg_select.onchange = SetBackgroundColor
         let lastBgColor = Settings.getBgColor()
@@ -1354,7 +1398,7 @@ const Reader = function (param) {
             bg_select.selectedIndex = Number(lastBgColor)
             SetBackgroundColor()
         }
-        //
+        // bgm switch
         const bgm_switch = document.getElementById('menu-config-bgm-switch')
         let handle = 0
         bgm_switch.onchange = function () {
@@ -1380,20 +1424,7 @@ const Reader = function (param) {
             bgm_switch.checked = false
             bgm_switch.onchange()
         }
-        //
-        const width_setter = document.getElementById('menu-config-width')
-        width_setter.onchange = function () {
-            const value = width_setter.value
-            Settings.setGalleryWidth(value)
-            const gallery = document.getElementById('gallery')
-            gallery.style.maxWidth = parseInt(value) + '%'
-        }
-        let lastWidth = Settings.getGalleryWidth()
-        if (!isNaN(lastWidth)) {
-            width_setter.value = lastWidth
-            width_setter.onchange()
-        }
-        //
+        // bgm volume
         const volume_setter = document.getElementById('menu-config-bgm-volume')
         volume_setter.onchange = function () {
             const value = volume_setter.value
@@ -1404,6 +1435,26 @@ const Reader = function (param) {
         if (!isNaN(lastVolume) && 0 <= lastVolume && lastVolume <= 100) {
             volume_setter.value = lastVolume
             volume_setter.onchange()
+        }
+        // voice volume
+        const voice_setter = document.getElementById('menu-config-voice-volume')
+        const voice_container = Util.htmlParent(voice_setter, 3)
+        console.log(PARAMETER.voiceInfo)
+        if (!PARAMETER.voiceInfo) {
+            voice_container.style.display = 'none'
+            console.log('none')
+        } else {
+            voice_container.style.display = 'block'
+        }
+        voice_setter.onchange = function () {
+            const value = voice_setter.value
+            Settings.setVoiceVolume(value)
+            VoiceVolume = Number(value) / 100
+        }
+        let lastVoiceVolume = Settings.getVoiceVolume()
+        if (!isNaN(lastVoiceVolume) && 0 <= lastVoiceVolume && lastVoiceVolume <= 100) {
+            voice_setter.value = lastVoiceVolume
+            voice_setter.onchange()
         }
     }
     //

@@ -207,6 +207,17 @@ const Util = {
         temp = null;
         return output;
     },
+    htmlParent: function (element, level) {
+        if (level == undefined) {
+            level = 1
+        }
+        /**@type {HTMLElement}*/
+        let temp = element
+        for (let index = 0; index < level; index++) {
+            temp = temp.parentElement
+        }
+        return temp
+    },
     //
     getImageSizeAsync: function (src, callback) {
         let img = new Image()
