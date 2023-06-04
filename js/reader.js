@@ -1439,10 +1439,8 @@ const Reader = function (param) {
         // voice volume
         const voice_setter = document.getElementById('menu-config-voice-volume')
         const voice_container = Util.htmlParent(voice_setter, 3)
-        console.log(PARAMETER.voiceInfo)
         if (!PARAMETER.voiceInfo) {
             voice_container.style.display = 'none'
-            console.log('none')
         } else {
             voice_container.style.display = 'block'
         }

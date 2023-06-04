@@ -104,6 +104,59 @@ let RelationData = {
         [['anime', 0], ['anime', 1]],
     ],
 };
+let SetMenuConfig = function () {
+    // gallery width
+    const width_setter = document.getElementById('menu-config-width')
+    width_setter.onchange = function () {
+        const value = width_setter.value
+        Settings.setGalleryWidth(value)
+    }
+    let lastWidth = Settings.getGalleryWidth()
+    if (!isNaN(lastWidth)) {
+        width_setter.value = lastWidth
+        width_setter.onchange()
+    }
+    // background color
+    const bg_select = document.getElementById('menu-config-bg')
+    bg_select.onchange = function () {
+        Settings.setBgColor(bg_select.selectedIndex)
+    }
+    let lastBgColor = Settings.getBgColor()
+    if (!isNaN(lastBgColor)) {
+        bg_select.selectedIndex = Number(lastBgColor)
+        bg_select.onchange()
+    }
+    // bgm switch
+    const bgm_switch = document.getElementById('menu-config-bgm-switch')
+    bgm_switch.onchange = function () {
+        Settings.setBgmEnabled(Number(bgm_switch.checked))
+    }
+    let lastBGMEnabled = Settings.getBgmEnabled()
+    if (lastBGMEnabled == 0) {
+        bgm_switch.checked = false
+        bgm_switch.onchange()
+    }
+    // bgm volume
+    const volume_setter = document.getElementById('menu-config-bgm-volume')
+    volume_setter.onchange = function () {
+        Settings.setBgmVolume(volume_setter.value)
+    }
+    let lastVolume = Settings.getBgmVolume()
+    if (!isNaN(lastVolume) && 0 <= lastVolume && lastVolume <= 100) {
+        volume_setter.value = lastVolume
+        volume_setter.onchange()
+    }
+    // voice volume
+    const voice_setter = document.getElementById('menu-config-voice-volume')
+    voice_setter.onchange = function () {
+        Settings.setVoiceVolume(voice_setter.value)
+    }
+    let lastVoiceVolume = Settings.getVoiceVolume()
+    if (!isNaN(lastVoiceVolume) && 0 <= lastVoiceVolume && lastVoiceVolume <= 100) {
+        voice_setter.value = lastVoiceVolume
+        voice_setter.onchange()
+    }
+};
 let IndexScript = function () {
     function SetupStyle0(comicList) {
         for (let i = 0; i < ComicData.length; i++) {
@@ -502,6 +555,8 @@ let IndexScript = function () {
         }
         let viewer = new Viewer(imgWrapper1, ViewerConfig)
     }
+    //
+    SetMenuConfig()
 };
 
 try {
