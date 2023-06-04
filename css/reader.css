@@ -529,13 +529,17 @@ li {
     margin: auto;
 }
 
-.content-img {
+#gallery .content-img {
     max-width: 100%;
     min-width: 100%;
 }
 
-.content-img-wrapper {
+#gallery .content-img-wrapper {
     position: relative;
+}
+
+#gallery .content-bottom-padding {
+    height: 80px;
 }
 
 .voice-icon-box {

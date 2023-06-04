@@ -975,6 +975,12 @@ const Reader = function (param) {
 
             if (hidden && hidden[i + 1]) {
                 obj_li.appendChild(MakeHidden(hidden[i + 1], i + 1))
+                if (i == num_page - 1) {
+                    // insert padding
+                    let padding = document.createElement('div')
+                    padding.classList.add('content-bottom-padding')
+                    obj_li.appendChild(padding)
+                }
             }
 
             obj_ul.appendChild(obj_li)
