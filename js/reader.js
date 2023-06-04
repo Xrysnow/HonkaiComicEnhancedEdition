@@ -33,7 +33,7 @@ class ReaderParam {
         let v = BgmGlobalInfo[id][2]
         if (-100 <= v && v <= 100) {
             const target = -24
-            let db = Math.max(target - v, 0)
+            let db = Math.min(target - v, 0)
             return Math.pow(10, db / 20)
         }
         return 1
@@ -182,10 +182,10 @@ const Reader = function (param) {
     let CurrentBgMusicID = -1
     let NextBgMusicID = -1
     let ShowHomeIndex = true
-    let ShowHomeAbout = false
-    let ShowMenu = false
+    // let ShowHomeAbout = false
+    // let ShowMenu = false
     let ShowConfig = false
-    let ShowBGMPlayer = false
+    // let ShowBGMPlayer = false
     let EnableBGM = true
     let BgMusicHandle = 0
     let BgMusicPlayerHeight = 66
