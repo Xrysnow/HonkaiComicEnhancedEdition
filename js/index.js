@@ -156,6 +156,12 @@ let SetMenuConfig = function () {
         voice_setter.value = lastVoiceVolume
         voice_setter.onchange()
     }
+    // clear data
+    const clear_button = document.getElementById('config-clear-button')
+    clear_button.onclick = function () {
+        Settings.clearStorage()
+        window.location.reload()
+    }
 };
 let IndexScript = function () {
     function SetupStyle0(comicList) {

@@ -185,14 +185,30 @@
                             </div>
                         </div>
                     </div>
-                    <div class="menu-config-wrapper">
-                        <div>
-                            <div class="menu-config-text">
-                                清除本地数据
-                            </div>
+                    <input type="checkbox" id="check-config-clear">
+                    <label for="check-config-clear">
+                        <div class="menu-config-wrapper config-fold-wrapper">
                             <div>
-                                <div class="fold-marker"></div>
+                                <div class="menu-config-text">
+                                    清除本地数据
+                                </div>
+                                <div>
+                                    <div class="fold-marker">
+                                        <svg class="fold-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z" />
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                    </label>
+                    <div class="menu-config-wrapper folded">
+                        <div>
+                            <div class="config-clear-text">
+                                <div>- 本网站采用LocalStorage方式存储数据。</div>
+                                <div class="config-button" id="config-clear-button">确认清除</div>
+                            </div>
+                            <div style="display: none;"></div>
                         </div>
                     </div>
                     <div class="nav-landscape-padding"></div>

@@ -855,8 +855,19 @@ body>input {
 }
 
 #config-page-container>input[type="checkbox"]:checked+label+div {
-    height: 300px;
     transition: height 200ms ease-in-out, padding 200ms ease-in-out;
+}
+
+#check-config-about:checked+label+div {
+    height: 300px;
+}
+
+#check-config-clear:checked+label+div {
+    height: 90px;
+}
+
+#check-config-clear:checked+label+div>div {
+    overflow: hidden;
 }
 
 #config-page-container>input[type="checkbox"]:checked+label .fold-marker {
@@ -871,6 +882,25 @@ body>input {
     width: 100%;
     overflow-wrap: break-word;
     line-height: 1;
+}
+
+.config-clear-text {
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.config-button {
+    margin-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: rgba(0, 194, 254, .7);
+    width: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* widgets */
