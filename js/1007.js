@@ -44,7 +44,17 @@
     p.chPages = [
         24, 24, 14, 19, 17, 21, 31, 19, 21, 18, 12
     ]
-    p.hiddenPages = null
+    let hiddenSrcPrefix = '../res/img/legacy/1007/'
+    p.hiddenPages = {
+        2: {
+            0: [
+                hiddenSrcPrefix + '3/0001.jpg',
+            ],
+            3: [
+                hiddenSrcPrefix + '3/0005.jpg',
+            ],
+        },
+    }
     p.bgmInfo = [
         [[-1, 72, 1449], [0, 1, 80]],
         [[1449, 73], [0, 33]],
