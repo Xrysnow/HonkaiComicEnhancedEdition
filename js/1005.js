@@ -3,6 +3,7 @@
     let bookNum = 1005
     p.bookIndex = bookNum
     p.bookTitle = '绯樱篇'
+    p.bookMode = 'rl'
     p.editorNote = {
         zh: '- 本篇原名为《崩坏EX 绯樱》。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1ds41127Kp">漫画纪念PV</a>'
@@ -31,6 +32,13 @@
     p.chPages = [
         16, 17, 14, 15, 20, 12, 12, 25
     ]
+    p.bookModeBlank = {
+        1: [0],
+        2: [0],
+        3: [0],
+        6: [0],
+        7: [0],
+    }
     let prefix2 = Util.getImgLegacySrcPrefix()
     let hiddenSrcPrefix = prefix2 + '2/chapter/'
     p.hiddenPages = {
@@ -49,9 +57,20 @@
         1183,
         [[1183, 65], [0, 31]],
         65,
-        [[65, 1095], [0, 11]],
+        [[65, 1095], [0, 54]],
     ]
-    p.addBgmLoopInfo(65, 24, 100, 1, 2, false)
+    p.bgmInfo2 = [
+        1183,
+        64,
+        1291,
+        1352,
+        1183,
+        [[1183, 65], [0, 5]],
+        65,
+        [[65, 1095], [0, 14]],
+    ]
+    // p.addBgmLoopInfo(65, 24, 100, 1, 2, false)
+    p.addBgmLoopInfo(65, 51.5, 100, 1, 2, false)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
