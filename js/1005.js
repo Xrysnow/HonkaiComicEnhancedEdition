@@ -5,7 +5,8 @@
     p.bookTitle = '绯樱篇'
     p.bookMode = 'rl'
     p.editorNote = {
-        zh: '- 本篇原名为《崩坏EX 绯樱》。'
+        zh: '- 本篇原名为《崩坏学园EX 绯樱篇》，为崩坏系列的第一篇连载漫画。'
+            + '</br>- 本篇第一话于2月14日发布。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1ds41127Kp">漫画纪念PV</a>'
             + '</br>- <a href="https://mp.weixin.qq.com/s/hi7DQDOBIK5CoWtDGMuMgw">发布地址</a>'
             + '</br>- <a href="https://mp.weixin.qq.com/s/Y9PCqw7TOxnk3Gr1ax6cFA">设定补充</a>'
@@ -69,7 +70,6 @@
         65,
         [[65, 1095], [0, 14]],
     ]
-    // p.addBgmLoopInfo(65, 24, 100, 1, 2, false)
     p.addBgmLoopInfo(65, 51.5, 100, 1, 2, false)
     p.bgmExtId = null
     p.i18nString = null
