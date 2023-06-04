@@ -3,6 +3,7 @@
     let bookNum = 1007
     p.bookIndex = bookNum
     p.bookTitle = '恩返篇'
+    p.bookMode = 'rl'
     p.editorNote = {
         zh: '- 本篇为《绯樱篇》和《樱花追忆篇》的后续漫画。'
             + '</br>- 本篇为游戏1.4版本「樱色轮回」（开放世界玩法）与1.8版本「赤染御魂」的前置漫画。'
@@ -44,6 +45,14 @@
     p.chPages = [
         24, 24, 14, 19, 17, 21, 31, 19, 21, 18, 12
     ]
+    p.bookModeBlank = {
+        1: [0],
+        3: [0],
+        4: [0, 5],
+        6: [0],
+        9: [0],
+        10: [0],
+    }
     let hiddenSrcPrefix = '../res/img/legacy/1007/'
     p.hiddenPages = {
         2: {
@@ -68,7 +77,20 @@
         [[65, 1374], [0, 45]],
         [[1183, 77], [0, 80]],
     ]
-    p.addBgmLoopInfo(65, 68, 100, 0.5, 0.5, false)
+    p.bgmInfo2 = [
+        [[72, 1449], [0, 19]],
+        [[1449, 73], [0, 10]],
+        1183,
+        74,
+        75,
+        1352,
+        1183,
+        [[76, 64], [0, 11]],
+        [[64, 65], [0, 11]],
+        [[65, 1374], [0, 8]],
+        [[1183, 77], [0, 10]],
+    ]
+    p.addBgmLoopInfo(65, 51.5, 100, 0.5, 0.5, false)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
