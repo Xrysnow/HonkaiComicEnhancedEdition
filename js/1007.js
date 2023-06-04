@@ -8,7 +8,8 @@
         zh: '- 本篇为《绯樱篇》和《樱花追忆篇》的后续漫画。'
             + '</br>- 本篇为游戏1.4版本「樱色轮回」（开放世界玩法）与1.8版本「赤染御魂」的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Ex411Q7aD">1.4版本PV</a>　<a href="https://www.bilibili.com/video/BV17x411V7sx">1.8版本PV</a>'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1bx411i7x5">漫画纪念PV</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s?src=3&timestamp=1685884926&ver=1&signature=efFWCJg4EXQKdt2Vz1x1wsJpXDeX5nf6EdPTD1nGDrMIbON8pZ0MSOeBJAwsa38i-UQJkfixe3eIO33bWovFJzeUR9q3io527z9M3FEOdziwX-lQAJIoZOu0gk-sWiLq7X5Km2SVlXJC34rYel7-T35jjNLvZqIRj3jFsNVh1V4=">漫画预告</a>'
+            + '　<a href="https://www.bilibili.com/video/BV1bx411i7x5">漫画纪念PV</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
