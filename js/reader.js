@@ -208,6 +208,12 @@ const Reader = function (param) {
         }
         let id = 'debug-' + key
         let obj = document.getElementById(id)
+        if (text == null) {
+            if (obj) {
+                obj.remove()
+            }
+            return
+        }
         if (!obj) {
             let debug = document.getElementById('debug-wrapper')
             obj = document.createElement('div')
@@ -395,6 +401,7 @@ const Reader = function (param) {
         ToggleBGMPlayer(false)
         ClearBgMusicHandle()
         CurrentBgMusicID = -1
+        SetDebugText('CurrentBgm', CurrentBgMusicID)
         let container = document.getElementById('bgm-player-container')
         let child = container.firstElementChild
         while (child) {
@@ -418,6 +425,7 @@ const Reader = function (param) {
             return
         }
         CurrentBgMusicID = id
+        SetDebugText('CurrentBgm', CurrentBgMusicID)
         BgMusicSwitchFactor = 1
         let container = document.getElementById('bgm-player-container')
         if (!AUDIO_LOCAL_MODE) {
