@@ -661,42 +661,6 @@ const Reader = function (param) {
         }
     }
 
-    const SetMenu = function () {
-        let obj_menu_next = document.getElementById('menu-next')
-        obj_menu_next.onclick = function () {
-            if (CurrentChapter < 0 || CurrentChapter >= NUM_PAGES - 1) {
-                return
-            }
-            GotoChapter(CurrentChapter + 1)
-        }
-        let obj_menu_prev = document.getElementById('menu-prev')
-        obj_menu_prev.onclick = function () {
-            if (CurrentChapter < 1 || CurrentChapter >= NUM_PAGES) {
-                return
-            }
-            GotoChapter(CurrentChapter - 1)
-        }
-        let obj_menu_home = document.getElementById('menu-home')
-        obj_menu_home.onclick = function () {
-            GotoHome()
-        }
-        let obj_menu_config = document.getElementById('menu-config')
-        obj_menu_config.onclick = function (ev) {
-            // avoid body.onclick
-            ev.stopPropagation()
-            ToggleConfig(!ShowConfig)
-        }
-        //
-        document.getElementById('menu-config-window').children[0].onclick = function (ev) {
-            // avoid body.onclick
-            ev.stopPropagation()
-        }
-        document.body.onclick = function (ev) {
-            ToggleConfig(false)
-            ToggleBGMPlayer(false)
-        }
-    }
-
     const SetStyle = function () {
         let ret_btn = document.getElementById('home-index-return')
         if (LANGUAGE == 'en') {
@@ -1406,6 +1370,40 @@ const Reader = function (param) {
     }
 
     function SetMenuConfig() {
+        //
+        let obj_menu_next = document.getElementById('menu-next')
+        obj_menu_next.onclick = function () {
+            let current = GetBookMode()
+            if (current == 'rl') {
+                return CurrentChapter >= 1 && GotoChapter(CurrentChapter - 1)
+            }
+            return CurrentChapter >= 0 && GotoChapter(CurrentChapter + 1)
+        }
+        let obj_menu_prev = document.getElementById('menu-prev')
+        obj_menu_prev.onclick = function () {
+            let current = GetBookMode()
+            if (current == 'rl') {
+                return CurrentChapter >= 0 && GotoChapter(CurrentChapter + 1)
+            }
+            return CurrentChapter >= 1 && GotoChapter(CurrentChapter - 1)
+        }
+        let obj_menu_home = document.getElementById('menu-home')
+        obj_menu_home.onclick = GotoHome
+        let obj_menu_config = document.getElementById('menu-config')
+        obj_menu_config.onclick = function (ev) {
+            // avoid body.onclick
+            ev.stopPropagation()
+            ToggleConfig(!ShowConfig)
+        }
+        //
+        document.getElementById('menu-config-window').children[0].onclick = function (ev) {
+            // avoid body.onclick
+            ev.stopPropagation()
+        }
+        document.body.onclick = function (ev) {
+            ToggleConfig(false)
+            ToggleBGMPlayer(false)
+        }
         // mode
         const mode_setter = document.getElementById('menu-config-mode')
         const mode_container = Util.htmlParent(mode_setter, 3)
@@ -1744,10 +1742,8 @@ const Reader = function (param) {
             ReplaceHtml(k, I18N_HTML[k][LANGUAGE])
         }
     }
-
     //
     SetHomePage()
-    SetMenu()
     SetMenuConfig()
     SetStyle()
     SetEditorNote()

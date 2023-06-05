@@ -619,7 +619,7 @@ const BgmGlobalInfo = {
     21: ['Hard Bone', 'Alive', -8],
     22: ['Nightglow（Instrumental）', 'Onwards', -9],
     23: ['Lonec', 'Alive', -12],
-    24: ['Armband', 'Alive', -10],
+    // 24: ['Armband', 'Alive', -10],
     25: ['The Chariot', '后崩坏书', -8],
     26: ['Lyin (See you in the next world)', 'Onwards', -9],
     27: ['真红之剑', 'Review', -9],
