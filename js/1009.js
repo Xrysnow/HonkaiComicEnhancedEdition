@@ -3,6 +3,7 @@
     let bookNum = 1009
     p.bookIndex = bookNum
     p.bookTitle = '紫鸢篇'
+    p.bookMode = 'rl'
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
@@ -42,6 +43,7 @@
     p.chPages = [
         18, 16, 20, 15, 16, 14, 13, 17, 16, 17, 14, 17, 16, 18
     ]
+    p.addBookFirstBlank()
     p.hiddenPages = null
     p.bgmInfo = [
         [[-1, 84], [0, 1]],
@@ -57,6 +59,22 @@
         [[47, 86], [0, 29]],
         [[86, 48], [0, 96]],
         [[48, 87], [0, 61]],
+        87,
+    ]
+    p.bgmInfo2 = [
+        84,
+        45,
+        [[45, 85], [0, 14]],
+        45,
+        56,
+        84,
+        [[84, 56], [0, 4]],
+        56,
+        84,
+        47,
+        [[47, 86], [0, 6]],
+        [[86, 48], [0, 17]],
+        [[48, 87], [0, 11]],
         87,
     ]
     p.addBgmLoopInfo(56, 0, 40, 0.5, 1)
