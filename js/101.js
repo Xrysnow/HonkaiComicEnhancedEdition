@@ -4,7 +4,8 @@
     p.bookIndex = bookNum
     p.bookTitle = '番外篇'
     p.editorNote = {
-        zh: '- 本篇收录于<a href="http://event.mihoyo.com/ip_product/list.php?type=comic&bookid=3">【旧版IP站】</a>，其中「新春篇」为“崩坏学园EX”系列，从「温泉篇（上）」开始作为“《崩坏3rd》番外篇”系列与主线漫画穿插更新。'
+        zh: '- 本篇收录于<a href="http://event.mihoyo.com/ip_product/list.php?type=comic&bookid=3">【旧版IP站】</a>，其中「新春篇」为“崩坏学园EX”系列，从「温泉篇（上）」开始为“《崩坏3rd》番外篇”系列，与主线漫画穿插更新。'
+            + '</br>- 由于前2话不属于系列漫画，故未纳入更新时间中（最早为2014年11月）。'
             + '</br>- 发布地址：'
             + '<a href="https://mp.weixin.qq.com/s/mYfBTRGtbldde7q4Q2kFbA">【万圣节特别篇】</a>'
             + ' <a href="https://mp.weixin.qq.com/s/nnasTjorgv4aGctPHETCOA">【三年樱】</a>'

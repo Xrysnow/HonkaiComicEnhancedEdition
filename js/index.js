@@ -357,8 +357,8 @@ let IndexScript = function () {
             return result
         }
         let pushComic = function (list, x) {
-            const left = [1010, 1004, 1016, 1019, 1008]
-            const right = [1007, 102, 1015, 1021, 1009]
+            const left = [1010, 1004, 1016, 1019, 1008, 101]
+            const right = [1007, 102, 1015, 1021, 1009, 1005]
             for (let i = 0; i < list.length; i++) {
                 const e = list[i]
                 let year = e.date[0][0]
