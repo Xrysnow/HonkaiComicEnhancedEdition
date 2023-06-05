@@ -6,7 +6,13 @@
     p.editorNote = {
         zh: '- 本篇为游戏2.4版本「夏日回忆」活动（已加入活动相册）的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1es411V7ri">活动PV</a>'
-            + '</br>- <a href="https://mihoyo.tmall.com/search.htm?keyword=%CF%C4%C8%D5%BB%D8%D2%E4">相关周边</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/GaBbA5iJVbdEp0AUhlwybQ">相关周边</a>'
+            + '</br>- 章节发布的署名分别为'
+            + '<a href="https://mp.weixin.qq.com/s/EVee4U1KNgN18TG8t2URUg">【求职顾问AI】</a>'
+            + ' <a href="https://mp.weixin.qq.com/s/oUGcH4QBOrZPIYboYfSmJQ">【富婆板鸭抱抱爱酱】</a>'
+            + ' <a href="https://mp.weixin.qq.com/s/EGMzEtty-ibf2-Qz9fltSw">【催眠大师爱酱】</a>'
+            + ' <a href="https://mp.weixin.qq.com/s/N3aegrst-1pgGydGb0DhtQ">【嘤嘤叫的爱酱】</a>'
+            + '。</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
@@ -18,11 +24,13 @@
     ]
     p.numChapter = 4
     p.chTitles = [
-        //https://mp.weixin.qq.com/s?src=11&timestamp=1683483648&ver=4514&signature=rWbsL9o2E5QxLiAYA3tTE8xsnWTK8nGyWzV4F7Oi0qHo78SOBw4DwfI3BzcH3ILWPuSeyi0dixOPJGDgakIEopWw2G2vLNIodIq-7PnZ45wQLEj3j1qtv-ooCXaGzbRL&new=1
+        //https://mp.weixin.qq.com/s/EVee4U1KNgN18TG8t2URUg
         '第一话',
+        //https://mp.weixin.qq.com/s/oUGcH4QBOrZPIYboYfSmJQ
         '第二话',
+        //https://mp.weixin.qq.com/s/EGMzEtty-ibf2-Qz9fltSw
         '第三话',
-        //https://mp.weixin.qq.com/s?src=11&timestamp=1683483648&ver=4514&signature=rWbsL9o2E5QxLiAYA3tTE8xsnWTK8nGyWzV4F7Oi0qF48lrASobzBW9HeOIH8Bwo6g3hegeCE3virZOUUyN7xjwqZIoFC76r84VDEIyo8HCeHI6dzxNug13Wr*zB3oQh&new=1
+        //https://mp.weixin.qq.com/s/N3aegrst-1pgGydGb0DhtQ
         '第四话',
     ]
     p.chPages = [
