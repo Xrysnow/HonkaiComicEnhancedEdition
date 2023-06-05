@@ -75,3 +75,9 @@
 .home-comic-1012 #home-index>i {
     border: 2px solid transparent;
 }
+
+/* 102 */
+
+.home-comic-102 .home-index-container {
+    min-height: 100px;
+}
