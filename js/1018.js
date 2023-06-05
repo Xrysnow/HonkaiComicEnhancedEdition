@@ -3,6 +3,7 @@
     let bookNum = 1018
     p.bookIndex = bookNum
     p.bookTitle = '雾都假日'
+    p.bookMode = 'rl'
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
@@ -45,6 +46,7 @@
     p.chPages = [
         17, 20, 25, 17, 16, 20, 19, 19, 19, 12
     ]
+    p.addBookFirstBlank()
     p.fnGetChapterCoverSrc = function (i) {
         if (i > 4) {
             i = i + 1
@@ -67,6 +69,18 @@
         [[23, 78, 70], [0, 37, 59]],
         78,
         [[78, 44], [0, 84]],
+        44,
+        81,
+    ]
+    p.bgmInfo2 = [
+        [[62, 44], [0, 12]],
+        [[23, 1130, 78], [0, 12, 18]],
+        78,
+        [[95, 96], [0, 16]],
+        [[96, 95], [0, 10]],
+        [[23, 78, 70], [0, 8, 12]],
+        78,
+        [[78, 44], [0, 16]],
         44,
         81,
     ]
