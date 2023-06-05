@@ -231,6 +231,12 @@ const Util = {
         }
         set = setInterval(check, 20)
     },
+    isImageCrossPage: function (w, h, ibook) {
+        if (ibook == 1012) {
+            return w * 1.15 > h
+        }
+        return w > h
+    },
     //
     getQueryString: function (name) {
         let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")

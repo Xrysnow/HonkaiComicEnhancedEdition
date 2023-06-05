@@ -1221,7 +1221,7 @@ const Reader = function (param) {
             let p = new Promise((res, reject) => {
                 Util.getImageSizeAsync(next1Src, res)
             }).then(([w, h]) => {
-                if (w > h) {
+                if (Util.isImageCrossPage(w, h, PARAMETER.bookIndex)) {
                     crossWrapper.style.display = 'block'
                     crossImage.src = next1Src
                     UpdateCurrentPage([next1[1]])
@@ -1247,7 +1247,7 @@ const Reader = function (param) {
                     let p2 = new Promise((res, reject) => {
                         Util.getImageSizeAsync(next2Src, res)
                     }).then(([w, h]) => {
-                        if (w > h) {
+                        if (Util.isImageCrossPage(w, h, PARAMETER.bookIndex)) {
                             UpdateCurrentPage([next1[1]])
                             history.push([next1])
                         } else {
@@ -1296,7 +1296,7 @@ const Reader = function (param) {
             let p = new Promise((res, reject) => {
                 Util.getImageSizeAsync(prevSrc, res)
             }).then(([w, h]) => {
-                if (w > h) {
+                if (Util.isImageCrossPage(w, h, PARAMETER.bookIndex)) {
                     crossWrapper.style.display = 'block'
                     crossImage.src = prevSrc
                 } else {
