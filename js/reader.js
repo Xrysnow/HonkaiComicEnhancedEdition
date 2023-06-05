@@ -1269,7 +1269,7 @@ const Reader = function (param) {
         let GotoPrev = function () {
             if (history.length <= 1) {
                 // prev chapter
-                return GotoPrevChapter()
+                return //GotoPrevChapter()
             }
             locked = true
             history.pop()
