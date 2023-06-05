@@ -48,6 +48,9 @@ let RelationData = {
         ['4.6版本活动', [2021, 2]],
         ['后崩坏书第二章', [2021, 12]],
         ['3.7版本活动', [2020, 1]],
+        ['卡莲幻想VII', [2017, 11]],
+        ['轩辕篇', [2016, 11]],
+        ['蚩尤篇', [2017, 1]],
     ],
     novel: [
         ['逆熵', [[2017, 8], [2018, 7]]],
@@ -69,12 +72,14 @@ let RelationData = {
         [1002, 1003],
         [1002, 1007],
         [1003, 1006],
+        [1003, ['game2', 9], { lineStyle: { curveness: 0.2 } }],
         [102, ['game1', 0]],
         [1004, ['game1', 3], { lineStyle: { curveness: 0.15 } }],
         [1006, 1008],
         [1006, ['game1', 1], { lineStyle: { curveness: 0.3 } }],
         [1007, ['game2', 0]],
         [1008, ['game1', 2], { lineStyle: { curveness: 0.2 } }],
+        [1009, ['game2', 8]],
         [1009, ['game1', 8], { lineStyle: { curveness: -0.6 } }],
         [1010, 1009],
         [1010, 1012, { lineStyle: { curveness: 0.2 } }],
@@ -97,8 +102,9 @@ let RelationData = {
         [1024, ['game2', 5]],
         [['game2', 3], 1023, { lineStyle: { curveness: 0.05 } }],
         [['game2', 3], ['game2', 6], { lineStyle: { curveness: 0.3 } }],
+        [['game2', 9], ['game2', 10], { lineStyle: { curveness: 1 } }],
         [['novel', 0], 1012, { lineStyle: { curveness: -0.05 } }],
-        [['novel', 0], ['game1', 2]],
+        [['novel', 0], ['game1', 2], { lineStyle: { curveness: 0.35 } }],
         [['novel', 1], 1018, { lineStyle: { curveness: -0.35 } }],
         [['novel', 1], ['game1', 8], { lineStyle: { curveness: -0.03 } }],
         [['novel', 2], ['game1', 6], { lineStyle: { curveness: 0.5 } }],
@@ -384,6 +390,8 @@ let IndexScript = function () {
         pushComic(comic1, 0)
         pushComic(comic2, 300)
         //
+        let moveLeft = ['主线第26章', '3.7版本活动', '轩辕篇']
+        let moveRight = ['主线第25章间章', '后崩坏书', '蚩尤篇']
         let pushGame = function (list, x) {
             for (let i = 0; i < list.length; i++) {
                 const e = list[i]
@@ -393,9 +401,9 @@ let IndexScript = function () {
                 let y = factor * hscale
                 let title = e[0] + '\n' + year + '.' + month
                 let xx = x
-                if (e[0] == '主线第25章间章' || e[0] == '后崩坏书') {
+                if (moveRight.includes(e[0])) {
                     xx += 60
-                } else if (e[0] == '主线第26章' || e[0] == '3.7版本活动') {
+                } else if (moveLeft.includes(e[0])) {
                     xx -= 60
                 }
                 data.push({
