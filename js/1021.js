@@ -3,6 +3,7 @@
     let bookNum = 1021
     p.bookIndex = bookNum
     p.bookTitle = '传承'
+    p.bookMode = 'rl'
     p.editorNote = null
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
@@ -39,10 +40,11 @@
     p.chPages = [
         14, 20, 19, 21, 20, 21, 19, 18, 16, 35, 21, 21, 19, 30, 20, 21
     ]
+    p.addBookFirstBlank()
     p.hiddenPages = null
     p.bgmInfo = [
         [[-1, 93, 60], [0, 0.1, 87]],
-        [[59, 93, 97], [0, 57, 96]],
+        [[59, 93, 97], [0, 57, 92]],
         [[97, 98], [0, 97.5]],
         98,
         [[98, 84], [0, 31]],
@@ -58,9 +60,27 @@
         [[101, 1147], [0, 57]],
         [[102, 101, 103], [0, 60, 85]],
     ]
+    p.bgmInfo2 = [
+        [[93, 60], [0, 12]],
+        [[59, 93, 97], [0, 12, 18]],
+        [[97, 98], [0, 18]],
+        98,
+        [[98, 84], [0, 6]],
+        [[84, 56], [0, 10]],
+        11,
+        [[1, 7], [0, 16]],
+        7,
+        [[99, 87, 55], [0, 8, 32]],
+        55,
+        100,
+        [[100, 19], [0, 14]],
+        [[19, 101], [0, 18]],
+        [[101, 1147], [0, 12]],
+        [[102, 101, 103], [0, 12, 18]],
+    ]
     p.addBgmLoopInfo(100, 0, 43, 0.5, 1)
     p.addBgmLoopInfo(1147, 0, 27, 0.5, 1)
-    p.addBgmLoopInfo(102, 0, 19, 3, 3)
+    p.addBgmLoopInfo(102, 0, 19, 3, 5)
     p.addBgmLoopInfo(103, 0, 20, 1, 2)
     p.bgmExtId = null
     p.i18nString = null
