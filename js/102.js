@@ -4,7 +4,7 @@
     p.bookIndex = bookNum
     p.bookTitle = '崩坏AI娘爱酱绝对不会告诉玩家的事实'
     p.editorNote = {
-        zh: '- 本篇为游戏公测前的预热漫画。',
+        zh: '- 本篇为游戏公测前的预热漫画，收录于<a href="http://event.mihoyo.com/ip_product/list.php?type=preheat&bookid=0">【旧版IP站】</a>。',
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = 'http://static-event.benghuai.com/ip_resources_new/preheat/cover/avatar.jpg'
