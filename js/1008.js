@@ -3,6 +3,7 @@
     let bookNum = 1008
     p.bookIndex = bookNum
     p.bookTitle = '月影篇'
+    p.bookMode = 'rl'
     p.editorNote = {
         zh: '- 本篇为《逆熵入侵篇》的后续漫画。'
             + '</br>- 本篇为游戏2.1版本「月影逐龙」（主线第7章）的前置漫画。'
@@ -36,9 +37,12 @@
     p.chPages = [
         24, 23, 23, 25, 24, 21, 20, 22, 20, 22, 18, 21, 11
     ]
+    p.addBookFirstBlank()
+    p.bookModeBlank[5] = []
+    p.bookModeBlank[8] = []
     p.hiddenPages = null
     p.bgmInfo = [
-        [[-1, 70, 77, 78], [0, 1, 47]],
+        [[-1, 70, 77, 78], [0, 0.1, 47, 77.5]],
         [[78, 77, 78], [0, 16, 43]],
         78,
         79,
@@ -52,7 +56,22 @@
         [[82, 58], [0, 30]],
         14,
     ]
-    p.addBgmLoopInfo(58, 31, 63, 1, 1)
+    p.bgmInfo2 = [
+        [[-1, 70, 77, 78], [0, 1, 12, 20]],
+        [[78, 77, 78], [0, 6, 10]],
+        78,
+        79,
+        [[80, 68], [0, 14]],
+        1,
+        9,
+        [[81, 82], [0, 8]],
+        83,
+        [[83, 8], [0, 14]],
+        82,
+        [[82, 58], [0, 8]],
+        14,
+    ]
+    p.addBgmLoopInfo(58, 31, 63, 3, 1)
     p.bgmExtId = null
     p.i18nString = null
     p.i18nHtml = null
