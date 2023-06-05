@@ -61,6 +61,7 @@ let RelationData = {
     ],
     edges: [
         [1005, 1002],
+        [1005, 1007, { lineStyle: { curveness: 0.25 } }],
         [1005, 1009, { lineStyle: { curveness: -0.05 } }],
         [1001, 1002],
         [1001, 101],
