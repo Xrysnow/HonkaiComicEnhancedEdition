@@ -571,6 +571,7 @@ const Reader = function (param) {
         }
         //
         let obj_index = document.getElementById('home-index')
+        let temp = 0
         for (let i = 0; i < NUM_CHAPTER; i++) {
             let obj_container = document.createElement('div')
             let obj_a = document.createElement('a')
@@ -611,6 +612,29 @@ const Reader = function (param) {
             } else {
                 obj_text.textContent = ctitle
             }
+            // special style
+            let obj_text_header = null
+            if (PARAMETER.bookIndex == 1012) {
+                obj_text_header = document.createElement('div')
+                obj_text_header.className = 'home-index-banner-header'
+                ii = ctitle.indexOf(' ')
+                if (ii > 0) {
+                    let str = ctitle.substring(0, ii)
+                    if (str.substring(0, 1) == '第') {
+                        temp += 1
+                        str = '第' + temp + '话'
+                    }
+                    obj_text.textContent = ctitle.substring(ii + 1)
+                    obj_text_header.textContent = str + '◀'
+                } else {
+                    obj_text.textContent = ctitle
+                    obj_text_header.textContent = '　'
+                    if (i > 1) {
+                        console.log('xx' + i)
+                        obj_text.classList.add('home-index-banner-special')
+                    }
+                }
+            }
             //
             obj_img.className = 'home-index-img'
             obj_img.src = GetChapterCoverSrc(i)
@@ -624,6 +648,9 @@ const Reader = function (param) {
             //
             obj_a.appendChild(obj_checkmark)
             obj_a.appendChild(obj_hint)
+            if (obj_text_header) {
+                obj_a.appendChild(obj_text_header)
+            }
             obj_a.appendChild(obj_img_wrapper)
             obj_a.appendChild(obj_text)
             obj_container.appendChild(obj_a)
@@ -726,8 +753,9 @@ const Reader = function (param) {
         // update bg image
         SetHomePageBg()
         //
-        let title = document.getElementById('home')
-        title.style.display = 'block'
+        let root = document.getElementById('home')
+        root.style.display = 'block'
+        root.className = 'home-comic-' + PARAMETER.bookIndex
         // hide all hints
         let hints = document.getElementsByClassName('home-index-hint')
         for (let i = 0; i < hints.length; i++) {

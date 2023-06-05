@@ -1,0 +1,77 @@
+/* 1012 */
+
+.home-comic-1012 #home-index {
+    top: 10px;
+}
+
+.home-comic-1012 .home-index-container {
+    position: relative;
+    display: inline-block;
+    border: 2px solid #fff;
+    border-radius: 0;
+    clip-path: polygon(0% 0%, calc(100% - 15px) 0%, 100% 15px, 100% 100%, 0% 100%, 0% 0%);
+    min-height: 150px;
+}
+
+.home-comic-1012 .home-index-container:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.home-comic-1012 .home-index-banner:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    height: 3px;
+    border-bottom: 2px dashed #fff;
+    margin-bottom: 6px;
+}
+
+.home-comic-1012 .home-index-banner {
+    letter-spacing: 8px;
+    font-size: 20px;
+}
+
+.home-comic-1012 .home-index-banner.home-index-banner-special {
+    letter-spacing: 0px;
+}
+
+@media screen and (max-width: 600px) {
+    .home-comic-1012 .home-index-banner {
+        letter-spacing: 4px;
+        font-size: 16px;
+    }
+}
+
+.home-comic-1012 .home-index-banner-header {
+    letter-spacing: 2px;
+    color: #fff;
+    width: 90%;
+    text-align: right;
+    margin-top: 3px;
+}
+
+.home-comic-1012 .home-index-img-wrapper {
+    margin-top: 6px;
+}
+
+.home-comic-1012 .home-index-checkmark {
+    top: 24px;
+}
+
+.home-comic-1012 .home-index-hint {
+    top: 24px;
+}
+
+.home-comic-1012 #home-index>i {
+    border: 2px solid transparent;
+}
