@@ -630,7 +630,6 @@ const Reader = function (param) {
                     obj_text.textContent = ctitle
                     obj_text_header.textContent = '　'
                     if (i > 1) {
-                        console.log('xx' + i)
                         obj_text.classList.add('home-index-banner-special')
                     }
                 }
@@ -1163,6 +1162,7 @@ const Reader = function (param) {
         let UpdateCurrentPage = function (pages) {
             CurrentBookPage = pages
             RequestBgMusicChange()
+            SetDebugText('CurrentPage', CurrentBookPage.toString() + '/' + PARAMETER.chPages[CurrentChapter])
         }
         let GetNextSrc = function () {
             let last = CurrentBookPage[CurrentBookPage.length - 1]
@@ -1605,7 +1605,6 @@ const Reader = function (param) {
         if (DEBUG_MODE) {
             let ratio = GetScrollRatio()
             SetDebugText('ScrollRatio', ratio.toFixed(2))
-            SetDebugText('CurrentBgm', CurrentBgMusicID)
         }
     }
 
