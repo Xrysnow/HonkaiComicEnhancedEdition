@@ -435,7 +435,7 @@ let ComicData = [
         date: [[2018, 3], [2019, 9]],
         page: 'common.html?id=1012',
         cover: 'http://comicstatic.bh3.com/new_static_v2/comic/book_cover/1012.jpg',
-        description: '2000年2月1日午夜，在西伯利亚的天命巴比伦实验室中，所有研究员一夜之间全部消失。在奥托下令调查这起“神秘”事件的同时，还有人似乎在担忧着“她”的出现。而这一切，揭开了第二次崩坏的序幕… https://detail.tmall.com/item.htm?id=618270891041',
+        description: '2000年2月1日午夜，在西伯利亚的天命巴比伦实验室中，所有研究员一夜之间全部消失。在奥托下令调查这起“神秘”事件的同时，还有人似乎在担忧着“她”的出现。而这一切，揭开了第二次崩坏的序幕…',
     },
     {
         id: 1013,
