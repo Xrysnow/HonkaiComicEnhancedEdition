@@ -3,7 +3,10 @@
     let bookNum = 1012
     p.bookIndex = bookNum
     p.bookTitle = '第二次崩坏'
-    p.editorNote = null
+    p.editorNote = {
+        zh: '- <a href="https://detail.tmall.com/item.htm?id=618270891041">官方实体版漫画</a>'
+        + '</br>- 目录样式参考了实体版。'
+    }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'

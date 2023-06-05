@@ -11,6 +11,7 @@
             + '　<a href="https://mp.weixin.qq.com/s/rTa0jkSYoKjfMcjzy7oihA">【3】</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1js41147GZ">漫画纪念PV</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Hs411h7py">希儿·芙乐艾角色印象PV</a>'
+            + '</br>- 实体版对部分画面和台词做了额外修改。'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

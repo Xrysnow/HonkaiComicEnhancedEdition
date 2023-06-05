@@ -7,7 +7,7 @@
         zh: '- 本篇为4.1版本活动《双子：入侵 海渊乐园篇》的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1mf4y117Uz?t=94.6">版本PV</a>'
             + '</br>- 关联内容：3.1版本活动《地下城大冒险》和网页活动《镰刀勇者成名录》。'
-            + '</br>- <a href="https://mihoyo.tmall.com/search.htm?keyword=%B5%D8%CF%C2%B3%C7">相关周边</a>'
+            + '</br>- <a href="https://mihoyo.tmall.com/category.htm?viewType=grid&keyword=%B5%D8%CF%C2%B3%C7">相关周边</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
