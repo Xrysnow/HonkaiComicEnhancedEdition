@@ -742,6 +742,7 @@ const Reader = function (param) {
 
     const GotoHome = function () {
         CurrentChapter = -1
+        SetDebugText('CurrentChapter', null)
         ClearGallery()
         RemoveBGMPlayer()
         ToggleConfig(false)
@@ -811,6 +812,7 @@ const Reader = function (param) {
 
     const PrepareGotoChapter = function (idx) {
         CurrentChapter = idx
+        SetDebugText('CurrentChapter', CurrentChapter)
         UpdateChapterProgress(idx)
         //
         ToggleMenu(true)
@@ -1324,8 +1326,8 @@ const Reader = function (param) {
         }
         document.getElementById(cursorPlacePair[1]).onclick = OnGotoNext
         document.getElementById(cursorPlacePair[0]).onclick = OnGotoPrev
-        document.getElementById('menu-next-page').onclick = OnGotoNext
-        document.getElementById('menu-prev-page').onclick = OnGotoPrev
+        document.getElementById('menu-next-page').onclick = mode == 'rl' ? OnGotoPrev : OnGotoNext
+        document.getElementById('menu-prev-page').onclick = mode == 'rl' ? OnGotoNext : OnGotoPrev
         GotoNext()
         //
         GlobalKeyHandlers['chapter'] = function (ev) {
@@ -1390,6 +1392,19 @@ const Reader = function (param) {
         }
     }
 
+    function SetMenuBookModeText(mode) {
+        let textCh = ['上一话', '下一话']
+        let textPage = ['上一页', '下一页']
+        if (mode == 'rl') {
+            textCh = ['下一话', '上一话']
+            textPage = ['下一页', '上一页']
+        }
+        document.getElementById('menu-prev-text').textContent = textCh[0]
+        document.getElementById('menu-next-text').textContent = textCh[1]
+        document.getElementById('menu-prev-page-text').textContent = textPage[0]
+        document.getElementById('menu-next-page-text').textContent = textPage[1]
+    }
+
     function SetMenuConfig() {
         // mode
         const mode_setter = document.getElementById('menu-config-mode')
@@ -1406,6 +1421,7 @@ const Reader = function (param) {
             } else {
                 mode_setter.selectedIndex = 1
             }
+            SetMenuBookModeText(current)
         } else {
             // not supported
             mode_container.style.display = 'none'
@@ -1416,6 +1432,7 @@ const Reader = function (param) {
             if (current == target) {
                 return
             }
+            SetMenuBookModeText(target)
             width_container.style.display = target == 'none' ? 'block' : 'none'
             Settings.setBookMode(PARAMETER.bookIndex, target)
             GotoChapter(CurrentChapter)
