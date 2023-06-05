@@ -336,13 +336,24 @@ li {
     }
 
     .home-index-hint {
-        right: 0;
+        right: 2px;
         top: 0;
+        font-size: 10px;
     }
 
     .home-index-checkmark {
         right: 10%;
         top: 5px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #home-index>i {
+        width: calc(49% - 15px);
+    }
+
+    .home-index-container {
+        width: calc(49% - 15px);
     }
 }
 
