@@ -25,20 +25,21 @@
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 }
 
-.home-comic-1012 .home-index-banner:before {
+.home-comic-1012 .home-index-img-wrapper:after {
     content: '';
     display: block;
     position: relative;
-    width: 80%;
-    margin-left: 10%;
+    width: 110%;
+    margin-left: -5%;
     height: 3px;
     border-bottom: 2px dashed #fff;
-    margin-bottom: 6px;
+    margin-top: 10px;
 }
 
 .home-comic-1012 .home-index-banner {
-    letter-spacing: 8px;
-    font-size: 20px;
+    letter-spacing: 6px;
+    text-indent: 6px;
+    font-size: 22px;
 }
 
 .home-comic-1012 .home-index-banner.home-index-banner-special {

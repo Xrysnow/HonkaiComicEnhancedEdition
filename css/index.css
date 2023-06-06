@@ -771,7 +771,7 @@ body>input {
 }
 
 @media screen and (max-width: 500px),
-screen and (max-height: 550px) {
+screen and (max-height: 640px) {
     .menu-config-wrapper>div {
         padding: 5px;
         height: 40px;
