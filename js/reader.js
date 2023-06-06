@@ -1421,6 +1421,10 @@ const Reader = function (param) {
             ToggleConfig(false)
             ToggleBGMPlayer(false)
         }
+        document.getElementById('menu-config-close').onclick = function (ev) {
+            ev.stopPropagation()
+            ToggleConfig(false)
+        }
         // mode
         const mode_setter = document.getElementById('menu-config-mode')
         const mode_container = Util.htmlParent(mode_setter, 3)
