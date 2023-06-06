@@ -10,6 +10,7 @@
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
     p.bgSrc = prefix + 'book_cover/1011.jpg'
     p.numChapter = 2
+    //https://mp.weixin.qq.com/s/B74QLSkUQE4n6gdLNNmUsg
     p.chTitles = [
         '第一话',
         '第二话',

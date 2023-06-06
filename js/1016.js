@@ -25,20 +25,20 @@
     ]
     p.numChapter = 14
     p.chTitles = [
-        '地下城篇01',
-        '地下城篇02',
-        '地下城篇03',
-        '地下城篇04',
-        '末世篇01',
-        '末世篇02',
-        '末世篇03',
-        '末世篇04',
-        '末世篇05',
-        '神探篇01',
-        '神探篇02',
-        '神探篇03',
-        '神探篇04',
-        '神探篇05',
+        '地下城篇01', //https://mp.weixin.qq.com/s/Rnx7gN7rTkmuwxqY93Pjpw
+        '地下城篇02', //https://mp.weixin.qq.com/s/T7Xhd8eiMzz3JvE4-duI0w
+        '地下城篇03', //https://mp.weixin.qq.com/s/-zdtpIpZiTo8s8RsvnorHA
+        '地下城篇04', //https://mp.weixin.qq.com/s/_uvbbm3yzqJtEwOQYVE6Lw
+        '末世篇01', //https://mp.weixin.qq.com/s/0UKhF-5T6B3RiizcPSjBhA
+        '末世篇02', //https://mp.weixin.qq.com/s/at_sA4-J3sktUjbQ5fMKCA
+        '末世篇03', //https://mp.weixin.qq.com/s/CIj7xUfg9ZGRsRXwxO7mnw
+        '末世篇04', //https://mp.weixin.qq.com/s/CIj7xUfg9ZGRsRXwxO7mnw
+        '末世篇05', //https://mp.weixin.qq.com/s/Y10UKt15ubKN9aogVwizJA
+        '神探篇01', //https://mp.weixin.qq.com/s/aY2b17ZKVvuBlX-KCOnaxA
+        '神探篇02', //https://mp.weixin.qq.com/s/pFcHsBwxNFRsMoGMrDmkdg
+        '神探篇03', //https://mp.weixin.qq.com/s/mP_dzC2FQ_jQHwTuDuYjdA
+        '神探篇04', //https://mp.weixin.qq.com/s/nemV-i1ziIsARxvoohlvwQ
+        '神探篇05', //https://mp.weixin.qq.com/s/OcRZEJLLDmrHgc1i4AZZ6Q
     ]
     p.chPages = [
         13, 13, 16, 15, 14,

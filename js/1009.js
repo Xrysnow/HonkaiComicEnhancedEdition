@@ -25,7 +25,7 @@
     ]
     p.numChapter = 14
     p.chTitles = [
-        '新章节序幕 历史',
+        '新章节序幕 历史', //https://mp.weixin.qq.com/s/uPgPg4l8GuVIvlDVO2AUkg
         '第一幕 罪孽',
         '第二幕 初遇',
         '第三幕 预告',
@@ -38,7 +38,7 @@
         '第十幕 觉悟',
         '第十一幕 死斗',
         '第十二幕 信念',
-        '终幕 回信',
+        '终幕 回信', //https://mp.weixin.qq.com/s/x5tnlIOm-wLdKGG6-FaK8A
     ]
     p.chPages = [
         18, 16, 20, 15, 16, 14, 13, 17, 16, 17, 14, 17, 16, 18

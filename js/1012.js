@@ -7,7 +7,11 @@
     p.editorNote = {
         zh: '- <a href="https://detail.tmall.com/item.htm?id=618270891041">官方实体版漫画</a>'
             + '</br>- 目录样式参考了实体版。'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/Xi6l2aogDH6vl1xk_zMhJg">官方总结</a>'
     }
+    //楔子 https://mp.weixin.qq.com/s/EZjMAmxw3lEco25k7yMuww
+    //第一话 https://mp.weixin.qq.com/s/4HUY5ihIXZ5ZgAkNnX5-RQ
+    //第四十六话 https://mp.weixin.qq.com/s/hN3DVqwX0nZUj4FDhiNzgw
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'

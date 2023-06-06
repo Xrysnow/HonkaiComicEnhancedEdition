@@ -32,17 +32,17 @@
     ]
     p.numChapter = 11
     p.chTitles = [
-        '第一话 封印',
-        '间章 A1',
-        '第二话 重逢',
-        '第三话 巫女',
-        '第四话 噩梦',
-        '第五话 祭祀',
-        '第六话 梦境',
-        '第七话 烈焰',
-        '第八话 恩返',
-        '第九话 原谅',
-        '第十话 终幕',
+        '第一话 封印', //https://mp.weixin.qq.com/s/7akg-W4G5ulG_L91Vxp_ZA
+        '间章 A1', //https://mp.weixin.qq.com/s/ZzcjGvUgy-JhZhilgP8Cmg
+        '第二话 重逢', //https://mp.weixin.qq.com/s/Tv7nz4wPTR_yLKwXqQhLlQ
+        '第三话 巫女', //https://mp.weixin.qq.com/s/NUHs3uwVYbUTC37uKiH14Q
+        '第四话 噩梦', //https://mp.weixin.qq.com/s/j8mU5-M-04CoB-rvc1xE0Q
+        '第五话 祭祀', //https://mp.weixin.qq.com/s/yj1zLkaF8zXIecJH2gF3qg
+        '第六话 梦境', //https://mp.weixin.qq.com/s/GqMuERGGD5X3J7TT3EeHnQ
+        '第七话 烈焰', //https://mp.weixin.qq.com/s/TKQflofsB8djF9GknNpVlQ
+        '第八话 恩返', //https://mp.weixin.qq.com/s/j-i5V5NGEP9zf9iF8MBubA
+        '第九话 原谅', //https://mp.weixin.qq.com/s/EDBGE-u92zyTzwUL6QJa1A
+        '第十话 终幕', //https://mp.weixin.qq.com/s/SI978bjEHqoohPW7jCvJrQ
     ]
     p.chPages = [
         24, 24, 14, 19, 17, 21, 31, 19, 21, 18, 12

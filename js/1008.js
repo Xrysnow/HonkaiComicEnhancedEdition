@@ -8,7 +8,8 @@
         zh: '- 本篇为《逆熵入侵篇》的后续漫画。'
             + '</br>- 本篇为游戏2.1版本「月影逐龙」（主线第7章）的前置漫画。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1vW411H7zJ">版本PV</a>'
-            + '</br>- <a href="https://www.bilibili.com/video/BV17W411B7xq">漫画纪念PV</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/AStYKap_07NCY6QxJFSzew">漫画预告</a>'
+            + '　<a href="https://www.bilibili.com/video/BV17W411B7xq">漫画纪念PV</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
@@ -20,7 +21,7 @@
     ]
     p.numChapter = 13
     p.chTitles = [
-        '第一话 暗流',
+        '第一话 暗流', //https://mp.weixin.qq.com/s/bjIoCuvUHNlVKi6C7tJ5Hw
         '第二话 潜入',
         '第三话 恐慌',
         '第四话 幽灵',
@@ -32,7 +33,7 @@
         '第十话 奇迹',
         '第十一话 异变',
         '第十二话 影',
-        '第十三话 承诺',
+        '第十三话 承诺', //https://mp.weixin.qq.com/s/tPOafLceUfxQdrqFI_8fmQ
     ]
     p.chPages = [
         24, 23, 23, 25, 24, 21, 20, 22, 20, 22, 18, 21, 11

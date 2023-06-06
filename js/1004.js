@@ -11,8 +11,11 @@
             + '　<a href="https://mp.weixin.qq.com/s/rTa0jkSYoKjfMcjzy7oihA">【3】</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1js41147GZ">漫画纪念PV</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Hs411h7py">希儿·芙乐艾角色印象PV</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/av14220400">声优对谈</a>'
             + '</br>- 实体版对部分画面和台词做了额外修改。'
     }
+    //完结纪念 崩坏学园2 https://mp.weixin.qq.com/s/puHxh6JKhIrW97Jl1zUoPQ
+    //完结纪念 崩坏3 https://mp.weixin.qq.com/s/jiIHCmmJb9WlIarBCz7p2w
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
@@ -31,17 +34,17 @@
     ]
     p.numChapter = 11
     p.chTitles = [
-        '序章 少女与雪',
-        '第一话 孤儿院',
-        '第二话 泪',
-        '第三话 银狼',
-        '第四话 恶魔',
-        '第五话 阶梯的复仇剧',
-        '第六话 实验',
-        '第七话 觉悟',
-        '第八话 希儿',
-        '第九话 决意',
-        '最终话 未来',
+        '序章 少女与雪', //https://mp.weixin.qq.com/s/5oACufMLtMh5gOo6vZCIaA
+        '第一话 孤儿院', //https://mp.weixin.qq.com/s/GYAQw5pgfg9Hvbe8iDa2MQ
+        '第二话 泪', //https://mp.weixin.qq.com/s/A09fZm1lGn5vCQ7buiNUIg
+        '第三话 银狼', //https://mp.weixin.qq.com/s/WSlwSQ6Ek8xFk3WLjn6QQA
+        '第四话 恶魔', //https://mp.weixin.qq.com/s/roPbwp-Hk-gp69h-8YI74g
+        '第五话 阶梯的复仇剧', //https://mp.weixin.qq.com/s/1neBmRHjEsIUB5bYXsOoGQ
+        '第六话 实验', //https://mp.weixin.qq.com/s/4lQL33sbo-C2HeWmOHPnxQ
+        '第七话 觉悟', //https://mp.weixin.qq.com/s/oCbjkmZkrg1afJuid0s37w
+        '第八话 希儿', //https://mp.weixin.qq.com/s/sRcAMZ12fM5ifVJxzCov1w
+        '第九话 决意', //https://mp.weixin.qq.com/s/uwuQ9Z4Qq-5aoS8LC8O37w
+        '最终话 未来', //https://mp.weixin.qq.com/s/FRavSjy2bvuNsV5JU0k8lg
     ]
     p.chPages = [
         10, 19, 18, 19, 21, 15, 20, 19, 26, 17, 28

@@ -14,6 +14,8 @@
             + '　<a href="https://mp.weixin.qq.com/s/1xElr2v1kdKK76ZqX5p_aA">【6】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/PgsCQlGKaO00caNFPj1GOw">【7】</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Bs411U7SU">漫画宣传PV</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA">漫画预告1</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/dv2LyXSDEU22Lfz0ViwCnQ">漫画预告2</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Ws411t734">公测PV</a>　<a href="https://www.bilibili.com/video/BV14s411r7Rh">开场CG</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1gs411r7QX">布洛妮娅角色PV：萝莉就是正义嘛！</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1zs411t7ma">芽衣角色PV：雷电女王降临！</a>'

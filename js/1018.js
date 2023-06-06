@@ -34,7 +34,7 @@
     p.chTitles = [
         '序章 砂之挽歌',
         '第一话 线索',
-        '第二话 强者',
+        '第二话 强者', //https://mp.weixin.qq.com/s/Au21asb0AeG6tyX3Vy2YIA
         '第三话 传说',
         '第四话 探查',
         '第五话 密道',
