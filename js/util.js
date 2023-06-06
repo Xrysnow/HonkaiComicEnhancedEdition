@@ -51,7 +51,7 @@ const Settings = {
         }
         if (this.getLocalStorage(this.KBGMEnabled) == undefined) {
             console.log('set default BGMEnabled')
-            this.setBgmEnabled(1)
+            this.setBgmEnabled(true)
         }
         if (this.getLocalStorage(this.KBGMVolume) == undefined) {
             console.log('set default BGMVolume')
@@ -104,10 +104,10 @@ const Settings = {
     },
 
     setBgmEnabled: function (value) {
-        this.setLocalStorage(this.KBGMEnabled, Number(value))
+        this.setLocalStorage(this.KBGMEnabled, Number(value > 0))
     },
     getBgmEnabled: function () {
-        return Number(this.getLocalStorage(this.KBGMEnabled))
+        return Number(this.getLocalStorage(this.KBGMEnabled)) > 0
     },
 
     setBgmVolume: function (value) {

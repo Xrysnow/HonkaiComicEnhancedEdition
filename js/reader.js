@@ -1459,7 +1459,7 @@ const Reader = function (param) {
         const bgm_switch = document.getElementById('menu-config-bgm-switch')
         let handle = 0
         bgm_switch.onchange = function () {
-            Settings.setBgmEnabled(Number(bgm_switch.checked))
+            Settings.setBgmEnabled(bgm_switch.checked)
             if (handle) {
                 clearTimeout(handle)
             }
@@ -1476,11 +1476,8 @@ const Reader = function (param) {
                 }
             }, 500)
         }
-        let lastBGMEnabled = Settings.getBgmEnabled()
-        if (lastBGMEnabled == 0) {
-            bgm_switch.checked = false
-            bgm_switch.onchange()
-        }
+        bgm_switch.checked = Settings.getBgmEnabled()
+        bgm_switch.onchange()
         // bgm volume
         const volume_setter = document.getElementById('menu-config-bgm-volume')
         volume_setter.onchange = function () {
