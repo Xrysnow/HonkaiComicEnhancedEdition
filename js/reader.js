@@ -774,6 +774,13 @@ const Reader = function (param) {
         Settings.addFinishedChapter(PARAMETER.bookIndex, idx, progress)
     }
 
+    const ClearAppendedItems = function () {
+        let arr = document.getElementsByClassName('voice-icon-list')
+        for (let i = 0; i < arr.length; i++) {
+            arr[i].remove()
+        }
+    }
+
     const PrepareGotoChapter = function (idx) {
         CurrentChapter = idx
         SetDebugText('CurrentChapter', CurrentChapter)
@@ -835,8 +842,8 @@ const Reader = function (param) {
         return bookMode
     }
 
-    const MakeVoiceButtons = function (idx, i) {
-        let voice_info = GetVoiceInfo(idx, i)
+    const MakeVoiceButtons = function (ichapter, ipage) {
+        let voice_info = GetVoiceInfo(ichapter, ipage)
         if (!voice_info) {
             return null
         }
@@ -863,7 +870,7 @@ const Reader = function (param) {
             let handle = 0
             obj_icon_box.onclick = function () {
                 //
-                if (idx == 66 && i == 21 & j == 0) {
+                if (ichapter == 66 && ipage == 21 & j == 0) {
                     RemoveBGMPlayer()
                     BgMusicSpecialPause = true
                     if (handle) {
@@ -876,7 +883,7 @@ const Reader = function (param) {
                 let player = document.getElementById('voice-player')
                 player.pause()
                 player.volume = VoiceVolume
-                player.src = GetVoiceSrc(idx, i, j)
+                player.src = GetVoiceSrc(ichapter, ipage, j)
                 player.play()
             }
             obj_voice_list.appendChild(obj_icon_box)
@@ -1047,6 +1054,7 @@ const Reader = function (param) {
         if (idx < 0) {
             return GotoHome()
         }
+        ClearAppendedItems()
         PrepareGotoChapter(idx)
         ToggleGallery(false)
         ToggleBook(true)
@@ -1128,6 +1136,13 @@ const Reader = function (param) {
         let UpdateCurrentPage = function (pages) {
             CurrentBookPage = pages
             RequestBgMusicChange()
+            for (let j = 0; j < CurrentBookPage.length; j++) {
+                const ipage = CurrentBookPage[j]
+                let obj_voice = MakeVoiceButtons(idx, ipage - 1)
+                if (obj_voice) {
+                    pagePair[j].appendChild(obj_voice)
+                }
+            }
             SetDebugText('CurrentPage', CurrentBookPage.toString() + '/' + PARAMETER.chPages[CurrentChapter])
         }
         let GetNextSrc = function () {
@@ -1168,6 +1183,7 @@ const Reader = function (param) {
             leftImage.src = ''
             rightImage.src = ''
             crossImage.src = ''
+            ClearAppendedItems()
             if (!next1Src) {
                 // if next1 is blank, next2 will not be blank or cross
                 wrapperPair[0].style.display = 'block'
@@ -1247,6 +1263,7 @@ const Reader = function (param) {
             leftImage.src = ''
             rightImage.src = ''
             crossImage.src = ''
+            ClearAppendedItems()
             if (prev.length > 1) {
                 wrapperPair[0].style.display = 'block'
                 wrapperPair[1].style.display = 'block'
@@ -1495,11 +1512,14 @@ const Reader = function (param) {
         const voice_switch_container = Util.htmlParent(voice_switch, 3)
         voice_switch.onchange = function () {
             Settings.setVoiceEnabled(voice_switch.checked)
-            let root = document.getElementById('gallery-wrapper')
+            let gallery = document.getElementById('gallery-wrapper')
+            let book = document.getElementById('book-wrapper')
             if (voice_switch.checked) {
-                root.classList.add('gallery-voice-enabled')
+                gallery.classList.add('gallery-voice-enabled')
+                book.classList.add('book-voice-enabled')
             } else {
-                root.classList.remove('gallery-voice-enabled')
+                gallery.classList.remove('gallery-voice-enabled')
+                book.classList.remove('book-voice-enabled')
             }
         }
         voice_switch.checked = Settings.getVoiceEnabled()
@@ -1667,15 +1687,15 @@ const Reader = function (param) {
         document.body.classList.add('mobile')
     }
 
-    function GetVoiceInfo(i_chapter, i_page) {
+    function GetVoiceInfo(ichapter, ipage) {
         const invalid = 0
         if (!PARAMETER.voiceInfo) {
             return invalid
         }
-        if (!PARAMETER.voiceInfo[i_chapter + 1]) {
+        if (!PARAMETER.voiceInfo[ichapter + 1]) {
             return invalid
         }
-        let v = PARAMETER.voiceInfo[i_chapter + 1][i_page + 1]
+        let v = PARAMETER.voiceInfo[ichapter + 1][ipage + 1]
         if (!v) {
             return invalid
         }

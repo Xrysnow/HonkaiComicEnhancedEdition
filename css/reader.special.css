@@ -91,3 +91,25 @@
 .gallery-voice-enabled .voice-icon-list {
     display: block;
 }
+
+.book-voice-enabled .voice-icon-list {
+    display: block;
+    position: relative;
+    right: unset;
+}
+
+.book-voice-enabled #book-left-wrapper .voice-icon-list {
+    position: relative;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+    border-right-width: 0;
+}
+
+.book-voice-enabled #book-container {
+    max-width: calc(96% - 6rem);
+}
