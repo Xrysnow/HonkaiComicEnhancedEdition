@@ -1490,14 +1490,23 @@ const Reader = function (param) {
             volume_setter.value = lastVolume
             volume_setter.onchange()
         }
+        // voice switch
+        const voice_switch = document.getElementById('menu-config-voice-switch')
+        const voice_switch_container = Util.htmlParent(voice_switch, 3)
+        voice_switch.onchange = function () {
+            Settings.setVoiceEnabled(voice_switch.checked)
+            let root = document.getElementById('gallery-wrapper')
+            if (voice_switch.checked) {
+                root.classList.add('gallery-voice-enabled')
+            } else {
+                root.classList.remove('gallery-voice-enabled')
+            }
+        }
+        voice_switch.checked = Settings.getVoiceEnabled()
+        voice_switch.onchange()
         // voice volume
         const voice_setter = document.getElementById('menu-config-voice-volume')
         const voice_container = Util.htmlParent(voice_setter, 3)
-        if (!PARAMETER.voiceInfo) {
-            voice_container.style.display = 'none'
-        } else {
-            voice_container.style.display = 'block'
-        }
         voice_setter.onchange = function () {
             const value = voice_setter.value
             Settings.setVoiceVolume(value)
@@ -1507,6 +1516,13 @@ const Reader = function (param) {
         if (!isNaN(lastVoiceVolume) && 0 <= lastVoiceVolume && lastVoiceVolume <= 100) {
             voice_setter.value = lastVoiceVolume
             voice_setter.onchange()
+        }
+        if (!PARAMETER.voiceInfo) {
+            voice_switch_container.style.display = 'none'
+            voice_container.style.display = 'none'
+        } else {
+            voice_switch_container.style.display = 'block'
+            voice_container.style.display = 'block'
         }
     }
     //

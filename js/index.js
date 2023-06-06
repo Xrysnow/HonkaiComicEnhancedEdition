@@ -136,13 +136,9 @@ let SetMenuConfig = function () {
     // bgm switch
     const bgm_switch = document.getElementById('menu-config-bgm-switch')
     bgm_switch.onchange = function () {
-        Settings.setBgmEnabled(Number(bgm_switch.checked))
+        Settings.setBgmEnabled(bgm_switch.checked)
     }
-    let lastBGMEnabled = Settings.getBgmEnabled()
-    if (lastBGMEnabled == 0) {
-        bgm_switch.checked = false
-        bgm_switch.onchange()
-    }
+    bgm_switch.checked = Settings.getBgmEnabled()
     // bgm volume
     const volume_setter = document.getElementById('menu-config-bgm-volume')
     volume_setter.onchange = function () {
@@ -153,6 +149,12 @@ let SetMenuConfig = function () {
         volume_setter.value = lastVolume
         volume_setter.onchange()
     }
+    // voice switch
+    const voice_switch = document.getElementById('menu-config-voice-switch')
+    voice_switch.onchange = function () {
+        Settings.setVoiceEnabled(voice_switch.checked)
+    }
+    voice_switch.checked = Settings.getVoiceEnabled()
     // voice volume
     const voice_setter = document.getElementById('menu-config-voice-volume')
     voice_setter.onchange = function () {

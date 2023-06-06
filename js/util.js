@@ -18,6 +18,7 @@ const Settings = {
     KBgColor: '/honkai-comic/bg-color',
     KBGMEnabled: '/honkai-comic/bgm-enabled',
     KBGMVolume: '/honkai-comic/bgm-volume',
+    KVoiceEnabled: '/honkai-comic/voice-enabled',
     KVoiceVolume: '/honkai-comic/voice-volume',
     KFinishedChapters: '/honkai-comic/finished-chapters',
     KBookModes: '/honkai-comic/book-modes',
@@ -56,6 +57,10 @@ const Settings = {
         if (this.getLocalStorage(this.KBGMVolume) == undefined) {
             console.log('set default BGMVolume')
             this.setBgmVolume(50)
+        }
+        if (this.getLocalStorage(this.KVoiceEnabled) == undefined) {
+            console.log('set default VoiceEnabled')
+            this.setVoiceEnabled(true)
         }
         if (this.getLocalStorage(this.KVoiceVolume) == undefined) {
             console.log('set default VoiceVolume')
@@ -115,6 +120,13 @@ const Settings = {
     },
     getBgmVolume: function () {
         return Number(this.getLocalStorage(this.KBGMVolume))
+    },
+
+    setVoiceEnabled: function (value) {
+        this.setLocalStorage(this.KVoiceEnabled, Number(value > 0))
+    },
+    getVoiceEnabled: function () {
+        return Number(this.getLocalStorage(this.KVoiceEnabled)) > 0
     },
 
     setVoiceVolume: function (value) {
