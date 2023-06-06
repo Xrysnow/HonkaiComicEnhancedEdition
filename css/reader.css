@@ -577,6 +577,7 @@ li {
     border-color: #777;
     border-style: solid;
     z-index: 2;
+    display: none;
 }
 
 .black-text-shadow {

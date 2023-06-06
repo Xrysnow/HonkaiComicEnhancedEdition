@@ -81,3 +81,13 @@
 .home-comic-102 .home-index-container {
     min-height: 100px;
 }
+
+/* voice enabled */
+
+.gallery-voice-enabled #gallery>ul {
+    width: calc(100% - 3rem - 2px);
+}
+
+.gallery-voice-enabled .voice-icon-list {
+    display: block;
+}
