@@ -1032,7 +1032,11 @@ const Reader = function (param) {
         }
         GlobalKeyHandlers['chapter'] = function (ev) {
             if (ev.key == '`') {
-                GotoHome()
+                if (document.getElementById('menu-config-window').style.display != 'none') {
+                    ToggleConfig(false)
+                } else {
+                    GotoHome()
+                }
             } else if (ev.key == '[') {
                 return GotoPrevChapter()
             } else if (ev.key == ']') {
@@ -1321,7 +1325,11 @@ const Reader = function (param) {
             } else if (ev.key == 'ArrowRight') {
                 return bookMode == 'rl' ? GotoPrev() : GotoNext()
             } else if (ev.key == '`') {
-                GotoHome()
+                if (document.getElementById('menu-config-window').style.display != 'none') {
+                    ToggleConfig(false)
+                } else {
+                    GotoHome()
+                }
             } else if (ev.key == '[') {
                 return bookMode == 'rl' ? GotoNextChapter() : GotoPrevChapter()
             } else if (ev.key == ']') {
