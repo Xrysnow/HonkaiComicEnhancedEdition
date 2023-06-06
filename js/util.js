@@ -313,7 +313,23 @@ const MathUtil = {
             current = start
         }
         return current
-    }
+    },
+    checkNumber: function (value, lo, hi, allowInf) {
+        value = Number(value)
+        if (isNaN(value)) {
+            return false
+        }
+        if (!allowInf && !isFinite(value)) {
+            return false
+        }
+        if (typeof (lo) == 'number' && value < lo) {
+            return false
+        }
+        if (typeof (hi) == 'number' && value > hi) {
+            return false
+        }
+        return true
+    },
 }
 
 let ComicData = [

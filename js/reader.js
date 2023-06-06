@@ -1486,7 +1486,7 @@ const Reader = function (param) {
             BgMusicVolume = Number(value) / 100
         }
         let lastVolume = Settings.getBgmVolume()
-        if (!isNaN(lastVolume) && 0 <= lastVolume && lastVolume <= 100) {
+        if (MathUtil.checkNumber(lastVolume, 0, 100)) {
             volume_setter.value = lastVolume
             volume_setter.onchange()
         }
@@ -1513,7 +1513,7 @@ const Reader = function (param) {
             VoiceVolume = Number(value) / 100
         }
         let lastVoiceVolume = Settings.getVoiceVolume()
-        if (!isNaN(lastVoiceVolume) && 0 <= lastVoiceVolume && lastVoiceVolume <= 100) {
+        if (MathUtil.checkNumber(lastVoiceVolume, 0, 100)) {
             voice_setter.value = lastVoiceVolume
             voice_setter.onchange()
         }

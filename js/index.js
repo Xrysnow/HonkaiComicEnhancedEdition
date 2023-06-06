@@ -145,7 +145,7 @@ let SetMenuConfig = function () {
         Settings.setBgmVolume(volume_setter.value)
     }
     let lastVolume = Settings.getBgmVolume()
-    if (!isNaN(lastVolume) && 0 <= lastVolume && lastVolume <= 100) {
+    if (MathUtil.checkNumber(lastVolume, 0, 100)) {
         volume_setter.value = lastVolume
         volume_setter.onchange()
     }
@@ -161,7 +161,7 @@ let SetMenuConfig = function () {
         Settings.setVoiceVolume(voice_setter.value)
     }
     let lastVoiceVolume = Settings.getVoiceVolume()
-    if (!isNaN(lastVoiceVolume) && 0 <= lastVoiceVolume && lastVoiceVolume <= 100) {
+    if (MathUtil.checkNumber(lastVoiceVolume, 0, 100)) {
         voice_setter.value = lastVoiceVolume
         voice_setter.onchange()
     }
