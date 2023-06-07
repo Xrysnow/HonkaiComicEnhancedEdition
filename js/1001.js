@@ -14,9 +14,11 @@
             + '　<a href="https://mp.weixin.qq.com/s/1xElr2v1kdKK76ZqX5p_aA">【6】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/PgsCQlGKaO00caNFPj1GOw">【7】</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Bs411U7SU">漫画宣传PV</a>'
+            + '　<a href="https://www.bilibili.com/video/av6022195">单行本纪念PV</a>'
             + '　<a href="https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA">漫画预告1</a>'
             + '　<a href="https://mp.weixin.qq.com/s/dv2LyXSDEU22Lfz0ViwCnQ">漫画预告2</a>'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1Ws411t734">公测PV</a>　<a href="https://www.bilibili.com/video/BV14s411r7Rh">开场CG</a>'
+            + '</br>- 官方曾推出过实体版书籍，已绝版。'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1Ws411t734">游戏公测PV</a>　<a href="https://www.bilibili.com/video/BV14s411r7Rh">开场CG</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1gs411r7QX">布洛妮娅角色PV：萝莉就是正义嘛！</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1zs411t7ma">芽衣角色PV：雷电女王降临！</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1ss411t7tt">琪亚娜角色PV：Kiana出击！</a>'
@@ -39,13 +41,13 @@
     ]
     p.numChapter = 7
     p.chTitles = [
-        '序章 琪亚娜·出击',
-        '第一话 崩坏、爆发',
-        '第二话 雷鸣的魔女',
-        '第三话 女武神出阵',
-        '第四话 女王VS女王',
-        '第五话 隙间',
-        '第六话 新的旅程',
+        '序章 琪亚娜·出击', //https://mp.weixin.qq.com/s/hUyuvEBI71lWttNagV-3_Q
+        '第一话 崩坏、爆发', //https://mp.weixin.qq.com/s/NceBGNg-sFEBR86JjaJbqw
+        '第二话 雷鸣的魔女', //https://mp.weixin.qq.com/s/epumDVpG3Fri1NNC1ZrMHw
+        '第三话 女武神出阵', //https://mp.weixin.qq.com/s/vMOGRX3gDklARUIb3Ga-VQ
+        '第四话 女王VS女王', //https://mp.weixin.qq.com/s/A3qn57QlswuiH8IqTMMJeg
+        '第五话 隙间', //https://mp.weixin.qq.com/s/ajrOz_-zOcjU9gBeY7sYRQ
+        '第六话 新的旅程', //https://mp.weixin.qq.com/s/OBBDFCkgzG2qNnrHHU5a0Q
     ]
     p.chPages = [
         29, 27, 22, 19, 18, 19, 21

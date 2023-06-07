@@ -21,14 +21,14 @@
     p.bgSrc = prefix + 'book_cover/1003.jpg'
     p.numChapter = 8
     p.chTitles = [
-        '第十五话 圣痕',
-        '第十六话 广州，美食之都！',
-        '第十七话 听说你是画漫画的',
-        '第十八话 下海',
-        '第十九话 救援',
-        '第二十话 心魔',
-        '第二十一话 诅咒',
-        '第二十二话 新生',
+        '第十五话 圣痕', //https://mp.weixin.qq.com/s/5djtoah_0oKOOWiyH0ReTg
+        '第十六话 广州，美食之都！', //https://mp.weixin.qq.com/s/oBPz8ws3d9-PXW0Fs--ZAQ
+        '第十七话 听说你是画漫画的', //https://mp.weixin.qq.com/s/ENenVKfxg4_9zDVGwAj_tw
+        '第十八话 下海', //https://mp.weixin.qq.com/s/MmuOg8AsuwRIdGI1F0oVDw
+        '第十九话 救援', //https://mp.weixin.qq.com/s/YxA9Hxd7W4MZRNyPdqrqKQ
+        '第二十话 心魔', //https://mp.weixin.qq.com/s/n6O-xTYHK1_DANQUEMtk3w
+        '第二十一话 诅咒', //https://mp.weixin.qq.com/s/PCKylnqInYOP7BCFmgZZ_A
+        '第二十二话 新生', //https://mp.weixin.qq.com/s/uGnTkRa-6vLhext7XK44CA
     ]
     p.chPages = [
         27, 24, 22, 28, 26, 25, 27, 28

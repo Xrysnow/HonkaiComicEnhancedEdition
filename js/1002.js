@@ -25,14 +25,14 @@
     ]
     p.numChapter = 8
     p.chTitles = [
-        '第七话 琪亚娜最大的危机',
+        '第七话 琪亚娜最大的危机', //https://mp.weixin.qq.com/s/aqFGnw0pSTLRd1ibKg-NyQ
         '第八话 历史信标',
-        '第九话 卡莲和琪亚娜',
-        '第十话 此身为盾',
-        '第十一话 白骑士·月光',
-        '第十二话 第四律者诞生？',
-        '第十三话 跨越500年的重逢',
-        '第十四话 愿樱花与你同在',
+        '第九话 卡莲和琪亚娜', //https://mp.weixin.qq.com/s/tj1BfsnW8F2V-LLkQJV9GQ
+        '第十话 此身为盾', //https://mp.weixin.qq.com/s/ply71sfyyY_ZmxVBfdINLg
+        '第十一话 白骑士·月光', //https://mp.weixin.qq.com/s/am0q0bn1__15krUcJywQuA
+        '第十二话 第四律者诞生？', //https://mp.weixin.qq.com/s/jzmUkbdg2LYL6DURUVbcTw
+        '第十三话 跨越500年的重逢', //https://mp.weixin.qq.com/s/b-ZpeELhIcDIboR1W6fE7w
+        '第十四话 愿樱花与你同在', //https://mp.weixin.qq.com/s/_yNZj4rFKX1gMy8MjOz15Q
     ]
     p.chPages = [
         15, 17, 17, 18, 23, 18, 18, 20

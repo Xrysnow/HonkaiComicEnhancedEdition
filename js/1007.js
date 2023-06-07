@@ -11,6 +11,7 @@
             + '</br>- <a href="https://www.bilibili.com/video/BV1Ex411Q7aD">1.4版本PV</a>　<a href="https://www.bilibili.com/video/BV17x411V7sx">1.8版本PV</a>'
             + '</br>- <a href="https://mp.weixin.qq.com/s/7y7Khm7AlO83PvRQXGScOg">漫画预告</a>'
             + '　<a href="https://www.bilibili.com/video/BV1bx411i7x5">漫画纪念PV</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/1VnraRcTXgqtB3gz8RfqWQ">作者解说</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

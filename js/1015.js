@@ -20,8 +20,8 @@
     ]
     p.numChapter = 2
     p.chTitles = [
-        '第一话 Лилия',
-        '最终话 Розалия',
+        '第一话 Лилия', //https://mp.weixin.qq.com/s/vuiF9v0wKWxYFpKYOVmFng
+        '最终话 Розалия', //https://mp.weixin.qq.com/s/RBXY-iRrfkYYMfQmYHGaXA
     ]
     p.chPages = [
         7, 10

@@ -8,8 +8,12 @@
         zh: '- 本篇原名为《崩坏学园EX 绯樱篇》，为崩坏系列的第一篇连载漫画。'
             + '</br>- 本篇第一话于2月14日发布。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1ds41127Kp">漫画纪念PV</a>'
-            + '</br>- <a href="https://mp.weixin.qq.com/s/hi7DQDOBIK5CoWtDGMuMgw">发布地址</a>'
-            + '</br>- <a href="https://mp.weixin.qq.com/s/Y9PCqw7TOxnk3Gr1ax6cFA">设定补充</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/mrebiT2kay127bBzklN3pQ">漫画预告</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/Y9PCqw7TOxnk3Gr1ax6cFA">设定补充</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/opMlrjpjqZ9CINpKPd8sGg">官方魔改</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/MJkd5SRmdldCyRR6nOFXnw">制作者短篇漫画</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/IHGU3RDjM-fT8B5LEeJzjQ">礼盒周边</a>（已绝版）'
+            + '</br>- 官方曾推出过实体版书籍，已绝版。'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
@@ -21,13 +25,13 @@
     ]
     p.numChapter = 8
     p.chTitles = [
-        '第一话 邂逅',
-        '第二话 异变',
-        '第三话 神祭',
-        '第四话 厄神',
-        '第五话 凛',
-        '第六话 弑神',
-        '第七话 樱',
+        '第一话 邂逅', //https://mp.weixin.qq.com/s/hi7DQDOBIK5CoWtDGMuMgw
+        '第二话 异变', //https://mp.weixin.qq.com/s/NT-QFSBMWWdEckPXGTvqNg
+        '第三话 神祭', //https://mp.weixin.qq.com/s/9-dMAiN8jwIHoceCxORlZw
+        '第四话 厄神', //https://mp.weixin.qq.com/s/8tA0D4ZfyeyHTs2bCq_5qg
+        '第五话 凛', //https://mp.weixin.qq.com/s/7F3VmuMcu_VJvJLjqDmJJA
+        '第六话 弑神', //https://mp.weixin.qq.com/s/Sp5yUKzRXevJqlG2_sjYZQ
+        '第七话 樱', //https://mp.weixin.qq.com/s/GYQELLC0JCJQ-QgcBexL4g
         '第八话 卡莲',
     ]
     p.chPages = [
