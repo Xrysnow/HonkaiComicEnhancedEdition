@@ -172,6 +172,47 @@ let SetMenuConfig = function () {
         window.location.reload()
     }
 };
+let InsComicText = `## 崩坏3漫画网站变迁
+### 曾用网站
+- 【1】benghuai.com/comic
+- 【2】event.mihoyo.com/weixin_comic/index.php
+- 【3】event.mihoyo.com/ip_product/index.php
+- 【4】comic.benghuai.com
+- 【5】comic.bh3.com
+### 与游戏官网的联系
+- 2018年2月前，《崩坏学园2》官网（benghuai.com）和《崩坏3》官网（bh3.com）均将漫画链接指向【1】（但微信平台发布漫画时并未指向过该链接）。
+- 2018年3月起，benghuai.com改为“崩坏IP专题站”（主要介绍《崩坏学园2》的角色和设定）且不再链接到漫画网站，同时《崩坏3》官网去掉了漫画页面。
+- 2019年4月起，《崩坏3》官网链接到【5】。
+- 2019年9月起，benghuai.com改回《崩坏学园2》官网（“崩坏IP专题站”移动至ip.benghuai.com直至2021年1月下线），此后《崩坏学园2》官网的“漫画站”链接到米游社的“崩坏四格目录索引”。
+### 上线时间
+- 从《逃离长空篇》第三话到《樱花追忆篇》第七话，微信发布页链接到【2】。
+- 2015年10月，网站【2】上线[(来源)](https://mp.weixin.qq.com/s/eERcLW5g2M1lf0sj9NmfAQ)。从《樱花追忆篇》第八话到《绀海篇》结束，微信发布页均链接到【3】。
+- 从《逆熵入侵篇》（2016年10月）至《双子：入侵》「地下城篇03」（2019年7月），微信发布页链接到【4】。2017年9月，【3】改名为“崩坏Gallery”[(来源)](https://mp.weixin.qq.com/s/kNE9zOyikO6UzurJN0oZWA)。
+- 从《双子：入侵》「地下城篇04」（2019年8月）起，微信发布页链接到【5】。此前【5】上仅有《爱酱的事实》。
+
+## 崩坏3漫画的发布者
+- 《月影篇》之前的漫画由崩坏学园2发布，从《月影篇》开始由崩坏3发布。但《逆熵入侵篇》第十五话和完结特辑双方均有发布。
+- 《逆熵入侵篇》和《恩返篇》由崩坏学园2发布，但对应的纪念PV由崩坏3发布。
+
+## 崩坏3漫画的定位
+- “《崩坏3rd》”系列漫画于2015年作为崩坏学园2的官方漫画发布。[(来源)](https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA)
+- 游戏《崩坏3》在测试阶段名称为《崩坏3rd》[(来源)](https://mp.weixin.qq.com/s/6CECkSSf014FWzGh6P-58w)，公测时改为《崩坏3》[(来源)](https://mp.weixin.qq.com/s/-AJnDfnWVUJFwVoAE_zGGw)。
+
+## 部分作者主页
+- [@EGO_TDC24](https://space.bilibili.com/22946482)
+
+## 其他知识
+- 截至2017年上半年，漫画《崩坏3rd》累计点击量超过1.8亿次。(来源：招股书)
+
+## 崩坏教室
+- [又·剧情答疑专题](https://mp.weixin.qq.com/s/5oYo_SzlPHotRYdCp0lMCA)
+
+## 《女武神的餐桌》对应的“崩坏美食特辑”
+- [春意盎然的樱花美食](https://mp.weixin.qq.com/s/Qiraqvbl96kkfTzLhG8rLw)
+
+## 其他崩坏3漫画
+- [往世乐土事务所](https://space.bilibili.com/256667467/search/dynamic?keyword=%E5%BE%80%E4%B8%96%E4%B9%90%E5%9C%9F%E4%BA%8B%E5%8A%A1%E6%89%80)
+`
 let IndexScript = function () {
     function SetupStyle0(comicList) {
         for (let i = 0; i < ComicData.length; i++) {
@@ -572,6 +613,8 @@ let IndexScript = function () {
         }
         let viewer = new Viewer(imgWrapper1, ViewerConfig)
     }
+    //
+    document.getElementById('ins-comic-content').innerHTML = marked.parse(InsComicText)
     //
     SetMenuConfig()
 };

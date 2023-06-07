@@ -683,6 +683,11 @@ body>input {
     color: #fff;
 }
 
+.ins-content-wrapper a {
+    color: #fff;
+    text-decoration: underline;
+}
+
 .ins-img-viewer {
     background-color: rgba(0, 0, 0, .8);
 }
