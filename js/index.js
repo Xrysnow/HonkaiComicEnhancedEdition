@@ -172,7 +172,28 @@ let SetMenuConfig = function () {
         window.location.reload()
     }
 };
-let InsComicText = `## 崩坏3漫画网站变迁
+let InsRelationText = `
+下图为《崩坏3》漫画与其他剧情内容的关系图，读者可依据此图决定漫画的阅读时机与顺序（推荐按推出时间观看各内容）。
+- 箭头表示具有较强的前置关系。
+- 各内容按推出时间从上到下排列。
+- 从左到右依次为漫画、游戏、视觉小说和动画。
+- 未列出的后续游戏剧情仍会引用漫画内容，本图不再给出。
+`
+let InsComicText = `
+## 崩坏3漫画与《崩坏学园2》和《崩坏3》的关系
+- 2015年6月，“崩坏3rd”系列漫画于作为崩坏学园2的官方漫画发布。([来源](https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA))
+- 游戏《崩坏3》在测试阶段名称为《崩坏3rd》（[来源](https://mp.weixin.qq.com/s/6CECkSSf014FWzGh6P-58w)），公测时改为《崩坏3》（[来源](https://mp.weixin.qq.com/s/-AJnDfnWVUJFwVoAE_zGGw)）。
+- 《月影篇》之前的漫画由崩坏学园2发布，从《月影篇》开始由崩坏3发布。(《逆熵入侵篇》第十五话和完结特辑双方均有发布。)
+- 《逆熵入侵篇》之前的漫画纪念PV由崩坏学园2发布，从《逆熵入侵篇》开始由崩坏3发布。（《逆熵入侵篇》和《恩返篇》漫画由崩坏学园2发布，但对应的纪念PV由崩坏3发布。）
+
+## 实体版漫画
+- 《绯樱篇》（非卖品）
+- 《崩坏3rd》序章（非卖品）
+- 《崩坏3rd》01-04（包含《逃离长空篇》到《恩返篇》，已绝版）
+- 《崩坏3 绀海篇》（[购买链接](https://detail.tmall.com/item.htm?id=589288225758)）
+- 《崩坏3 第二次崩坏》1-6（[购买链接](https://detail.tmall.com/item.htm?id=618270891041)）
+
+## 漫画网站变迁
 ### 曾用网站
 - 【1】benghuai.com/comic
 - 【2】event.mihoyo.com/weixin_comic/index.php
@@ -184,19 +205,11 @@ let InsComicText = `## 崩坏3漫画网站变迁
 - 2018年3月起，benghuai.com改为“崩坏IP专题站”（主要介绍《崩坏学园2》的角色和设定）且不再链接到漫画网站，同时《崩坏3》官网去掉了漫画页面。
 - 2019年4月起，《崩坏3》官网链接到【5】。
 - 2019年9月起，benghuai.com改回《崩坏学园2》官网（“崩坏IP专题站”移动至ip.benghuai.com直至2021年1月下线），此后《崩坏学园2》官网的“漫画站”链接到米游社的“崩坏四格目录索引”。
-### 上线时间
-- 从《逃离长空篇》第三话到《樱花追忆篇》第七话，微信发布页链接到【2】。
-- 2015年10月，网站【2】上线[(来源)](https://mp.weixin.qq.com/s/eERcLW5g2M1lf0sj9NmfAQ)。从《樱花追忆篇》第八话到《绀海篇》结束，微信发布页均链接到【3】。
-- 从《逆熵入侵篇》（2016年10月）至《双子：入侵》「地下城篇03」（2019年7月），微信发布页链接到【4】。2017年9月，【3】改名为“崩坏Gallery”[(来源)](https://mp.weixin.qq.com/s/kNE9zOyikO6UzurJN0oZWA)。
-- 从《双子：入侵》「地下城篇04」（2019年8月）起，微信发布页链接到【5】。此前【5】上仅有《爱酱的事实》。
-
-## 崩坏3漫画的发布者
-- 《月影篇》之前的漫画由崩坏学园2发布，从《月影篇》开始由崩坏3发布。但《逆熵入侵篇》第十五话和完结特辑双方均有发布。
-- 《逆熵入侵篇》和《恩返篇》由崩坏学园2发布，但对应的纪念PV由崩坏3发布。
-
-## 崩坏3漫画的定位
-- “《崩坏3rd》”系列漫画于2015年作为崩坏学园2的官方漫画发布。[(来源)](https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA)
-- 游戏《崩坏3》在测试阶段名称为《崩坏3rd》[(来源)](https://mp.weixin.qq.com/s/6CECkSSf014FWzGh6P-58w)，公测时改为《崩坏3》[(来源)](https://mp.weixin.qq.com/s/-AJnDfnWVUJFwVoAE_zGGw)。
+### 与微信平台的联系
+- 从《逃离长空篇》第三话到《樱花追忆篇》第七话，微信漫画发布页中的“查看原文”链接到【2】。
+- 2015年10月，网站【3】上线([来源](https://mp.weixin.qq.com/s/eERcLW5g2M1lf0sj9NmfAQ))。从《樱花追忆篇》第八话到《绀海篇》结束，微信发布页均链接到【3】。
+- 从《逆熵入侵篇》（2016年10月）至《双子：入侵》「地下城篇03」（2019年7月），微信发布页链接到【4】。2017年9月，【4】改名为“崩坏Gallery”([来源](https://mp.weixin.qq.com/s/kNE9zOyikO6UzurJN0oZWA))。
+- 从《双子：入侵》「地下城篇04」（2019年8月）起，微信发布页链接到【5】。（此前网站【5】已存在，内容仅有《爱酱的事实》。）
 
 ## 部分作者主页
 - [@EGO_TDC24](https://space.bilibili.com/22946482)
@@ -614,7 +627,15 @@ let IndexScript = function () {
         let viewer = new Viewer(imgWrapper1, ViewerConfig)
     }
     //
-    document.getElementById('ins-comic-content').innerHTML = marked.parse(InsComicText)
+    let marked_opt = { mangle: false, headerIds: false }
+    document.getElementById('ins-relation-content').innerHTML = marked.parse(InsRelationText, marked_opt)
+    //
+    let obj_comic_content = document.getElementById('ins-comic-content')
+    obj_comic_content.innerHTML = marked.parse(InsComicText, marked_opt)
+    let a_arr = obj_comic_content.getElementsByTagName('a')
+    for (let i = 0; i < a_arr.length; i++) {
+        a_arr[i].target = '_blank'
+    }
     //
     SetMenuConfig()
 };
