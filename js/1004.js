@@ -6,9 +6,10 @@
     p.bookMode = 'rl'
     p.editorNote = {
         zh: '- <a href="https://detail.tmall.com/item.htm?id=589288225758">官方实体版漫画</a>'
-            + '</br>- 设定补充：<a href="https://mp.weixin.qq.com/s/Cbdp36AcNEPy-VRWSxqa_A">【1】</a>'
-            + '　<a href="https://mp.weixin.qq.com/s/4Boeb3_zPHMnfHGwVkbypg">【2】</a>'
-            + '　<a href="https://mp.weixin.qq.com/s/rTa0jkSYoKjfMcjzy7oihA">【3】</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/Cbdp36AcNEPy-VRWSxqa_A">对应的崩坏教室</a>'
+            + '</br>- 相关设定：'
+            + '<a href="https://mp.weixin.qq.com/s/4Boeb3_zPHMnfHGwVkbypg">【1】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/rTa0jkSYoKjfMcjzy7oihA">【2】</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1js41147GZ">漫画纪念PV</a>'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Hs411h7py">希儿·芙乐艾角色印象PV</a>'
             + '</br>- <a href="https://www.bilibili.com/video/av14220400">声优对谈</a>'

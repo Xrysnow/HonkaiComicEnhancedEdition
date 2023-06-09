@@ -4,8 +4,8 @@
     p.bookIndex = bookNum
     p.bookTitle = '女武神的餐桌'
     p.editorNote = {
-        zh: '- <a href="https://www.bilibili.com/bangumi/play/ep275898">动画 第一季</a>'
-            + '</br>- <a href="https://www.bilibili.com/bangumi/play/ss33688">动画 第二季</a>'
+        zh: '- <a href="https://www.bilibili.com/bangumi/play/ep275898">同名动画 第一季</a>'
+            + '</br>- <a href="https://www.bilibili.com/bangumi/play/ss33688">同名动画 第二季</a>'
             + '</br>- 对应的美食特辑：<a href="https://mp.weixin.qq.com/s/42P8pkbyMPbnM5_x2GvQYQ">【3】</a>'
             +'　<a href="https://mp.weixin.qq.com/s/zb-TySbAvgknbnSZPuamYQ">【4】</a>'
             +'　<a href="https://mp.weixin.qq.com/s/frkOAwyfehKvcASm5C8Q2A">【5】</a>'

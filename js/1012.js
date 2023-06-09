@@ -6,7 +6,7 @@
     p.bookMode = 'rl'
     p.editorNote = {
         zh: '- <a href="https://detail.tmall.com/item.htm?id=618270891041">官方实体版漫画</a>'
-            + '- 对应的崩坏教室：'
+            + '</br>- 对应的崩坏教室：'
             + '<a href="https://mp.weixin.qq.com/s/oLbvxNNRTXxXmPLqHkWi9Q">【1】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/niiuVwLtA3cxpeeYmL6N-g">【2】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/5oYo_SzlPHotRYdCp0lMCA">【3】</a>'
