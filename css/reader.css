@@ -645,6 +645,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0.5%;
 }
 
 #book-container {
@@ -656,6 +657,7 @@ li {
     margin-left: auto;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .book-page-wrapper {
@@ -668,6 +670,7 @@ li {
     height: 100%;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 #book-left-page {
@@ -682,6 +685,46 @@ li {
 
 #book-left-img {
     float: right;
+}
+
+.book-img-hidden img {
+    filter: blur(15px);
+    border-style: dashed;
+    border-radius: 0;
+    border-width: 6px;
+    border-color: #ffa600;
+}
+
+.book-img-hidden.book-hidden-active img {
+    filter: none;
+}
+
+.book-img-hidden:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: fit-content;
+    margin: auto;
+    content: '点击查看已修改的内容';
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #ffa600;
+    color: #000;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.book-img-hidden.book-hidden-active:after {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .book-img-hidden:after {
+        font-size: 100%;
+    }
 }
 
 /* book cross page */

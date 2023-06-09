@@ -1074,6 +1074,7 @@ const Reader = function (param) {
         ToggleGallery(false)
         ToggleBook(true)
         let hidden = HIDDEN_PAGES[idx]
+        let showHidden = false
         //
         let bookWrapper = document.getElementById('book-wrapper')
         let bookContainer = document.getElementById('book-container')
@@ -1090,6 +1091,7 @@ const Reader = function (param) {
         let rightImage = document.getElementById('book-right-img')
         /** @type {HTMLImageElement} */
         let crossImage = document.getElementById('book-cross-img')
+        let imgArr = [leftImage, rightImage, crossImage]
         //
         crossWrapper.style.display = 'none'
         let wrapperPair = [rightWrapper, leftWrapper]
@@ -1118,7 +1120,7 @@ const Reader = function (param) {
                     pages = [pages]
                 }
                 for (let j = 0; j < pages.length; j++) {
-                    sources.push([pages[j], 0.01 * (j + 1)])
+                    sources.push([pages[j], 0.01 * (j + 1), true])
                 }
             }
             //
@@ -1136,7 +1138,7 @@ const Reader = function (param) {
                 }
                 for (let j = 0; j < pages.length; j++) {
                     curr += 0.01
-                    sources.push([pages[j], curr])
+                    sources.push([pages[j], curr, true])
                 }
             }
             if (blank && blank.includes(curr)) {
@@ -1159,6 +1161,34 @@ const Reader = function (param) {
                 }
             }
             SetDebugText('CurrentPage', CurrentBookPage.toString() + '/' + PARAMETER.chPages[CurrentChapter])
+        }
+        imgArr.forEach(e => {
+            e.parentElement.classList.remove('book-hidden-active')
+        })
+        /**@param {HTMLElement} obj */
+        let SetImageObject = function (obj, src, isHidden) {
+            obj.src = src
+            if (isHidden) {
+                obj.parentElement.classList.add('book-img-hidden')
+                obj.parentElement.onclick = function (ev) {
+                    console.log('showHidden=' + showHidden)
+                    if (showHidden) {
+                        return
+                    }
+                    ev.stopPropagation()
+                    showHidden = true
+                    imgArr.forEach(e => {
+                        e.parentElement.classList.add('book-hidden-active')
+                    })
+                }
+            }
+            console.log("SetImageObject")
+        }
+        let ResetImageObject = function () {
+            imgArr.forEach(e => {
+                e.src = ''
+                e.parentElement.classList.remove('book-img-hidden')
+            })
         }
         let GetNextSrc = function () {
             let last = CurrentBookPage[CurrentBookPage.length - 1]
@@ -1194,15 +1224,13 @@ const Reader = function (param) {
             leftWrapper.style.display = 'none'
             rightWrapper.style.display = 'none'
             crossWrapper.style.display = 'none'
-            leftImage.src = ''
-            rightImage.src = ''
-            crossImage.src = ''
+            ResetImageObject()
             ClearAppendedItems()
             if (!next1Src) {
                 // if next1 is blank, next2 will not be blank or cross
                 wrapperPair[0].style.display = 'block'
                 wrapperPair[1].style.display = 'block'
-                imagePair[1].src = next2Src
+                SetImageObject(imagePair[1], next2Src, next2[2])
                 if (next2) {
                     UpdateCurrentPage([next1[1], next2[1]])
                     history.push([next1, next2])
@@ -1219,14 +1247,14 @@ const Reader = function (param) {
             }).then(([w, h]) => {
                 if (Util.isImageCrossPage(w, h, PARAMETER.bookIndex)) {
                     crossWrapper.style.display = 'block'
-                    crossImage.src = next1Src
+                    SetImageObject(crossImage, next1Src, next1[2])
                     UpdateCurrentPage([next1[1]])
                     history.push([next1])
                     locked = false
                 } else {
                     wrapperPair[1].style.display = 'block'
                     wrapperPair[0].style.display = 'block'
-                    imagePair[0].src = next1Src
+                    SetImageObject(imagePair[0], next1Src, next1[2])
                     imagePair[1].src = ''
                     if (!next2Src) {
                         if (next2) {
@@ -1247,7 +1275,7 @@ const Reader = function (param) {
                             UpdateCurrentPage([next1[1]])
                             history.push([next1])
                         } else {
-                            imagePair[1].src = next2Src
+                            SetImageObject(imagePair[1], next2Src, next2[2])
                             UpdateCurrentPage([next1[1], next2[1]])
                             history.push([next1, next2])
                         }
@@ -1273,15 +1301,13 @@ const Reader = function (param) {
             leftWrapper.style.display = 'none'
             rightWrapper.style.display = 'none'
             crossWrapper.style.display = 'none'
-            leftImage.src = ''
-            rightImage.src = ''
-            crossImage.src = ''
+            ResetImageObject()
             ClearAppendedItems()
             if (prev.length > 1) {
                 wrapperPair[0].style.display = 'block'
                 wrapperPair[1].style.display = 'block'
-                imagePair[0].src = prev[0][0]
-                imagePair[1].src = prev[1][0]
+                SetImageObject(imagePair[0], prev[0][0], prev[0][2])
+                SetImageObject(imagePair[1], prev[1][0], prev[1][2])
                 UpdateCurrentPage([prev[0][1], prev[1][1]])
                 locked = false
                 return
@@ -1295,10 +1321,11 @@ const Reader = function (param) {
                 if (Util.isImageCrossPage(w, h, PARAMETER.bookIndex)) {
                     crossWrapper.style.display = 'block'
                     crossImage.src = prevSrc
+                    SetImageObject(crossImage, prevSrc, prev[0][2])
                 } else {
                     wrapperPair[1].style.display = 'block'
                     wrapperPair[0].style.display = 'block'
-                    imagePair[0].src = prevSrc
+                    SetImageObject(imagePair[0], prevSrc, prev[0][2])
                     imagePair[1].src = ''
                 }
                 locked = false
