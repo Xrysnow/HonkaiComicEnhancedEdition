@@ -590,10 +590,11 @@ body>input {
     overflow: overlay;
 }
 
-@media screen and (min-width: 800px) {
-    .instructions-page {
-        margin-left: calc(max(10% + 30px, 130px));
-    }
+.instructions-page {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #chart-relation-wrapper {
@@ -690,6 +691,113 @@ body>input {
 
 .ins-img-viewer {
     background-color: rgba(0, 0, 0, .8);
+}
+
+/* instructions navigation */
+
+.instructions-wrapper input {
+    display: none;
+}
+
+#page-select-2:checked+*+div #ins-select-1:checked+*+div #ins-relation-wrapper,
+#page-select-2:checked+*+div #ins-select-2:checked+div #ins-comic-wrapper {
+    height: calc(100% - 80px);
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 250ms ease-out, opacity 250ms linear, height 250ms linear;
+}
+
+#ins-select-1:checked+*+div label[for="ins-select-1"] .ins-nav-item,
+#ins-select-2:checked+div label[for="ins-select-2"] .ins-nav-item {
+    background-color: #fede17;
+    cursor: unset;
+}
+
+#ins-select-1:checked+*+div label[for="ins-select-1"] .ins-nav-item div,
+#ins-select-2:checked+div label[for="ins-select-2"] .ins-nav-item div {
+    color: #000;
+}
+
+.ins-nav-wrap {
+    display: flex;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 50px;
+}
+
+.ins-nav-list {
+    display: flex;
+    width: 300px;
+    max-width: 100%;
+    justify-content: space-around;
+}
+
+.ins-nav-list label {
+    width: 50%;
+}
+
+.ins-nav-item {
+    color: #D2D2D2;
+    font-size: 150%;
+    font-weight: bold;
+    width: 90%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #fede17;
+}
+
+.ins-nav-line {
+    width: auto;
+    height: fit-content;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-top-color: transparent;
+    border-top-width: 2px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 2px;
+}
+
+.ins-nav-line>div {
+    width: 100%;
+}
+
+.ins-content-wrapper {
+    position: absolute;
+    top: 0;
+    display: block;
+    visibility: hidden;
+    transform: translateY(60px);
+    opacity: 0.1;
+    width: 100%;
+    height: calc(100% - 150px);
+    margin-top: 80px;
+    overflow: auto;
+    overflow: overlay;
+}
+
+#ins-relation-content,
+#ins-comic-content {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+@media screen and (min-width: 800px) {
+    .instructions-page {
+        width: 80%;
+        margin-left: calc(max(10% + 30px, 130px));
+    }
+
+    .ins-content-wrapper{
+        width: 80%;
+        left: calc(max(10% + 30px, 130px));
+    }
 }
 
 /* settings in window */

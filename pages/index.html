@@ -64,51 +64,50 @@
             </div>
         </div>
         <div class="comic-list-wrapper">
-            <div class="comic-list">
-            </div>
+            <div class="comic-list"></div>
             <div class="nav-landscape-padding"></div>
         </div>
         <div class="instructions-wrapper">
+            <input type="radio" name="ins-select" id="ins-select-1" value="1" checked>
+            <input type="radio" name="ins-select" id="ins-select-2" value="2">
             <div class="instructions-page">
-                <div class="ins-folded-item">
-                    <input type="checkbox" id="check-ins-content-2" class="folded-check">
-                    <label for="check-ins-content-2">
-                        <div class="ins-folded-title">
-                            <div>
-                                <div class="ins-folded-check">▶</div>
-                                剧情关系
+                <div class="ins-nav-wrap">
+                    <div class="ins-nav-list">
+                        <label for="ins-select-1">
+                            <div class="ins-nav-item">
+                                <div>
+                                    <div>剧情关系</div>
+                                </div>
                             </div>
-                            <div class="role-line"></div>
-                        </div>
-                    </label>
-                    <div class="ins-content-wrapper">
-                        <div id="ins-relation-content">
-                        </div>
-                        <div id="ins-img-wrapper-1">
-                            <img src="../res/img/relations.png">
+                        </label>
+                        <label for="ins-select-2">
+                            <div class="ins-nav-item">
+                                <div>
+                                    <div>相关信息</div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="ins-nav-line ins-nav-item">
+                        <div>
+                            <div>　</div>
                         </div>
                     </div>
                 </div>
-                <div id="chart-relation-wrapper">
-                    <div id="chart-relation"></div>
-                </div>
-                <div class="ins-folded-item">
-                    <input type="checkbox" id="check-ins-content-3" class="folded-check">
-                    <label for="check-ins-content-3">
-                        <div class="ins-folded-title">
-                            <div>
-                                <div class="ins-folded-check">▶</div>
-                                漫画相关信息
-                            </div>
-                            <div class="role-line"></div>
-                        </div>
-                    </label>
-                    <div class="ins-content-wrapper">
-                        <div id="ins-comic-content">
-                        </div>
+                <div class="ins-content-wrapper" id="ins-relation-wrapper">
+                    <div id="ins-relation-content"></div>
+                    <div id="ins-img-wrapper-1">
+                        <img src="../res/img/relations.png">
                     </div>
+                    <div id="chart-relation-wrapper">
+                        <div id="chart-relation"></div>
+                    </div>
+                    <div class="nav-landscape-padding"></div>
                 </div>
-                <div class="nav-landscape-padding"></div>
+                <div class="ins-content-wrapper" id="ins-comic-wrapper">
+                    <div id="ins-comic-content"></div>
+                    <div class="nav-landscape-padding"></div>
+                </div>
             </div>
         </div>
         <div class="config-page-wrapper">
