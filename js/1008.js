@@ -10,6 +10,7 @@
             + '</br>- <a href="https://www.bilibili.com/video/BV1vW411H7zJ">版本PV</a>'
             + '</br>- <a href="https://mp.weixin.qq.com/s/AStYKap_07NCY6QxJFSzew">漫画预告</a>'
             + '　<a href="https://www.bilibili.com/video/BV17W411B7xq">漫画纪念PV</a>'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/ziKg2P8VUOsAADLXO3YZlA">对应的崩坏教室</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

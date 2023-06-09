@@ -7,6 +7,10 @@
     p.editorNote = {
         zh: '- 本篇更新较为分散，其中「轩辕剑秘话」为2017年1月更新，「空白之键」为2018年11月更新。'
             + '</br>- 「地藏御魂」为《紫鸢篇》的前置漫画。'
+            + '</br>- 对应的崩坏教室：'
+            + '<a href="https://mp.weixin.qq.com/s/HBq67e7Rswl0flf5iZF4LA">【1】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/B8ab-to3VpAxgo3Mxrvssg">【2】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/JBpHBhBbY489-ezKXyjZnw">【3】</a>'
             + '</br>- <a href="https://mp.weixin.qq.com/s/TypbTMy_CetgyHs_gsFxiQ">「天火圣裁」幕后采访</a>'
             + '　<a href="https://mp.weixin.qq.com/s/EjDgAZdo-axomjX6g_vKWA">「原初之翼」幕后采访</a>'
     }

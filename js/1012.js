@@ -6,8 +6,14 @@
     p.bookMode = 'rl'
     p.editorNote = {
         zh: '- <a href="https://detail.tmall.com/item.htm?id=618270891041">官方实体版漫画</a>'
-            + '</br>- 目录样式参考了实体版。'
+            + '- 对应的崩坏教室：'
+            + '<a href="https://mp.weixin.qq.com/s/oLbvxNNRTXxXmPLqHkWi9Q">【1】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/niiuVwLtA3cxpeeYmL6N-g">【2】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/5oYo_SzlPHotRYdCp0lMCA">【3】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/ENDKTDbH1hA17as0mExuJA">【4】</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/k3RIHTMfsaTgMUDxX0JasA">【5】</a>'
             + '</br>- <a href="https://mp.weixin.qq.com/s/Xi6l2aogDH6vl1xk_zMhJg">官方总结</a>'
+            + '</br>- 目录样式参考了实体版漫画。'
     }
     //楔子 https://mp.weixin.qq.com/s/EZjMAmxw3lEco25k7yMuww
     //第一话 https://mp.weixin.qq.com/s/4HUY5ihIXZ5ZgAkNnX5-RQ
