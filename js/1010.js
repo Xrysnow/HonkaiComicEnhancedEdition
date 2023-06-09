@@ -7,6 +7,8 @@
     p.editorNote = {
         zh: '- 本篇更新较为分散，其中「轩辕剑秘话」为2017年1月更新，「空白之键」为2018年11月更新。'
             + '</br>- 「地藏御魂」为《紫鸢篇》的前置漫画。'
+            + '</br>- <a href="https://mp.weixin.qq.com/s/TypbTMy_CetgyHs_gsFxiQ">「天火圣裁」幕后采访</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/EjDgAZdo-axomjX6g_vKWA">「原初之翼」幕后采访</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

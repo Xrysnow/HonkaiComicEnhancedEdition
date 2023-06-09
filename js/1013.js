@@ -6,6 +6,19 @@
     p.editorNote = {
         zh: '- <a href="https://www.bilibili.com/bangumi/play/ep275898">动画 第一季</a>'
             + '</br>- <a href="https://www.bilibili.com/bangumi/play/ss33688">动画 第二季</a>'
+            + '</br>- 对应的美食特辑：<a href="https://mp.weixin.qq.com/s/42P8pkbyMPbnM5_x2GvQYQ">【3】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/zb-TySbAvgknbnSZPuamYQ">【4】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/frkOAwyfehKvcASm5C8Q2A">【5】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/YZsS0MhzSR--qFXM49na7w">【6】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/Bed4baNkIYs0Uxp_RfQmwg">【7】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/vehO4G6UplXQ-6GtKGO34Q">【新春番外篇】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/Qiraqvbl96kkfTzLhG8rLw">【8】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/a7v7kllxhTq0GMEcipg8Lg">【9】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/IrpZU0pwfYtdu_eNqTBkDQ">【10】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/C3EO6AuRG00GWvVVI0y3XA">【11】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/KBT-7m_w0Bqh72OjA7WTtQ">【12】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/6IbS2cBrjIn_Vuu4-rC5nA">【13】</a>'
+            +'　<a href="https://mp.weixin.qq.com/s/MSdySmgvtarV9a9tB2Ax9Q">【14】</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
