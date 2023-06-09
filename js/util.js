@@ -781,6 +781,10 @@ let AppInfo = {
         let major = Math.floor(v / 100).toString()
         let minor = Math.round(v - major * 100).toString()
         let str = 'v' + major + '.' + '0'.repeat(2 - minor.length) + minor
+        if (window.location.protocol.substring(0, 4) != 'file') {
+            // on web
+            str += 'W'
+        }
         if (!this.ImageLocal) {
             // light version
             str += 'L'
