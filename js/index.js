@@ -226,6 +226,7 @@ let InsComicText = `
 ## 其他知识
 - 截至2017年上半年，《崩坏3rd》漫画累计点击量超过1.8亿次。(来源：米哈游招股书)
 `
+let ConfigClearText='- 本网站采用LocalStorage方式存储数据。'
 let IndexScript = function () {
     function SetupStyle0(comicList) {
         for (let i = 0; i < ComicData.length; i++) {
@@ -638,6 +639,7 @@ let IndexScript = function () {
     }
     //
     SetMenuConfig()
+    document.getElementById('config-clear-text').innerHTML = marked.parse(ConfigClearText, marked_opt)
 };
 
 try {

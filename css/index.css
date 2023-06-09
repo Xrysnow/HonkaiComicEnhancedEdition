@@ -923,11 +923,15 @@ screen and (max-height: 640px) {
     line-height: 1;
 }
 
-.config-clear-text {
+#config-clear-text {
     color: #fff;
     font-weight: bold;
     width: 100%;
     overflow-wrap: break-word;
+}
+
+#config-clear-text ul {
+    margin: 0;
 }
 
 .config-button {
@@ -940,6 +944,11 @@ screen and (max-height: 640px) {
     width: fit-content;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#config-clear-button {
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .menu-config-header>div {
