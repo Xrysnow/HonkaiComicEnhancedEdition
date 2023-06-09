@@ -25,6 +25,10 @@ label * {
     cursor: pointer;
 }
 
+label[for="check-invalid"] * {
+    cursor: inherit;
+}
+
 #main-bg {
     position: fixed;
     z-index: -1;
@@ -794,7 +798,7 @@ body>input {
         margin-left: calc(max(10% + 30px, 130px));
     }
 
-    .ins-content-wrapper{
+    .ins-content-wrapper {
         width: 80%;
         left: calc(max(10% + 30px, 130px));
     }

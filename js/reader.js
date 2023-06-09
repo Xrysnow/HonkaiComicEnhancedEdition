@@ -669,8 +669,8 @@ const Reader = function (param) {
     }
 
     const SetEditorNote = function () {
+        let title1 = document.getElementById('editor-note-title-1')
         if (EDITOR_NOTE) {
-            let title1 = document.getElementById('editor-note-title-1')
             if (title1) {
                 title1.style.display = 'block'
                 title1.parentElement.style.cursor = 'pointer'
@@ -687,6 +687,9 @@ const Reader = function (param) {
                     e.rel = 'nofollow noreferrer'
                 }
             }
+        } else {
+            let label = title1.parentElement.parentElement
+            label.setAttribute('for', 'check-invalid')
         }
     }
 
