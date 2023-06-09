@@ -220,14 +220,8 @@ let InsComicText = `
 ## 部分作者主页
 - @EGO_TDC24 [Bilibili](https://space.bilibili.com/22946482) [Pixiv](https://www.pixiv.net/users/2482417)
 
-## 崩坏教室
-- [又·剧情答疑专题](https://mp.weixin.qq.com/s/5oYo_SzlPHotRYdCp0lMCA)
-
 ## 其他崩坏3连载漫画
 - [往世乐土事务所](https://space.bilibili.com/256667467/search/dynamic?keyword=%E5%BE%80%E4%B8%96%E4%B9%90%E5%9C%9F%E4%BA%8B%E5%8A%A1%E6%89%80)
-
-## 视觉小说相关
-- [「幽兰黛尔」第18话](https://mp.weixin.qq.com/s/JVpjmNzAJekHoMEOapF2Rw)
 
 ## 其他知识
 - 截至2017年上半年，《崩坏3rd》漫画累计点击量超过1.8亿次。(来源：米哈游招股书)
