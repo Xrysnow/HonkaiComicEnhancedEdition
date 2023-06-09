@@ -181,10 +181,15 @@ let InsRelationText = `
 `
 let InsComicText = `
 ## 崩坏3漫画与《崩坏学园2》和《崩坏3》的关系
-- 2015年6月，“崩坏3rd”系列漫画于作为崩坏学园2的官方漫画发布。([来源](https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA))
+- 2015年2月，“崩坏学园EX”作为崩坏学园2的番外系列漫画发布，《绯樱篇》原定后续为《姬子篇》（[来源](https://www.dmzj.com/info/benghuaixueyuanexfeiyingpian.html)），剧情和设定基本继承至“崩坏3rd”系列漫画。
+- 2015年6月，“崩坏3rd”系列漫画于作为崩坏学园2的官方漫画发布（[来源](https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA)），最初定位是延续《崩坏学园2》的主线剧情（[来源](https://www.dmzj.com/info/benghuai3rd.html)），此时游戏《崩坏3》已在开发阶段（[来源](https://www.bilibili.com/video/BV1554y1u7J8)）。
 - 游戏《崩坏3》在测试阶段名称为《崩坏3rd》（[来源](https://mp.weixin.qq.com/s/6CECkSSf014FWzGh6P-58w)），公测时改为《崩坏3》（[来源](https://mp.weixin.qq.com/s/-AJnDfnWVUJFwVoAE_zGGw)）。
 - 《月影篇》之前的漫画由崩坏学园2发布，从《月影篇》开始由崩坏3发布。(《逆熵入侵篇》第十五话和完结特辑双方均有发布。)
 - 《逆熵入侵篇》之前的漫画纪念PV由崩坏学园2发布，从《逆熵入侵篇》开始由崩坏3发布。（《逆熵入侵篇》和《恩返篇》漫画由崩坏学园2发布，但对应的纪念PV由崩坏3发布。）
+- 到《绀海篇》为止（《崩坏3》公测前）的漫画与《崩坏学园2》有较多的互借设定，但剧情上距离较远，《崩坏3》则更多地继承了其中的设定和剧情。
+- 《崩坏3》对《紫鸢篇》之前的漫画仅有《逃离长空篇》和《绀海篇》较为完整地继承了剧情，其他剧情可以视为平行关系（《逆熵入侵篇》和《月影篇》的剧情略有提及）。从《紫鸢篇》开始的漫画可以视为《崩坏3》剧情的一部分。
+- 《逃离长空篇》和《樱花追忆篇》的脚本作者为《崩坏学园2》的编剧【灵依娘】（此后未标注脚本作者）。
+- 从《绀海篇》开始，漫画末尾的补充内容由《崩坏3》的编剧【烧鸡娘】提供。
 
 ## 实体版漫画
 - 《绯樱篇》（非卖品）
@@ -204,7 +209,8 @@ let InsComicText = `
 - 2018年2月前，《崩坏学园2》官网（benghuai.com）和《崩坏3》官网（bh3.com）均将漫画链接指向【1】（但微信平台发布漫画时并未指向过该链接）。
 - 2018年3月起，benghuai.com改为“崩坏IP专题站”（主要介绍《崩坏学园2》的角色和设定）且不再链接到漫画网站，同时《崩坏3》官网去掉了漫画页面。
 - 2019年4月起，《崩坏3》官网链接到【5】。
-- 2019年9月起，benghuai.com改回《崩坏学园2》官网（“崩坏IP专题站”移动至ip.benghuai.com直至2021年1月下线），此后《崩坏学园2》官网的“漫画站”链接到米游社的“崩坏四格目录索引”。
+- 2019年9月起，benghuai.com改回《崩坏学园2》官网（“崩坏IP专题站”移动至ip.benghuai.com直至2021年1月下线），此后《崩坏学园2》官网将“漫画站”链接到米游社的“崩坏四格目录索引”。
+（信息来源：web.archive.org）
 ### 与微信平台的联系
 - 从《逃离长空篇》第三话到《樱花追忆篇》第七话，微信漫画发布页中的“查看原文”链接到【2】。
 - 2015年10月，网站【3】上线([来源](https://mp.weixin.qq.com/s/eERcLW5g2M1lf0sj9NmfAQ))。从《樱花追忆篇》第八话到《绀海篇》结束，微信发布页均链接到【3】。
@@ -212,19 +218,19 @@ let InsComicText = `
 - 从《双子：入侵》「地下城篇04」（2019年8月）起，微信发布页链接到【5】。（此前网站【5】已存在，内容仅有《爱酱的事实》。）
 
 ## 部分作者主页
-- [@EGO_TDC24](https://space.bilibili.com/22946482)
-
-## 其他知识
-- 截至2017年上半年，漫画《崩坏3rd》累计点击量超过1.8亿次。(来源：招股书)
+- @EGO_TDC24 [Bilibili](https://space.bilibili.com/22946482) [Pixiv](https://www.pixiv.net/users/2482417)
 
 ## 崩坏教室
 - [又·剧情答疑专题](https://mp.weixin.qq.com/s/5oYo_SzlPHotRYdCp0lMCA)
 
-## 《女武神的餐桌》对应的“崩坏美食特辑”
-- [春意盎然的樱花美食](https://mp.weixin.qq.com/s/Qiraqvbl96kkfTzLhG8rLw)
-
-## 其他崩坏3漫画
+## 其他崩坏3连载漫画
 - [往世乐土事务所](https://space.bilibili.com/256667467/search/dynamic?keyword=%E5%BE%80%E4%B8%96%E4%B9%90%E5%9C%9F%E4%BA%8B%E5%8A%A1%E6%89%80)
+
+## 视觉小说相关
+- [「幽兰黛尔」第18话](https://mp.weixin.qq.com/s/JVpjmNzAJekHoMEOapF2Rw)
+
+## 其他知识
+- 截至2017年上半年，《崩坏3rd》漫画累计点击量超过1.8亿次。(来源：米哈游招股书)
 `
 let IndexScript = function () {
     function SetupStyle0(comicList) {
