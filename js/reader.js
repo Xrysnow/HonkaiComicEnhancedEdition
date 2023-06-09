@@ -983,12 +983,22 @@ const Reader = function (param) {
 
             if (hidden && hidden[i + 1]) {
                 obj_li.appendChild(MakeHidden(hidden[i + 1], i + 1))
-                if (i == num_page - 1) {
-                    // insert padding
-                    let padding = document.createElement('div')
-                    padding.classList.add('content-bottom-padding')
-                    obj_li.appendChild(padding)
+            }
+            if (i == num_page - 1) {
+                if (idx < PARAMETER.numChapter - 1) {
+                    let obj_next = document.createElement('div')
+                    obj_next.className = 'content-bottom-next'
+                    obj_next.textContent = '下一话'
+                    obj_next.onclick = function (ev) {
+                        ev.stopPropagation()
+                        GotoChapter(idx + 1)
+                    }
+                    obj_li.appendChild(obj_next)
                 }
+                // insert padding
+                let padding = document.createElement('div')
+                padding.className = 'content-bottom-padding'
+                obj_li.appendChild(padding)
             }
 
             obj_ul.appendChild(obj_li)
@@ -1013,6 +1023,7 @@ const Reader = function (param) {
             return GotoChapter(idx + 1)
         }
         let wrapper = document.getElementById('gallery-wrapper')
+        //
         let GotoTop = function () {
             wrapper.scrollTop = 0
         }
@@ -1171,8 +1182,7 @@ const Reader = function (param) {
         let GotoNext = function () {
             let [next1, next2] = GetNextSrc()
             if (!next1) {
-                // next chapter
-                return GotoNextChapter()
+                return //GotoNextChapter()
             }
             locked = true
             let next1Src = next1[0]
@@ -1254,7 +1264,6 @@ const Reader = function (param) {
         }
         let GotoPrev = function () {
             if (history.length <= 1) {
-                // prev chapter
                 return //GotoPrevChapter()
             }
             locked = true

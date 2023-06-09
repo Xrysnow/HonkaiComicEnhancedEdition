@@ -129,12 +129,8 @@ li {
 
 .editor-note-title {
     display: none;
-
     font-size: 30px;
     color: #fff;
-    /* -webkit-transform: skew(-11deg);
-    -ms-transform: skew(-11deg);
-    transform: skew(-11deg); */
     font-weight: bold;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -547,6 +543,22 @@ li {
 
 #gallery .content-img-wrapper {
     position: relative;
+}
+
+#gallery .content-bottom-next {
+    color: #fff;
+    text-align: center;
+    background-color: #777;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    #gallery .content-bottom-next {
+        font-size: 100%;
+    }
 }
 
 #gallery .content-bottom-padding {
