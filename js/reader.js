@@ -1526,7 +1526,7 @@ const Reader = function (param) {
             Settings.setVoiceEnabled(voice_switch.checked)
             let gallery = document.getElementById('gallery-wrapper')
             let book = document.getElementById('book-wrapper')
-            if (voice_switch.checked) {
+            if (voice_switch.checked && PARAMETER.voiceInfo) {
                 gallery.classList.add('gallery-voice-enabled')
                 book.classList.add('book-voice-enabled')
             } else {
