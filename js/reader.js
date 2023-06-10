@@ -846,7 +846,7 @@ const Reader = function (param) {
             }
         }
         //
-        console.log('ClearGallery')
+        // console.log('ClearGallery')
         ClearGallery()
         //
         let bgmPreload = []
@@ -1215,7 +1215,6 @@ const Reader = function (param) {
             if (isHidden) {
                 obj.parentElement.classList.add('book-img-hidden')
                 obj.parentElement.onclick = function (ev) {
-                    console.log('showHidden=' + showHidden)
                     if (showHidden) {
                         return
                     }
@@ -1226,7 +1225,6 @@ const Reader = function (param) {
                     })
                 }
             }
-            console.log("SetImageObject")
         }
         let ResetImageObject = function () {
             imgArr.forEach(e => {
