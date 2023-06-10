@@ -276,9 +276,15 @@ const Util = {
         return lang
     },
     getImgSrcPrefix: function () {
+        if (AppInfo.ImageLocal) {
+            return '../res/img/'
+        }
         return 'https://comicstatic.bh3.com/new_static_v2/comic/'
     },
     getImgLegacySrcPrefix: function () {
+        if (AppInfo.ImageLocal) {
+            return '../res/img/legacy/'
+        }
         return 'http://static-event.benghuai.com/ip_resources_new/comic/'
     },
     getBgmSrc: function (id) {

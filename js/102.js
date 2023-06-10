@@ -6,9 +6,12 @@
     p.editorNote = {
         zh: '- 本篇为游戏公测前的预热漫画，收录于<a href="http://event.mihoyo.com/ip_product/list.php?type=preheat&bookid=0">【旧版IP站】</a>。',
     }
-    let prefix = Util.getImgSrcPrefix()
-    p.bookCoverSrc = 'http://static-event.benghuai.com/ip_resources_new/preheat/cover/avatar.jpg'
-    p.imgSrcPrefix = 'http://static-event.benghuai.com/ip_resources_new/preheat/page/'
+    let prefix = 'http://static-event.benghuai.com/ip_resources_new/preheat/'
+    if (AppInfo.ImageLocal) {
+        prefix = Util.getImgLegacySrcPrefix() + 'preheat/'
+    }
+    p.bookCoverSrc = prefix + 'cover/avatar.jpg'
+    p.imgSrcPrefix = prefix + 'page/'
     p.chCoverSrcPrefix = ''
     p.bgSrc = [
         p.bookCoverSrc,
@@ -51,6 +54,9 @@
     }
     // from https://web.archive.org/web/20180325082248/http://comic.bh3.com/
     let coverPrefix = 'http://static.event.mihoyo.com/ip_resources_new/preheat/cover/'
+    if (AppInfo.ImageLocal) {
+        coverPrefix = Util.getImgLegacySrcPrefix() + 'preheat/cover/'
+    }
     p.fnGetChapterCoverSrc = function (i) {
         let x = '0'.repeat(4 - i.toString().length) + i.toString()
         return coverPrefix + x + '.jpg'
