@@ -5,7 +5,7 @@
     p.bookTitle = '逆熵入侵篇'
     p.bookMode = 'rl'
     p.editorNote = {
-        zh: '- 本篇为《圣痕之谜篇》的后续。'
+        zh: '- 本篇为《圣痕之谜篇》的后续漫画。'
             + '</br>- 第十一话与第十二话之间原为「轩辕剑秘话」，已被移动到《神之键秘话》。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Wx411S7hm">漫画纪念PV</a>'
             +'</br>- 对应的崩坏教室：'

@@ -5,7 +5,8 @@
     p.bookTitle = '逃离长空篇'
     p.bookMode = 'rl'
     p.editorNote = {
-        zh: '- 本篇为主线漫画（原《崩坏3rd》系列漫画）的第一篇，为游戏1.0版本的前置漫画。'
+        zh: '- 本篇为主线漫画（原“崩坏3rd”系列漫画）的第一篇。'
+            + '</br>- 主线漫画与游戏《崩坏3》的关系详见【指南-剧情关系】和【指南-相关信息】。'
             + '</br>- 设定补充（与漫画同步更新）：<a href="https://mp.weixin.qq.com/s/SAZmeWciMTK0V14LH4_bnQ">【1】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/fdpFTc3s2myyXsLiu73GlQ">【2】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/liFIK1YtL8jTwo6AcwvE7w">【3】</a>'
@@ -17,12 +18,12 @@
             + '　<a href="https://www.bilibili.com/video/av6022195">单行本纪念PV</a>'
             + '　<a href="https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA">漫画预告1</a>'
             + '　<a href="https://mp.weixin.qq.com/s/dv2LyXSDEU22Lfz0ViwCnQ">漫画预告2</a>'
-            + '</br>- 官方曾推出过序章实体版（非卖品）。'
+            + '</br>- 官方曾推出过序章实体版作为非卖品。'
             + '</br>- 官方曾推出过实体版书籍，已绝版。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Ws411t734">游戏公测PV</a>　<a href="https://www.bilibili.com/video/BV14s411r7Rh">开场CG</a>'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1gs411r7QX">布洛妮娅角色PV：萝莉就是正义嘛！</a>'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1zs411t7ma">芽衣角色PV：雷电女王降临！</a>'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1ss411t7tt">琪亚娜角色PV：Kiana出击！</a>'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1gs411r7QX">布洛妮娅角色PV</a>'
+            + '　<a href="https://www.bilibili.com/video/BV1zs411t7ma">芽衣角色PV</a>'
+            + '　<a href="https://www.bilibili.com/video/BV1ss411t7tt">琪亚娜角色PV</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

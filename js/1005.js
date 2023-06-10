@@ -8,7 +8,7 @@
         zh: '- 本篇原名为《崩坏学园EX 绯樱篇》，为崩坏系列的第一篇连载漫画。'
             + '</br>- 本篇第一话于2月14日发布。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1ds41127Kp">漫画纪念PV</a>'
-            + '</br>- <a href="https://mp.weixin.qq.com/s/mrebiT2kay127bBzklN3pQ">漫画预告</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/mrebiT2kay127bBzklN3pQ">漫画预告</a>'
             + '　<a href="https://mp.weixin.qq.com/s/Y9PCqw7TOxnk3Gr1ax6cFA">设定补充</a>'
             + '</br>- <a href="https://mp.weixin.qq.com/s/opMlrjpjqZ9CINpKPd8sGg">官方魔改漫画</a>'
             + '　<a href="https://mp.weixin.qq.com/s/PCoFVe-fkapjTlJSeGduQQ">相关四格1</a>'
@@ -17,16 +17,12 @@
             + '</br>- <a href="https://mp.weixin.qq.com/s/IHGU3RDjM-fT8B5LEeJzjQ">相关周边1</a>（已绝版）'
             + '　<a href="https://mp.weixin.qq.com/s/QmqPsCfG3OoEFHYa-BGpKQ">相关周边2</a>（已绝版）'
             + '</br>- 官方曾推出过实体版书籍作为非卖品。'
-            + '</br>- 部分设定已被《神之键秘话》「地藏御魂」覆盖。'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
     p.imgSrcPrefix = prefix + 'book/' + bookNum + '/'
     p.chCoverSrcPrefix = prefix + 'chapter_cover/' + bookNum + '/'
-    p.bgSrc = [
-        prefix + 'book_cover/1005.jpg',
-        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/e4fb6a57e01089caf16d16705227a915_8663746868829492760.png',
-    ]
+    p.bgSrc = prefix + 'book_cover/1005.jpg'
     p.numChapter = 8
     p.chTitles = [
         '第一话 邂逅', //https://mp.weixin.qq.com/s/hi7DQDOBIK5CoWtDGMuMgw

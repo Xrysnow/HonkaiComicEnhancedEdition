@@ -22,6 +22,8 @@
         'https://uploadstatic.mihoyo.com/contentweb/20191114/2019111410280911829.jpg',
         'https://uploadstatic.mihoyo.com/contentweb/20191114/2019111411163449247.jpg',
         //
+        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/e4fb6a57e01089caf16d16705227a915_8663746868829492760.png',
+        //
         'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/bc4710ab6684beceb65f69f6aaef6ff8_1430276547149355918.jpg',
         'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/7abdce803be8cbb127ed9c8ce35bf4cb_8917905992397628881.jpg',
         'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/10/77124895/48dec3a1c20d64a2f9fc3fa952d96fa5_2323140217591864630.png',
