@@ -1015,7 +1015,7 @@ screen and (max-height: 640px) {
 }
 
 #check-config-about:checked+label+div {
-    height: 290px;
+    height: 310px;
 }
 
 #check-config-clear:checked+label+div {
