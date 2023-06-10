@@ -7,11 +7,11 @@
     p.editorNote = {
         zh: '- 本篇为《绯樱篇》和《樱花追忆篇》的后续漫画。'
             + '</br>- 本篇为游戏1.4版本「樱色轮回」（开放世界玩法）与1.8版本「赤染御魂」的前置漫画。'
+            + '（<a href="https://www.bilibili.com/video/BV1Ex411Q7aD">1.4版本PV</a>　<a href="https://www.bilibili.com/video/BV17x411V7sx">1.8版本PV</a>）'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1bx411i7x5">漫画纪念PV</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/7y7Khm7AlO83PvRQXGScOg">漫画预告</a>'
+            + '　<a href="https://mp.weixin.qq.com/s/ttc7ZLfop63c5r4QWqCY4Q">对应的「崩坏教室」</a>'
             + '</br>- 「间章 A1」原名为“愚人节短篇漫画「A1」”，由崩坏3发布，其他章节由崩坏学园2发布。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1Ex411Q7aD">1.4版本PV</a>　<a href="https://www.bilibili.com/video/BV17x411V7sx">1.8版本PV</a>'
-            + '</br>- <a href="https://mp.weixin.qq.com/s/7y7Khm7AlO83PvRQXGScOg">漫画预告</a>'
-            + '　<a href="https://www.bilibili.com/video/BV1bx411i7x5">漫画纪念PV</a>'
-            + '</br>- <a href="https://mp.weixin.qq.com/s/ttc7ZLfop63c5r4QWqCY4Q">对应的「崩坏教室」</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

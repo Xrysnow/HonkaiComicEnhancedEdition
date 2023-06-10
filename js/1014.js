@@ -5,14 +5,8 @@
     p.bookTitle = '夏日回忆-预告篇'
     p.editorNote = {
         zh: '- 本篇为游戏2.4版本「夏日回忆」活动（已加入活动相册）的前置漫画。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1es411V7ri">活动PV</a>'
+            + '（<a href="https://www.bilibili.com/video/BV1es411V7ri">活动PV</a>）'
             + '</br>- <a href="https://mp.weixin.qq.com/s/GaBbA5iJVbdEp0AUhlwybQ">相关周边</a>'
-            + '</br>- 章节发布的署名分别为'
-            + '<a href="https://mp.weixin.qq.com/s/EVee4U1KNgN18TG8t2URUg">【求职顾问AI】</a>'
-            + ' <a href="https://mp.weixin.qq.com/s/oUGcH4QBOrZPIYboYfSmJQ">【富婆板鸭抱抱爱酱】</a>'
-            + ' <a href="https://mp.weixin.qq.com/s/EGMzEtty-ibf2-Qz9fltSw">【催眠大师爱酱】</a>'
-            + ' <a href="https://mp.weixin.qq.com/s/N3aegrst-1pgGydGb0DhtQ">【嘤嘤叫的爱酱】</a>'
-            + '。</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

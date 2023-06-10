@@ -6,8 +6,8 @@
     p.bookMode = 'rl'
     p.editorNote = {
         zh: '- 本篇为游戏4.6版本活动「神州漂流记」的前置漫画。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV14N411o7Ut">版本PV</a>'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1wy4y127kC">服装PV</a>'
+            + '（<a href="https://www.bilibili.com/video/BV14N411o7Ut">版本PV</a>）'
+            + '</br>- <a href="https://www.bilibili.com/video/BV1wy4y127kC">相关服装PV</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

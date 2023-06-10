@@ -5,8 +5,8 @@
     p.bookTitle = '双子：入侵'
     p.editorNote = {
         zh: '- 本篇为4.1版本活动《双子：入侵 海渊乐园篇》的前置漫画。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1mf4y117Uz?t=94.6">版本PV</a>'
-            + '</br>- 关联内容：3.1版本活动《地下城大冒险》和网页活动《镰刀勇者成名录》。'
+            + '（<a href="https://www.bilibili.com/video/BV1mf4y117Uz?t=94.6">版本PV</a>）'
+            + '</br>- 相关游戏内容：3.1版本活动《地下城大冒险》、网页活动《镰刀勇者成名录》。'
             + '</br>- <a href="https://mihoyo.tmall.com/category.htm?viewType=grid&keyword=%B5%D8%CF%C2%B3%C7">相关周边</a>'
     }
     let prefix = Util.getImgSrcPrefix()
@@ -18,7 +18,6 @@
         'https://uploadstatic.mihoyo.com/contentweb/20191114/2019111412074936496.jpg',
         'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/ae5a37b8c8b6635b6f068c09d471bebb_8248911072777294432.png',
         'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/910ccbeb958e836f19eb9d44078a23de_5484264929558081197.png',
-        'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/0c0e838b3bd6a965530ee4fe2805062f_1670633355381259938.png',
         'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/9f8b331744fc371a57063306e8ad8b3a_1070322913256225547.png',
         'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/9e1d0ba6609affb5f1fc5ac448bde418_6094251868884897931.png',
         'https://uploadstatic.mihoyo.com/bh3-wiki/2021/11/17/50494840/98bba8ea253b0d3fd048a83d8ee3682c_974669528238486833.png',

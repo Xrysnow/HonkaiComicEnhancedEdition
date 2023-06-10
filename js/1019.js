@@ -4,9 +4,10 @@
     p.bookIndex = bookNum
     p.bookTitle = '年岁'
     p.editorNote = {
-        zh: '- 本篇为游戏3.7版本活动「神州仙行记」与主线20章「千年之羽」的前置漫画。'
-            + '</br>- 本篇更新于2020年小年期间。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1mJ411H7VM">版本PV</a>'
+        zh: '- 本篇为游戏3.7版本活动「神州仙行记」与主线20章「千年之羽」（4.3版本）的前置漫画。'
+            + '（<a href="https://www.bilibili.com/video/BV1mJ411H7VM">3.7版本PV</a>'
+            + '　<a href="https://www.bilibili.com/video/BV12V411m77f">4.3版本PV</a>）'
+            + '</br>- 本篇第二话更新于2020年小年期间（1月18日）。'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
@@ -21,8 +22,8 @@
     ]
     p.numChapter = 2
     p.chTitles = [
-        '赤鸢',
-        '烟火',
+        '赤鸢', //https://mp.weixin.qq.com/s/CPmAaJlox_HQuE68LmkGuA
+        '烟火', //https://mp.weixin.qq.com/s/sNK-qSNYbVu5I8XOsQkGPA
     ]
     p.chPages = [
         9, 27

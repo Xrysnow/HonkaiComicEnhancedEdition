@@ -5,7 +5,7 @@
     p.bookTitle = '紫鸢篇'
     p.bookMode = 'rl'
     p.editorNote = {
-        zh: '- 对应的崩坏教室：'
+        zh: '- 对应的「崩坏教室」：'
             + '<a href="https://mp.weixin.qq.com/s/nka1fOFyrrQQtddLpwWdlA">【1】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/1thxGdPlkuVMO758xNEuFQ">【2】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/JVyyef_ZUewEMgKJct25Ow">【3】</a>'

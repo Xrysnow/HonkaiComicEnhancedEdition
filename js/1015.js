@@ -5,8 +5,8 @@
     p.bookTitle = '双子：起源'
     p.editorNote = {
         zh: '- 本篇为游戏3.1版本「逐梦双星」活动（已加入编年史）的前置漫画。'
+            + '（<a href="https://www.bilibili.com/video/BV17b411L7cC">版本PV</a>）'
             + '</br>- 标题意为“莉莉娅”和“萝莎莉娅”。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV17b411L7cC">版本PV</a>'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

@@ -4,8 +4,8 @@
     p.bookIndex = bookNum
     p.bookTitle = '云墨剑心'
     p.editorNote = {
-        zh: '- 本篇为游戏主线20章「千年之羽」的前置漫画。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV12V411m77f">版本PV</a>'
+        zh: '- 本篇为游戏主线20章「千年之羽」（4.3版本）的前置漫画。'
+            + '（<a href="https://www.bilibili.com/video/BV12V411m77f">版本PV</a>）'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

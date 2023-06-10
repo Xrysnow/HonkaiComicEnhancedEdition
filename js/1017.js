@@ -4,8 +4,8 @@
     p.bookIndex = bookNum
     p.bookTitle = '蛇之篇'
     p.editorNote = {
-        zh: '- 本篇为游戏主线13章「长夜暗空」的前置漫画。'
-            + '</br>- <a href="https://www.bilibili.com/video/BV1zE411Z7ZW">版本PV</a>'
+        zh: '- 本篇为游戏主线13章「长夜暗空」（3.5版本）的前置漫画。'
+            + '（<a href="https://www.bilibili.com/video/BV1zE411Z7ZW">版本PV</a>）'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'

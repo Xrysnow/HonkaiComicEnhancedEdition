@@ -6,7 +6,7 @@
     p.editorNote = {
         zh: '- <a href="https://www.bilibili.com/bangumi/play/ep275898">同名动画 第一季</a>'
             + '</br>- <a href="https://www.bilibili.com/bangumi/play/ss33688">同名动画 第二季</a>'
-            + '</br>- 对应的美食特辑：<a href="https://mp.weixin.qq.com/s/42P8pkbyMPbnM5_x2GvQYQ">【3】</a>'
+            + '</br>- 对应的「崩坏美食特辑」：<a href="https://mp.weixin.qq.com/s/42P8pkbyMPbnM5_x2GvQYQ">【3】</a>'
             +'　<a href="https://mp.weixin.qq.com/s/zb-TySbAvgknbnSZPuamYQ">【4】</a>'
             +'　<a href="https://mp.weixin.qq.com/s/frkOAwyfehKvcASm5C8Q2A">【5】</a>'
             +'　<a href="https://mp.weixin.qq.com/s/YZsS0MhzSR--qFXM49na7w">【6】</a>'

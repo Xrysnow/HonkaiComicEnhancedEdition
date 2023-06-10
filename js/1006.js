@@ -8,7 +8,7 @@
         zh: '- 本篇为《圣痕之谜篇》的后续漫画。'
             + '</br>- 第十一话与第十二话之间原为「轩辕剑秘话」，已被移动到《神之键秘话》。'
             + '</br>- <a href="https://www.bilibili.com/video/BV1Wx411S7hm">漫画纪念PV</a>'
-            +'</br>- 对应的崩坏教室：'
+            +'</br>- 对应的「崩坏教室」：'
             + '<a href="https://mp.weixin.qq.com/s/kIZxoxH7iUPNnvJReE4BaA">【1】</a>'
             + '　<a href="https://mp.weixin.qq.com/s/wffgOs_jhGy3mTn6LYwVsw">【2】</a>'
     }
