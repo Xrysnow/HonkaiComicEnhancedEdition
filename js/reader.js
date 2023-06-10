@@ -509,7 +509,14 @@ const Reader = function (param) {
         }
         let obj = document.getElementById('home-bg-wrapper')
         if (obj) {
-            obj.style.backgroundImage = 'url(' + src + ')'
+            /**@type {HTMLImageElement} */
+            let img = obj.children[0]
+            img.src = src
+            // use default on error
+            img.onerror = function (ev) {
+                ev.stopPropagation()
+                img.src = typeof (HOME_BG_SRC) == 'string' ? HOME_BG_SRC : HOME_BG_SRC[0]
+            }
         }
     }
 

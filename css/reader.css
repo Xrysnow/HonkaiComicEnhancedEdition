@@ -20,11 +20,16 @@ li {
     top: 0;
     width: 100%;
     height: 100%;
-    filter: blur(10px);
-    background-size: cover;
-    background-position: center;
+    filter: blur(10px) brightness(0.6);
     background-color: #ccc;
-    background-blend-mode: multiply;
+}
+
+#home-bg-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness();
 }
 
 #home-content-wrapper {
