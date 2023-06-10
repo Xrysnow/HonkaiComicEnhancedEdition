@@ -29,7 +29,7 @@ li {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness();
+    transform: scale(1.05);
 }
 
 #home-content-wrapper {
