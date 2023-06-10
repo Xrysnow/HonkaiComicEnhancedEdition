@@ -95,12 +95,10 @@
 
 .book-voice-enabled .voice-icon-list {
     display: block;
-    position: relative;
     right: unset;
 }
 
 .book-voice-enabled #book-left-wrapper .voice-icon-list {
-    position: relative;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-top-left-radius: 6px;
@@ -113,4 +111,45 @@
 
 .book-voice-enabled #book-container {
     max-width: calc(96% - 6rem);
+}
+
+/* workaround for voice button position */
+
+.book-voice-enabled .book-page-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.book-voice-enabled .book-page {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: unset;
+    width: unset;
+}
+
+.book-voice-enabled #book-left-wrapper {
+    flex-direction: row-reverse;
+}
+
+.book-voice-enabled .book-page img {
+    max-height: 96vh;
+}
+
+.book-voice-enabled .voice-icon-wrapper {
+    position: absolute;
+    top: 0;
+}
+
+.book-voice-enabled #book-right-wrapper .voice-icon-wrapper {
+    left: 100%;
+}
+
+.book-voice-enabled #book-left-wrapper .voice-icon-wrapper {
+    right: 100%;
+}
+
+.book-voice-enabled #book-left-wrapper .voice-icon-list {
+    right: 0;
 }

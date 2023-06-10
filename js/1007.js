@@ -58,6 +58,7 @@
         9: [0],
         10: [0],
     }
+    // from weixin page
     let hiddenSrcPrefix = '../res/img/legacy/1007/'
     p.hiddenPages = {
         2: {

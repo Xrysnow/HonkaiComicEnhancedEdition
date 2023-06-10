@@ -819,7 +819,7 @@ const Reader = function (param) {
     }
 
     const ClearAppendedItems = function () {
-        let arr = document.getElementsByClassName('voice-icon-list')
+        let arr = document.getElementsByClassName('voice-icon-wrapper')
         for (let i = 0; i < arr.length; i++) {
             arr[i].remove()
         }
@@ -1201,7 +1201,11 @@ const Reader = function (param) {
                 const ipage = CurrentBookPage[j]
                 let obj_voice = MakeVoiceButtons(idx, ipage - 1)
                 if (obj_voice) {
-                    pagePair[j].appendChild(obj_voice)
+                    let wrapper = document.createElement('div')
+                    wrapper.className = 'voice-icon-wrapper'
+                    wrapper.append(obj_voice)
+                    wrapper.style.top = obj_voice.style.top
+                    pagePair[j].appendChild(wrapper)
                 }
             }
             SetDebugText('CurrentPage', CurrentBookPage.toString() + '/' + PARAMETER.chPages[CurrentChapter])
@@ -1209,6 +1213,7 @@ const Reader = function (param) {
         imgArr.forEach(e => {
             e.parentElement.classList.remove('book-hidden-active')
         })
+        let wrapperDisplay = 'flex'
         /**@param {HTMLElement} obj */
         let SetImageObject = function (obj, src, isHidden) {
             obj.src = src
@@ -1270,8 +1275,8 @@ const Reader = function (param) {
             ClearAppendedItems()
             if (!next1Src) {
                 // if next1 is blank, next2 will not be blank or cross
-                wrapperPair[0].style.display = 'block'
-                wrapperPair[1].style.display = 'block'
+                wrapperPair[0].style.display = wrapperDisplay
+                wrapperPair[1].style.display = wrapperDisplay
                 SetImageObject(imagePair[1], next2Src, next2[2])
                 if (next2) {
                     UpdateCurrentPage([next1[1], next2[1]])
@@ -1288,14 +1293,14 @@ const Reader = function (param) {
                 Util.getImageSizeAsync(next1Src, res)
             }).then(([w, h]) => {
                 if (Util.isImageCrossPage(w, h, PARAMETER.bookIndex)) {
-                    crossWrapper.style.display = 'block'
+                    crossWrapper.style.display = wrapperDisplay
                     SetImageObject(crossImage, next1Src, next1[2])
                     UpdateCurrentPage([next1[1]])
                     history.push([next1])
                     locked = false
                 } else {
-                    wrapperPair[1].style.display = 'block'
-                    wrapperPair[0].style.display = 'block'
+                    wrapperPair[1].style.display = wrapperDisplay
+                    wrapperPair[0].style.display = wrapperDisplay
                     SetImageObject(imagePair[0], next1Src, next1[2])
                     imagePair[1].src = ''
                     if (!next2Src) {
@@ -1346,8 +1351,8 @@ const Reader = function (param) {
             ResetImageObject()
             ClearAppendedItems()
             if (prev.length > 1) {
-                wrapperPair[0].style.display = 'block'
-                wrapperPair[1].style.display = 'block'
+                wrapperPair[0].style.display = wrapperDisplay
+                wrapperPair[1].style.display = wrapperDisplay
                 SetImageObject(imagePair[0], prev[0][0], prev[0][2])
                 SetImageObject(imagePair[1], prev[1][0], prev[1][2])
                 UpdateCurrentPage([prev[0][1], prev[1][1]])
@@ -1361,12 +1366,12 @@ const Reader = function (param) {
                 Util.getImageSizeAsync(prevSrc, res)
             }).then(([w, h]) => {
                 if (Util.isImageCrossPage(w, h, PARAMETER.bookIndex)) {
-                    crossWrapper.style.display = 'block'
+                    crossWrapper.style.display = wrapperDisplay
                     crossImage.src = prevSrc
                     SetImageObject(crossImage, prevSrc, prev[0][2])
                 } else {
-                    wrapperPair[1].style.display = 'block'
-                    wrapperPair[0].style.display = 'block'
+                    wrapperPair[1].style.display = wrapperDisplay
+                    wrapperPair[0].style.display = wrapperDisplay
                     SetImageObject(imagePair[0], prevSrc, prev[0][2])
                     imagePair[1].src = ''
                 }

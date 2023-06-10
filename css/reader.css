@@ -692,6 +692,10 @@ li {
     float: right;
 }
 
+#book-right-img {
+    float: left;
+}
+
 .book-img-hidden img {
     filter: blur(15px);
     border-style: dashed;
