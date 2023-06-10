@@ -181,6 +181,7 @@ let InsRelationText = `
 `
 let InsComicText = `
 ## 崩坏3漫画与《崩坏学园2》和《崩坏3》的关系
+
 - 2015年2月，“崩坏学园EX”作为崩坏学园2的番外系列漫画发布，《绯樱篇》原定后续为《姬子篇》（[来源](https://www.dmzj.com/info/benghuaixueyuanexfeiyingpian.html)），剧情和设定基本继承至“崩坏3rd”系列漫画。
 - 2015年6月，“崩坏3rd”系列漫画于作为崩坏学园2的官方漫画发布（[来源](https://mp.weixin.qq.com/s/CWW1vFfiS199ojq0411yJA)），最初定位是延续《崩坏学园2》的主线剧情（[来源](https://www.dmzj.com/info/benghuai3rd.html)），此时游戏《崩坏3》已在开发阶段（[来源](https://www.bilibili.com/video/BV1554y1u7J8)）。
 - 游戏《崩坏3》在测试阶段名称为《崩坏3rd》（[来源](https://mp.weixin.qq.com/s/6CECkSSf014FWzGh6P-58w)），公测时改为《崩坏3》（[来源](https://mp.weixin.qq.com/s/-AJnDfnWVUJFwVoAE_zGGw)）。
@@ -192,6 +193,7 @@ let InsComicText = `
 - 从《绀海篇》开始，漫画末尾的补充内容由《崩坏3》的编剧【烧鸡娘】提供。
 
 ## 实体版漫画
+
 - 《绯樱篇》（非卖品）
 - 《崩坏3rd》序章（非卖品）
 - 《崩坏3rd》01-04（包含《逃离长空篇》到《恩返篇》，已绝版）
@@ -199,19 +201,25 @@ let InsComicText = `
 - 《崩坏3 第二次崩坏》1-6（[购买链接](https://detail.tmall.com/item.htm?id=618270891041)）
 
 ## 漫画网站变迁
+
 ### 曾用网站
 - 【1】benghuai.com/comic
 - 【2】event.mihoyo.com/weixin_comic/index.php
 - 【3】event.mihoyo.com/ip_product/index.php
 - 【4】comic.benghuai.com
 - 【5】comic.bh3.com
+
 ### 与游戏官网的联系
+
 - 2018年2月前，《崩坏学园2》官网（benghuai.com）和《崩坏3》官网（bh3.com）均将漫画链接指向【1】（但微信平台发布漫画时并未指向过该链接）。
 - 2018年3月起，benghuai.com改为“崩坏IP专题站”（主要介绍《崩坏学园2》的角色和设定）且不再链接到漫画网站，同时《崩坏3》官网去掉了漫画页面。
 - 2019年4月起，《崩坏3》官网链接到【5】。
 - 2019年9月起，benghuai.com改回《崩坏学园2》官网（“崩坏IP专题站”移动至ip.benghuai.com直至2021年1月下线），此后《崩坏学园2》官网将“漫画站”链接到米游社的“崩坏四格目录索引”。
+
 （信息来源：web.archive.org）
+
 ### 与微信平台的联系
+
 - 从《逃离长空篇》第三话到《樱花追忆篇》第七话，微信漫画发布页中的“查看原文”链接到【2】。
 - 2015年10月，网站【3】上线([来源](https://mp.weixin.qq.com/s/eERcLW5g2M1lf0sj9NmfAQ))。从《樱花追忆篇》第八话到《绀海篇》结束，微信发布页均链接到【3】。
 - 从《逆熵入侵篇》（2016年10月）至《双子：入侵》「地下城篇03」（2019年7月），微信发布页链接到【4】。2017年9月，【4】改名为“崩坏Gallery”([来源](https://mp.weixin.qq.com/s/kNE9zOyikO6UzurJN0oZWA))。
@@ -226,7 +234,17 @@ let InsComicText = `
 ## 相关数据
 - 截至2017年上半年，《崩坏3rd》漫画累计点击量超过1.8亿次。(来源：米哈游招股书)
 `
-let ConfigClearText='- 本网站采用LocalStorage方式存储数据。'
+let AboutText = `
+### 原作：米哈游
+### 制作：Xrysnow
+
+本作品为基于[《崩坏3》IP站](https://comic.bh3.com)制作的增强版，图片、音乐和语音素材均来自于米哈游官方，部分语音素材经过编辑。
+
+- [项目主页](https://github.com/Xrysnow/HonkaiComicEnhancedEdition)
+- 更新日志请参考项目主页。
+- 本项目的前身为[「第二次崩坏」增强版](https://github.com/Xrysnow/TheSecondEruptionEnhancedEdition)，本项目中《第二次崩坏》的相关信息请参考该项目主页。
+`
+let ConfigClearText = '- 本网站采用LocalStorage方式存储数据。'
 let IndexScript = function () {
     function SetupStyle0(comicList) {
         for (let i = 0; i < ComicData.length; i++) {
@@ -629,17 +647,20 @@ let IndexScript = function () {
     }
     //
     let marked_opt = { mangle: false, headerIds: false }
-    document.getElementById('ins-relation-content').innerHTML = marked.parse(InsRelationText, marked_opt)
-    //
-    let obj_comic_content = document.getElementById('ins-comic-content')
-    obj_comic_content.innerHTML = marked.parse(InsComicText, marked_opt)
-    let a_arr = obj_comic_content.getElementsByTagName('a')
-    for (let i = 0; i < a_arr.length; i++) {
-        a_arr[i].target = '_blank'
+    let makeMarked = function (id, content) {
+        let obj = document.getElementById(id)
+        obj.innerHTML = marked.parse(content, marked_opt)
+        let a_arr = obj.getElementsByTagName('a')
+        for (let i = 0; i < a_arr.length; i++) {
+            a_arr[i].target = '_blank'
+        }
     }
+    makeMarked('ins-relation-content', InsRelationText)
+    makeMarked('ins-comic-content', InsComicText)
+    makeMarked('config-about-text', AboutText)
+    makeMarked('config-clear-text', ConfigClearText)
     //
     SetMenuConfig()
-    document.getElementById('config-clear-text').innerHTML = marked.parse(ConfigClearText, marked_opt)
 };
 
 try {

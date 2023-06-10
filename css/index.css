@@ -913,6 +913,11 @@ screen and (max-height: 640px) {
     .menu-config-wrapper input[type="range" i] {
         width: 100px !important;
     }
+
+
+    .menu-config-wrapper.folded>div {
+        height: calc(100% - 10px - 6px) !important;
+    }
 }
 
 /* settings in page */
@@ -1010,15 +1015,11 @@ screen and (max-height: 640px) {
 }
 
 #check-config-about:checked+label+div {
-    height: 300px;
+    height: 290px;
 }
 
 #check-config-clear:checked+label+div {
-    height: 90px;
-}
-
-#check-config-clear:checked+label+div>div {
-    overflow: hidden;
+    height: 95px;
 }
 
 #config-page-container>input[type="checkbox"]:checked+label .fold-marker {
@@ -1026,14 +1027,31 @@ screen and (max-height: 640px) {
     transition: transform 100ms ease-in-out;
 }
 
-.config-about-text {
+/* about */
+
+#config-about-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#config-about-text {
     color: #fff;
-    font-weight: bold;
-    font-size: 28px;
+    font-size: 100%;
     width: 100%;
     overflow-wrap: break-word;
-    line-height: 1;
 }
+
+#config-about-text a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#config-about-text h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* clear */
 
 #config-clear-text {
     color: #fff;
@@ -1047,6 +1065,7 @@ screen and (max-height: 640px) {
 }
 
 .config-button {
+    color: #fff;
     margin-top: 10px;
     padding-left: 50px;
     padding-right: 50px;
