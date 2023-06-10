@@ -175,8 +175,24 @@ const Reader = function (param) {
     let IS_MOBILE = Util.isMobile()
     this.IS_MOBILE = IS_MOBILE
 
-    const ViewerConfig = { zoomRatio: 0.2 }
+    const ViewerConfig = {
+        zoomRatio: 0.2,
+        // remove play button
+        toolbar: {
+            zoomIn: 1,
+            zoomOut: 1,
+            oneToOne: 1,
+            reset: 1,
+            prev: 1,
+            next: 1,
+            rotateLeft: 1,
+            rotateRight: 1,
+            flipHorizontal: 1,
+            flipVertical: 1,
+        },
+    }
     let GlobalViewer = new Viewer(document.getElementById('images'), ViewerConfig)
+    let WallpaperViewer = null
     let CurrentChapter = -1
     let CurrentBookPage = [-1]
     let CurrentBgMusicID = -1
@@ -666,6 +682,20 @@ const Reader = function (param) {
             let obj_i = document.createElement('i')
             obj_index.appendChild(obj_i)
         }
+        //
+        let wallpaperWrapper = document.getElementById('wallpaper-wrapper')
+        if (typeof (HOME_BG_SRC) != 'string') {
+            for (let i = 1; i < HOME_BG_SRC.length; i++) {
+                let img = document.createElement('img')
+                img.src = HOME_BG_SRC[i]
+                img.onerror = function (ev) {
+                    ev.stopPropagation()
+                    img.remove()
+                }
+                wallpaperWrapper.appendChild(img)
+            }
+            WallpaperViewer = new Viewer(wallpaperWrapper, ViewerConfig)
+        }
     }
 
     const SetStyle = function () {
@@ -764,6 +794,10 @@ const Reader = function (param) {
         GlobalKeyHandlers['chapter'] = function (ev) {
             if (ev.key == '`') {
                 window.location.href = 'index.html'
+            } else if (ev.key == 'b') {
+                if (WallpaperViewer) {
+                    WallpaperViewer.show()
+                }
             }
         }
         ToggleHomeIndex(true)
