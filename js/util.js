@@ -277,6 +277,9 @@ const Util = {
         let getArr = Agents.filter(i => navigator.userAgent.includes(i))
         return getArr.length ? true : false
     },
+    isOnWeb: function () {
+        return window.location.protocol.substring(0, 4) == 'http'
+    },
     getLanguage: function () {
         const META = document.getElementsByTagName('meta')
         /**@type {string}*/
@@ -784,8 +787,7 @@ let AppInfo = {
         let major = Math.floor(v / 100).toString()
         let minor = Math.round(v - major * 100).toString()
         let str = 'v' + major + '.' + '0'.repeat(2 - minor.length) + minor
-        if (window.location.protocol.substring(0, 4) != 'file') {
-            // on web
+        if (Util.isOnWeb()) {
             str += 'W'
         }
         if (!this.ImageLocal) {

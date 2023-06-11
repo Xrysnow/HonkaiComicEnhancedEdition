@@ -253,7 +253,7 @@ let IndexScript = function () {
     let bgIdx = Math.floor((loadCount - 1) % numBg) + 1
     let bgSrc = '../res/img/index/' + bgIdx + '.jpg'
     document.getElementById('main-bg').children[0].src = bgSrc
-
+    //
     function SetupStyle0(comicList) {
         for (let i = 0; i < ComicData.length; i++) {
             const data = ComicData[i]
@@ -668,6 +668,22 @@ let IndexScript = function () {
     makeMarked('ins-comic-content', InsComicText)
     makeMarked('config-about-text', AboutText)
     makeMarked('config-clear-text', ConfigClearText)
+    //
+    if (Util.isOnWeb()) {
+        let container = document.createElement('p')
+        container.id = 'busuanzi_container_site_uv'
+        container.textContent = '本网站访问量：'
+        let content = document.createElement('span')
+        content.id = 'busuanzi_value_site_uv'
+        content.textContent = '-'
+        container.appendChild(content)
+        document.getElementById('config-about-text').appendChild(container)
+        //
+        let script = document.createElement('script')
+        script.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
+        script.async = true
+        document.head.appendChild(script)
+    }
     //
     SetMenuConfig()
 };
