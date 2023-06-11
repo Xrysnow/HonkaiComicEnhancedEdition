@@ -11,10 +11,24 @@
 
 :hover::-webkit-scrollbar-thumb {
     background-color: rgba(127, 127, 127, .6);
-    -webkit-box-shadow: inset 1px 1px 0 rgba(127, 127, 127, .1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(127, 127, 127, .9);
-    -webkit-box-shadow: inset 1px 1px 0 rgba(127, 127, 127, .1);
+}
+
+.index-container ::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.index-container ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.index-container :hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.index-container ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, .7);
 }
