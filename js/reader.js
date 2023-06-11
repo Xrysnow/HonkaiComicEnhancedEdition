@@ -384,6 +384,33 @@ const Reader = function (param) {
         old.map((e) => e && e.remove())
     }
 
+    const SetImagePreload = function (sources) {
+        let old = []
+        for (let i = 0; i < document.head.children.length; i++) {
+            const e = document.head.children[i]
+            if (e.tagName == 'LINK' && e.rel == 'prefetch' && e.href.endsWith('.jpg')) {
+                old.push(e)
+            }
+        }
+        for (let i = 0; i < sources.length; i++) {
+            const src = sources[i]
+            if (!src) {
+                continue
+            }
+            let oldIdx = old.findIndex((v, i, a) => v.href === src)
+            if (oldIdx > -1) {
+                old[oldIdx] = null
+                continue
+            }
+            let e = document.createElement('link')
+            e.rel = 'prefetch'
+            e.as = 'image'
+            e.href = src
+            document.head.appendChild(e)
+        }
+        old.map((e) => e && e.remove())
+    }
+
     const ClearBgMusicHandle = function () {
         if (BgMusicHandle) {
             clearInterval(BgMusicHandle)
@@ -1190,6 +1217,15 @@ const Reader = function (param) {
                 sources.push(['', curr])
             }
         }
+        //
+        let imgPreload = []
+        for (let i = 0; i < sources.length; i++) {
+            const src = sources[i]
+            if (src[0]) {
+                imgPreload.push(src[0])
+            }
+        }
+        SetImagePreload(imgPreload)
         // always goto first page
         CurrentBookPage = [-1]
         let history = []
