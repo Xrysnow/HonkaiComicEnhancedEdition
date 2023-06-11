@@ -1233,6 +1233,8 @@ const Reader = function (param) {
         let UpdateCurrentPage = function (pages) {
             CurrentBookPage = pages
             RequestBgMusicChange()
+            // UpdateCurrentPage is async, another clear is needed
+            ClearAppendedItems()
             for (let j = 0; j < CurrentBookPage.length; j++) {
                 const ipage = CurrentBookPage[j]
                 let obj_voice = MakeVoiceButtons(idx, ipage - 1)
