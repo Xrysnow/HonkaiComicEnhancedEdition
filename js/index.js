@@ -246,6 +246,14 @@ let AboutText = `
 `
 let ConfigClearText = '- 本网站采用LocalStorage方式存储数据。'
 let IndexScript = function () {
+    Settings.updateLoadCount()
+    let loadCount = Settings.getLoadCount()
+    //
+    let numBg = 5
+    let bgIdx = Math.floor((loadCount - 1) % numBg) + 1
+    let bgSrc = '../res/img/index/' + bgIdx + '.jpg'
+    document.getElementById('main-bg').children[0].src = bgSrc
+
     function SetupStyle0(comicList) {
         for (let i = 0; i < ComicData.length; i++) {
             const data = ComicData[i]

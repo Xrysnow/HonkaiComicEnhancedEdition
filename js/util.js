@@ -22,6 +22,7 @@ const Settings = {
     KVoiceVolume: '/honkai-comic/voice-volume',
     KFinishedChapters: '/honkai-comic/finished-chapters',
     KBookModes: '/honkai-comic/book-modes',
+    KLoadCount: '/honkai-comic/load-count',
 
     setLocalStorage: function (k, v) {
         if (!window.localStorage) {
@@ -200,6 +201,19 @@ const Settings = {
             return null
         }
         return value[ibook]
+    },
+
+    updateLoadCount: function () {
+        let value = this.getLoadCount()
+        value += 1
+        this.setLocalStorage(this.KLoadCount, value)
+    },
+    getLoadCount: function () {
+        let value = Number(this.getLocalStorage(this.KLoadCount))
+        if (isNaN(value)) {
+            return 0
+        }
+        return value
     },
 }
 Settings.setDefault()
