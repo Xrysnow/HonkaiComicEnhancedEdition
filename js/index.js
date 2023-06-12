@@ -194,9 +194,10 @@ let InsComicText = `
 
 ## 实体版漫画
 
-- 《绯樱篇》（非卖品）
-- 《崩坏3rd》序章（非卖品）
-- 《崩坏3rd》01-04（包含《逃离长空篇》到《恩返篇》，已绝版）
+- 《绯樱篇》（非正式出版，已绝版）
+- 《崩坏3rd》序章（非卖品，已绝版）
+- 《崩坏3rd》vol.1（包含《逃离长空篇》1-6话，已绝版，CIP：2016195293）
+- 《崩壊3rd THE COMIC》volume 01-04（日版，包含《逃离长空篇》序章到《恩返篇》第4话，01-02已下架，[【03】](https://www.melonbooks.co.jp/detail/detail.php?product_id=798416) [【04】](https://www.melonbooks.co.jp/detail/detail.php?product_id=1116378)）
 - 《崩坏3 绀海篇》（[购买链接](https://detail.tmall.com/item.htm?id=589288225758)）
 - 《崩坏3 第二次崩坏》1-6（[购买链接](https://detail.tmall.com/item.htm?id=618270891041)）
 

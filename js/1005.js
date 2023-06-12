@@ -16,7 +16,7 @@
             + '　<a href="https://mp.weixin.qq.com/s/KjIoJwA8xf63uZHX5Cl4Bw">相关贺图</a>'
             + '</br>- <a href="https://mp.weixin.qq.com/s/IHGU3RDjM-fT8B5LEeJzjQ">相关周边1</a>（已绝版）'
             + '　<a href="https://mp.weixin.qq.com/s/QmqPsCfG3OoEFHYa-BGpKQ">相关周边2</a>（已绝版）'
-            + '</br>- 官方曾推出过实体版书籍作为非卖品。'
+            + '</br>- 官方曾推出过<a href="https://mp.weixin.qq.com/s/ZLjfY3hjZEMvnDxw8ibqKw">实体版书籍</a>（非正式出版），已绝版。'
     }
     let prefix = Util.getImgSrcPrefix()
     p.bookCoverSrc = prefix + 'book_cover/' + bookNum + '.jpg'
