@@ -706,7 +706,7 @@ body>input {
 }
 
 .ins-img-viewer {
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(60, 60, 60, 0.95);
 }
 
 /* instructions navigation */
