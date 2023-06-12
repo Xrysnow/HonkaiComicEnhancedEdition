@@ -355,6 +355,10 @@ const Reader = function (param) {
     }
 
     const SetAudioPreload = function (ids) {
+        if (Util.isOnWeb()) {
+            // can cause download dialogue
+            return
+        }
         let old = []
         for (let i = 0; i < document.head.children.length; i++) {
             const e = document.head.children[i]
