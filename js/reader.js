@@ -1515,7 +1515,7 @@ const Reader = function (param) {
             if (!e.href) {
                 for (let j = 0; j < e.cssRules.length; j++) {
                     const rule = e.cssRules[j]
-                    if (rule.selectorText == '.menu-icon' && !IS_MOBILE) {
+                    if (rule.selectorText == '.menu-icon') {
                         rule.style.fill = icon_color
                         break
                     }
