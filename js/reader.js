@@ -645,11 +645,15 @@ const Reader = function (param) {
                 let footbar = document.getElementById('footbar-container')
                 if (footbar) {
                     // show footbar once
-                    footbar.style.transform = 'translateY(-100%)'
-                    let hdl = setTimeout(function () {
-                        footbar.style.transform = ''
-                        clearTimeout(hdl)
-                    }, 1000)
+                    if (IS_MOBILE) {
+                        ToggleMenu(true)
+                    } else {
+                        footbar.style.transform = 'translateY(-100%)'
+                        let hdl = setTimeout(function () {
+                            footbar.style.transform = ''
+                            clearTimeout(hdl)
+                        }, 1000)
+                    }
                 }
             }
             obj_text.className = 'home-index-banner'
@@ -862,7 +866,9 @@ const Reader = function (param) {
         SetDebugText('CurrentChapter', CurrentChapter)
         UpdateChapterProgress(idx)
         //
-        ToggleMenu(true)
+        if (!IS_MOBILE) {
+            ToggleMenu(true)
+        }
         ToggleConfig(false)
         ToggleHome(false)
         let bookMode = GetBookMode()
@@ -1556,6 +1562,9 @@ const Reader = function (param) {
         document.body.onclick = function (ev) {
             ToggleConfig(false)
             ToggleBGMPlayer(false)
+            if (IS_MOBILE && CurrentChapter >= 0) {
+                ToggleMenu(!ShowMenu)
+            }
         }
         document.getElementById('menu-config-close').onclick = function (ev) {
             ev.stopPropagation()
