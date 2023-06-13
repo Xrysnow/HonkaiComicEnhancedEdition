@@ -638,7 +638,8 @@ const Reader = function (param) {
             obj_container.className = 'home-index-container'
             obj_a.className = 'home-index-a'
             obj_a.href = '#'
-            obj_a.onclick = function () {
+            obj_a.onclick = function (ev) {
+                ev.stopPropagation()
                 ToggleHomeIndex(false)
                 GotoChapter(i)
                 let footbar = document.getElementById('footbar-container')
@@ -1008,8 +1009,8 @@ const Reader = function (param) {
             }
             obj_div.innerHTML += '<div class="folded-warning-end">▲' + hintText2 + '▲</div>'
 
-            let obj_hint1 = obj_div.firstChild
-            let obj_hint2 = obj_div.lastChild
+            let obj_hint1 = obj_div.children[0]
+            let obj_hint2 = obj_div.children[obj_div.children.length - 1]
             obj_hint2.style.display = 'none'
             let ToggleHidden = function () {
                 let active = obj_div.children[1].classList.toggle('active')
@@ -1033,8 +1034,11 @@ const Reader = function (param) {
                 ActiveHidden[key] = { active: active, top: hiddenToTop, height: hiddenH }
                 OnScrollChange()
             }
-            obj_hint1.addEventListener("click", ToggleHidden)
-            obj_hint2.addEventListener("click", ToggleHidden)
+            obj_hint1.onclick = function (ev) {
+                ev.stopPropagation()
+                ToggleHidden()
+            }
+            obj_hint2.onclick = obj_hint1.onclick
             return obj_div
         }
         for (let i = 0; i < num_page; i++) {
