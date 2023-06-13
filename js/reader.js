@@ -887,6 +887,16 @@ const Reader = function (param) {
         // console.log('ClearGallery')
         ClearGallery()
         //
+        let gallery = document.getElementById('gallery-wrapper')
+        let book = document.getElementById('book-wrapper')
+        if (Settings.getVoiceEnabled() && PARAMETER.voiceInfo && PARAMETER.voiceInfo[idx + 1]) {
+            gallery.classList.add('gallery-voice-enabled')
+            book.classList.add('book-voice-enabled')
+        } else {
+            gallery.classList.remove('gallery-voice-enabled')
+            book.classList.remove('book-voice-enabled')
+        }
+        //
         let bgmPreload = []
         let addId = function (index) {
             let info = BGM_INFO[index]
@@ -1663,7 +1673,7 @@ const Reader = function (param) {
             Settings.setVoiceEnabled(voice_switch.checked)
             let gallery = document.getElementById('gallery-wrapper')
             let book = document.getElementById('book-wrapper')
-            if (voice_switch.checked && PARAMETER.voiceInfo) {
+            if (voice_switch.checked && PARAMETER.voiceInfo && PARAMETER.voiceInfo[CurrentChapter + 1]) {
                 gallery.classList.add('gallery-voice-enabled')
                 book.classList.add('book-voice-enabled')
             } else {
