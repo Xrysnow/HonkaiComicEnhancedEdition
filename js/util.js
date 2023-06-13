@@ -21,7 +21,7 @@ const Settings = {
     KVoiceEnabled: '/honkai-comic/voice-enabled',
     KVoiceVolume: '/honkai-comic/voice-volume',
     KFinishedChapters: '/honkai-comic/finished-chapters',
-    KBookModes: '/honkai-comic/book-modes',
+    KPreferBookMode: '/honkai-comic/prefer-book-mode',
     KLoadCount: '/honkai-comic/load-count',
 
     setLocalStorage: function (k, v) {
@@ -42,6 +42,9 @@ const Settings = {
         try {
             v = window.localStorage.getItem(k)
         } catch (error) {
+        }
+        if (v === null) {
+            v = undefined
         }
         return v
     },
@@ -177,30 +180,19 @@ const Settings = {
         return Number(value[ibook]['progress'])
     },
 
-    setBookMode: function (ibook, mode) {
-        let value = this.getLocalStorage(this.KBookModes)
-        if (!value) {
-            value = {}
-        } else {
-            value = JSON.parse(value)
+    setPreferBookMode: function (value) {
+        if (typeof (value) === 'string') {
+            value = (value !== 'none' && value !== '')
         }
-        if (!mode) {
-            value[ibook] = 'none'
-        } else {
-            value[ibook] = mode
-        }
-        this.setLocalStorage(this.KBookModes, JSON.stringify(value))
+        this.setLocalStorage(this.KPreferBookMode, Number(value > 0))
     },
-    getBookMode: function (ibook) {
-        let value = this.getLocalStorage(this.KBookModes)
-        if (!value) {
-            return null
+    getPreferBookMode: function () {
+        let value = Number(this.getLocalStorage(this.KPreferBookMode))
+        if (isNaN(value)) {
+            value = 1 - Number(Util.isMobile())
+            this.setPreferBookMode(value)
         }
-        value = JSON.parse(value)
-        if (!value[ibook]) {
-            return null
-        }
-        return value[ibook]
+        return value > 0
     },
 
     updateLoadCount: function () {
@@ -777,7 +769,7 @@ const BgmGlobalInfo = {
 let AppInfo = {
     LocalVersion: 91,
     RemoteVersion: -1,
-    ImageLocal: false,
+    ImageLocal: true,
     AudioLocal: true,
     getVersionString: function () {
         let v = this.LocalVersion

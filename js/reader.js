@@ -909,12 +909,11 @@ const Reader = function (param) {
     }
 
     const GetBookMode = function () {
-        let bookMode = Settings.getBookMode(PARAMETER.bookIndex)
-        if (!bookMode) {
-            bookMode = PARAMETER.bookMode
-            Settings.setBookMode(PARAMETER.bookIndex, bookMode)
+        let preferred = Settings.getPreferBookMode()
+        if (preferred && PARAMETER.bookMode) {
+            return PARAMETER.bookMode
         }
-        return bookMode
+        return 'none'
     }
 
     const MakeVoiceButtons = function (ichapter, ipage) {
@@ -1586,7 +1585,7 @@ const Reader = function (param) {
             }
             SetMenuBookModeText(target)
             width_container.style.display = target == 'none' ? 'block' : 'none'
-            Settings.setBookMode(PARAMETER.bookIndex, target)
+            Settings.setPreferBookMode(target != 'none')
             GotoChapter(CurrentChapter)
         }
         // gallery width

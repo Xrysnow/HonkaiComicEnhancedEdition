@@ -112,6 +112,14 @@ let RelationData = {
     ],
 };
 let SetMenuConfig = function () {
+    // preferred mode
+    const mode_setter = document.getElementById('menu-config-mode')
+    let lastPrefer = Settings.getPreferBookMode()
+    mode_setter.selectedIndex = 1 - lastPrefer
+    mode_setter.onchange = function () {
+        const value = mode_setter.value
+        Settings.setPreferBookMode(1 - value)
+    }
     // gallery width
     const width_setter = document.getElementById('menu-config-width')
     width_setter.onchange = function () {
