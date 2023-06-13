@@ -201,7 +201,6 @@ li {
 
 .home-index-container {
     width: calc(110px + 40px);
-    min-height: 190px;
     margin: 15px 10px 15px 10px;
     border-radius: 5px;
 }
