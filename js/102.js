@@ -6,7 +6,7 @@
     p.editorNote = {
         zh: '- 本篇为游戏公测前的预热漫画，收录于<a href="http://event.mihoyo.com/ip_product/list.php?type=preheat&bookid=0">【旧版IP站】</a>。',
     }
-    let prefix = 'http://static-event.benghuai.com/ip_resources_new/preheat/'
+    let prefix = 'https://static-event.benghuai.com/ip_resources_new/preheat/'
     if (AppInfo.ImageLocal) {
         prefix = Util.getImgLegacySrcPrefix() + 'preheat/'
     }
@@ -53,7 +53,7 @@
         return p.imgSrcPrefix + x1 + '.jpg'
     }
     // from https://web.archive.org/web/20180325082248/http://comic.bh3.com/
-    let coverPrefix = 'http://static.event.mihoyo.com/ip_resources_new/preheat/cover/'
+    let coverPrefix = 'https://static.event.mihoyo.com/ip_resources_new/preheat/cover/'
     if (AppInfo.ImageLocal) {
         coverPrefix = Util.getImgLegacySrcPrefix() + 'preheat/cover/'
     }
