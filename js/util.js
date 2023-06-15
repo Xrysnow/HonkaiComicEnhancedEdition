@@ -22,6 +22,7 @@ const Settings = {
     KVoiceVolume: '/honkai-comic/voice-volume',
     KFinishedChapters: '/honkai-comic/finished-chapters',
     KPreferBookMode: '/honkai-comic/prefer-book-mode',
+    KChapterSwitchDir: '/honkai-comic/chapter-switch-dir',
     KLoadCount: '/honkai-comic/load-count',
 
     setLocalStorage: function (k, v) {
@@ -69,6 +70,10 @@ const Settings = {
         if (this.getLocalStorage(this.KVoiceVolume) == undefined) {
             console.log('set default VoiceVolume')
             this.setVoiceVolume(100)
+        }
+        if (this.getLocalStorage(this.KChapterSwitchDir) == undefined) {
+            console.log('set default ChapterSwitchDir')
+            this.setChapterSwitchDirAuto(true)
         }
     },
 
@@ -193,6 +198,13 @@ const Settings = {
             this.setPreferBookMode(value)
         }
         return value > 0
+    },
+
+    setChapterSwitchDirAuto: function (value) {
+        this.setLocalStorage(this.KChapterSwitchDir, Number(value > 0))
+    },
+    getChapterSwitchDirAuto: function () {
+        return Number(this.getLocalStorage(this.KChapterSwitchDir)) > 0
     },
 
     updateLoadCount: function () {

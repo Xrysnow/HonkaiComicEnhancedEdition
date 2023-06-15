@@ -1464,10 +1464,12 @@ const Reader = function (param) {
                 return
             }
             let bookMode = GetBookMode()
+            let reversePageDir = bookMode == 'rl'
+            let reverseChapterDir = bookMode == 'rl' && Settings.getChapterSwitchDirAuto()
             if (ev.key == 'ArrowLeft') {
-                return bookMode == 'rl' ? GotoNext() : GotoPrev()
+                return reversePageDir ? GotoNext() : GotoPrev()
             } else if (ev.key == 'ArrowRight') {
-                return bookMode == 'rl' ? GotoPrev() : GotoNext()
+                return reversePageDir ? GotoPrev() : GotoNext()
             } else if (ev.key == '`') {
                 if (document.getElementById('menu-config-window').style.display != 'none') {
                     ToggleConfig(false)
@@ -1475,9 +1477,9 @@ const Reader = function (param) {
                     GotoHome()
                 }
             } else if (ev.key == '[') {
-                return bookMode == 'rl' ? GotoNextChapter() : GotoPrevChapter()
+                return reverseChapterDir ? GotoNextChapter() : GotoPrevChapter()
             } else if (ev.key == ']') {
-                return bookMode == 'rl' ? GotoPrevChapter() : GotoNextChapter()
+                return reverseChapterDir ? GotoPrevChapter() : GotoNextChapter()
             }
             // console.log(ev)
         }
@@ -1529,8 +1531,10 @@ const Reader = function (param) {
         let textCh = ['上一话', '下一话']
         let textPage = ['上一页', '下一页']
         if (mode == 'rl') {
-            textCh = ['下一话', '上一话']
             textPage = ['下一页', '上一页']
+            if (Settings.getChapterSwitchDirAuto()) {
+                textCh = ['下一话', '上一话']
+            }
         }
         document.getElementById('menu-prev-text').textContent = textCh[0]
         document.getElementById('menu-next-text').textContent = textCh[1]
@@ -1543,7 +1547,7 @@ const Reader = function (param) {
         let obj_menu_next = document.getElementById('menu-next')
         obj_menu_next.onclick = function () {
             let current = GetBookMode()
-            if (current == 'rl') {
+            if (current == 'rl' && Settings.getChapterSwitchDirAuto()) {
                 return CurrentChapter >= 1 && GotoChapter(CurrentChapter - 1)
             }
             return CurrentChapter >= 0 && GotoChapter(CurrentChapter + 1)
@@ -1551,7 +1555,7 @@ const Reader = function (param) {
         let obj_menu_prev = document.getElementById('menu-prev')
         obj_menu_prev.onclick = function () {
             let current = GetBookMode()
-            if (current == 'rl') {
+            if (current == 'rl' && Settings.getChapterSwitchDirAuto()) {
                 return CurrentChapter >= 0 && GotoChapter(CurrentChapter + 1)
             }
             return CurrentChapter >= 1 && GotoChapter(CurrentChapter - 1)
@@ -1585,7 +1589,10 @@ const Reader = function (param) {
         const mode_container = Util.htmlParent(mode_setter, 3)
         const width_setter = document.getElementById('menu-config-width')
         const width_container = Util.htmlParent(width_setter, 3)
+        const dir_setter = document.getElementById('menu-config-chapter-dir')
+        const dir_container = Util.htmlParent(dir_setter, 3)
         width_container.style.display = 'block'
+        dir_container.style.display = 'block'
         if (PARAMETER.bookMode == 'lr' || PARAMETER.bookMode == 'rl') {
             mode_container.style.display = 'block'
             let current = GetBookMode()
@@ -1594,11 +1601,13 @@ const Reader = function (param) {
                 width_container.style.display = 'none'
             } else {
                 mode_setter.selectedIndex = 1
+                dir_container.style.display = 'none'
             }
             SetMenuBookModeText(current)
         } else {
             // not supported
             mode_container.style.display = 'none'
+            dir_container.style.display = 'none'
         }
         mode_setter.onchange = function () {
             let current = GetBookMode()
@@ -1608,6 +1617,7 @@ const Reader = function (param) {
             }
             SetMenuBookModeText(target)
             width_container.style.display = target == 'none' ? 'block' : 'none'
+            dir_container.style.display = target == 'none' ? 'none' : 'block'
             Settings.setPreferBookMode(target != 'none')
             GotoChapter(CurrentChapter)
         }
@@ -1623,6 +1633,15 @@ const Reader = function (param) {
             width_setter.value = lastWidth
             width_setter.onchange()
         }
+        // chapter switch dir
+        dir_setter.onchange = function () {
+            const value = dir_setter.value
+            Settings.setChapterSwitchDirAuto(1 - value)
+            SetMenuBookModeText(GetBookMode())
+        }
+        let lastDir = Settings.getChapterSwitchDirAuto()
+        dir_setter.value = 1 - lastDir
+        dir_setter.onchange()
         // background color
         const bg_select = document.getElementById('menu-config-bg')
         bg_select.onchange = SetBackgroundColor

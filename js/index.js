@@ -131,6 +131,14 @@ let SetMenuConfig = function () {
         width_setter.value = lastWidth
         width_setter.onchange()
     }
+    // chapter switch dir
+    const dir_setter = document.getElementById('menu-config-chapter-dir')
+    dir_setter.onchange = function () {
+        const value = dir_setter.value
+        Settings.setChapterSwitchDirAuto(1 - value)
+    }
+    let lastDir = Settings.getChapterSwitchDirAuto()
+    dir_setter.value = 1 - lastDir
     // background color
     const bg_select = document.getElementById('menu-config-bg')
     bg_select.onchange = function () {
