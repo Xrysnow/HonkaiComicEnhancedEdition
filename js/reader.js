@@ -1620,6 +1620,7 @@ const Reader = function (param) {
             dir_container.style.display = target == 'none' ? 'none' : 'block'
             Settings.setPreferBookMode(target != 'none')
             GotoChapter(CurrentChapter)
+            ToggleConfig(true)
         }
         // gallery width
         width_setter.onchange = function () {
