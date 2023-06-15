@@ -372,7 +372,7 @@ const Reader = function (param) {
                 continue
             }
             let src = Util.getBgmSrc(id)
-            let oldIdx = old.findIndex((v, i, a) => v.href === src)
+            let oldIdx = old.findIndex((v, i, a) => v && v.href === src)
             if (oldIdx > -1) {
                 old[oldIdx] = null
                 continue
@@ -401,7 +401,7 @@ const Reader = function (param) {
             if (!src) {
                 continue
             }
-            let oldIdx = old.findIndex((v, i, a) => v.href === src)
+            let oldIdx = old.findIndex((v, i, a) => v && v.href === src)
             if (oldIdx > -1) {
                 old[oldIdx] = null
                 continue
