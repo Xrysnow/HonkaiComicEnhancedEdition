@@ -42,7 +42,7 @@ let Preload = function () {
         window.stop ? window.stop() : document.execCommand("Stop")
         let clear = function () {
             document.body.innerHTML = ''
-            document.body.innerText = '您的浏览器不支持本应用，请尝试更换浏览器'
+            document.body.innerText = '您的浏览器不支持本网站，请尝试更换浏览器'
         }
         clear()
         document.body.onload = function (ev) {
