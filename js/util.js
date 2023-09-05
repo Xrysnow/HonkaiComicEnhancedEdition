@@ -300,7 +300,7 @@ const Util = {
         if (AppInfo.ImageLocal) {
             return '../res/img/'
         }
-        return 'https://comicstatic.bh3.com/new_static_v2/comic/'
+        return 'https://act-webstatic.mihoyo.com/new_static_v2/comic/'
     },
     getImgLegacySrcPrefix: function () {
         if (AppInfo.ImageLocal) {
